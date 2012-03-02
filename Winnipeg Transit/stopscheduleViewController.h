@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  stopscheduleViewController.h
 //  Winnipeg Transit
 //
 //  Created by Keith Brenneman on 12-03-02.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface stopscheduleViewController : UIViewController
 
 @end

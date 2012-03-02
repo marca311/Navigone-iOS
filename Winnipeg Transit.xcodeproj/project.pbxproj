@@ -15,17 +15,14 @@
 		4316806615013E4100A41785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806515013E4100A41785 /* AppDelegate.m */; };
 		4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */; };
 		4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */; };
-		4316806F15013E4100A41785 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806E15013E4100A41785 /* FirstViewController.m */; };
-		4316807115013E4100A41785 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807015013E4100A41785 /* first.png */; };
-		4316807315013E4100A41785 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807215013E4100A41785 /* first@2x.png */; };
-		4316807615013E4100A41785 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316807515013E4100A41785 /* SecondViewController.m */; };
-		4316807815013E4100A41785 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807715013E4100A41785 /* second.png */; };
-		4316807A15013E4100A41785 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807915013E4100A41785 /* second@2x.png */; };
 		4316808215013E4200A41785 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316808115013E4200A41785 /* SenTestingKit.framework */; };
 		4316808315013E4200A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
 		4316808415013E4200A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
 		4316808C15013E4200A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316808A15013E4200A41785 /* InfoPlist.strings */; };
 		4316808F15013E4200A41785 /* Winnipeg_TransitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316808E15013E4200A41785 /* Winnipeg_TransitTests.m */; };
+		4316809A15013F6900A41785 /* navigoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809915013F6900A41785 /* navigoViewController.m */; };
+		4316809D15013F8300A41785 /* timetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809C15013F8300A41785 /* timetableViewController.m */; };
+		431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809F15013FA400A41785 /* stopscheduleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,28 +40,26 @@
 		4316805515013E4100A41785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4316805715013E4100A41785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4316805915013E4100A41785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4316805D15013E4100A41785 /* Winnipeg Transit-Info.plist */ = {isa = PBXFileReference; path = "Winnipeg Transit-Info.plist"; sourceTree = "<group>"; };
+		4316805D15013E4100A41785 /* Winnipeg Transit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Winnipeg Transit-Info.plist"; sourceTree = "<group>"; };
 		4316805F15013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4316806115013E4100A41785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */ = {isa = PBXFileReference; path = "Winnipeg Transit-Prefix.pch"; sourceTree = "<group>"; };
-		4316806415013E4100A41785 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Winnipeg Transit-Prefix.pch"; sourceTree = "<group>"; };
+		4316806415013E4100A41785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4316806515013E4100A41785 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4316806815013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		4316806B15013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		4316806D15013E4100A41785 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		4316806E15013E4100A41785 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		4316807015013E4100A41785 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		4316807215013E4100A41785 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		4316807415013E4100A41785 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
-		4316807515013E4100A41785 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		4316807715013E4100A41785 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		4316807915013E4100A41785 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		4316808015013E4200A41785 /* Winnipeg TransitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Winnipeg TransitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4316808115013E4200A41785 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		4316808915013E4200A41785 /* Winnipeg TransitTests-Info.plist */ = {isa = PBXFileReference; path = "Winnipeg TransitTests-Info.plist"; sourceTree = "<group>"; };
+		4316808915013E4200A41785 /* Winnipeg TransitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Winnipeg TransitTests-Info.plist"; sourceTree = "<group>"; };
 		4316808B15013E4200A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4316808D15013E4200A41785 /* Winnipeg_TransitTests.h */ = {isa = PBXFileReference; path = Winnipeg_TransitTests.h; sourceTree = "<group>"; };
+		4316808D15013E4200A41785 /* Winnipeg_TransitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Winnipeg_TransitTests.h; sourceTree = "<group>"; };
 		4316808E15013E4200A41785 /* Winnipeg_TransitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Winnipeg_TransitTests.m; sourceTree = "<group>"; };
+		4316809815013F6900A41785 /* navigoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewController.h; sourceTree = "<group>"; };
+		4316809915013F6900A41785 /* navigoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewController.m; sourceTree = "<group>"; };
+		4316809B15013F8300A41785 /* timetableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timetableViewController.h; sourceTree = "<group>"; };
+		4316809C15013F8300A41785 /* timetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timetableViewController.m; sourceTree = "<group>"; };
+		4316809E15013FA400A41785 /* stopscheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stopscheduleViewController.h; sourceTree = "<group>"; };
+		4316809F15013FA400A41785 /* stopscheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stopscheduleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +123,12 @@
 				4316806515013E4100A41785 /* AppDelegate.m */,
 				4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */,
 				4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */,
-				4316806D15013E4100A41785 /* FirstViewController.h */,
-				4316806E15013E4100A41785 /* FirstViewController.m */,
-				4316807015013E4100A41785 /* first.png */,
-				4316807215013E4100A41785 /* first@2x.png */,
-				4316807415013E4100A41785 /* SecondViewController.h */,
-				4316807515013E4100A41785 /* SecondViewController.m */,
-				4316807715013E4100A41785 /* second.png */,
-				4316807915013E4100A41785 /* second@2x.png */,
+				4316809815013F6900A41785 /* navigoViewController.h */,
+				4316809915013F6900A41785 /* navigoViewController.m */,
+				4316809B15013F8300A41785 /* timetableViewController.h */,
+				4316809C15013F8300A41785 /* timetableViewController.m */,
+				4316809E15013FA400A41785 /* stopscheduleViewController.h */,
+				4316809F15013FA400A41785 /* stopscheduleViewController.m */,
 				4316805C15013E4100A41785 /* Supporting Files */,
 			);
 			path = "Winnipeg Transit";
@@ -244,10 +237,6 @@
 				4316806015013E4100A41785 /* InfoPlist.strings in Resources */,
 				4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */,
 				4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */,
-				4316807115013E4100A41785 /* first.png in Resources */,
-				4316807315013E4100A41785 /* first@2x.png in Resources */,
-				4316807815013E4100A41785 /* second.png in Resources */,
-				4316807A15013E4100A41785 /* second@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +273,9 @@
 			files = (
 				4316806215013E4100A41785 /* main.m in Sources */,
 				4316806615013E4100A41785 /* AppDelegate.m in Sources */,
-				4316806F15013E4100A41785 /* FirstViewController.m in Sources */,
-				4316807615013E4100A41785 /* SecondViewController.m in Sources */,
+				4316809A15013F6900A41785 /* navigoViewController.m in Sources */,
+				4316809D15013F8300A41785 /* timetableViewController.m in Sources */,
+				431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

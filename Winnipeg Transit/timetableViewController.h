@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  timetableViewController.h
 //  Winnipeg Transit
 //
 //  Created by Keith Brenneman on 12-03-02.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface timetableViewController : UIViewController
 
 @end
