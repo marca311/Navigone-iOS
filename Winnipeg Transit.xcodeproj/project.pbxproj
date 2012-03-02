@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4316805615013E4100A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
+		4316805815013E4100A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
+		4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805915013E4100A41785 /* CoreGraphics.framework */; };
+		4316806015013E4100A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316805E15013E4100A41785 /* InfoPlist.strings */; };
+		4316806215013E4100A41785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806115013E4100A41785 /* main.m */; };
+		4316806615013E4100A41785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806515013E4100A41785 /* AppDelegate.m */; };
+		4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */; };
+		4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */; };
+		4316806F15013E4100A41785 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806E15013E4100A41785 /* FirstViewController.m */; };
+		4316807115013E4100A41785 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807015013E4100A41785 /* first.png */; };
+		4316807315013E4100A41785 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807215013E4100A41785 /* first@2x.png */; };
+		4316807615013E4100A41785 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316807515013E4100A41785 /* SecondViewController.m */; };
+		4316807815013E4100A41785 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807715013E4100A41785 /* second.png */; };
+		4316807A15013E4100A41785 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4316807915013E4100A41785 /* second@2x.png */; };
+		4316808215013E4200A41785 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316808115013E4200A41785 /* SenTestingKit.framework */; };
+		4316808315013E4200A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
+		4316808415013E4200A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
+		4316808C15013E4200A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316808A15013E4200A41785 /* InfoPlist.strings */; };
+		4316808F15013E4200A41785 /* Winnipeg_TransitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316808E15013E4200A41785 /* Winnipeg_TransitTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4316808515013E4200A41785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4316804815013E4100A41785 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4316805015013E4100A41785;
+			remoteInfo = "Winnipeg Transit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4316805115013E4100A41785 /* Winnipeg Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Winnipeg Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4316805515013E4100A41785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4316805715013E4100A41785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4316805915013E4100A41785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4316805D15013E4100A41785 /* Winnipeg Transit-Info.plist */ = {isa = PBXFileReference; path = "Winnipeg Transit-Info.plist"; sourceTree = "<group>"; };
+		4316805F15013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4316806115013E4100A41785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */ = {isa = PBXFileReference; path = "Winnipeg Transit-Prefix.pch"; sourceTree = "<group>"; };
+		4316806415013E4100A41785 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		4316806515013E4100A41785 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4316806815013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4316806B15013E4100A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		4316806D15013E4100A41785 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		4316806E15013E4100A41785 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		4316807015013E4100A41785 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		4316807215013E4100A41785 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		4316807415013E4100A41785 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		4316807515013E4100A41785 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4316807715013E4100A41785 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		4316807915013E4100A41785 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		4316808015013E4200A41785 /* Winnipeg TransitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Winnipeg TransitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4316808115013E4200A41785 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4316808915013E4200A41785 /* Winnipeg TransitTests-Info.plist */ = {isa = PBXFileReference; path = "Winnipeg TransitTests-Info.plist"; sourceTree = "<group>"; };
+		4316808B15013E4200A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4316808D15013E4200A41785 /* Winnipeg_TransitTests.h */ = {isa = PBXFileReference; path = Winnipeg_TransitTests.h; sourceTree = "<group>"; };
+		4316808E15013E4200A41785 /* Winnipeg_TransitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Winnipeg_TransitTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4316804E15013E4100A41785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316805615013E4100A41785 /* UIKit.framework in Frameworks */,
+				4316805815013E4100A41785 /* Foundation.framework in Frameworks */,
+				4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4316807C15013E4100A41785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316808215013E4200A41785 /* SenTestingKit.framework in Frameworks */,
+				4316808315013E4200A41785 /* UIKit.framework in Frameworks */,
+				4316808415013E4200A41785 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4316804615013E4100A41785 = {
+			isa = PBXGroup;
+			children = (
+				4316805B15013E4100A41785 /* Winnipeg Transit */,
+				4316808715013E4200A41785 /* Winnipeg TransitTests */,
+				4316805415013E4100A41785 /* Frameworks */,
+				4316805215013E4100A41785 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4316805215013E4100A41785 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4316805115013E4100A41785 /* Winnipeg Transit.app */,
+				4316808015013E4200A41785 /* Winnipeg TransitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4316805415013E4100A41785 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4316805515013E4100A41785 /* UIKit.framework */,
+				4316805715013E4100A41785 /* Foundation.framework */,
+				4316805915013E4100A41785 /* CoreGraphics.framework */,
+				4316808115013E4200A41785 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
+			isa = PBXGroup;
+			children = (
+				4316806415013E4100A41785 /* AppDelegate.h */,
+				4316806515013E4100A41785 /* AppDelegate.m */,
+				4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */,
+				4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */,
+				4316806D15013E4100A41785 /* FirstViewController.h */,
+				4316806E15013E4100A41785 /* FirstViewController.m */,
+				4316807015013E4100A41785 /* first.png */,
+				4316807215013E4100A41785 /* first@2x.png */,
+				4316807415013E4100A41785 /* SecondViewController.h */,
+				4316807515013E4100A41785 /* SecondViewController.m */,
+				4316807715013E4100A41785 /* second.png */,
+				4316807915013E4100A41785 /* second@2x.png */,
+				4316805C15013E4100A41785 /* Supporting Files */,
+			);
+			path = "Winnipeg Transit";
+			sourceTree = "<group>";
+		};
+		4316805C15013E4100A41785 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4316805D15013E4100A41785 /* Winnipeg Transit-Info.plist */,
+				4316805E15013E4100A41785 /* InfoPlist.strings */,
+				4316806115013E4100A41785 /* main.m */,
+				4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4316808715013E4200A41785 /* Winnipeg TransitTests */ = {
+			isa = PBXGroup;
+			children = (
+				4316808D15013E4200A41785 /* Winnipeg_TransitTests.h */,
+				4316808E15013E4200A41785 /* Winnipeg_TransitTests.m */,
+				4316808815013E4200A41785 /* Supporting Files */,
+			);
+			path = "Winnipeg TransitTests";
+			sourceTree = "<group>";
+		};
+		4316808815013E4200A41785 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4316808915013E4200A41785 /* Winnipeg TransitTests-Info.plist */,
+				4316808A15013E4200A41785 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4316805015013E4100A41785 /* Winnipeg Transit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4316809215013E4200A41785 /* Build configuration list for PBXNativeTarget "Winnipeg Transit" */;
+			buildPhases = (
+				4316804D15013E4100A41785 /* Sources */,
+				4316804E15013E4100A41785 /* Frameworks */,
+				4316804F15013E4100A41785 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Winnipeg Transit";
+			productName = "Winnipeg Transit";
+			productReference = 4316805115013E4100A41785 /* Winnipeg Transit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4316807F15013E4100A41785 /* Winnipeg TransitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4316809515013E4200A41785 /* Build configuration list for PBXNativeTarget "Winnipeg TransitTests" */;
+			buildPhases = (
+				4316807B15013E4100A41785 /* Sources */,
+				4316807C15013E4100A41785 /* Frameworks */,
+				4316807D15013E4100A41785 /* Resources */,
+				4316807E15013E4100A41785 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4316808615013E4200A41785 /* PBXTargetDependency */,
+			);
+			name = "Winnipeg TransitTests";
+			productName = "Winnipeg TransitTests";
+			productReference = 4316808015013E4200A41785 /* Winnipeg TransitTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4316804815013E4100A41785 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 4316804B15013E4100A41785 /* Build configuration list for PBXProject "Winnipeg Transit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4316804615013E4100A41785;
+			productRefGroup = 4316805215013E4100A41785 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4316805015013E4100A41785 /* Winnipeg Transit */,
+				4316807F15013E4100A41785 /* Winnipeg TransitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4316804F15013E4100A41785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316806015013E4100A41785 /* InfoPlist.strings in Resources */,
+				4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */,
+				4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */,
+				4316807115013E4100A41785 /* first.png in Resources */,
+				4316807315013E4100A41785 /* first@2x.png in Resources */,
+				4316807815013E4100A41785 /* second.png in Resources */,
+				4316807A15013E4100A41785 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4316807D15013E4100A41785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316808C15013E4200A41785 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4316807E15013E4100A41785 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4316804D15013E4100A41785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316806215013E4100A41785 /* main.m in Sources */,
+				4316806615013E4100A41785 /* AppDelegate.m in Sources */,
+				4316806F15013E4100A41785 /* FirstViewController.m in Sources */,
+				4316807615013E4100A41785 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4316807B15013E4100A41785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4316808F15013E4200A41785 /* Winnipeg_TransitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4316808615013E4200A41785 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4316805015013E4100A41785 /* Winnipeg Transit */;
+			targetProxy = 4316808515013E4200A41785 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4316805E15013E4100A41785 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4316805F15013E4100A41785 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4316806815013E4100A41785 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4316806B15013E4100A41785 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		4316808A15013E4200A41785 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4316808B15013E4200A41785 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4316809015013E4200A41785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4316809115013E4200A41785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4316809315013E4200A41785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
+				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4316809415013E4200A41785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
+				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4316809615013E4200A41785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Winnipeg Transit.app/Winnipeg Transit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
+				INFOPLIST_FILE = "Winnipeg TransitTests/Winnipeg TransitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4316809715013E4200A41785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Winnipeg Transit.app/Winnipeg Transit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
+				INFOPLIST_FILE = "Winnipeg TransitTests/Winnipeg TransitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4316804B15013E4100A41785 /* Build configuration list for PBXProject "Winnipeg Transit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4316809015013E4200A41785 /* Debug */,
+				4316809115013E4200A41785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4316809215013E4200A41785 /* Build configuration list for PBXNativeTarget "Winnipeg Transit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4316809315013E4200A41785 /* Debug */,
+				4316809415013E4200A41785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4316809515013E4200A41785 /* Build configuration list for PBXNativeTarget "Winnipeg TransitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4316809615013E4200A41785 /* Debug */,
+				4316809715013E4200A41785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4316804815013E4100A41785 /* Project object */;
+}
