@@ -23,6 +23,8 @@
 		4316809A15013F6900A41785 /* navigoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809915013F6900A41785 /* navigoViewController.m */; };
 		4316809D15013F8300A41785 /* timetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809C15013F8300A41785 /* timetableViewController.m */; };
 		431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809F15013FA400A41785 /* stopscheduleViewController.m */; };
+		6F519A031502F7C600395F84 /* 10064.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F519A021502F7C600395F84 /* 10064.xml */; };
+		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		4316809C15013F8300A41785 /* timetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timetableViewController.m; sourceTree = "<group>"; };
 		4316809E15013FA400A41785 /* stopscheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stopscheduleViewController.h; sourceTree = "<group>"; };
 		4316809F15013FA400A41785 /* stopscheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stopscheduleViewController.m; sourceTree = "<group>"; };
+		6F519A021502F7C600395F84 /* 10064.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 10064.xml; sourceTree = "<group>"; };
+		6F519A081502F84200395F84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6F519A021502F7C600395F84 /* 10064.xml */,
 				4316806415013E4100A41785 /* AppDelegate.h */,
 				4316806515013E4100A41785 /* AppDelegate.m */,
 				4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */,
@@ -130,6 +136,8 @@
 				4316809E15013FA400A41785 /* stopscheduleViewController.h */,
 				4316809F15013FA400A41785 /* stopscheduleViewController.m */,
 				4316805C15013E4100A41785 /* Supporting Files */,
+				6F519A081502F84200395F84 /* XMLParser.h */,
+				6F519A091502F84200395F84 /* XMLParser.m */,
 			);
 			path = "Winnipeg Transit";
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 				4316806015013E4100A41785 /* InfoPlist.strings in Resources */,
 				4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */,
 				4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */,
+				6F519A031502F7C600395F84 /* 10064.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +285,7 @@
 				4316809A15013F6900A41785 /* navigoViewController.m in Sources */,
 				4316809D15013F8300A41785 /* timetableViewController.m in Sources */,
 				431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */,
+				6F519A0A1502F84200395F84 /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +465,7 @@
 				4316809415013E4200A41785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4316809515013E4200A41785 /* Build configuration list for PBXNativeTarget "Winnipeg TransitTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +474,7 @@
 				4316809715013E4200A41785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
