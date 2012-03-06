@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMLParser : NSObject
+@interface XMLParser : NSObject {
+    BOOL easyAccess;
+    NSString *startTime;
+    NSString *endTime;
+    NSNumber *totalTime;
+    NSNumber *walkingTime;
+    NSNumber *waitingTime;
+    NSNumber *ridingTime;
+    NSString *segmentType;
+    NSString *segmentStartTime;
+    NSString *segmentEndTime;
+    
+}
 
 @end

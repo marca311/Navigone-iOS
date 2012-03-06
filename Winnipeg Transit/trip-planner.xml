@@ -1,0 +1,1606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plans xmlns:xlink="http://www.w3.org/1999/xlink" xlink:base="" query-time="2012-03-05T08:49:25">
+  <plan number="1">
+    <easy-access>true</easy-access>
+    <times>
+      <start>2012-03-06T15:27:00</start>
+      <end>2012-03-06T16:26:00</end>
+      <durations>
+        <total unit="min">59</total>
+        <walking unit="min">7</walking>
+        <waiting unit="min">2</waiting>
+        <riding unit="min">50</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T15:27:00</start>
+          <end>2012-03-06T15:31:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">4</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <address>
+              <key>321</key>
+              <street-number>38</street-number>
+              <street xlink:href="streets/242">
+                <key>242</key>
+                <name>Barbara Crescent</name>
+                <type abbr="Cres">Crescent</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>621434</x>
+                  <y>5523817</y>
+                </utm>
+                <geographic>
+                  <latitude>49.85445</latitude>
+                  <longitude>-97.31064</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85559</lat>
+            <lng>-97.31027</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85444</lat>
+            <lng>-97.31173</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/60600">
+            <key>60600</key>
+            <name>Westbound Betsworth at Buckle</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>621353</x>
+                <y>5523942</y>
+              </utm>
+              <geographic>
+                <latitude>49.85559</latitude>
+                <longitude>-97.31172</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T15:31:00</start>
+          <end>2012-03-06T15:34:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <riding unit="min">3</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-0-W">
+          <key>65-0-W</key>
+          <name>Grant Express to Westdale</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Westdale</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86158</lat>
+            <lng>-97.31172</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85553</lat>
+            <lng>-97.31726</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T15:35:00</start>
+          <end>2012-03-06T16:11:00</end>
+          <durations>
+            <total unit="min">36</total>
+            <riding unit="min">36</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-1-D">
+          <key>65-1-D</key>
+          <name>Grant Express to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89392</lat>
+            <lng>-97.13697</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.31424</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:11:00</start>
+          <end>2012-03-06T16:14:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <walking unit="min">2</walking>
+            <waiting unit="min">1</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10654">
+            <key>10654</key>
+            <name>Northbound Smith at Portage South</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633442</x>
+                <y>5528495</y>
+              </utm>
+              <geographic>
+                <latitude>49.89395</latitude>
+                <longitude>-97.14206</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.89411</lat>
+            <lng>-97.14206</lng>
+          </maximum>
+          <minimum>
+            <lat>49.8935</lat>
+            <lng>-97.14366</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10582">
+            <key>10582</key>
+            <name>Eastbound Portage at Donald (MTS Centre)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633334</x>
+                <y>5528442</y>
+              </utm>
+              <geographic>
+                <latitude>49.8935</latitude>
+                <longitude>-97.14358</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:14:00</start>
+          <end>2012-03-06T16:25:00</end>
+          <durations>
+            <total unit="min">11</total>
+            <riding unit="min">11</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/55-0-D">
+          <key>55-0-D</key>
+          <name>St.Anne's to St. Vital Centre via Dakota</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>St. Vital Ctr</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89552</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87895</lat>
+            <lng>-97.14366</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T16:25:00</start>
+          <end>2012-03-06T16:26:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/50264">
+            <key>50264</key>
+            <name>Southbound St Mary's at Walmer</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>634636</x>
+                <y>5526851</y>
+              </utm>
+              <geographic>
+                <latitude>49.87891</latitude>
+                <longitude>-97.12602</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.87917</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87891</lat>
+            <lng>-97.12641</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <monument>
+              <key>617</key>
+              <name>Buena Vista - Condominiums</name>
+              <categories>
+                <category>Apartments</category>
+                <category>Apartments</category>
+              </categories>
+              <address>
+                <key>63403</key>
+                <street-number>40</street-number>
+                <street xlink:href="streets/3453">
+                  <key>3453</key>
+                  <name>St Mary's Road</name>
+                  <type abbr="Rd">Road</type>
+                </street>
+                <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                  <utm zone="14U">
+                    <x>634607</x>
+                    <y>5526867</y>
+                  </utm>
+                  <geographic>
+                    <latitude>49.87906</latitude>
+                    <longitude>-97.12641</longitude>
+                  </geographic>
+                </centre>
+              </address>
+            </monument>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="2">
+    <easy-access>false</easy-access>
+    <times>
+      <start>2012-03-06T15:45:00</start>
+      <end>2012-03-06T16:39:00</end>
+      <durations>
+        <total unit="min">54</total>
+        <walking unit="min">7</walking>
+        <waiting unit="min">3</waiting>
+        <riding unit="min">43</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T15:45:00</start>
+          <end>2012-03-06T15:49:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">4</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <address>
+              <key>321</key>
+              <street-number>38</street-number>
+              <street xlink:href="streets/242">
+                <key>242</key>
+                <name>Barbara Crescent</name>
+                <type abbr="Cres">Crescent</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>621434</x>
+                  <y>5523817</y>
+                </utm>
+                <geographic>
+                  <latitude>49.85445</latitude>
+                  <longitude>-97.31064</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85559</lat>
+            <lng>-97.31027</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85444</lat>
+            <lng>-97.31173</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/60600">
+            <key>60600</key>
+            <name>Westbound Betsworth at Buckle</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>621353</x>
+                <y>5523942</y>
+              </utm>
+              <geographic>
+                <latitude>49.85559</latitude>
+                <longitude>-97.31172</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T15:49:00</start>
+          <end>2012-03-06T15:52:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <riding unit="min">3</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-0-W">
+          <key>65-0-W</key>
+          <name>Grant Express to Westdale</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Westdale</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86158</lat>
+            <lng>-97.31172</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85553</lat>
+            <lng>-97.31726</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T15:53:00</start>
+          <end>2012-03-06T16:26:00</end>
+          <durations>
+            <total unit="min">33</total>
+            <riding unit="min">33</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-1-D">
+          <key>65-1-D</key>
+          <name>Grant Express to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88838</lat>
+            <lng>-97.13697</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.31424</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:26:00</start>
+          <end>2012-03-06T16:28:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">1</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10651">
+            <key>10651</key>
+            <name>Northbound Smith at Broadway</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633674</x>
+                <y>5527885</y>
+              </utm>
+              <geographic>
+                <latitude>49.88842</latitude>
+                <longitude>-97.13904</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88842</lat>
+            <lng>-97.13891</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88761</lat>
+            <lng>-97.13964</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10588">
+            <key>10588</key>
+            <name>Eastbound Broadway at Donald</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633639</x>
+                <y>5527794</y>
+              </utm>
+              <geographic>
+                <latitude>49.88761</latitude>
+                <longitude>-97.13956</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:28:00</start>
+          <end>2012-03-06T16:30:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <riding unit="min">2</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/29-0-C">
+          <key>29-0-C</key>
+          <name>Sherbrook to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88881</lat>
+            <lng>-97.13629</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88775</lat>
+            <lng>-97.13965</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:30:00</start>
+          <end>2012-03-06T16:33:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">2</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/11010">
+            <key>11010</key>
+            <name>Northbound Fort at Broadway</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633867</x>
+                <y>5527936</y>
+              </utm>
+              <geographic>
+                <latitude>49.88883</latitude>
+                <longitude>-97.13634</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88901</lat>
+            <lng>-97.13488</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88852</lat>
+            <lng>-97.13645</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10641">
+            <key>10641</key>
+            <name>Southbound Main at Broadway (Union Station)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633950</x>
+                <y>5527953</y>
+              </utm>
+              <geographic>
+                <latitude>49.88897</latitude>
+                <longitude>-97.13518</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:33:00</start>
+          <end>2012-03-06T16:38:00</end>
+          <durations>
+            <total unit="min">5</total>
+            <riding unit="min">5</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/14-0-P">
+          <key>14-0-P</key>
+          <name>St. Mary's-Ellice to South St. Vital via Paddington</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To South St. Vital</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88901</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87895</lat>
+            <lng>-97.13497</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T16:38:00</start>
+          <end>2012-03-06T16:39:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/50264">
+            <key>50264</key>
+            <name>Southbound St Mary's at Walmer</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>634636</x>
+                <y>5526851</y>
+              </utm>
+              <geographic>
+                <latitude>49.87891</latitude>
+                <longitude>-97.12602</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.87917</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87891</lat>
+            <lng>-97.12641</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <monument>
+              <key>617</key>
+              <name>Buena Vista - Condominiums</name>
+              <categories>
+                <category>Apartments</category>
+                <category>Apartments</category>
+              </categories>
+              <address>
+                <key>63403</key>
+                <street-number>40</street-number>
+                <street xlink:href="streets/3453">
+                  <key>3453</key>
+                  <name>St Mary's Road</name>
+                  <type abbr="Rd">Road</type>
+                </street>
+                <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                  <utm zone="14U">
+                    <x>634607</x>
+                    <y>5526867</y>
+                  </utm>
+                  <geographic>
+                    <latitude>49.87906</latitude>
+                    <longitude>-97.12641</longitude>
+                  </geographic>
+                </centre>
+              </address>
+            </monument>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="3">
+    <easy-access>false</easy-access>
+    <times>
+      <start>2012-03-06T15:59:00</start>
+      <end>2012-03-06T16:57:00</end>
+      <durations>
+        <total unit="min">58</total>
+        <walking unit="min">8</walking>
+        <waiting unit="min">4</waiting>
+        <riding unit="min">43</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T15:59:00</start>
+          <end>2012-03-06T16:03:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">4</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <address>
+              <key>321</key>
+              <street-number>38</street-number>
+              <street xlink:href="streets/242">
+                <key>242</key>
+                <name>Barbara Crescent</name>
+                <type abbr="Cres">Crescent</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>621434</x>
+                  <y>5523817</y>
+                </utm>
+                <geographic>
+                  <latitude>49.85445</latitude>
+                  <longitude>-97.31064</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85559</lat>
+            <lng>-97.31027</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85444</lat>
+            <lng>-97.31173</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/60600">
+            <key>60600</key>
+            <name>Westbound Betsworth at Buckle</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>621353</x>
+                <y>5523942</y>
+              </utm>
+              <geographic>
+                <latitude>49.85559</latitude>
+                <longitude>-97.31172</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:03:00</start>
+          <end>2012-03-06T16:06:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <riding unit="min">3</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-0-W">
+          <key>65-0-W</key>
+          <name>Grant Express to Westdale</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Westdale</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86158</lat>
+            <lng>-97.31172</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85553</lat>
+            <lng>-97.31726</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:09:00</start>
+          <end>2012-03-06T16:42:00</end>
+          <durations>
+            <total unit="min">33</total>
+            <riding unit="min">33</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-1-D">
+          <key>65-1-D</key>
+          <name>Grant Express to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88838</lat>
+            <lng>-97.13697</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.31424</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:42:00</start>
+          <end>2012-03-06T16:43:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">0</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10651">
+            <key>10651</key>
+            <name>Northbound Smith at Broadway</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633674</x>
+                <y>5527885</y>
+              </utm>
+              <geographic>
+                <latitude>49.88842</latitude>
+                <longitude>-97.13904</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88842</lat>
+            <lng>-97.13891</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88761</lat>
+            <lng>-97.13964</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10588">
+            <key>10588</key>
+            <name>Eastbound Broadway at Donald</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633639</x>
+                <y>5527794</y>
+              </utm>
+              <geographic>
+                <latitude>49.88761</latitude>
+                <longitude>-97.13956</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:43:00</start>
+          <end>2012-03-06T16:45:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <riding unit="min">2</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/29-0-C">
+          <key>29-0-C</key>
+          <name>Sherbrook to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88881</lat>
+            <lng>-97.13629</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88775</lat>
+            <lng>-97.13965</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:45:00</start>
+          <end>2012-03-06T16:49:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">3</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/11010">
+            <key>11010</key>
+            <name>Northbound Fort at Broadway</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633867</x>
+                <y>5527936</y>
+              </utm>
+              <geographic>
+                <latitude>49.88883</latitude>
+                <longitude>-97.13634</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88901</lat>
+            <lng>-97.13488</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88852</lat>
+            <lng>-97.13645</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10641">
+            <key>10641</key>
+            <name>Southbound Main at Broadway (Union Station)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633950</x>
+                <y>5527953</y>
+              </utm>
+              <geographic>
+                <latitude>49.88897</latitude>
+                <longitude>-97.13518</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:49:00</start>
+          <end>2012-03-06T16:54:00</end>
+          <durations>
+            <total unit="min">5</total>
+            <riding unit="min">5</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/53-0-N">
+          <key>53-0-N</key>
+          <name>to Norwood</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Norwood</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88901</lat>
+            <lng>-97.12695</lng>
+          </maximum>
+          <minimum>
+            <lat>49.8789</lat>
+            <lng>-97.13497</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T16:54:00</start>
+          <end>2012-03-06T16:57:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <walking unit="min">2</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/50208">
+            <key>50208</key>
+            <name>Southbound Ferndale at Walmer</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>634554</x>
+                <y>5526849</y>
+              </utm>
+              <geographic>
+                <latitude>49.87891</latitude>
+                <longitude>-97.12716</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.87946</lat>
+            <lng>-97.12617</lng>
+          </maximum>
+          <minimum>
+            <lat>49.8789</lat>
+            <lng>-97.12716</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <monument>
+              <key>617</key>
+              <name>Buena Vista - Condominiums</name>
+              <categories>
+                <category>Apartments</category>
+                <category>Apartments</category>
+              </categories>
+              <address>
+                <key>63403</key>
+                <street-number>40</street-number>
+                <street xlink:href="streets/3453">
+                  <key>3453</key>
+                  <name>St Mary's Road</name>
+                  <type abbr="Rd">Road</type>
+                </street>
+                <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                  <utm zone="14U">
+                    <x>634607</x>
+                    <y>5526867</y>
+                  </utm>
+                  <geographic>
+                    <latitude>49.87906</latitude>
+                    <longitude>-97.12641</longitude>
+                  </geographic>
+                </centre>
+              </address>
+            </monument>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="4">
+    <easy-access>false</easy-access>
+    <times>
+      <start>2012-03-06T15:59:00</start>
+      <end>2012-03-06T17:00:00</end>
+      <durations>
+        <total unit="min">61</total>
+        <walking unit="min">7</walking>
+        <waiting unit="min">1</waiting>
+        <riding unit="min">50</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T15:59:00</start>
+          <end>2012-03-06T16:03:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">4</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <address>
+              <key>321</key>
+              <street-number>38</street-number>
+              <street xlink:href="streets/242">
+                <key>242</key>
+                <name>Barbara Crescent</name>
+                <type abbr="Cres">Crescent</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>621434</x>
+                  <y>5523817</y>
+                </utm>
+                <geographic>
+                  <latitude>49.85445</latitude>
+                  <longitude>-97.31064</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85559</lat>
+            <lng>-97.31027</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85444</lat>
+            <lng>-97.31173</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/60600">
+            <key>60600</key>
+            <name>Westbound Betsworth at Buckle</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>621353</x>
+                <y>5523942</y>
+              </utm>
+              <geographic>
+                <latitude>49.85559</latitude>
+                <longitude>-97.31172</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:03:00</start>
+          <end>2012-03-06T16:06:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <riding unit="min">3</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-0-W">
+          <key>65-0-W</key>
+          <name>Grant Express to Westdale</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Westdale</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86158</lat>
+            <lng>-97.31172</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85553</lat>
+            <lng>-97.31726</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:09:00</start>
+          <end>2012-03-06T16:45:00</end>
+          <durations>
+            <total unit="min">36</total>
+            <riding unit="min">36</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-1-D">
+          <key>65-1-D</key>
+          <name>Grant Express to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89392</lat>
+            <lng>-97.13697</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.31424</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:45:00</start>
+          <end>2012-03-06T16:48:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <walking unit="min">2</walking>
+            <waiting unit="min">1</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10654">
+            <key>10654</key>
+            <name>Northbound Smith at Portage South</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633442</x>
+                <y>5528495</y>
+              </utm>
+              <geographic>
+                <latitude>49.89395</latitude>
+                <longitude>-97.14206</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.89411</lat>
+            <lng>-97.14206</lng>
+          </maximum>
+          <minimum>
+            <lat>49.8935</lat>
+            <lng>-97.14366</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10582">
+            <key>10582</key>
+            <name>Eastbound Portage at Donald (MTS Centre)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633334</x>
+                <y>5528442</y>
+              </utm>
+              <geographic>
+                <latitude>49.8935</latitude>
+                <longitude>-97.14358</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:48:00</start>
+          <end>2012-03-06T16:59:00</end>
+          <durations>
+            <total unit="min">11</total>
+            <riding unit="min">11</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/14-0-P">
+          <key>14-0-P</key>
+          <name>St. Mary's-Ellice to South St. Vital via Paddington</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To South St. Vital</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89552</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87895</lat>
+            <lng>-97.14366</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T16:59:00</start>
+          <end>2012-03-06T17:00:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/50264">
+            <key>50264</key>
+            <name>Southbound St Mary's at Walmer</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>634636</x>
+                <y>5526851</y>
+              </utm>
+              <geographic>
+                <latitude>49.87891</latitude>
+                <longitude>-97.12602</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.87917</lat>
+            <lng>-97.12592</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87891</lat>
+            <lng>-97.12641</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <monument>
+              <key>617</key>
+              <name>Buena Vista - Condominiums</name>
+              <categories>
+                <category>Apartments</category>
+                <category>Apartments</category>
+              </categories>
+              <address>
+                <key>63403</key>
+                <street-number>40</street-number>
+                <street xlink:href="streets/3453">
+                  <key>3453</key>
+                  <name>St Mary's Road</name>
+                  <type abbr="Rd">Road</type>
+                </street>
+                <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                  <utm zone="14U">
+                    <x>634607</x>
+                    <y>5526867</y>
+                  </utm>
+                  <geographic>
+                    <latitude>49.87906</latitude>
+                    <longitude>-97.12641</longitude>
+                  </geographic>
+                </centre>
+              </address>
+            </monument>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="5">
+    <easy-access>false</easy-access>
+    <times>
+      <start>2012-03-06T15:59:00</start>
+      <end>2012-03-06T17:00:00</end>
+      <durations>
+        <total unit="min">62</total>
+        <walking unit="min">18</walking>
+        <waiting unit="min">4</waiting>
+        <riding unit="min">37</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T15:59:00</start>
+          <end>2012-03-06T16:03:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <walking unit="min">4</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <address>
+              <key>321</key>
+              <street-number>38</street-number>
+              <street xlink:href="streets/242">
+                <key>242</key>
+                <name>Barbara Crescent</name>
+                <type abbr="Cres">Crescent</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>621434</x>
+                  <y>5523817</y>
+                </utm>
+                <geographic>
+                  <latitude>49.85445</latitude>
+                  <longitude>-97.31064</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85559</lat>
+            <lng>-97.31027</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85444</lat>
+            <lng>-97.31173</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/60600">
+            <key>60600</key>
+            <name>Westbound Betsworth at Buckle</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>621353</x>
+                <y>5523942</y>
+              </utm>
+              <geographic>
+                <latitude>49.85559</latitude>
+                <longitude>-97.31172</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:03:00</start>
+          <end>2012-03-06T16:06:00</end>
+          <durations>
+            <total unit="min">3</total>
+            <riding unit="min">3</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-0-W">
+          <key>65-0-W</key>
+          <name>Grant Express to Westdale</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To Westdale</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86158</lat>
+            <lng>-97.31172</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85553</lat>
+            <lng>-97.31726</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:09:00</start>
+          <end>2012-03-06T16:39:00</end>
+          <durations>
+            <total unit="min">30</total>
+            <riding unit="min">30</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/65-1-D">
+          <key>65-1-D</key>
+          <name>Grant Express to City Hall</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To City Hall</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88031</lat>
+            <lng>-97.13768</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.31424</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-03-06T16:39:00</start>
+          <end>2012-03-06T16:44:00</end>
+          <durations>
+            <total unit="min">5</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">4</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10154">
+            <key>10154</key>
+            <name>Northbound Donald at Stradbrook</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633803</x>
+                <y>5526985</y>
+              </utm>
+              <geographic>
+                <latitude>49.8803</latitude>
+                <longitude>-97.13756</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88031</lat>
+            <lng>-97.13756</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87989</lat>
+            <lng>-97.13821</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10730">
+            <key>10730</key>
+            <name>Eastbound Stradbrook at Donald West</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633761</x>
+                <y>5526939</y>
+              </utm>
+              <geographic>
+                <latitude>49.87989</latitude>
+                <longitude>-97.13816</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-03-06T16:44:00</start>
+          <end>2012-03-06T16:48:00</end>
+          <durations>
+            <total unit="min">4</total>
+            <riding unit="min">4</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/68-1-D">
+          <key>68-1-D</key>
+          <name>Crescent to University of Winnipeg</name>
+          <description/>
+          <destinations>
+            <destination>
+              <name>To University of Winnipeg</name>
+              <description/>
+            </destination>
+          </destinations>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.8846</lat>
+            <lng>-97.13317</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87997</lat>
+            <lng>-97.13821</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-03-06T16:48:00</start>
+          <end>2012-03-06T17:00:00</end>
+          <durations>
+            <total unit="min">13</total>
+            <walking unit="min">13</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10157">
+            <key>10157</key>
+            <name>Eastbound Mayfair at Queen Elizabeth</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>634110</x>
+                <y>5527463</y>
+              </utm>
+              <geographic>
+                <latitude>49.88453</latitude>
+                <longitude>-97.13312</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88479</lat>
+            <lng>-97.12617</lng>
+          </maximum>
+          <minimum>
+            <lat>49.87906</lat>
+            <lng>-97.13318</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <monument>
+              <key>617</key>
+              <name>Buena Vista - Condominiums</name>
+              <categories>
+                <category>Apartments</category>
+                <category>Apartments</category>
+              </categories>
+              <address>
+                <key>63403</key>
+                <street-number>40</street-number>
+                <street xlink:href="streets/3453">
+                  <key>3453</key>
+                  <name>St Mary's Road</name>
+                  <type abbr="Rd">Road</type>
+                </street>
+                <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                  <utm zone="14U">
+                    <x>634607</x>
+                    <y>5526867</y>
+                  </utm>
+                  <geographic>
+                    <latitude>49.87906</latitude>
+                    <longitude>-97.12641</longitude>
+                  </geographic>
+                </centre>
+              </address>
+            </monument>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+</plans>

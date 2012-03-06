@@ -23,6 +23,10 @@
 		4316809A15013F6900A41785 /* navigoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809915013F6900A41785 /* navigoViewController.m */; };
 		4316809D15013F8300A41785 /* timetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809C15013F8300A41785 /* timetableViewController.m */; };
 		431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809F15013FA400A41785 /* stopscheduleViewController.m */; };
+		6F4155CF15050CF100A5DB67 /* trip-planner.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F4155CE15050CF100A5DB67 /* trip-planner.xml */; };
+		6F41561D150553D400A5DB67 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F415618150553D400A5DB67 /* TBXML+Compression.m */; };
+		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
+		6F41561F150553D400A5DB67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561C150553D400A5DB67 /* TBXML.m */; };
 		6F519A031502F7C600395F84 /* 10064.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F519A021502F7C600395F84 /* 10064.xml */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +66,13 @@
 		4316809C15013F8300A41785 /* timetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timetableViewController.m; sourceTree = "<group>"; };
 		4316809E15013FA400A41785 /* stopscheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stopscheduleViewController.h; sourceTree = "<group>"; };
 		4316809F15013FA400A41785 /* stopscheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stopscheduleViewController.m; sourceTree = "<group>"; };
+		6F4155CE15050CF100A5DB67 /* trip-planner.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "trip-planner.xml"; sourceTree = "<group>"; };
+		6F415617150553D400A5DB67 /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
+		6F415618150553D400A5DB67 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
+		6F415619150553D400A5DB67 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
+		6F41561A150553D400A5DB67 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
+		6F41561B150553D400A5DB67 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		6F41561C150553D400A5DB67 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		6F519A021502F7C600395F84 /* 10064.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 10064.xml; sourceTree = "<group>"; };
 		6F519A081502F84200395F84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
@@ -124,6 +135,7 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6F4155CE15050CF100A5DB67 /* trip-planner.xml */,
 				6F519A021502F7C600395F84 /* 10064.xml */,
 				4316806415013E4100A41785 /* AppDelegate.h */,
 				4316806515013E4100A41785 /* AppDelegate.m */,
@@ -138,6 +150,7 @@
 				4316805C15013E4100A41785 /* Supporting Files */,
 				6F519A081502F84200395F84 /* XMLParser.h */,
 				6F519A091502F84200395F84 /* XMLParser.m */,
+				6F415616150553D400A5DB67 /* TBXML */,
 			);
 			path = "Winnipeg Transit";
 			sourceTree = "<group>";
@@ -171,6 +184,19 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		6F415616150553D400A5DB67 /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				6F415617150553D400A5DB67 /* TBXML+Compression.h */,
+				6F415618150553D400A5DB67 /* TBXML+Compression.m */,
+				6F415619150553D400A5DB67 /* TBXML+HTTP.h */,
+				6F41561A150553D400A5DB67 /* TBXML+HTTP.m */,
+				6F41561B150553D400A5DB67 /* TBXML.h */,
+				6F41561C150553D400A5DB67 /* TBXML.m */,
+			);
+			path = TBXML;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -246,6 +272,7 @@
 				4316806915013E4100A41785 /* MainStoryboard_iPhone.storyboard in Resources */,
 				4316806C15013E4100A41785 /* MainStoryboard_iPad.storyboard in Resources */,
 				6F519A031502F7C600395F84 /* 10064.xml in Resources */,
+				6F4155CF15050CF100A5DB67 /* trip-planner.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +313,9 @@
 				4316809D15013F8300A41785 /* timetableViewController.m in Sources */,
 				431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */,
 				6F519A0A1502F84200395F84 /* XMLParser.m in Sources */,
+				6F41561D150553D400A5DB67 /* TBXML+Compression.m in Sources */,
+				6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */,
+				6F41561F150553D400A5DB67 /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
