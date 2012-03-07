@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBXML.h"
 
 @interface XMLParser : NSObject {
     BOOL easyAccess;
@@ -21,5 +22,13 @@
     NSString *segmentEndTime;
     
 }
+
++(TBXML *)loadXmlDocumentFromFile:(NSString *)fileName;
++(TBXML *)loadXmlDocumentFromData:(NSData *)dataName:(NSString *)fileName;
++(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
++(TBXMLElement *)extractElementFromParent:(NSString *)elementName:(TBXMLElement *)rootElement;
++(NSString *)extractAttributeFromElement:(TBXMLElement *)element;
+
+                                           
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TBXML.h"
+#import "XMLParser.h"
 
 @interface navigoViewController : UIViewController
 
