@@ -12,6 +12,16 @@
 
 @implementation navigoViewController
 
+@synthesize origin;
+@synthesize destination;
+@synthesize timeDate;
+@synthesize mode;
+@synthesize walkSpeed;
+@synthesize maxWalkTime;
+@synthesize minTransferWait;
+@synthesize maxTransferWait;
+@synthesize maxTransfers;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

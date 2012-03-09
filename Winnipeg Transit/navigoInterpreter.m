@@ -7,12 +7,13 @@
 //
 
 #import "navigoInterpreter.h"
+#import "XMLParser.h"
 
 @implementation navigoInterpreter
 
 -(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
 {
     
-}
+}//getXMLFileFromResults
 
 @end

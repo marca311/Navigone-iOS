@@ -12,4 +12,14 @@
 
 @interface navigoViewController : UIViewController
 
+@property (nonatomic, retain) UITextField *origin;
+@property (nonatomic, retain) UITextField *destination;
+@property (nonatomic, retain) UITextField *timeDate;
+@property (nonatomic, retain) UITextField *mode;
+@property (nonatomic, retain) UITextField *walkSpeed;
+@property (nonatomic, retain) UITextField *maxWalkTime;
+@property (nonatomic, retain) UITextField *minTransferWait;
+@property (nonatomic, retain) UITextField *maxTransferWait;
+@property (nonatomic, retain) UITextField *maxTransfers;
+
 @end

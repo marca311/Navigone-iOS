@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMLParser.h"
 
 @interface navigoInterpreter : NSObject
 
