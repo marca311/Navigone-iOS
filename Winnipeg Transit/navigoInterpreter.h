@@ -11,6 +11,10 @@
 
 @interface navigoInterpreter : NSObject
 
+-(NSData *)getKeyForSearchedItem:(NSString *)query;
+
+-(NSData *)
+
 -(NSData *)getXMLFileFromResults:(NSString *)origin:(NSString *)destination:(NSString *)date:(NSString *)time:(NSString *)mode:(BOOL)easyAccess:(int)walkSpeed:(int)maxWalkTime:(int)minTransferWait:(int)maxTransferWait:(int)maxTransfers;
 
 //-(NSString *)getTotalWalkTime

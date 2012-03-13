@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locations xmlns:xlink="http://www.w3.org/1999/xlink" xlink:base="" query-time="2012-03-13T09:52:51">
+  <monument>
+    <key>7729</key>
+    <name>Clifton School</name>
+    <categories>
+      <category>Education: Schools</category>
+    </categories>
+    <address>
+      <key>145767</key>
+      <street-number>1070</street-number>
+      <street xlink:href="streets/795">
+        <key>795</key>
+        <name>Clifton Street</name>
+        <type abbr="St">Street</type>
+      </street>
+      <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+        <utm zone="14U">
+          <x>630292</x>
+          <y>5528866</y>
+        </utm>
+        <geographic>
+          <latitude>49.89798</latitude>
+          <longitude>-97.18577</longitude>
+        </geographic>
+      </centre>
+    </address>
+  </monument>
+  <monument>
+    <key>7919</key>
+    <name>Clifton  Apartment</name>
+    <categories>
+      <category>Apartments</category>
+    </categories>
+    <address>
+      <key>152410</key>
+      <street-number>1134</street-number>
+      <street xlink:href="streets/2657">
+        <key>2657</key>
+        <name>Notre Dame Avenue</name>
+        <type abbr="Ave">Avenue</type>
+      </street>
+      <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+        <utm zone="14U">
+          <x>630871</x>
+          <y>5529874</y>
+        </utm>
+        <geographic>
+          <latitude>49.90692</latitude>
+          <longitude>-97.17737</longitude>
+        </geographic>
+      </centre>
+    </address>
+  </monument>
+  <monument>
+    <key>8191</key>
+    <name>Clifton Community Club</name>
+    <categories>
+      <category>Sports and Recreation: Community Centres</category>
+    </categories>
+    <address>
+      <key>156015</key>
+      <street-number>1315</street-number>
+      <street xlink:href="streets/3508">
+        <key>3508</key>
+        <name>Strathcona Street</name>
+        <type abbr="St">Street</type>
+      </street>
+      <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+        <utm zone="14U">
+          <x>629956</x>
+          <y>5529250</y>
+        </utm>
+        <geographic>
+          <latitude>49.90151</latitude>
+          <longitude>-97.19031</longitude>
+        </geographic>
+      </centre>
+    </address>
+  </monument>
+  <intersection>
+    <key>31170:795@2903</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/2903">
+      <key>2903</key>
+      <name>Portage Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630294</x>
+        <y>5527208</y>
+      </utm>
+      <geographic>
+        <latitude>49.88308</latitude>
+        <longitude>-97.1863</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31191:795@3957</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/3957">
+      <key>3957</key>
+      <name>Wolseley Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630286</x>
+        <y>5526871</y>
+      </utm>
+      <geographic>
+        <latitude>49.88005</latitude>
+        <longitude>-97.18652</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31015:795@3219</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/3219">
+      <key>3219</key>
+      <name>Sargent Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630335</x>
+        <y>5528796</y>
+      </utm>
+      <geographic>
+        <latitude>49.89734</latitude>
+        <longitude>-97.18519</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31048:795@1220</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/1220">
+      <key>1220</key>
+      <name>Ellice Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630325</x>
+        <y>5528397</y>
+      </utm>
+      <geographic>
+        <latitude>49.89376</latitude>
+        <longitude>-97.18547</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31078:795@3454</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/3454">
+      <key>3454</key>
+      <name>St Matthews Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630316</x>
+        <y>5528042</y>
+      </utm>
+      <geographic>
+        <latitude>49.89057</latitude>
+        <longitude>-97.18571</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31105:795@3955</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/3955">
+      <key>3955</key>
+      <name>Wolever Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630306</x>
+        <y>5527660</y>
+      </utm>
+      <geographic>
+        <latitude>49.88714</latitude>
+        <longitude>-97.18598</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+  <intersection>
+    <key>31123:795@253</key>
+    <street xlink:href="streets/795">
+      <key>795</key>
+      <name>Clifton Street</name>
+      <type abbr="St">Street</type>
+    </street>
+    <cross-street xlink:href="streets/253">
+      <key>253</key>
+      <name>Barratt Avenue</name>
+      <type abbr="Ave">Avenue</type>
+    </cross-street>
+    <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+      <utm zone="14U">
+        <x>630301</x>
+        <y>5527471</y>
+      </utm>
+      <geographic>
+        <latitude>49.88544</latitude>
+        <longitude>-97.18611</longitude>
+      </geographic>
+    </centre>
+  </intersection>
+</locations>
