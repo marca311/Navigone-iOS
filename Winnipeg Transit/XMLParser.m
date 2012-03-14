@@ -39,6 +39,28 @@
     return theElement;
 }//extractElementFromParent
 
++(NSString *)getUnknownChildElementName:(TBXMLElement *)element {
+    TBXMLElement *child;
+    NSString *result;
+    child = element->firstAttribute;
+    result = [TBXML elementName:element];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"%@", [TBXML elementName:element]);
+#endif
+    return result;
+}//getUnknownChildElementName
+
++(NSString *)getUnknownChildElementValue:(TBXMLElement *)element {
+    TBXMLElement *child;
+    NSString *result;
+    child = element->firstAttribute;
+    result = [TBXML attributeValue:element];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"%@", [TBXML attributeValue:element]);
+#endif
+    return result;
+}
+
 +(NSString *)extractAttributeFromElement:(TBXMLElement *)element {
     NSString *result;
     result = [TBXML textForElement:element];

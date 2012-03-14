@@ -27,6 +27,8 @@
 +(TBXML *)loadXmlDocumentFromData:(NSData *)dataName:(NSString *)fileName;
 +(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
 +(TBXMLElement *)extractElementFromParent:(NSString *)elementName:(TBXMLElement *)rootElement;
++(NSString *)getUnknownChildElementName:(TBXMLElement *)element;
++(NSString *)getUnknownChildElementValue:(TBXMLElement *)element;
 +(NSString *)extractAttributeFromElement:(TBXMLElement *)element;
 
                                            

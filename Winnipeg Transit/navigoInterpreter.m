@@ -13,6 +13,11 @@
 
 -(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
+    NSURL *checkURL;
+    checkURL = 
+}//getXMLFileForSearchedItem
+
+-(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile {
     
 }
 
