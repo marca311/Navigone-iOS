@@ -11,18 +11,27 @@
 
 @implementation navigoInterpreter
 
--(NSData *)getXMLFileForSearchedItem:(NSString *)query
++(NSString *)getAPIKey {
+    NSString *result = [[NSString alloc]initWithString:@""];
+    return result;
+}
+
++(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
-    query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"
-    NSURL *checkURL;
-    NSData *resultXMLFile = [[NSData alloc]initWithContentsOfURL:<#(NSURL *)#>
+    query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSLog(query);
+    query = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
+    NSLog(query);
+    NSURL *checkURL = [[NSURL alloc]initWithString:query];
+    NSData *resultXMLFile = [[NSData alloc]initWithContentsOfURL:checkURL];
+    return resultXMLFile;
 }//getXMLFileForSearchedItem
 
 -(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile {
     
 }
 
--(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
++(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
 {
     
 }//getXMLFileFromResults

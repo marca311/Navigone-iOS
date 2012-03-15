@@ -24,12 +24,13 @@
 }
 
 +(TBXML *)loadXmlDocumentFromFile:(NSString *)fileName;
-+(TBXML *)loadXmlDocumentFromData:(NSData *)dataName:(NSString *)fileName;
++(TBXML *)loadXmlDocumentFromData:(NSData *)dataName;
 +(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
 +(TBXMLElement *)extractElementFromParent:(NSString *)elementName:(TBXMLElement *)rootElement;
++(TBXMLElement *)getUnknownChildElement:(TBXMLElement *)element;
 +(NSString *)getUnknownChildElementName:(TBXMLElement *)element;
 +(NSString *)getUnknownChildElementValue:(TBXMLElement *)element;
-+(NSString *)extractAttributeFromElement:(TBXMLElement *)element;
++(NSString *)extractAttributeTextFromElement:(TBXMLElement *)element;
 
                                            
 

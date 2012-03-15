@@ -24,9 +24,16 @@
     return tbxmlFile;
 }//loadXmlDocumentFromFile
 
-+(TBXML *)loadXmlDocumentFromData:(NSData *)dataName :(NSString *)fileName{
-    //has yet to be implemented
-    return nil;
++(TBXML *)loadXmlDocumentFromData:(NSData *)dataName {
+    NSError *error;
+    TBXML * tbxml = [TBXML tbxmlWithXMLData:dataName error:&error];
+    
+    if (error) {
+        NSLog(@"%@ %@", [error localizedDescription], [error userInfo]);
+    } else {
+        NSLog(@"%@", [TBXML elementName:tbxml.rootXMLElement]);
+    }
+    return tbxml;
 }//loadXmlDocumentFromData
 
 +(TBXMLElement *)getRootElement:(TBXML *)tbxmlName {
@@ -38,6 +45,17 @@
     TBXMLElement *theElement = [TBXML childElementNamed:elementName parentElement:rootElement];
     return theElement;
 }//extractElementFromParent
+
++(TBXMLElement *)getUnknownChildElement:(TBXMLElement *)element {
+    TBXMLElement *child;
+    NSString *result;
+    child = element->firstChild;
+    result = [TBXML elementName:element];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"%@", [TBXML elementName:element]);
+#endif
+    return child;
+}
 
 +(NSString *)getUnknownChildElementName:(TBXMLElement *)element {
     TBXMLElement *child;
@@ -61,9 +79,12 @@
     return result;
 }
 
-+(NSString *)extractAttributeFromElement:(TBXMLElement *)element {
++(NSString *)extractAttributeTextFromElement:(TBXMLElement *)element {
     NSString *result;
     result = [TBXML textForElement:element];
+#if TARGET_IPHONE_SIMULATOR
+    if (result == @"") NSLog(@"No Data");
+#endif
     return result;
 }//extractAttributeFromElement
 

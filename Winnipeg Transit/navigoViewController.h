@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TBXML.h"
 #import "XMLParser.h"
+#import "navigoInterpreter.h"
 
 @interface navigoViewController : UIViewController
 

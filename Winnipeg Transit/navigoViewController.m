@@ -9,6 +9,7 @@
 #import "navigoViewController.h"
 #import "TBXML.h"
 #import "XMLParser.h"
+#import "navigoInterpreter.h"
 
 @implementation navigoViewController
 
@@ -52,11 +53,12 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    TBXML *theFile = [XMLParser loadXmlDocumentFromFile:@"10064.xml"];
+    NSData *nomnom = [[NSData alloc]initWithData:[navigoInterpreter getXMLFileForSearchedItem:@"725 Clifton St"]];
+    TBXML *theFile = [XMLParser loadXmlDocumentFromData:nomnom];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
-    TBXMLElement *extractedElement = [XMLParser extractElementFromParent:@"cross-street" :theElement];
-    extractedElement = [XMLParser extractElementFromParent:@"key" :extractedElement];
-    NSString *nomz = [XMLParser extractAttributeFromElement:extractedElement];
+    TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
+    theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
+    NSString *nomz = [XMLParser extractAttributeTextFromElement:theElementChild];
     NSLog(nomz);
     [super viewDidLoad];
 }

@@ -11,9 +11,11 @@
 
 @interface navigoInterpreter : NSObject
 
--(NSData *)getXMLFileForSearchedItem:(NSString *)query;
++(NSString *)getAPIKey;
 
--(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile;
++(NSData *)getXMLFileForSearchedItem:(NSString *)query;
+
++(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile;
 
 //-(NSData *)getXMLFileFromResults:(NSString *)origin:(NSString *)destination:(NSString *)date:(NSString *)time:(NSString *)mode:(BOOL)easyAccess:(int)walkSpeed:(int)maxWalkTime:(int)minTransferWait:(int)maxTransferWait:(int)maxTransfers;
 
