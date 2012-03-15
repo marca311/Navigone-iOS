@@ -12,7 +12,7 @@
 @implementation navigoInterpreter
 
 +(NSString *)getAPIKey {
-    NSString *result = [[NSString alloc]initWithString:@""];
+    NSString *result = [[NSString alloc]initWithString:@"VzHTwXmEnjQ0vUG0U3y9"];
     return result;
 }
 
@@ -27,7 +27,8 @@
     return resultXMLFile;
 }//getXMLFileForSearchedItem
 
-+(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem {
++(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem
+{
     NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
@@ -40,9 +41,23 @@
     return result;
 }
 
-+(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
++(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem
+{
+    NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
+    TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
+    TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+    TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
+    theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
+    NSString *result = [XMLParser extractAttributeTextFromElement:theElementChild];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(result);
+#endif
+    return result;
+}
+
+/*+(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
 {
     
 }//getXMLFileFromResults
-
+*/
 @end

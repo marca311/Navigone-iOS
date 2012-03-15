@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UniversalViewController.h"
 
-@interface timetableViewController : UIViewController
+@interface timetableViewController : UniversalViewController
 
 @end

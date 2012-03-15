@@ -22,6 +22,7 @@
 @synthesize minTransferWait;
 @synthesize maxTransferWait;
 @synthesize maxTransfers;
+@synthesize originLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,13 +54,13 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    NSLog([navigoInterpreter getAddressKeyFromSearchedItem:@"339 Rouge Rd"]);
     [super viewDidLoad];
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)origin {
     NSString *nomz = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text];
     NSLog(nomz);
+    originLabel.text = nomz;
 }
 
 

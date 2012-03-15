@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UniversalViewController.h"
 
 @interface UniversalViewController : UIViewController
 

@@ -17,6 +17,8 @@
 
 +(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem;
 
++(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem;
+
 //-(NSData *)getXMLFileFromResults:(NSString *)origin:(NSString *)destination:(NSString *)date:(NSString *)time:(NSString *)mode:(BOOL)easyAccess:(int)walkSpeed:(int)maxWalkTime:(int)minTransferWait:(int)maxTransferWait:(int)maxTransfers;
 
 //-(NSString *)getTotalWalkTime

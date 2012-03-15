@@ -25,5 +25,6 @@
 @property (nonatomic, retain) UITextField *minTransferWait;
 @property (nonatomic, retain) UITextField *maxTransferWait;
 @property (nonatomic, retain) UITextField *maxTransfers;
+@property (nonatomic, retain)IBOutlet UILabel *originLabel;
 
 @end

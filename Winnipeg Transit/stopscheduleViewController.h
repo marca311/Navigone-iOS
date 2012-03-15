@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UniversalViewController.h"
 
-@interface stopscheduleViewController : UIViewController
+@interface stopscheduleViewController : UniversalViewController
 
 @end
