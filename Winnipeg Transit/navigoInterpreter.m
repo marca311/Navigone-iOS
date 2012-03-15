@@ -27,8 +27,17 @@
     return resultXMLFile;
 }//getXMLFileForSearchedItem
 
--(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile {
-    
++(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem {
+    NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
+    TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
+    TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+    TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
+    theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
+    NSString *result = [XMLParser extractAttributeTextFromElement:theElementChild];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(result);
+#endif
+    return result;
 }
 
 +(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers

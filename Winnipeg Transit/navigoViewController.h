@@ -10,8 +10,11 @@
 #import "TBXML.h"
 #import "XMLParser.h"
 #import "navigoInterpreter.h"
+#import "UniversalViewController.h"
 
-@interface navigoViewController : UIViewController
+@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
+    UITextField *origin;
+}
 
 @property (nonatomic, retain) UITextField *origin;
 @property (nonatomic, retain) UITextField *destination;

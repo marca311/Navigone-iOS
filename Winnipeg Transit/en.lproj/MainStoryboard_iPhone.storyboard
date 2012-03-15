@@ -18,6 +18,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="LE0-40-F5G"/>
+                                    <outlet property="delegate" destination="2" id="Qc1-d8-pRO"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" minimumFontSize="17" id="cD2-DB-a5q">
                                 <rect key="frame" x="62" y="105" width="97" height="31"/>
@@ -149,7 +153,13 @@
         </scene>
     </scenes>
     <classes>
-        <class className="navigoViewController" superclassName="UIViewController">
+        <class className="UniversalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+            </relationships>
+        </class>
+        <class className="navigoViewController" superclassName="UniversalViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
         </class>
         <class className="stopscheduleViewController" superclassName="UIViewController">

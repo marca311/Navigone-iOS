@@ -1,27 +1,14 @@
 //
-//  navigoViewController.m
+//  UniversalViewController.m
 //  Winnipeg Transit
 //
-//  Created by Keith Brenneman on 12-03-02.
+//  Created by Keith Brenneman on 12-03-15.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "navigoViewController.h"
-#import "TBXML.h"
-#import "XMLParser.h"
-#import "navigoInterpreter.h"
+#import "UniversalViewController.h"
 
-@implementation navigoViewController
-
-@synthesize origin;
-@synthesize destination;
-@synthesize timeDate;
-@synthesize mode;
-@synthesize walkSpeed;
-@synthesize maxWalkTime;
-@synthesize minTransferWait;
-@synthesize maxTransferWait;
-@synthesize maxTransfers;
+@implementation UniversalViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +17,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction)dismissKeyboard:(id)sender;
+{
+    [self resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,19 +41,13 @@
 }
 */
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    NSLog([navigoInterpreter getAddressKeyFromSearchedItem:@"339 Rouge Rd"]);
     [super viewDidLoad];
 }
-
--(void)textFieldDidEndEditing:(UITextField *)origin {
-    NSString *nomz = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text];
-    NSLog(nomz);
-}
-
+*/
 
 - (void)viewDidUnload
 {

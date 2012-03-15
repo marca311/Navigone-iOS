@@ -23,6 +23,7 @@
 		4316809A15013F6900A41785 /* navigoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809915013F6900A41785 /* navigoViewController.m */; };
 		4316809D15013F8300A41785 /* timetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809C15013F8300A41785 /* timetableViewController.m */; };
 		431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809F15013FA400A41785 /* stopscheduleViewController.m */; };
+		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
 		6F4155CF15050CF100A5DB67 /* trip-planner.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F4155CE15050CF100A5DB67 /* trip-planner.xml */; };
 		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
@@ -67,6 +68,8 @@
 		4316809C15013F8300A41785 /* timetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timetableViewController.m; sourceTree = "<group>"; };
 		4316809E15013FA400A41785 /* stopscheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stopscheduleViewController.h; sourceTree = "<group>"; };
 		4316809F15013FA400A41785 /* stopscheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stopscheduleViewController.m; sourceTree = "<group>"; };
+		435617DD151266050022F903 /* UniversalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalViewController.h; sourceTree = "<group>"; };
+		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
 		6F4155CE15050CF100A5DB67 /* trip-planner.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "trip-planner.xml"; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				4316809C15013F8300A41785 /* timetableViewController.m */,
 				4316809E15013FA400A41785 /* stopscheduleViewController.h */,
 				4316809F15013FA400A41785 /* stopscheduleViewController.m */,
+				435617DD151266050022F903 /* UniversalViewController.h */,
+				435617DE151266050022F903 /* UniversalViewController.m */,
 				4316805C15013E4100A41785 /* Supporting Files */,
 				6F519A081502F84200395F84 /* XMLParser.h */,
 				6F519A091502F84200395F84 /* XMLParser.m */,
@@ -320,6 +325,7 @@
 				6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */,
 				6F41561F150553D400A5DB67 /* TBXML.m in Sources */,
 				43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */,
+				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
