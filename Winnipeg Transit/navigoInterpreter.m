@@ -13,8 +13,9 @@
 
 -(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
+    query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"
     NSURL *checkURL;
-    checkURL = 
+    NSData *resultXMLFile = [[NSData alloc]initWithContentsOfURL:<#(NSURL *)#>
 }//getXMLFileForSearchedItem
 
 -(NSString *)getAddressKeyFromXMLFile:(NSData *)XMLFile {
