@@ -2,8 +2,8 @@
 //  navigoViewController.h
 //  Winnipeg Transit
 //
-//  Created by Keith Brenneman on 12-03-02.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Marcus Dyck on 12-03-02.
+//  Copyright (c) 2012 marca311. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,17 +14,23 @@
 
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
+    UITextField *timeDate;
 }
 
-@property (nonatomic, retain) UITextField *origin;
+@property (nonatomic, retain) IBOutlet UITextField *origin;
 @property (nonatomic, retain) UITextField *destination;
-@property (nonatomic, retain) UITextField *timeDate;
+@property (nonatomic, retain) IBOutlet UITextField *timeDate;
 @property (nonatomic, retain) UITextField *mode;
 @property (nonatomic, retain) UITextField *walkSpeed;
 @property (nonatomic, retain) UITextField *maxWalkTime;
 @property (nonatomic, retain) UITextField *minTransferWait;
 @property (nonatomic, retain) UITextField *maxTransferWait;
 @property (nonatomic, retain) UITextField *maxTransfers;
-@property (nonatomic, retain)IBOutlet UILabel *originLabel;
+@property (nonatomic, retain) IBOutlet UILabel *originLabel;
+@property (nonatomic, retain) UIDatePicker *timePicker;
+
+-(IBAction)submitButton:(id)sender;
+
+-(IBAction)openDatePicker:(id)sender;
 
 @end

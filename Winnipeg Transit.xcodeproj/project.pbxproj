@@ -252,6 +252,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = marca311;
 			};
 			buildConfigurationList = 4316804B15013E4100A41785 /* Build configuration list for PBXProject "Winnipeg Transit" */;
 			compatibilityVersion = "Xcode 3.2";

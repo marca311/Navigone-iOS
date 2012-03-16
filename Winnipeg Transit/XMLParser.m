@@ -3,7 +3,7 @@
 //  Winnipeg Transit
 //
 //  Created by Marcus Dyck on 12-03-03.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 marca311. All rights reserved.
 //
 
 #import "XMLParser.h"
@@ -27,12 +27,13 @@
 +(TBXML *)loadXmlDocumentFromData:(NSData *)dataName {
     NSError *error;
     TBXML * tbxml = [TBXML tbxmlWithXMLData:dataName error:&error];
-    
+#if TARGET_IPHONE_SIMULATOR
     if (error) {
         NSLog(@"%@ %@", [error localizedDescription], [error userInfo]);
     } else {
         NSLog(@"%@", [TBXML elementName:tbxml.rootXMLElement]);
     }
+#endif
     return tbxml;
 }//loadXmlDocumentFromData
 
@@ -60,12 +61,20 @@
 +(NSString *)getUnknownChildElementName:(TBXMLElement *)element {
     TBXMLElement *child;
     NSString *result;
-    child = element->firstAttribute;
-    result = [TBXML elementName:element];
+    @try {
+        child = element->firstAttribute;
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
+    @finally {
+        result = [TBXML elementName:element];
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"%@", [TBXML elementName:element]);
+        NSLog(@"%@", [TBXML elementName:element]);
 #endif
-    return result;
+        return result;
+    }
+
 }//getUnknownChildElementName
 
 +(NSString *)getUnknownChildElementValue:(TBXMLElement *)element {

@@ -2,8 +2,8 @@
 //  navigoViewController.m
 //  Winnipeg Transit
 //
-//  Created by Keith Brenneman on 12-03-02.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Marcus Dyck on 12-03-02.
+//  Copyright (c) 2012 marca311. All rights reserved.
 //
 
 #import "navigoViewController.h"
@@ -23,6 +23,7 @@
 @synthesize maxTransferWait;
 @synthesize maxTransfers;
 @synthesize originLabel;
+@synthesize timePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,15 +55,34 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    timePicker.datePickerMode = 2;
+    
+    [timePicker setDate:[NSDate date]];
+    
     [super viewDidLoad];
 }
 
--(void)textFieldDidEndEditing:(UITextField *)origin {
-    NSString *nomz = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text];
+
+-(IBAction)submitButton:(id)sender
+{
+    NSString *nomz = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
     NSLog(nomz);
     originLabel.text = nomz;
 }
 
+-(IBAction)openDatePicker:(id)sender
+{
+    NSLog(@"nomzydoodles");
+    
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField { 
+    // Make a new view, or do what you want here
+    timePicker = [[UIDatePicker alloc] init];
+    [self.view addSubview:timePicker];
+    
+    return NO;
+}
 
 - (void)viewDidUnload
 {
