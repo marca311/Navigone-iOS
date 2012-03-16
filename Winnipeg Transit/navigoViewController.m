@@ -59,26 +59,23 @@
     
     [timePicker setDate:[NSDate date]];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //formatter.dateFormat = @"
+    
     [super viewDidLoad];
 }
 
 
 -(IBAction)submitButton:(id)sender
 {
-    NSString *nomz = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
+    NSString *nomz = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text ];
     NSLog(nomz);
     originLabel.text = nomz;
 }
 
--(IBAction)openDatePicker:(id)sender
-{
-    NSLog(@"nomzydoodles");
-    
-}
-
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField { 
     // Make a new view, or do what you want here
-    timePicker = [[UIDatePicker alloc] init];
+    timePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,200,0,0)];
     [self.view addSubview:timePicker];
     
     return NO;

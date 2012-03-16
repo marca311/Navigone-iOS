@@ -32,8 +32,13 @@
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
     TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
+    NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[self getLocationTypeFromSearchedItem:theElementChild]];
     theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
     NSString *result = [XMLParser extractAttributeTextFromElement:theElementChild];
+    if ([locationType isEqualToString:@"intersection"]) {
+        NSArray *resultArray = [result componentsSeparatedByString:@":"];
+        result = [resultArray objectAtIndex:0];
+    }
 #if TARGET_IPHONE_SIMULATOR
     NSLog(result);
 #endif
@@ -67,7 +72,13 @@
         NSString *streetName = [XMLParser extractAttributeTextFromElement:streetNameElement];
         result = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
     } else if ([locationType isEqualToString:@"intersection"]) {
-            
+        TBXMLElement *firstStreetElement = [XMLParser extractElementFromParent:@"street" :theElementChild];
+        firstStreetElement = [XMLParser extractElementFromParent:@"name" :firstStreetElement];
+        NSString *firstStreetName = [XMLParser extractAttributeTextFromElement:firstStreetElement];
+        TBXMLElement *secondStreetElement = [XMLParser extractElementFromParent:@"cross-street" :theElementChild];
+        secondStreetElement = [XMLParser extractElementFromParent:@"name" :secondStreetElement];
+        NSString *secondStreetName = [XMLParser extractAttributeTextFromElement:secondStreetElement];
+        result = [NSString stringWithFormat:@"%@ @ %@",firstStreetName,secondStreetName];
     }
 #if TARGET_IPHONE_SIMULATOR
     NSLog(result);

@@ -50,6 +50,9 @@
 +(TBXMLElement *)getUnknownChildElement:(TBXMLElement *)element {
     TBXMLElement *child;
     NSString *result;
+    if (element == nil) {
+        return nil;
+    }
     child = element->firstChild;
     result = [TBXML elementName:element];
 #if TARGET_IPHONE_SIMULATOR
@@ -61,20 +64,16 @@
 +(NSString *)getUnknownChildElementName:(TBXMLElement *)element {
     TBXMLElement *child;
     NSString *result;
-    @try {
-        child = element->firstAttribute;
-    }
-    @catch (NSException *exception) {
+    if (element == nil) {
         return nil;
     }
-    @finally {
-        result = [TBXML elementName:element];
+    child = element->firstAttribute;
+    
+    result = [TBXML elementName:element];
 #if TARGET_IPHONE_SIMULATOR
-        NSLog(@"%@", [TBXML elementName:element]);
+    NSLog(@"%@", [TBXML elementName:element]);
 #endif
-        return result;
-    }
-
+    return result;
 }//getUnknownChildElementName
 
 +(NSString *)getUnknownChildElementValue:(TBXMLElement *)element {
