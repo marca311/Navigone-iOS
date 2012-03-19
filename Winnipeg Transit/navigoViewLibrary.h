@@ -21,4 +21,10 @@
 
 -(void)dismissDatePicker;
 
++(NSString *)timeFromNSDate:(NSDate *)date;
+
++(NSString *)dateFromNSDate:(NSDate *)date;
+
+-(IBAction)timePickerChanged:(id)sender;;
+
 @end

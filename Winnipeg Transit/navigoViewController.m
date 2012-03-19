@@ -91,7 +91,7 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    timePicker = [navigoViewLibrary openTimePicker];
+    //timePicker = [navigoViewLibrary openTimePicker];
     timeField.inputView = timePicker;
     dateField.inputView = datePicker;
     
@@ -103,7 +103,9 @@
 }
 
 -(IBAction)datePickerValueChanged:(id)sender {
-    NSLog(@"nmoz");
+    NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
+    timeField.text = display;
+    NSLog(display);
 }
 
 -(IBAction)submitButton:(id)sender

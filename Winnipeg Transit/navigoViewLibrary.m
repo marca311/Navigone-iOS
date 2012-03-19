@@ -32,4 +32,20 @@
     [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
++(NSString *)timeFromNSDate:(NSDate *)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"hh:mm a"];
+    NSString *result = [formatter stringFromDate:date];
+    return result;
+}//timeFromNSDate
+
++(NSString *)dateFromNSDate:(NSDate *)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"ccc, dd MMMM"];
+    NSString *result = [formatter stringFromDate:date];
+    return result;
+}//timeFromNSDate
+
 @end
