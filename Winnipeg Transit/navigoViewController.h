@@ -15,6 +15,9 @@
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
     UITextField *timeDate;
+    UIToolbar *pickerBar;
+    IBOutlet UIToolbar *keyboardToolbar;
+    UISegmentedControl *nextPreviousControl;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *origin;
@@ -28,9 +31,19 @@
 @property (nonatomic, retain) UITextField *maxTransfers;
 @property (nonatomic, retain) IBOutlet UILabel *originLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;
+@property (nonatomic, retain) UIToolbar *pickerBar;
 
 -(IBAction)submitButton:(id)sender;
 
 -(IBAction)openDatePicker:(id)sender;
+
+-(IBAction)closePicker:(id)sender;
+
+@property (nonatomic, retain) UISegmentedControl *nextPreviousControl;
+@property (nonatomic, retain) UIToolbar *keyboardToolbar;
+
+- (IBAction)nextPrevious:(id)sender;
+- (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)editingChanged:(id)sender;
 
 @end

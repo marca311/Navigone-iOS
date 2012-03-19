@@ -24,6 +24,7 @@
 @synthesize maxTransfers;
 @synthesize originLabel;
 @synthesize timePicker;
+@synthesize pickerBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +52,18 @@
 }
 */
 
+- (UIToolbar *) accessoryView
+{
+	pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 44.0f)];
+	pickerBar.tintColor = [UIColor darkGrayColor];
+	
+	NSMutableArray *items = [NSMutableArray array];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:[self resignFirstResponder]];
+	[items addObject:doneButton];
+	pickerBar.items = items;	
+	
+	return pickerBar;
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -59,12 +72,24 @@
     
     [timePicker setDate:[NSDate date]];
     
+    timeDate.inputAccessoryView = [self accessoryView];
+	
+	NSMutableArray *items = [NSMutableArray array];
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     //formatter.dateFormat = @"
+    
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    timeDate.inputView = datePicker;
     
     [super viewDidLoad];
 }
 
+-(void)datePickerValueChanged{
+    NSLog(@"nmoz");
+}
 
 -(IBAction)submitButton:(id)sender
 {
@@ -73,12 +98,9 @@
     originLabel.text = nomz;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField { 
-    // Make a new view, or do what you want here
-    timePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,200,0,0)];
-    [self.view addSubview:timePicker];
-    
-    return NO;
+-(IBAction)closePicker:(id)sender
+{
+    timePicker.hidden = YES;
 }
 
 - (void)viewDidUnload

@@ -142,6 +142,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RdK-Pf-xcz">
+                                <rect key="frame" x="0.0" y="162" width="80" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="dismiss">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePicker:" destination="2" eventType="touchUpInside" id="bgy-aE-SKi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -149,7 +164,7 @@
                     <connections>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
-                        <outlet property="timeDate" destination="dBW-2j-B5f" id="fxp-F5-vqy"/>
+                        <outlet property="timeDate" destination="dBW-2j-B5f" id="XNb-LP-G5F"/>
                     </connections>
                 </viewController>
             </objects>
@@ -203,30 +218,6 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="UniversalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-            </relationships>
-        </class>
-        <class className="navigoViewController" superclassName="UniversalViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openDatePicker:"/>
-                <relationship kind="action" name="submitButton:"/>
-                <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeDate" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="stopscheduleViewController" superclassName="UniversalViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/stopscheduleViewController.h"/>
-        </class>
-        <class className="timetableViewController" superclassName="UniversalViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/timetableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
