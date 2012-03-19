@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 430505A215177FAE00C08BC7 /* MSUtilities.m */; };
 		4316805615013E4100A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
 		4316805815013E4100A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
 		4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805915013E4100A41785 /* CoreGraphics.framework */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		430505A115177FAE00C08BC7 /* MSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUtilities.h; sourceTree = "<group>"; };
+		430505A215177FAE00C08BC7 /* MSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUtilities.m; sourceTree = "<group>"; };
 		4316805115013E4100A41785 /* Winnipeg Transit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Winnipeg Transit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4316805515013E4100A41785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4316805715013E4100A41785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +168,8 @@
 				43F019D21507D92E003BAFBC /* navigoInterpreter.m */,
 				6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */,
 				6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */,
+				430505A115177FAE00C08BC7 /* MSUtilities.h */,
+				430505A215177FAE00C08BC7 /* MSUtilities.m */,
 				6F415616150553D400A5DB67 /* TBXML */,
 			);
 			path = "Winnipeg Transit";
@@ -333,6 +338,7 @@
 				43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */,
 				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
+				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

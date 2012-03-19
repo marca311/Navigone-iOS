@@ -10,12 +10,15 @@
 #import "TBXML.h"
 #import "XMLParser.h"
 #import "navigoInterpreter.h"
+#import "MSUtilities.h"
+#import "navigoViewLibrary.h"
 
 @implementation navigoViewController
 
 @synthesize origin;
 @synthesize destination;
-@synthesize timeDate;
+@synthesize timeField;
+@synthesize dateField;
 @synthesize mode;
 @synthesize walkSpeed;
 @synthesize maxWalkTime;
@@ -24,6 +27,7 @@
 @synthesize maxTransfers;
 @synthesize originLabel;
 @synthesize timePicker;
+@synthesize datePicker;
 @synthesize pickerBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,7 +62,7 @@
 	pickerBar.tintColor = [UIColor darkGrayColor];
 	
 	NSMutableArray *items = [NSMutableArray array];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:[self resignFirstResponder]];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(closePicker:)];
 	[items addObject:doneButton];
 	pickerBar.items = items;	
 	
@@ -68,26 +72,37 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    if ([MSUtilities firmwareIsHigherThanFour] == YES) {
+        NSLog(@"Yoos!");
+    }
+    
     timePicker.datePickerMode = 2;
     
     [timePicker setDate:[NSDate date]];
     
-    timeDate.inputAccessoryView = [self accessoryView];
-	
-	NSMutableArray *items = [NSMutableArray array];
-    
+    	
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     //formatter.dateFormat = @"
     
-    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    timePicker = [[UIDatePicker alloc]init];
+    datePicker = [[UIDatePicker alloc]init];
+    timePicker.datePickerMode = UIDatePickerModeTime;
+    [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    timeDate.inputView = datePicker;
+    
+    timePicker = [navigoViewLibrary openTimePicker];
+    timeField.inputView = timePicker;
+    dateField.inputView = datePicker;
+    
+    timeField.inputAccessoryView = [self accessoryView];
+    dateField.inputAccessoryView = [self accessoryView];
+
     
     [super viewDidLoad];
 }
 
--(void)datePickerValueChanged{
+-(IBAction)datePickerValueChanged:(id)sender {
     NSLog(@"nmoz");
 }
 
@@ -100,7 +115,8 @@
 
 -(IBAction)closePicker:(id)sender
 {
-    timePicker.hidden = YES;
+    [timeField resignFirstResponder];
+    [dateField resignFirstResponder];
 }
 
 - (void)viewDidUnload

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -31,14 +31,13 @@
                                     <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="hMs-Ai-1iS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time and Date" minimumFontSize="17" id="dBW-2j-B5f">
-                                <rect key="frame" x="10" y="103" width="162" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" minimumFontSize="17" id="dBW-2j-B5f">
+                                <rect key="frame" x="10" y="103" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="openDatePicker:" destination="2" eventType="touchUpInside" id="OKu-nl-6gA"/>
-                                    <outlet property="delegate" destination="2" id="4Al-Bw-n5P"/>
+                                    <outlet property="delegate" destination="2" id="8mD-zA-inU"/>
                                 </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="IY1-b6-9Qg">
@@ -142,29 +141,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RdK-Pf-xcz">
-                                <rect key="frame" x="0.0" y="162" width="80" height="37"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" id="Wjp-C9-Z2T">
+                                <rect key="frame" x="88" y="103" width="59" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="dismiss">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closePicker:" destination="2" eventType="touchUpInside" id="bgy-aE-SKi"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Navigo" id="7"/>
                     <connections>
+                        <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
-                        <outlet property="timeDate" destination="dBW-2j-B5f" id="XNb-LP-G5F"/>
+                        <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
                     </connections>
                 </viewController>
             </objects>
@@ -218,6 +209,34 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="UniversalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+            </relationships>
+        </class>
+        <class className="navigoViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closePicker:"/>
+                <relationship kind="action" name="datePickerValueChanged:"/>
+                <relationship kind="action" name="openDatePicker:"/>
+                <relationship kind="action" name="submitButton:"/>
+                <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="stopscheduleViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/stopscheduleViewController.h"/>
+        </class>
+        <class className="timetableViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timetableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

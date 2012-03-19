@@ -11,18 +11,24 @@
 #import "XMLParser.h"
 #import "navigoInterpreter.h"
 #import "UniversalViewController.h"
+#import "MSUtilities.h"
+#import "navigoViewLibrary.h"
 
-@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
+@interface navigoViewController : UniversalViewController {
     UITextField *origin;
     UITextField *timeDate;
     UIToolbar *pickerBar;
     IBOutlet UIToolbar *keyboardToolbar;
     UISegmentedControl *nextPreviousControl;
+    UIDatePicker *timePicker;
+    UIDatePicker *datePicker;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *origin;
 @property (nonatomic, retain) UITextField *destination;
-@property (nonatomic, retain) IBOutlet UITextField *timeDate;
+@property (nonatomic, retain) IBOutlet UITextField *timeField;
+@property (nonatomic, retain) IBOutlet UITextField *dateField;
 @property (nonatomic, retain) UITextField *mode;
 @property (nonatomic, retain) UITextField *walkSpeed;
 @property (nonatomic, retain) UITextField *maxWalkTime;
@@ -31,6 +37,7 @@
 @property (nonatomic, retain) UITextField *maxTransfers;
 @property (nonatomic, retain) IBOutlet UILabel *originLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;
+@property (nonatomic, retain) UIDatePicker *datePicker;
 @property (nonatomic, retain) UIToolbar *pickerBar;
 
 -(IBAction)submitButton:(id)sender;
@@ -39,11 +46,6 @@
 
 -(IBAction)closePicker:(id)sender;
 
-@property (nonatomic, retain) UISegmentedControl *nextPreviousControl;
-@property (nonatomic, retain) UIToolbar *keyboardToolbar;
-
-- (IBAction)nextPrevious:(id)sender;
-- (IBAction)dismissKeyboard:(id)sender;
-- (IBAction)editingChanged:(id)sender;
+-(IBAction)datePickerValueChanged:(id)sender;
 
 @end

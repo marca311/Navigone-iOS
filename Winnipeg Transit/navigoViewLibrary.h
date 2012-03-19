@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSUtilities.h"
 
 @interface navigoViewLibrary : NSObject
 
 //I have yet to implement either of these
 
--(void)openTimePicker;
++(UIDatePicker *)openTimePicker;
 
 -(void)openDatePicker;
+
+-(void)dismissTimePicker;
+
+-(void)dismissDatePicker;
 
 @end
