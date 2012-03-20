@@ -14,7 +14,7 @@
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 
-@interface navigoViewController : UniversalViewController {
+@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
     UITextField *timeDate;
     UIToolbar *pickerBar;

@@ -11,11 +11,15 @@
 
 @interface navigoViewLibrary : NSObject
 
-//I have yet to implement either of these
++(UIToolbar *)accessoryView:(UIView *)view;
+
++(UITextField *)timePickerInputFormat:(UIView *)parentView;
+
++(UITextField *)datePickerInputFormat:(UIView *)parentView;
 
 +(UIDatePicker *)openTimePicker;
 
--(void)openDatePicker;
++(UIDatePicker *)openDatePicker;
 
 -(void)dismissTimePicker;
 
@@ -25,6 +29,6 @@
 
 +(NSString *)dateFromNSDate:(NSDate *)date;
 
--(IBAction)timePickerChanged:(id)sender;;
+-(IBAction)timePickerChanged:(id)sender;
 
 @end

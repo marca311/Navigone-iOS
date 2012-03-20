@@ -72,17 +72,11 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    if ([MSUtilities firmwareIsHigherThanFour] == YES) {
-        NSLog(@"Yoos!");
-    }
+    timeField = 
     
     timePicker.datePickerMode = 2;
     
     [timePicker setDate:[NSDate date]];
-    
-    	
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    //formatter.dateFormat = @"
     
     timePicker = [[UIDatePicker alloc]init];
     datePicker = [[UIDatePicker alloc]init];
@@ -105,6 +99,9 @@
 -(IBAction)datePickerValueChanged:(id)sender {
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
     timeField.text = display;
+    NSLog(display);
+    display = [navigoViewLibrary dateFromNSDate:datePicker.date];
+    dateField.text = display;
     NSLog(display);
 }
 
