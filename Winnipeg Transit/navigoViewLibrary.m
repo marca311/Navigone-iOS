@@ -31,6 +31,7 @@
     UITextField *result = [[UITextField alloc]init];
     result.inputView = [self openTimePicker];
     result.inputAccessoryView = [self accessoryView:parentView]; 
+    return result;
 }//timePickerInputFormat
 
 +(UITextField *)datePickerInputFormat:(UIView *)parentView
@@ -38,28 +39,30 @@
     UITextField *result = [[UITextField alloc]init];
     result.inputView = [self openDatePicker];
     result.inputAccessoryView = [self accessoryView:parentView];
+    return result;
 }//datePickerInputFormat
 
 +(UIDatePicker *)openTimePicker
 {
     if ([MSUtilities firmwareIsHigherThanFour] == YES) {
         UIDatePicker *timePicker = [[UIDatePicker alloc]init];
-        UIDatePicker *datePicker = [[UIDatePicker alloc]init];
         timePicker.datePickerMode = 2;
-        
         [timePicker setDate:[NSDate date]];
-        
         timePicker.datePickerMode = UIDatePickerModeTime;
         [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-        datePicker.datePickerMode = UIDatePickerModeDate;
-        [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-        
+        return timePicker;
     }
 }//openTimePicker
 
 +(UIDatePicker *)openDatePicker
 {
-    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    if ([MSUtilities firmwareIsHigherThanFour] == YES) {
+        UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [datePicker setDate:[NSDate date]];
+        [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+        return datePicker;
+    }
 }//openDatePicker
 
 +(NSString *)timeFromNSDate:(NSDate *)date
