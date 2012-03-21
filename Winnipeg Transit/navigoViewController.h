@@ -26,7 +26,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *origin;
-@property (nonatomic, retain) UITextField *destination;
+@property (nonatomic, retain) IBOutlet UITextField *destination;
 @property (nonatomic, retain) IBOutlet UITextField *timeField;
 @property (nonatomic, retain) IBOutlet UITextField *dateField;
 @property (nonatomic, retain) UITextField *mode;
@@ -36,9 +36,11 @@
 @property (nonatomic, retain) UITextField *maxTransferWait;
 @property (nonatomic, retain) UITextField *maxTransfers;
 @property (nonatomic, retain) IBOutlet UILabel *originLabel;
+@property (nonatomic, retain) IBOutlet UILabel *destinationLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;
 @property (nonatomic, retain) UIDatePicker *datePicker;
 @property (nonatomic, retain) UIToolbar *pickerBar;
+@property (nonatomic, retain) NSMutableArray *searchArray;
 
 -(IBAction)submitButton:(id)sender;
 

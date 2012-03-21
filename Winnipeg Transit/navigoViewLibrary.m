@@ -12,6 +12,9 @@
 @implementation navigoViewLibrary
 
 
+//DEPREACIATED FOR NOW WHILE I FIGURE OUT WHY IT ISN'T WORKING
+
+
 +(UIToolbar *)accessoryView:(UIView *)view
 {
 	UIToolbar *pickerBar;
@@ -38,18 +41,19 @@
 {
     UITextField *result = [[UITextField alloc]init];
     result.inputView = [self openDatePicker];
-    result.inputAccessoryView = [self accessoryView:parentView];
+    //result.inputAccessoryView = [self accessoryView:parentView];
     return result;
 }//datePickerInputFormat
 
 +(UIDatePicker *)openTimePicker
 {
     if ([MSUtilities firmwareIsHigherThanFour] == YES) {
+        NSLog(@"Good firmware");
         UIDatePicker *timePicker = [[UIDatePicker alloc]init];
-        timePicker.datePickerMode = 2;
+        timePicker.datePickerMode = UIDatePickerModeTime;
         [timePicker setDate:[NSDate date]];
         timePicker.datePickerMode = UIDatePickerModeTime;
-        [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [timePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
         return timePicker;
     }
 }//openTimePicker
@@ -80,5 +84,11 @@
     NSString *result = [formatter stringFromDate:date];
     return result;
 }//timeFromNSDate
+
++(UIAlertView *)dataMissing
+{
+    UIAlertView *result = [[UIAlertView alloc]initWithTitle:@"You missed something" message:@"It appears that you forgot to fill in one of the fields, nothing can happen until that problem is fixed. Thanks." delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles: nil];
+    return result;
+}//dataMissing
 
 @end

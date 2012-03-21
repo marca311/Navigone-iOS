@@ -36,9 +36,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="8mD-zA-inU"/>
-                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="IY1-b6-9Qg">
                                 <rect key="frame" x="100" y="192" width="79" height="27"/>
@@ -146,6 +143,8 @@
                     <tabBarItem key="tabBarItem" title="Navigo" id="7"/>
                     <connections>
                         <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
+                        <outlet property="destination" destination="cD2-DB-a5q" id="6pZ-XI-yX3"/>
+                        <outlet property="destinationLabel" destination="acl-XI-DKE" id="TfK-Wh-edV"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
                         <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
@@ -217,6 +216,8 @@
                 <relationship kind="action" name="openDatePicker:"/>
                 <relationship kind="action" name="submitButton:"/>
                 <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destinationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>

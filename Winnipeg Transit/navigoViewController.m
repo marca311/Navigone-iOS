@@ -26,9 +26,11 @@
 @synthesize maxTransferWait;
 @synthesize maxTransfers;
 @synthesize originLabel;
+@synthesize destinationLabel;
 @synthesize timePicker;
 @synthesize datePicker;
 @synthesize pickerBar;
+@synthesize searchArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,27 +74,26 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    timeField = 
-    
+    //timeField = [navigoViewLibrary timePickerInputFormat:self.view];
+  
     timePicker.datePickerMode = 2;
     
     [timePicker setDate:[NSDate date]];
     
     timePicker = [[UIDatePicker alloc]init];
     datePicker = [[UIDatePicker alloc]init];
+    searchArray = [[NSMutableArray alloc]init];
     timePicker.datePickerMode = UIDatePickerModeTime;
     [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    //timePicker = [navigoViewLibrary openTimePicker];
     timeField.inputView = timePicker;
     dateField.inputView = datePicker;
     
     timeField.inputAccessoryView = [self accessoryView];
     dateField.inputAccessoryView = [self accessoryView];
 
-    
     [super viewDidLoad];
 }
 
@@ -107,9 +108,19 @@
 
 -(IBAction)submitButton:(id)sender
 {
-    NSString *nomz = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text ];
-    NSLog(nomz);
-    originLabel.text = nomz;
+    if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
+        UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
+        [missingStuff show];
+    } else {
+    NSString *originText = [navigoInterpreter getAddressKeyFromSearchedItem:origin.text];
+    NSLog(originText);
+    originLabel.text = originText;
+    [searchArray addObject:originText];
+    NSString *destinationText = [navigoInterpreter getAddressKeyFromSearchedItem:destination.text];
+    NSLog(destinationText);
+    destinationLabel.text = destinationText;
+    [searchArray addObject:destinationText];
+    }
 }
 
 -(IBAction)closePicker:(id)sender

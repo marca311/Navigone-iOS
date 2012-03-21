@@ -16,13 +16,19 @@
     return result;
 }
 
+//Need to add failsafe for when url comes up without and xml
+
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
     query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSLog(query);
     query = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
+    NSLog(query);
     NSURL *checkURL = [[NSURL alloc]initWithString:query];
     NSData *resultXMLFile = [[NSData alloc]initWithContentsOfURL:checkURL];
+    if ([resultXMLFile ) {
+        <#statements#>
+    }
     return resultXMLFile;
 }//getXMLFileForSearchedItem
 
