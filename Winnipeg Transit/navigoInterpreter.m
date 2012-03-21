@@ -20,20 +20,23 @@
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
+    NSData *resultXMLFile = [[NSData alloc]init];
+    if ([self entryIsBlank:query] == YES) return nil;
+    else {
     query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSLog(query);
     query = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
     NSLog(query);
     NSURL *checkURL = [[NSURL alloc]initWithString:query];
-    NSData *resultXMLFile = [[NSData alloc]initWithContentsOfURL:checkURL];
-    if ([resultXMLFile ) {
-        <#statements#>
-    }
+    resultXMLFile = [NSData dataWithContentsOfURL:checkURL];
     return resultXMLFile;
+    }
 }//getXMLFileForSearchedItem
 
 +(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem
 {
+    if ([self getXMLFileForSearchedItem:searchedItem] == nil) return nil;
+    else {
     NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
@@ -49,6 +52,7 @@
     NSLog(result);
 #endif
     return result;
+    }
 }
 
 +(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem
@@ -117,5 +121,14 @@
     NSString *destinationString = [self getDestination:destination];
     NSString *dateString;
 }//getXMLFileFromResults
+         
++(BOOL)entryIsBlank:(NSString *)stringToCheck
+{
+    stringToCheck = [stringToCheck stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([stringToCheck isEqualToString:@""]) {
+        return YES;
+    }
+    else return NO;
+}
 
 @end
