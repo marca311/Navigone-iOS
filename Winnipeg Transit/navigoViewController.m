@@ -33,6 +33,7 @@
 @synthesize pickerBar;
 @synthesize searchArray;
 @synthesize modeArray;
+@synthesize modeString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -96,10 +97,16 @@
     timeField.inputAccessoryView = [self accessoryView];
     dateField.inputAccessoryView = [self accessoryView];
     
-    modePicker = [[UIPickerView alloc]init];
-    [modePicker.delegate = self;
+    modePicker = [[UIPickerView alloc]initWithFrame:CGRectZero];
+    modePicker.delegate = self;
+    modePicker.dataSource = self;
+    modePicker.showsSelectionIndicator = YES;
     modeArray = [navigoViewLibrary getModeArray];
-
+    
+    mode.inputView = modePicker;
+    mode.inputAccessoryView = [self accessoryView];
+    
+    
     [super viewDidLoad];
 }
 
@@ -140,13 +147,7 @@
 {
     [timeField resignFirstResponder];
     [dateField resignFirstResponder];
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView { return 1; }
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component { return [modeArray count]; }
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *result = [modeArray objectAtIndex:row];
+    [mode resignFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -161,5 +162,22 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - Picker Delegate protocols
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView { return 1; }
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component { return [modeArray count]; }
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *result = [modeArray objectAtIndex:row];
+    return result;
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    modeString = [[NSString alloc]init];
+    modeString = [modeArray objectAtIndex:row];
+    mode.text = modeString;
+}
+
+#pragma mark -
 
 @end

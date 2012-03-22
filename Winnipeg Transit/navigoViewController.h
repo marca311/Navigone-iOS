@@ -14,7 +14,7 @@
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 
-@interface navigoViewController : UniversalViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
     UITextField *timeDate;
     UIToolbar *pickerBar;
@@ -43,6 +43,7 @@
 @property (nonatomic, retain) UIToolbar *pickerBar;
 @property (nonatomic, retain) NSMutableArray *searchArray;
 @property (nonatomic, retain) NSArray *modeArray;
+@property (nonatomic, retain) NSString *modeString;
 
 -(IBAction)submitButton:(id)sender;
 
