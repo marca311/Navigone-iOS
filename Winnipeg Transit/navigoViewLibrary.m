@@ -91,4 +91,10 @@
     return result;
 }//dataMissing
 
++(NSArray *)getModeArray
+{
+    NSArray *result = [[NSArray alloc]initWithObjects:@"Depart Before", @"Depart After", @"Arrive Before", @"Arrive After", nil];
+    return result;
+}//getModeArray
+
 @end

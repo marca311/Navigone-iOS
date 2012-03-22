@@ -29,8 +29,10 @@
 @synthesize destinationLabel;
 @synthesize timePicker;
 @synthesize datePicker;
+@synthesize modePicker;
 @synthesize pickerBar;
 @synthesize searchArray;
+@synthesize modeArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -93,6 +95,10 @@
     
     timeField.inputAccessoryView = [self accessoryView];
     dateField.inputAccessoryView = [self accessoryView];
+    
+    modePicker = [[UIPickerView alloc]init];
+    [modePicker.delegate = self;
+    modeArray = [navigoViewLibrary getModeArray];
 
     [super viewDidLoad];
 }
@@ -134,6 +140,13 @@
 {
     [timeField resignFirstResponder];
     [dateField resignFirstResponder];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView { return 1; }
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component { return [modeArray count]; }
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *result = [modeArray objectAtIndex:row];
 }
 
 - (void)viewDidUnload

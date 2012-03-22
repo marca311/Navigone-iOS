@@ -33,4 +33,6 @@
 
 +(UIAlertView *)dataMissing;
 
++(NSArray *)getModeArray;
+
 @end

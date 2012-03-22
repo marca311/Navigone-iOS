@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -145,6 +145,7 @@
                         <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
                         <outlet property="destination" destination="cD2-DB-a5q" id="6pZ-XI-yX3"/>
                         <outlet property="destinationLabel" destination="acl-XI-DKE" id="TfK-Wh-edV"/>
+                        <outlet property="mode" destination="GSY-Dw-i4B" id="sc5-Nc-5D2"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
                         <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
@@ -219,6 +220,7 @@
                 <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="destinationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>

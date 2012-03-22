@@ -14,7 +14,7 @@
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 
-@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
+@interface navigoViewController : UniversalViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate> {
     UITextField *origin;
     UITextField *timeDate;
     UIToolbar *pickerBar;
@@ -22,14 +22,14 @@
     UISegmentedControl *nextPreviousControl;
     UIDatePicker *timePicker;
     UIDatePicker *datePicker;
-    
+    NSArray *modeArray;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *origin;
 @property (nonatomic, retain) IBOutlet UITextField *destination;
 @property (nonatomic, retain) IBOutlet UITextField *timeField;
 @property (nonatomic, retain) IBOutlet UITextField *dateField;
-@property (nonatomic, retain) UITextField *mode;
+@property (nonatomic, retain) IBOutlet UITextField *mode;
 @property (nonatomic, retain) UITextField *walkSpeed;
 @property (nonatomic, retain) UITextField *maxWalkTime;
 @property (nonatomic, retain) UITextField *minTransferWait;
@@ -39,8 +39,10 @@
 @property (nonatomic, retain) IBOutlet UILabel *destinationLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;
 @property (nonatomic, retain) UIDatePicker *datePicker;
+@property (nonatomic, retain) UIPickerView *modePicker;
 @property (nonatomic, retain) UIToolbar *pickerBar;
 @property (nonatomic, retain) NSMutableArray *searchArray;
+@property (nonatomic, retain) NSArray *modeArray;
 
 -(IBAction)submitButton:(id)sender;
 
