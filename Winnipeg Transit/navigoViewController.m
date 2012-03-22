@@ -20,6 +20,8 @@
 @synthesize timeField;
 @synthesize dateField;
 @synthesize mode;
+@synthesize easyAccessSwitch;
+@synthesize easyAccess;
 @synthesize walkSpeed;
 @synthesize maxWalkTime;
 @synthesize minTransferWait;
@@ -132,14 +134,15 @@
         [missingStuff show];
     } else {
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
-    NSLog(originText);
-    originLabel.text = originText;
-    [searchArray addObject:originText];
-    NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
-    NSLog(destinationText);
-    destinationLabel.text = destinationText;
-    [searchArray addObject:destinationText];
-        
+        NSLog(originText);
+        originLabel.text = originText;
+        [searchArray addObject:originText];
+        NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
+        NSLog(destinationText);
+        destinationLabel.text = destinationText;
+        [searchArray addObject:destinationText];
+        [searchArray addObject:mode];
+        [searchArray addObject:easyAccessSwitch.on];
     }
 }
 

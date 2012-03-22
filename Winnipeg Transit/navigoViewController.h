@@ -30,11 +30,13 @@
 @property (nonatomic, retain) IBOutlet UITextField *timeField;
 @property (nonatomic, retain) IBOutlet UITextField *dateField;
 @property (nonatomic, retain) IBOutlet UITextField *mode;
-@property (nonatomic, retain) UITextField *walkSpeed;
-@property (nonatomic, retain) UITextField *maxWalkTime;
-@property (nonatomic, retain) UITextField *minTransferWait;
-@property (nonatomic, retain) UITextField *maxTransferWait;
-@property (nonatomic, retain) UITextField *maxTransfers;
+@property (nonatomic, retain) IBOutlet UISwitch *easyAccessSwitch;
+@property (nonatomic)                  BOOL easyAccess;
+@property (nonatomic, retain) IBOutlet UITextField *walkSpeed;
+@property (nonatomic, retain) IBOutlet UITextField *maxWalkTime;
+@property (nonatomic, retain) IBOutlet UITextField *minTransferWait;
+@property (nonatomic, retain) IBOutlet UITextField *maxTransferWait;
+@property (nonatomic, retain) IBOutlet UITextField *maxTransfers;
 @property (nonatomic, retain) IBOutlet UILabel *originLabel;
 @property (nonatomic, retain) IBOutlet UILabel *destinationLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;

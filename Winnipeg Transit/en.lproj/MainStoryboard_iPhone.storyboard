@@ -145,10 +145,16 @@
                         <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
                         <outlet property="destination" destination="cD2-DB-a5q" id="6pZ-XI-yX3"/>
                         <outlet property="destinationLabel" destination="acl-XI-DKE" id="TfK-Wh-edV"/>
+                        <outlet property="easyAccessSwitch" destination="IY1-b6-9Qg" id="Tz4-88-d2w"/>
+                        <outlet property="maxTransferWait" destination="0oD-2Q-NYU" id="Fwz-PR-mK4"/>
+                        <outlet property="maxTransfers" destination="Ffc-zK-vVe" id="cM7-nP-Bag"/>
+                        <outlet property="maxWalkTime" destination="J8y-S2-OnJ" id="3kd-oW-XdU"/>
+                        <outlet property="minTransferWait" destination="asy-K3-H5a" id="9gA-0S-aoh"/>
                         <outlet property="mode" destination="GSY-Dw-i4B" id="sc5-Nc-5D2"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
                         <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
+                        <outlet property="walkSpeed" destination="j7L-Vp-spT" id="DsG-fg-j3d"/>
                     </connections>
                 </viewController>
             </objects>
@@ -219,11 +225,17 @@
                 <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="destinationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="easyAccessSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="maxTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTransfers" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxWalkTime" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTransferWait" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="walkSpeed" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="stopscheduleViewController" superclassName="UniversalViewController">
