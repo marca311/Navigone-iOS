@@ -15,6 +15,8 @@
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query;
 
++(BOOL)queryIsNotError:(NSData *)dataFile;
+
 +(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem;
 
 +(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem;
@@ -27,7 +29,11 @@
 
 +(BOOL)entryIsBlank:(NSString *)stringToCheck;
 
-//-(NSData *)getXMLFileFromResults:(NSString *)origin:(NSString *)destination:(NSString *)date:(NSString *)time:(NSString *)mode:(BOOL)easyAccess:(int)walkSpeed:(int)maxWalkTime:(int)minTransferWait:(int)maxTransferWait:(int)maxTransfers;
++(NSString *)serverModeString:(NSString *)humanModeString;
+
++(NSString *)stringForBool:(BOOL)theBool;
+
+-(NSData *)getXMLFileFromResults:(NSArray *)queryArray;
 
 //-(NSString *)getTotalWalkTime
 

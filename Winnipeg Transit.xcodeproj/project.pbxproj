@@ -33,6 +33,9 @@
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
+		6FC6345D151F90AD00982799 /* error_page.html in Resources */ = {isa = PBXBuildFile; fileRef = 6FC6345C151F90AD00982799 /* error_page.html */; };
+		6FC63460151F966500982799 /* not_searchable_error in Resources */ = {isa = PBXBuildFile; fileRef = 6FC6345F151F966500982799 /* not_searchable_error */; };
+		6FC63463151FA1E300982799 /* navigoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC63462151FA1E300982799 /* navigoResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,10 @@
 		6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewLibrary.h; sourceTree = "<group>"; };
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F6B2F4D150F97E600185233 /* locations_Clift.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = locations_Clift.xml; sourceTree = "<group>"; };
+		6FC6345C151F90AD00982799 /* error_page.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = error_page.html; sourceTree = "<group>"; };
+		6FC6345F151F966500982799 /* not_searchable_error */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = not_searchable_error; sourceTree = "<group>"; };
+		6FC63461151FA1E300982799 /* navigoResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoResultViewController.h; sourceTree = "<group>"; };
+		6FC63462151FA1E300982799 /* navigoResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +153,8 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6FC6345F151F966500982799 /* not_searchable_error */,
+				6FC6345C151F90AD00982799 /* error_page.html */,
 				6F6B2F4D150F97E600185233 /* locations_Clift.xml */,
 				6F4155CE15050CF100A5DB67 /* trip-planner.xml */,
 				6F519A021502F7C600395F84 /* 10064.xml */,
@@ -155,6 +164,8 @@
 				4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */,
 				4316809815013F6900A41785 /* navigoViewController.h */,
 				4316809915013F6900A41785 /* navigoViewController.m */,
+				6FC63461151FA1E300982799 /* navigoResultViewController.h */,
+				6FC63462151FA1E300982799 /* navigoResultViewController.m */,
 				4316809B15013F8300A41785 /* timetableViewController.h */,
 				4316809C15013F8300A41785 /* timetableViewController.m */,
 				4316809E15013FA400A41785 /* stopscheduleViewController.h */,
@@ -293,6 +304,8 @@
 				6F519A031502F7C600395F84 /* 10064.xml in Resources */,
 				6F4155CF15050CF100A5DB67 /* trip-planner.xml in Resources */,
 				6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */,
+				6FC6345D151F90AD00982799 /* error_page.html in Resources */,
+				6FC63460151F966500982799 /* not_searchable_error in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +352,7 @@
 				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
+				6FC63463151FA1E300982799 /* navigoResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

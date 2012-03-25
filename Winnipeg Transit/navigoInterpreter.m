@@ -21,17 +21,41 @@
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
     NSData *resultXMLFile = [[NSData alloc]init];
-    if ([self entryIsBlank:query] == YES) return nil;
-    else {
-    query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    NSLog(query);
-    query = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
-    NSLog(query);
-    NSURL *checkURL = [[NSURL alloc]initWithString:query];
-    resultXMLFile = [NSData dataWithContentsOfURL:checkURL];
+    int tries = 0;
+    do {
+        if ([self entryIsBlank:query] == YES) return nil;
+        else {
+            tries = tries + 1;
+            query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+            NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
+#if TARGET_IPHONE_SIMULATOR
+            NSLog(query);
+            NSLog(queryURL);
+#endif
+            NSURL *checkURL = [[NSURL alloc]initWithString:queryURL];
+            resultXMLFile = [NSData dataWithContentsOfURL:checkURL];
+        }
+    } while (resultXMLFile == nil);
+    
+    //while ([self queryIsNotError:resultXMLFile] == NO);
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"Tries: %i",tries);
+#endif
     return resultXMLFile;
-    }
+    
 }//getXMLFileForSearchedItem
+
++(BOOL)queryIsNotError:(NSData *)dataFile
+{
+    NSData *errorPage = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"error_page" ofType:@"html"]];
+    NSData *notSearchable = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"not_searchable_error" ofType:@""]];
+    if ([dataFile isEqualToData:notSearchable] == YES || [dataFile isEqualToData:errorPage] == YES) {
+        NSLog(@"Error, retry");
+        return NO;
+    } else {
+        return YES;
+    }
+}//queryIsNotError
 
 +(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem
 {
@@ -115,11 +139,14 @@
     return result;
 }
 
-+(NSData *)getXMLFileFromResults:(NSString *)origin :(NSString *)destination :(NSString *)date :(NSString *)time :(NSString *)mode :(BOOL)easyAccess :(int)walkSpeed :(int)maxWalkTime :(int)minTransferWait :(int)maxTransferWait :(int)maxTransfers
++(NSData *)getXMLFileFromResults:(NSArray *)queryArray
 {
-    NSString *originString = [self getOrigin:origin];
-    NSString *destinationString = [self getDestination:destination];
-    NSString *dateString;
+    NSString *origin;
+    NSString *destination;
+    NSString *time;
+    NSString *date;
+    NSString *easyMode;
+    NSString *walkSpeed;
 }//getXMLFileFromResults
          
 +(BOOL)entryIsBlank:(NSString *)stringToCheck
@@ -129,6 +156,20 @@
         return YES;
     }
     else return NO;
-}
+}//entryIsBlank
+
++(NSString *)serverModeString:(NSString *)humanModeString
+{
+    NSString *result = [humanModeString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    result = [result lowercaseString];
+    return result;
+}//serverModeString
+
++(NSString *)stringForBool:(BOOL)theBool
+{
+    NSString *result;
+    if (theBool == YES) result = [[NSString alloc]initWithFormat:@"true"];
+    else result = [[NSString alloc]initWithFormat:@"false"];
+}//stringForBool
 
 @end

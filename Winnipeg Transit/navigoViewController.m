@@ -126,13 +126,13 @@
     if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
-    } else if ([navigoInterpreter getAddressKeyFromSearchedItem:origin.text] == nil) {
+    } /*else if ([navigoInterpreter getAddressKeyFromSearchedItem:origin.text] == nil) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
     } else if ([navigoInterpreter getAddressKeyFromSearchedItem:destination.text] == nil) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
-    } else {
+    } */else {
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
         NSLog(originText);
         originLabel.text = originText;
@@ -141,8 +141,9 @@
         NSLog(destinationText);
         destinationLabel.text = destinationText;
         [searchArray addObject:destinationText];
-        [searchArray addObject:mode];
-        [searchArray addObject:easyAccessSwitch.on];
+        [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
+        [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
+        
     }
 }
 
