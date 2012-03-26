@@ -33,7 +33,6 @@
 @synthesize datePicker;
 @synthesize modePicker;
 @synthesize pickerBar;
-@synthesize searchArray;
 @synthesize modeArray;
 @synthesize modeString;
 
@@ -69,7 +68,7 @@
 	pickerBar.tintColor = [UIColor darkGrayColor];
 	
 	NSMutableArray *items = [NSMutableArray array];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(closePicker:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap:)];
 	[items addObject:doneButton];
 	pickerBar.items = items;	
 	
@@ -81,33 +80,40 @@
 {
     //timeField = [navigoViewLibrary timePickerInputFormat:self.view];
   
-    timePicker.datePickerMode = 2;
-    
-    [timePicker setDate:[NSDate date]];
-    
-    timePicker = [[UIDatePicker alloc]init];
-    datePicker = [[UIDatePicker alloc]init];
-    searchArray = [[NSMutableArray alloc]init];
-    timePicker.datePickerMode = UIDatePickerModeTime;
-    [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    timeField.inputView = timePicker;
-    dateField.inputView = datePicker;
-    
+    //setting accessory views
+    origin.inputAccessoryView = [self accessoryView];
+    destination.inputAccessoryView = [self accessoryView];
     timeField.inputAccessoryView = [self accessoryView];
     dateField.inputAccessoryView = [self accessoryView];
+    mode.inputAccessoryView = [self accessoryView];
+    walkSpeed.inputAccessoryView = [self accessoryView];
+    minTransferWait.inputAccessoryView = [self accessoryView];
+    maxTransferWait.inputAccessoryView = [self accessoryView];
+    maxWalkTime.inputAccessoryView = [self accessoryView];
+    maxTransfers.inputAccessoryView = [self accessoryView];
     
+    
+    //setting up the time picker
+    timePicker.datePickerMode = 2;
+    [timePicker setDate:[NSDate date]];
+    timePicker = [[UIDatePicker alloc]init];
+    timePicker.datePickerMode = UIDatePickerModeTime;
+    [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    timeField.inputView = timePicker;
+    
+    //setting up the date picker
+    datePicker = [[UIDatePicker alloc]init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    dateField.inputView = datePicker;
+    
+    //setting up the mode picker
     modePicker = [[UIPickerView alloc]initWithFrame:CGRectZero];
     modePicker.delegate = self;
     modePicker.dataSource = self;
     modePicker.showsSelectionIndicator = YES;
     modeArray = [navigoViewLibrary getModeArray];
-    
     mode.inputView = modePicker;
-    mode.inputAccessoryView = [self accessoryView];
-    
     
     [super viewDidLoad];
 }
@@ -134,24 +140,35 @@
         [missingStuff show];
     } */else {
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
-        NSLog(originText);
         originLabel.text = originText;
-        [searchArray addObject:originText];
+        NSMutableArray *searchArray = [[NSMutableArray alloc]init];
+        [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:origin.text]];
         NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
-        NSLog(destinationText);
         destinationLabel.text = destinationText;
-        [searchArray addObject:destinationText];
+        [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:destination.text]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
         [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        
+        [searchArray addObject:walkSpeed.text];
+        [searchArray addObject:maxWalkTime.text];
+        [searchArray addObject:minTransferWait.text];
+        [searchArray addObject:maxTransferWait.text];
+        [searchArray addObject:maxTransfers.text];
+        NSData *theEnd = [navigoInterpreter getXMLFileFromResults:searchArray];
     }
 }
 
--(IBAction)closePicker:(id)sender
+-(IBAction)backgroundTap:(id)sender
 {
+    [origin resignFirstResponder];
+    [destination resignFirstResponder];
     [timeField resignFirstResponder];
     [dateField resignFirstResponder];
     [mode resignFirstResponder];
+    [walkSpeed resignFirstResponder];
+    [maxWalkTime resignFirstResponder];
+    [minTransferWait resignFirstResponder];
+    [maxTransferWait resignFirstResponder];
+    [maxTransfers resignFirstResponder];
 }
 
 - (void)viewDidUnload

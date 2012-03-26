@@ -61,17 +61,22 @@
 {
     if ([self getXMLFileForSearchedItem:searchedItem] == nil) return nil;
     else {
-    NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
-    TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
-    TBXMLElement *theElement = [XMLParser getRootElement:theFile];
-    TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
-    NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[self getLocationTypeFromSearchedItem:theElementChild]];
-    theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
-    NSString *result = [XMLParser extractAttributeTextFromElement:theElementChild];
-    if ([locationType isEqualToString:@"intersection"]) {
-        NSArray *resultArray = [result componentsSeparatedByString:@":"];
-        result = [resultArray objectAtIndex:0];
-    }
+        NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
+        TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
+        TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+        TBXMLElement *theElementChild = [XMLParser getUnknownChildElement:theElement];
+        NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[self getLocationTypeFromSearchedItem:theElementChild]];
+        theElementChild = [XMLParser extractElementFromParent:@"key" :theElementChild];
+        NSString *result = [XMLParser extractAttributeTextFromElement:theElementChild];
+        if ([locationType isEqualToString:@"intersection"]) {
+            NSArray *resultArray = [result componentsSeparatedByString:@":"];
+            result = [resultArray objectAtIndex:0];
+        }
+        NSString *addressType = [[NSString alloc]init];
+        if ([locationType isEqualToString:@"address"]) addressType = @"addresses";
+        else if ([locationType isEqualToString:@"monument"]) addressType = @"monuments";
+        else if ([locationType isEqualToString:@"intersection"]) addressType = @"intersections";
+        result = [NSString stringWithFormat:@"%@/%@",addressType,result];
 #if TARGET_IPHONE_SIMULATOR
     NSLog(result);
 #endif
@@ -145,8 +150,58 @@
     NSString *destination;
     NSString *time;
     NSString *date;
+    NSString *mode;
     NSString *easyMode;
     NSString *walkSpeed;
+    NSString *maxWalkTime;
+    NSString *minTransferWait;
+    NSString *maxTransferWait;
+    NSString *maxTransfers;
+    NSString *objectFromIndex;
+    for (int itemsInArray = 0; itemsInArray < 11; itemsInArray++) {
+        objectFromIndex = [queryArray objectAtIndex:itemsInArray];
+        NSLog(objectFromIndex);
+        switch (itemsInArray) {
+            case 0:
+                origin = objectFromIndex;
+                break;
+            case 1:
+                destination = objectFromIndex;
+                break;
+            case 2:
+                time = objectFromIndex;
+                break;
+            case 3:
+                date = objectFromIndex;
+                break;
+            case 4:
+                mode = objectFromIndex;
+                break;
+            case 5:
+                easyMode = objectFromIndex;
+                break;
+            case 6:
+                walkSpeed = objectFromIndex;
+                break;
+            case 7:
+                maxWalkTime = objectFromIndex;
+                break;
+            case 8:
+                minTransferWait = objectFromIndex;
+                break;
+            case 9:
+                maxTransferWait = objectFromIndex;
+                break;
+            case 10:
+                maxTransfers = objectFromIndex;
+                break;
+        }
+    }
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,maxTransfers,[self getAPIKey]];
+    NSLog(urlString);
+    NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
+    NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
+    return result;
 }//getXMLFileFromResults
          
 +(BOOL)entryIsBlank:(NSString *)stringToCheck

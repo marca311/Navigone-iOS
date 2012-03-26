@@ -43,7 +43,6 @@
 @property (nonatomic, retain) UIDatePicker *datePicker;
 @property (nonatomic, retain) UIPickerView *modePicker;
 @property (nonatomic, retain) UIToolbar *pickerBar;
-@property (nonatomic, retain) NSMutableArray *searchArray;
 @property (nonatomic, retain) NSArray *modeArray;
 @property (nonatomic, retain) NSString *modeString;
 
@@ -51,8 +50,8 @@
 
 -(IBAction)openDatePicker:(id)sender;
 
--(IBAction)closePicker:(id)sender;
-
 -(IBAction)datePickerValueChanged:(id)sender;
+
+-(IBAction)backgroundTap:(id)sender;
 
 @end

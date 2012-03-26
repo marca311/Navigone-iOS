@@ -33,8 +33,6 @@
 
 +(NSString *)stringForBool:(BOOL)theBool;
 
--(NSData *)getXMLFileFromResults:(NSArray *)queryArray;
-
-//-(NSString *)getTotalWalkTime
++(NSData *)getXMLFileFromResults:(NSArray *)queryArray;
 
 @end
