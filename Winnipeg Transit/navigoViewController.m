@@ -12,6 +12,7 @@
 #import "navigoInterpreter.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
+#import "navigoResultViewController.h"
 
 @implementation navigoViewController
 
@@ -146,6 +147,8 @@
         NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
         destinationLabel.text = destinationText;
         [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:destination.text]];
+        [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
+        [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
         [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
         [searchArray addObject:walkSpeed.text];
@@ -153,7 +156,7 @@
         [searchArray addObject:minTransferWait.text];
         [searchArray addObject:maxTransferWait.text];
         [searchArray addObject:maxTransfers.text];
-        NSData *theEnd = [navigoInterpreter getXMLFileFromResults:searchArray];
+        NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
     }
 }
 

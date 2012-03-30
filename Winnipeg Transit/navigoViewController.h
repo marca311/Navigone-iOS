@@ -13,6 +13,7 @@
 #import "UniversalViewController.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
+#import "navigoResultViewController.h"
 
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;

@@ -132,32 +132,36 @@
     return result;
 }//getLocationTypeFromSearchedItem
 
-+(NSString *)getOrigin:(NSString *)originString
++ (NSString *)timeFormatForServer:(NSDate *)timeObject
 {
-    NSString *result = [navigoInterpreter getAddressKeyFromSearchedItem:originString];
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"HH:MM"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
     return result;
-}
+}//timeFormatForServer
 
-+(NSString *)getDestination:(NSString *)destinationString
++ (NSString *)dateFormatForServer:(NSDate *)timeObject
 {
-    NSString *result = [navigoInterpreter getAddressKeyFromSearchedItem:destinationString];
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"y-MM-dd"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
     return result;
-}
+}//dateFormatForServer
 
 +(NSData *)getXMLFileFromResults:(NSArray *)queryArray
 {
-    NSString *origin;
-    NSString *destination;
-    NSString *time;
-    NSString *date;
-    NSString *mode;
-    NSString *easyMode;
-    NSString *walkSpeed;
-    NSString *maxWalkTime;
-    NSString *minTransferWait;
-    NSString *maxTransferWait;
-    NSString *maxTransfers;
-    NSString *objectFromIndex;
+    NSString *origin = [[NSString alloc]init];
+    NSString *destination = [[NSString alloc]init];
+    NSString *time = [[NSString alloc]init];
+    NSString *date = [[NSString alloc]init];
+    NSString *mode = [[NSString alloc]init];
+    NSString *easyMode = [[NSString alloc]init];
+    NSString *walkSpeed = [[NSString alloc]init];
+    NSString *maxWalkTime = [[NSString alloc]init];;
+    NSString *minTransferWait = [[NSString alloc]init];
+    NSString *maxTransferWait = [[NSString alloc]init];
+    NSString *maxTransfers = [[NSString alloc]init];
+    NSString *objectFromIndex = [[NSString alloc]init];
     for (int itemsInArray = 0; itemsInArray < 11; itemsInArray++) {
         objectFromIndex = [queryArray objectAtIndex:itemsInArray];
         NSLog(objectFromIndex);
@@ -222,9 +226,10 @@
 
 +(NSString *)stringForBool:(BOOL)theBool
 {
-    NSString *result;
-    if (theBool == YES) result = [[NSString alloc]initWithFormat:@"true"];
-    else result = [[NSString alloc]initWithFormat:@"false"];
+    NSString *result = [[NSString alloc]init];
+    if (theBool == YES){ result = @"true"; }
+    else { result = @"false"; }
+    return result;
 }//stringForBool
 
 @end

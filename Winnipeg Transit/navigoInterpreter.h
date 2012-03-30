@@ -23,15 +23,15 @@
 
 +(NSString *)getLocationTypeFromSearchedItem:(TBXMLElement *)element;
 
-+(NSString *)getOrigin:(NSString *)originString;
-
-+(NSString *)getDestination:(NSString *)destinationString;
-
 +(BOOL)entryIsBlank:(NSString *)stringToCheck;
 
 +(NSString *)serverModeString:(NSString *)humanModeString;
 
 +(NSString *)stringForBool:(BOOL)theBool;
+
++(NSString *)timeFormatForServer:(NSDate *)timeObject;
+
++(NSString *)dateFormatForServer:(NSDate *)timeObject;
 
 +(NSData *)getXMLFileFromResults:(NSArray *)queryArray;
 
