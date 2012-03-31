@@ -35,4 +35,6 @@
 
 +(NSData *)getXMLFileFromResults:(NSArray *)queryArray;
 
+#pragma mark - Analyzing the result XMLFile
+
 @end

@@ -232,4 +232,8 @@
     return result;
 }//stringForBool
 
+#pragma mark - Analyzing the result XML
+
+
+
 @end

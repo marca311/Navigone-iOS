@@ -165,20 +165,6 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="s9Z-kr-vaX">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTm-S1-15e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="oBf-rn-IdE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k9F-cW-cns">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1053" y="-138"/>
-        </scene>
         <!--Timetable View Controller - Timetables-->
         <scene sceneID="13">
             <objects>
@@ -241,7 +227,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backgroundTap:"/>
-                <relationship kind="action" name="closePicker:"/>
                 <relationship kind="action" name="datePickerValueChanged:"/>
                 <relationship kind="action" name="openDatePicker:"/>
                 <relationship kind="action" name="submitButton:"/>

@@ -12,7 +12,7 @@
 #import "navigoInterpreter.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
-#import "navigoResultViewController.h"
+#import "navigoResultView.h"
 
 @implementation navigoViewController
 
@@ -157,6 +157,8 @@
         [searchArray addObject:maxTransferWait.text];
         [searchArray addObject:maxTransfers.text];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
+        navigoResultView *resultView = [[navigoResultView alloc]init];
+        [self.view addSubview:resultView];
     }
 }
 
