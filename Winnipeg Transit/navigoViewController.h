@@ -13,7 +13,7 @@
 #import "UniversalViewController.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
-#import "navigoResultView.h"
+#import "navigoResultViewController.h"
 
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
@@ -54,5 +54,7 @@
 -(IBAction)datePickerValueChanged:(id)sender;
 
 -(IBAction)backgroundTap:(id)sender;
+
+-(IBAction)testButton;
 
 @end

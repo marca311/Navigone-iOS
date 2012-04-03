@@ -37,6 +37,7 @@
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
 		6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B86B1526AB6B00FFCD99 /* Icon-72.png */; };
+		6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */; };
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,8 @@
 		6F60B8671526AB0200FFCD99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6F60B8691526AB0C00FFCD99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6F60B86B1526AB6B00FFCD99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		6F60B86E1526B0AE00FFCD99 /* navigoResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoResultViewController.h; sourceTree = "<group>"; };
+		6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoResultViewController.m; sourceTree = "<group>"; };
 		6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewLibrary.h; sourceTree = "<group>"; };
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F6B2F4D150F97E600185233 /* locations_Clift.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = locations_Clift.xml; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */,
 				4316809815013F6900A41785 /* navigoViewController.h */,
 				4316809915013F6900A41785 /* navigoViewController.m */,
+				6F60B86E1526B0AE00FFCD99 /* navigoResultViewController.h */,
+				6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */,
 				6F378EFE15267EEB00FCA44D /* navigoResultView.h */,
 				6F378EFF15267EEB00FCA44D /* navigoResultView.m */,
 				6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */,
@@ -373,6 +378,7 @@
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
 				6F378F0015267EEB00FCA44D /* navigoResultView.m in Sources */,
+				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

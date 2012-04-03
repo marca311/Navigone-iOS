@@ -12,7 +12,7 @@
 #import "navigoInterpreter.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
-#import "navigoResultView.h"
+#import "navigoResultViewController.h"
 
 @implementation navigoViewController
 
@@ -157,8 +157,9 @@
         [searchArray addObject:maxTransferWait.text];
         [searchArray addObject:maxTransfers.text];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        navigoResultView *resultView = [[navigoResultView alloc]init];
-        [self.view addSubview:resultView];
+        navigoResultViewController *resultController = [[navigoResultViewController alloc]initWithNibName:@"navigoResultViewNib.xib" bundle:[NSBundle mainBundle]];
+        [self.view addSubview:resultController.view];
+        //[self presentModalViewController:resultController animated:YES];
     }
 }
 
@@ -174,6 +175,13 @@
     [minTransferWait resignFirstResponder];
     [maxTransferWait resignFirstResponder];
     [maxTransfers resignFirstResponder];
+}
+
+-(IBAction)testButton
+{
+    navigoResultViewController = [[navigoResultViewController alloc]initWithNibName:@"navigoResultViewNib.xib" bundle:nil];
+    //[self presentModalViewController:resultController animated:NO];
+    [self.view addSubview:];
 }
 
 - (void)viewDidUnload
