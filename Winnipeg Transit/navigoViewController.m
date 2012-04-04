@@ -133,13 +133,7 @@
     if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
-    } /*else if ([navigoInterpreter getAddressKeyFromSearchedItem:origin.text] == nil) {
-        UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
-        [missingStuff show];
-    } else if ([navigoInterpreter getAddressKeyFromSearchedItem:destination.text] == nil) {
-        UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
-        [missingStuff show];
-    } */else {
+    } else {
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
         originLabel.text = originText;
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
@@ -179,9 +173,7 @@
 
 -(IBAction)testButton
 {
-    navigoResultViewController = [[navigoResultViewController alloc]initWithNibName:@"navigoResultViewNib.xib" bundle:nil];
-    //[self presentModalViewController:resultController animated:NO];
-    [self.view addSubview:];
+    
 }
 
 - (void)viewDidUnload

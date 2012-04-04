@@ -16,7 +16,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibBundleOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -28,7 +28,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
