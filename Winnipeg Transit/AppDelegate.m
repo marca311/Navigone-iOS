@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "navigoViewController.h"
+#import "timetableViewController.h"
 
 @implementation AppDelegate
 
@@ -14,7 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView" bundle:nil];
+    //UIViewController *timetableVC = [[timetableViewController alloc]initWithNibName:@"TheNib" bundle:nil];
+    self.window.rootViewController = navigoVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

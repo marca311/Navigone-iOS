@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "navigoViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
