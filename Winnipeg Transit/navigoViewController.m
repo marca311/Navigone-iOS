@@ -151,9 +151,7 @@
         [searchArray addObject:maxTransferWait.text];
         [searchArray addObject:maxTransfers.text];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        navigoResultViewController *resultController = [[navigoResultViewController alloc]initWithNibName:@"navigoResultViewNib.xib" bundle:[NSBundle mainBundle]];
-        [self.view addSubview:resultController.view];
-        //[self presentModalViewController:resultController animated:YES];
+        
     }
 }
 
@@ -173,7 +171,7 @@
 
 -(IBAction)testButton
 {
-    
+    NSLog(@"This does nothing right now");
 }
 
 - (void)viewDidUnload
