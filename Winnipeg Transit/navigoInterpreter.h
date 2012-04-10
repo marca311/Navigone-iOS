@@ -45,7 +45,9 @@
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;
 
-+(NSString *)getStartEndTimes:(TBXMLElement *)rootElement;
++(NSDate *)getStartTime:(TBXMLElement *)rootElement;
+
++(NSString *)getEndTime:(TBXMLElement *)rootElement;
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement;
 

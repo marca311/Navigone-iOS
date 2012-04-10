@@ -268,11 +268,23 @@
     return result;
 }//getEasyAccess
 
-+(NSString *)getStartEndTimes:(TBXMLElement *)rootElement
++(NSDate *)getStartTime:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
-}
+    planLayer = [XMLParser extractKnownChildElement:@"start" :planLayer];
+    NSString *resultString;
+    resultString = [XMLParser getValueFromElement:planLayer];
+    NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
+    [resultStringFormat setDateFormat:@"yyyy-MM-ddTHH:mm:ss"];
+    NSDate *result = [[NSDate alloc]init];
+    result = [resultStringFormat dateFromString:resultString];
+}//getStartTime
+
++(NSString *)getEndTime:(TBXMLElement *)rootElement
+{
+    
+}//getEndTime
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement
 {
