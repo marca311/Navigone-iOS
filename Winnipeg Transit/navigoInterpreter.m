@@ -265,13 +265,13 @@
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
     NSString *result = [[NSString alloc]init];
     result = [XMLParser getValueFromElement:planLayer];
-    NSLog(result);
     return result;
 }//getEasyAccess
 
 +(NSString *)getStartEndTimes:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
 }
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement
