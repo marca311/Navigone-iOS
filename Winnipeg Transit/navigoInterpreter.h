@@ -37,9 +37,11 @@
 
 #pragma mark - Analyzing the result XMLFile
 
++(TBXMLElement *)getRootElement:(NSData *)xmlFile;
+
 +(NSArray *)getPrimaryResults:(TBXMLElement *)rootElement;
 
-+(NSInteger *)getNumberOfPlans:(TBXMLElement *)rootElement;
++(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;
 

@@ -9,29 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
 
-@interface XMLParser : NSObject {
-    BOOL easyAccess;
-    NSString *startTime;
-    NSString *endTime;
-    NSNumber *totalTime;
-    NSNumber *walkingTime;
-    NSNumber *waitingTime;
-    NSNumber *ridingTime;
-    NSString *segmentType;
-    NSString *segmentStartTime;
-    NSString *segmentEndTime;
-    
-}
+@interface XMLParser : NSObject 
 
+//Loading methods
 +(TBXML *)loadXmlDocumentFromFile:(NSString *)fileName;
 +(TBXML *)loadXmlDocumentFromData:(NSData *)dataName;
-+(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
-+(TBXMLElement *)extractElementFromParent:(NSString *)elementName:(TBXMLElement *)rootElement;
-+(TBXMLElement *)getUnknownChildElement:(TBXMLElement *)element;
-+(NSString *)getUnknownChildElementName:(TBXMLElement *)element;
-+(NSString *)getUnknownChildElementValue:(TBXMLElement *)element;
-+(NSString *)extractAttributeTextFromElement:(TBXMLElement *)element;
 
-                                           
+//Getting root element
++(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
+
+//Navigation Methods
++(TBXMLElement *)extractKnownChildElement:(NSString *)elementName:(TBXMLElement *)rootElement;
++(TBXMLElement *)extractUnknownChildElement:(TBXMLElement *)element;
++(TBXMLAttribute *)extractAttribute:(TBXMLElement *)element;
+
+//Getting data Methods
++(NSString *)getElementName:(TBXMLElement *)element;
++(NSString *)getValueFromElement:(TBXMLElement *)element;
++(NSString *)getAttributeValue:(TBXMLAttribute *)attribute;
 
 @end

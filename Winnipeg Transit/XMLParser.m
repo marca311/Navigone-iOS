@@ -11,6 +11,8 @@
 
 @implementation XMLParser
 
+#pragma mark - Loading Methods
+
 +(TBXML *)loadXmlDocumentFromFile:(NSString *)fileName {
     NSError *error;
     TBXML * tbxmlFile = [TBXML tbxmlWithXMLFile:fileName error:&error];
@@ -37,17 +39,21 @@
     return tbxml;
 }//loadXmlDocumentFromData
 
+#pragma mark - Getting root element
+
 +(TBXMLElement *)getRootElement:(TBXML *)tbxmlName {
     TBXMLElement * rootXMLElement = tbxmlName.rootXMLElement;
     return rootXMLElement;
 }//getRootElement
 
-+(TBXMLElement *)extractElementFromParent:(NSString *)elementName :(TBXMLElement *)rootElement {
+#pragma mark - Navigation Methods
+
++(TBXMLElement *)extractKnownChildElement:(NSString *)elementName :(TBXMLElement *)rootElement {
     TBXMLElement *theElement = [TBXML childElementNamed:elementName parentElement:rootElement];
     return theElement;
 }//extractElementFromParent
 
-+(TBXMLElement *)getUnknownChildElement:(TBXMLElement *)element {
++(TBXMLElement *)extractUnknownChildElement:(TBXMLElement *)element {
     TBXMLElement *child;
     NSString *result;
     if (element == nil) {
@@ -61,14 +67,19 @@
     return child;
 }
 
-+(NSString *)getUnknownChildElementName:(TBXMLElement *)element {
-    TBXMLElement *child;
++(TBXMLAttribute *)extractAttribute:(TBXMLElement *)element
+{
+    TBXMLAttribute *result = element->firstAttribute;
+    return result;
+}//extractAttribute
+
+#pragma mark - Retrieving value Methods
+
++(NSString *)getElementName:(TBXMLElement *)element {
     NSString *result;
     if (element == nil) {
         return nil;
     }
-    child = element->firstAttribute;
-    
     result = [TBXML elementName:element];
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"%@", [TBXML elementName:element]);
@@ -76,24 +87,22 @@
     return result;
 }//getUnknownChildElementName
 
-+(NSString *)getUnknownChildElementValue:(TBXMLElement *)element {
-    TBXMLElement *child;
-    NSString *result;
-    child = element->firstAttribute;
-    result = [TBXML attributeValue:element];
-#if TARGET_IPHONE_SIMULATOR
-    NSLog(@"%@", [TBXML attributeValue:element]);
-#endif
-    return result;
-}
-
-+(NSString *)extractAttributeTextFromElement:(TBXMLElement *)element {
++(NSString *)getValueFromElement:(TBXMLElement *)element {
     NSString *result;
     result = [TBXML textForElement:element];
 #if TARGET_IPHONE_SIMULATOR
     if (result == @"") NSLog(@"No Data");
 #endif
     return result;
-}//extractAttributeFromElement
+}//getElementFromElement
+
++(NSString *)getAttributeValue:(TBXMLAttribute *)attribute {
+    NSString *result;
+    result = [TBXML attributeValue:attribute];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(result);
+#endif
+    return result;
+}
 
 @end
