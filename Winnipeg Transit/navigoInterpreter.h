@@ -37,4 +37,20 @@
 
 #pragma mark - Analyzing the result XMLFile
 
++(NSArray *)getPrimaryResults:(TBXMLElement *)rootElement;
+
++(NSInteger *)getNumberOfPlans:(TBXMLElement *)rootElement;
+
++(NSString *)getEasyAccess:(TBXMLElement *)rootElement;
+
++(NSString *)getStartEndTimes:(TBXMLElement *)rootElement;
+
++(NSString *)getTotalTime:(TBXMLElement *)rootElement;
+
++(NSString *)getWalkTime:(TBXMLElement *)rootElement;
+
++(NSString *)getRideTime:(TBXMLElement *)rootElement;
+ 
++(NSString *)getWaitTime:(TBXMLElement *)rootElement;
+
 @end
