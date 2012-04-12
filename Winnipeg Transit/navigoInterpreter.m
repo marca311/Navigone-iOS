@@ -275,20 +275,43 @@
     planLayer = [XMLParser extractKnownChildElement:@"start" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
+    resultString = [resultString stringByReplacingOccurrencesOfString:@"T" withString:@"-"];
+    resultString = [resultString stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    resultString = [resultString stringByReplacingOccurrencesOfString:@":" withString:@" "];
+    NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
+    [resultStringFormat setDateFormat:@"y MM dd HH mm ss"];
+    NSDate *result = [[NSDate alloc]init];
+    result = [resultStringFormat dateFromString:resultString];
+    return result;
+}//getStartTime
+
++(NSDate *)getEndTime:(TBXMLElement *)rootElement
+{
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"end" :planLayer];
+    NSString *resultString;
+    resultString = [XMLParser getValueFromElement:planLayer];
     NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
     [resultStringFormat setDateFormat:@"yyyy-MM-ddTHH:mm:ss"];
     NSDate *result = [[NSDate alloc]init];
     result = [resultStringFormat dateFromString:resultString];
-}//getStartTime
-
-+(NSString *)getEndTime:(TBXMLElement *)rootElement
-{
-    
+    return result;
 }//getEndTime
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"total" :planLayer];
+    NSString *resultString;
+    resultString = [XMLParser getValueFromElement:planLayer];
+    NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
+    [resultStringFormat setDateFormat:@"mm"];
+    NSDate *result = [[NSDate alloc]init];
+    result = [resultStringFormat dateFromString:resultString];
+    return result;
 }
 
 +(NSString *)getWalkTime:(TBXMLElement *)rootElement
