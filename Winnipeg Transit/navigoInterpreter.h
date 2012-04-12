@@ -57,4 +57,5 @@
  
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement;
 
+
 @end

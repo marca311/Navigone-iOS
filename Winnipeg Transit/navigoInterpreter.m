@@ -275,12 +275,10 @@
     planLayer = [XMLParser extractKnownChildElement:@"start" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
-    resultString = [resultString stringByReplacingOccurrencesOfString:@"T" withString:@"-"];
-    resultString = [resultString stringByReplacingOccurrencesOfString:@"-" withString:@" "];
-    resultString = [resultString stringByReplacingOccurrencesOfString:@":" withString:@" "];
+    resultString = [resultString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
-    [resultStringFormat setDateFormat:@"y MM dd HH mm ss"];
-    NSDate *result = [[NSDate alloc]init];
+    [resultStringFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *result;
     result = [resultStringFormat dateFromString:resultString];
     return result;
 }//getStartTime
@@ -292,9 +290,10 @@
     planLayer = [XMLParser extractKnownChildElement:@"end" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
+    resultString = [resultString stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
-    [resultStringFormat setDateFormat:@"yyyy-MM-ddTHH:mm:ss"];
-    NSDate *result = [[NSDate alloc]init];
+    [resultStringFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *result;
     result = [resultStringFormat dateFromString:resultString];
     return result;
 }//getEndTime
@@ -305,30 +304,44 @@
     planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"total" :planLayer];
-    NSString *resultString;
-    resultString = [XMLParser getValueFromElement:planLayer];
-    NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
-    [resultStringFormat setDateFormat:@"mm"];
-    NSDate *result = [[NSDate alloc]init];
-    result = [resultStringFormat dateFromString:resultString];
+    NSString *result;
+    result = [XMLParser getValueFromElement:planLayer];
     return result;
 }
 
 +(NSString *)getWalkTime:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"walking" :planLayer];
+    NSString *result;
+    result = [XMLParser getValueFromElement:planLayer];
+    return result;
 }
 
 +(NSString *)getRideTime:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"riding" :planLayer];
+    NSString *result;
+    result = [XMLParser getValueFromElement:planLayer];
+    return result;
 }
 
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"waiting" :planLayer];
+    NSString *result;
+    result = [XMLParser getValueFromElement:planLayer];
+    return result;
 }
 
-
++
 
 @end

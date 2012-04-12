@@ -120,7 +120,7 @@
     NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
     TBXMLElement *plannerResultRootElement = [navigoInterpreter getRootElement:testData];
     NSDate *test = [navigoInterpreter getStartTime:plannerResultRootElement];
-    NSLog([NSString stringWithFormat:@"%i",test]);
+    NSLog([NSString stringWithFormat:@"%@",test]);
     
     [super viewDidLoad];
 }
