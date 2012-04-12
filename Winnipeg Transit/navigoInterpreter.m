@@ -241,16 +241,29 @@
     return result;
 }//getRootElement
 
-+(NSArray *)getPrimaryResults:(TBXMLElement *)rootElement
++(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement
 {
-    //NSInteger *numberOfPlans = [self getNumberOfPlans:rootElement];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
+    int numberOfPlans = [numberOfPlansString intValue];
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    //rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    for (int i = 0; i < numberOfPlans; i++) {
+        [result addObject:[NSString stringWithFormat:@"Plan %i",i]];
+        [result addObject:[self getEasyAccess:rootElement]];
+        [result addObject:[self getStartTime:rootElement]];
+        [result addObject:[self getEndTime:rootElement]];
+        [result addObject:[self getTotalTime:rootElement]];
+        [result addObject:[self getWalkTime:rootElement]];
+        [result addObject:[self getRideTime:rootElement]];
+        [result addObject:[self getWaitTime:rootElement]];
+    }
+    return result;
 }
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    //planLayer = [XMLParser extractUnknownChildElement:planLayer];
-    //NSInteger *result;
     NSString *result = [[NSString alloc]init];
     do {
         result = [XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]];
@@ -261,17 +274,15 @@
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
     NSString *result = [[NSString alloc]init];
-    result = [XMLParser getValueFromElement:planLayer];
+    result = [XMLParser getValueFromElement:rootElement];
     return result;
 }//getEasyAccess
 
 +(NSDate *)getStartTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"start" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
@@ -285,8 +296,7 @@
 
 +(NSDate *)getEndTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"end" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
@@ -300,8 +310,7 @@
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"total" :planLayer];
     NSString *result;
@@ -311,8 +320,7 @@
 
 +(NSString *)getWalkTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"walking" :planLayer];
     NSString *result;
@@ -322,8 +330,7 @@
 
 +(NSString *)getRideTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"riding" :planLayer];
     NSString *result;
@@ -333,15 +340,13 @@
 
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer
+    = [XMLParser extractKnownChildElement:@"times" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"waiting" :planLayer];
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
 }
-
-+
 
 @end

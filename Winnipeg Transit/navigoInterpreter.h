@@ -39,7 +39,7 @@
 
 +(TBXMLElement *)getRootElement:(NSData *)xmlFile;
 
-+(NSArray *)getPrimaryResults:(TBXMLElement *)rootElement;
++(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
@@ -56,6 +56,5 @@
 +(NSString *)getRideTime:(TBXMLElement *)rootElement;
  
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement;
-
 
 @end
