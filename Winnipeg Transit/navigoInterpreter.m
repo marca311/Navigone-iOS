@@ -245,11 +245,11 @@
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
+    [result addObject:numberOfPlansString];
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
-    //rootElement = [XMLParser extractUnknownChildElement:rootElement];
     for (int i = 0; i < numberOfPlans; i++) {
-        [result addObject:[NSString stringWithFormat:@"Plan %i",i]];
+        [result addObject:[NSString stringWithFormat:@"Plan %i",i+1]];
         [result addObject:[self getEasyAccess:rootElement]];
         [result addObject:[self getStartTime:rootElement]];
         [result addObject:[self getEndTime:rootElement]];
@@ -257,12 +257,20 @@
         [result addObject:[self getWalkTime:rootElement]];
         [result addObject:[self getRideTime:rootElement]];
         [result addObject:[self getWaitTime:rootElement]];
+        rootElement = rootElement->nextSibling;
     }
     return result;
 }
 
++(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    
+}
+
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
+    //Stupid roundabout way of doing this, there is a better way, but I can't make it work for some reason
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     NSString *result = [[NSString alloc]init];
     do {
@@ -282,7 +290,7 @@
 
 +(NSDate *)getStartTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"start" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
@@ -296,7 +304,7 @@
 
 +(NSDate *)getEndTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"end" :planLayer];
     NSString *resultString;
     resultString = [XMLParser getValueFromElement:planLayer];
@@ -310,7 +318,7 @@
 
 +(NSString *)getTotalTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"total" :planLayer];
     NSString *result;
@@ -320,7 +328,7 @@
 
 +(NSString *)getWalkTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"walking" :planLayer];
     NSString *result;
@@ -330,7 +338,7 @@
 
 +(NSString *)getRideTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"riding" :planLayer];
     NSString *result;
@@ -340,8 +348,7 @@
 
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer
-    = [XMLParser extractKnownChildElement:@"times" :planLayer];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"times" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"durations" :planLayer];
     planLayer = [XMLParser extractKnownChildElement:@"waiting" :planLayer];
     NSString *result;

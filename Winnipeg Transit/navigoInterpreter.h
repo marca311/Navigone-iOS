@@ -41,6 +41,8 @@
 
 +(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement;
 
++(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement;
+
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;
