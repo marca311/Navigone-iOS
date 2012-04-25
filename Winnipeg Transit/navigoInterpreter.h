@@ -80,7 +80,6 @@
 +(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentToStop:(TBXMLElement *)rootElement;
-
 //I will use the previous address interpreting system to get location names and stuff
 
 @end
