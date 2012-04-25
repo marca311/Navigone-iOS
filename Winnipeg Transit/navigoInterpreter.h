@@ -41,8 +41,6 @@
 
 +(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement;
 
-+(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement;
-
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;
@@ -58,5 +56,31 @@
 +(NSString *)getRideTime:(TBXMLElement *)rootElement;
  
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement;
+
+#pragma mark - Get plan details
+
++(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement;
+
++(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
+
++(NSMutableArray *)getSegmentDetails:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentType:(TBXMLElement *)rootElement;
+
++(NSMutableArray *)getSegmentLengths:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentStartTime:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentEndTime:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentToCoordinates:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement;
+
++(NSString *)getSegmentToStop:(TBXMLElement *)rootElement;
+
+//I will use the previous address interpreting system to get location names and stuff
 
 @end

@@ -8,25 +8,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897220.141806"
+         timestampString = "357019721.29632"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "270"
+         endingLineNumber = "270"
+         landmarkName = "+getNumberOfPlans:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/navigoInterpreter.m"
+         timestampString = "357019721.29632"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "271"
+         endingLineNumber = "271"
+         landmarkName = "+getNumberOfPlans:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/navigoInterpreter.m"
+         timestampString = "357019721.29632"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "275"
+         endingLineNumber = "275"
+         landmarkName = "+getNumberOfPlans:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/navigoInterpreter.m"
+         timestampString = "357019721.29632"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "276"
          endingLineNumber = "276"
-         landmarkName = "+getStartTime:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897367.371432"
+         timestampString = "357019721.29632"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "277"
          endingLineNumber = "277"
-         landmarkName = "+getStartTime:"
+         landmarkName = "+getEasyAccess:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,12 +73,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897711.843674"
+         timestampString = "357019721.29632"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "281"
-         endingLineNumber = "281"
-         landmarkName = "+getStartTime:"
+         startingLineNumber = "279"
+         endingLineNumber = "279"
+         landmarkName = "+getEasyAccess:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,51 +86,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897711.843674"
+         timestampString = "357019721.29632"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282"
-         landmarkName = "+getStartTime:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897711.843674"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "283"
-         endingLineNumber = "283"
-         landmarkName = "+getStartTime:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897711.843674"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
-         landmarkName = "+getStartTime:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "355897711.843674"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "284"
-         endingLineNumber = "284"
-         landmarkName = "+getStartTime:"
+         startingLineNumber = "278"
+         endingLineNumber = "278"
+         landmarkName = "+getEasyAccess:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

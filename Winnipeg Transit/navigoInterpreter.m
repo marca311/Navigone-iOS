@@ -262,12 +262,6 @@
     return result;
 }
 
-+(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement
-{
-    NSMutableArray *result = [[NSMutableArray alloc]init];
-    
-}
-
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
     //Stupid roundabout way of doing this, there is a better way, but I can't make it work for some reason
@@ -324,7 +318,7 @@
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
-}
+}//getTotalTime
 
 +(NSString *)getWalkTime:(TBXMLElement *)rootElement
 {
@@ -334,7 +328,7 @@
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
-}
+}//getWalkTime
 
 +(NSString *)getRideTime:(TBXMLElement *)rootElement
 {
@@ -344,7 +338,7 @@
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
-}
+}//getRideTime
 
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement
 {
@@ -354,6 +348,14 @@
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
-}
+}//getWaitTime
+
+#pragma mark - Get plan details
+
++(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    
+}//getPlanDetails
 
 @end
