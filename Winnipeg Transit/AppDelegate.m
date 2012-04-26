@@ -16,10 +16,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /*UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView" bundle:nil];
+    UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView" bundle:nil];
     //UIViewController *timetableVC = [[timetableViewController alloc]initWithNibName:@"TheNib" bundle:nil];
     self.window.rootViewController = navigoVC;
-    [self.window makeKeyAndVisible];*/
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
