@@ -59,7 +59,7 @@
 
 #pragma mark - Get plan details
 
-+(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement;
++(NSMutableArray *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
 
@@ -80,6 +80,6 @@
 +(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentToStop:(TBXMLElement *)rootElement;
-//I will use the previous address interpreting system to get location names and stuff
+//I will use the previous address interpreting system to get location names and stuff   
 
 @end

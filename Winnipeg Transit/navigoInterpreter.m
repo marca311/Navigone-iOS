@@ -264,7 +264,6 @@
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
-    //Stupid roundabout way of doing this, there is a better way, but I can't make it work for some reason
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     NSString *result = [[NSString alloc]init];
     do {
@@ -352,10 +351,72 @@
 
 #pragma mark - Get plan details
 
-+(NSMutableArray *)getPlanDetails:(TBXMLElement *)rootElement
++(NSMutableArray *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
-    
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    [result addObject:[self getNumberOfSegments:rootElement]];
+    return result;
 }//getPlanDetails
+
++(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement
+{
+    rootElement = [XMLParser extractKnownChildElement:@"segments" :rootElement];
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    NSString *result = [[NSString alloc]init];
+    int resultInt = 0;
+    do {
+        resultInt += 1;
+    } while ((rootElement = rootElement->nextSibling));
+    result = [NSString stringWithFormat:@"%i",resultInt];
+    NSLog([NSString stringWithFormat:@"Result:%@",result]);
+    return result;
+}//getNumberOfSegments
+
++(NSMutableArray *)getSegmentDetails:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentDetails
+
++(NSString *)getSegmentType:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentType
+
++(NSMutableArray *)getSegmentLengths:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentLengths
+
++(NSString *)getSegmentStartTime:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentStartTime
+
++(NSString *)getSegmentEndTime:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentEndTime
+
++(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentFromCoordinates
+
++(NSString *)getSegmentToCoordinates:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentToCoordinates
+
++(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentFromStop
+
++(NSString *)getSegmentToStop:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentToStop
 
 @end
