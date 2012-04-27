@@ -105,4 +105,9 @@
     return result;
 }
 
++(NSString *)getKnownAttributeData:(NSString *)attributeName:(TBXMLElement *)element
+{
+    NSString *result = [TBXML valueOfAttributeNamed:attributeName forElement:element];
+}
+
 @end

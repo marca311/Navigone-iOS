@@ -27,5 +27,6 @@
 +(NSString *)getElementName:(TBXMLElement *)element;
 +(NSString *)getValueFromElement:(TBXMLElement *)element;
 +(NSString *)getAttributeValue:(TBXMLAttribute *)attribute;
++(NSString *)getKnownAttributeData:(NSString *)attributeName:(TBXMLElement *)element;
 
 @end

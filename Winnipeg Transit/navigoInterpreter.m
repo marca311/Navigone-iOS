@@ -354,21 +354,24 @@
 +(NSMutableArray *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
-    rootElement = [XMLParser extractUnknownChildElement:rootElement];
-    rootElement = [XMLParser extractUnknownChildElement:rootElement];
-    [result addObject:[self getNumberOfSegments:rootElement]];
+    TBXMLElement *planLevel = [XMLParser extractUnknownChildElement:rootElement];
+    while (![planNumber isEqualToString:[XMLParser getKnownAttributeData:@"number" :planLevel]]) {
+        planLevel = planLevel->nextSibling;
+    }
+    //planLevel = [XMLParser extractUnknownChildElement:planLevel];
+    [result addObject:[self getNumberOfSegments:planLevel]];
     return result;
 }//getPlanDetails
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement
 {
-    rootElement = [XMLParser extractKnownChildElement:@"segments" :rootElement];
-    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    TBXMLElement *planLevel = [XMLParser extractKnownChildElement:@"segments" :rootElement];
+    planLevel = [XMLParser extractUnknownChildElement:planLevel];
     NSString *result = [[NSString alloc]init];
     int resultInt = 0;
     do {
         resultInt += 1;
-    } while ((rootElement = rootElement->nextSibling));
+    } while ((planLevel = planLevel->nextSibling));
     result = [NSString stringWithFormat:@"%i",resultInt];
     NSLog([NSString stringWithFormat:@"Result:%@",result]);
     return result;
