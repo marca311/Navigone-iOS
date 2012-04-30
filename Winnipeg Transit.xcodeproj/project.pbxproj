@@ -40,7 +40,8 @@
 		6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */; };
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
-		6FEA7B9D152D53BD0026469A /* NavigoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView.xib */; };
+		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
+		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +105,8 @@
 		6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewLibrary.h; sourceTree = "<group>"; };
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F6B2F4D150F97E600185233 /* locations_Clift.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = locations_Clift.xml; sourceTree = "<group>"; };
-		6FEA7B9C152D53BD0026469A /* NavigoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView.xib; sourceTree = "<group>"; };
+		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
+		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +257,8 @@
 		6FEA7B9A152D53750026469A /* NIB Files */ = {
 			isa = PBXGroup;
 			children = (
-				6FEA7B9C152D53BD0026469A /* NavigoView.xib */,
+				6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */,
+				6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */,
 			);
 			name = "NIB Files";
 			sourceTree = "<group>";
@@ -342,7 +345,8 @@
 				6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */,
 				6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */,
 				6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */,
-				6FEA7B9D152D53BD0026469A /* NavigoView.xib in Resources */,
+				6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */,
+				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

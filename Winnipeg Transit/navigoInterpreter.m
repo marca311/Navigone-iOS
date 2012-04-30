@@ -355,11 +355,12 @@
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     TBXMLElement *planLevel = [XMLParser extractUnknownChildElement:rootElement];
-    while (![planNumber isEqualToString:[XMLParser getKnownAttributeData:@"number" :planLevel]]) {
+    while (![planNumber isEqualToString:[XMLParser getAttributeValue:[XMLParser extractAttribute:planLevel]]]) {
         planLevel = planLevel->nextSibling;
     }
     //planLevel = [XMLParser extractUnknownChildElement:planLevel];
     [result addObject:[self getNumberOfSegments:planLevel]];
+    
     return result;
 }//getPlanDetails
 
@@ -373,7 +374,9 @@
         resultInt += 1;
     } while ((planLevel = planLevel->nextSibling));
     result = [NSString stringWithFormat:@"%i",resultInt];
+#if TARGET_IPHONE_SIMULATOR
     NSLog([NSString stringWithFormat:@"Result:%@",result]);
+#endif
     return result;
 }//getNumberOfSegments
 
