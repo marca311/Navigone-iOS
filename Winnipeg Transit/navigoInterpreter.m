@@ -370,7 +370,7 @@
         planLevel = planLevel->nextSibling;
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
-    [result addObject:numberOfSegments];
+    [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
     [result addObject:[self getSegmentDetails:planLevel]];
     return result;
 }//getPlanDetails
