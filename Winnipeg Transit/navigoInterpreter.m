@@ -371,7 +371,7 @@
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
     [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
-    [result addObject:[self getSegmentDetails:planLevel]];
+    [result setObject:[self getSegmentDetails:planLevel] forKey://add segment dict name gen];
     return result;
 }//getPlanDetails
 
