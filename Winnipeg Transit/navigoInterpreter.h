@@ -39,7 +39,7 @@
 
 +(TBXMLElement *)getRootElement:(NSData *)xmlFile;
 
-+(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
@@ -59,15 +59,15 @@
 
 #pragma mark - Get plan details
 
-+(NSMutableArray *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
 
-+(NSMutableArray *)getSegmentDetails:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentDetails:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
-+(NSMutableArray *)getSegmentLengths:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentLengths:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentStartTime:(TBXMLElement *)rootElement;
 

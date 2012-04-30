@@ -241,15 +241,25 @@
     return result;
 }//getRootElement
 
-+(NSMutableArray *)getPrimaryResults:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
 {
-    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
-    [result addObject:numberOfPlansString];
+    [result setObject:numberOfPlansString forKey:@"NumberOfPlans"];
+    //[result addObject:numberOfPlansString];
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
     for (int i = 0; i < numberOfPlans; i++) {
-        [result addObject:[NSString stringWithFormat:@"Plan %i",i+1]];
+        [result setObject:[NSString stringWithFormat:@"%i",i+1] forKey:@"Plan"];
+        [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"easy-access %i",i+1]];
+        [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"starttime %i",i+1]];
+        [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"endtime %i",i+1]];
+        [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"totaltime %i",i+1]];
+        [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"walktime %i",i+1]];
+        [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"ridetime %i",i+1]];
+        [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"waittime %i",i+1]];
+        //NSArray method, I'm trying the above dictionary method to see if it works better. I'm hoping it will be more readable.
+        /*
         [result addObject:[self getEasyAccess:rootElement]];
         [result addObject:[self getStartTime:rootElement]];
         [result addObject:[self getEndTime:rootElement]];
@@ -257,6 +267,7 @@
         [result addObject:[self getWalkTime:rootElement]];
         [result addObject:[self getRideTime:rootElement]];
         [result addObject:[self getWaitTime:rootElement]];
+         */
         rootElement = rootElement->nextSibling;
     }
     return result;
@@ -351,16 +362,16 @@
 
 #pragma mark - Get plan details
 
-+(NSMutableArray *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement
 {
-    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     TBXMLElement *planLevel = [XMLParser extractUnknownChildElement:rootElement];
     while (![planNumber isEqualToString:[XMLParser getAttributeValue:[XMLParser extractAttribute:planLevel]]]) {
         planLevel = planLevel->nextSibling;
     }
-    //planLevel = [XMLParser extractUnknownChildElement:planLevel];
-    [result addObject:[self getNumberOfSegments:planLevel]];
-    
+    NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
+    [result addObject:numberOfSegments];
+    [result addObject:[self getSegmentDetails:planLevel]];
     return result;
 }//getPlanDetails
 
@@ -380,9 +391,11 @@
     return result;
 }//getNumberOfSegments
 
-+(NSMutableArray *)getSegmentDetails:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getSegmentDetails:(TBXMLElement *)rootElement
 {
-    
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    [result addObject:@"Nomz"];
+    return result;
 }//getSegmentDetails
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement
@@ -390,7 +403,7 @@
     
 }//getSegmentType
 
-+(NSMutableArray *)getSegmentLengths:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getSegmentLengths:(TBXMLElement *)rootElement
 {
     
 }//getSegmentLengths
