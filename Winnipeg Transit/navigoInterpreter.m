@@ -371,7 +371,15 @@
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
     [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
-    [result setObject:[self getSegmentDetails:planLevel] forKey://add segment dict name gen];
+    planLevel = [XMLParser extractKnownChildElement:@"segments" :rootElement];
+    planLevel = [XMLParser extractUnknownChildElement:planLevel];
+    planLevel = [XMLParser extractUnknownChildElement:planLevel];
+    for (int i = 0; i < [numberOfSegments intValue]; i++) {
+        [result setObject:[self getSegmentDetails:planLevel] forKey:[NSString stringWithFormat:@"segment %i",i]];
+        //planLevel = planLevel->nextSibling;
+        
+    }
+    
     return result;
 }//getPlanDetails
 
@@ -394,13 +402,17 @@
 +(NSMutableDictionary *)getSegmentDetails:(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
-    [result addObject:@"Nomz"];
+    [result setObject:@"Nomz" forKey:@"test"];
+    [result setObject:[self getSegmentType:rootElement] forKey:@"type"];
     return result;
 }//getSegmentDetails
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement
 {
     
+    //There is something wrong here
+    NSString *result = [XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]];
+    return result;
 }//getSegmentType
 
 +(NSMutableDictionary *)getSegmentLengths:(TBXMLElement *)rootElement

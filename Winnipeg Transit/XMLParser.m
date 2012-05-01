@@ -62,7 +62,7 @@
     child = element->firstChild;
     result = [TBXML elementName:element];
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"%@", [TBXML elementName:element]);
+    NSLog(@"Current Location: %@", [TBXML elementName:element]);
 #endif
     return child;
 }
