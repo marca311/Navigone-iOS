@@ -63,7 +63,7 @@
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getSegmentDetails:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentDetails:(int)segementNumber:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
