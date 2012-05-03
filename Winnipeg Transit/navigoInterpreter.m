@@ -405,6 +405,9 @@
     //[result setObject:@"Nomz" forKey:@"test"];
     [result setObject:[self getSegmentType:rootElement] forKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]];
     [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"segmentStartTime %i", segementNumber]];
+    [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"segmentEndTime %i", segementNumber]];
+    [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"segmentTotalTime %i", segementNumber]];
+    [result setObject:[self getSegmentLocationInfo:[result objectForKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]] :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
     return result;
 }//getSegmentDetails
 
@@ -414,20 +417,30 @@
     return result;
 }//getSegmentType
 
-+(NSMutableDictionary *)getSegmentLengths:(TBXMLElement *)rootElement
++(NSString *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
 {
     
-}//getSegmentLengths
+}//getSegmentLocationInfo
 
-+(NSString *)getSegmentStartTime:(TBXMLElement *)rootElement
++(NSString *)getBusNumber:(TBXMLElement *)rootElement
 {
     
-}//getSegmentStartTime
+}//getBusNumber
 
-+(NSString *)getSegmentEndTime:(TBXMLElement *)rootElement
++(NSString *)getBusName:(TBXMLElement *)rootElement
 {
     
-}//getSegmentEndTime
+}//getBusName
+
++(NSString *)getStopNumber:(TBXMLElement *)rootElement
+{
+    
+}//getStopNumber
+
++(NSString *)getStopName:(TBXMLElement *)rootElement
+{
+    
+}//getStopName
 
 +(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement
 {

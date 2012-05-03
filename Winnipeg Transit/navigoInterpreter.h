@@ -67,11 +67,15 @@
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getSegmentLengths:(TBXMLElement *)rootElement;
++(NSString *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentStartTime:(TBXMLElement *)rootElement;
++(NSString *)getBusNumber:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentEndTime:(TBXMLElement *)rootElement;
++(NSString *)getBusName:(TBXMLElement *)rootElement;
+
++(NSString *)getStopNumber:(TBXMLElement *)rootElement;
+
++(NSString *)getStopName:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement;
 
