@@ -10,6 +10,38 @@
 
 @implementation MSUtilities
 
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    [savedDictionary writeToFile:filePath atomically:YES];
+}//saveMutableDictionaryToFile
+
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    [savedDictionary writeToFile:filePath atomically:YES]; 
+}//saveDictionaryToFile
+
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    [savedArray writeToFile:filePath atomically:YES];
+}//saveMutableArrayToFile
+
++(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    [savedArray writeToFile:filePath atomically:YES];
+}//saveArrayToFile
+
 +(NSString *)getFirmwareVersion
 {
     UIDevice *theDevice = [UIDevice currentDevice];

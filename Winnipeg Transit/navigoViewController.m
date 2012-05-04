@@ -121,6 +121,7 @@
     TBXMLElement *plannerResultRootElement = [navigoInterpreter getRootElement:testData];
     NSMutableArray *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
     NSMutableArray *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
+    [MSUtilities saveMutableArrayToFile:testPlan :@"Blob.plist"];
     NSLog(@"End of Arrays");
     
     [super viewDidLoad];

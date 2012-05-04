@@ -63,11 +63,19 @@
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
 
+#pragma mark - Get segment details
+
 +(NSMutableDictionary *)getSegmentDetails:(int)segementNumber:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getWalkInfo:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getTransferInfo:(TBXMLElement *)rootElement;
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement;
 

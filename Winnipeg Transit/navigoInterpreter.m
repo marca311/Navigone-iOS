@@ -407,7 +407,7 @@
     [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"segmentStartTime %i", segementNumber]];
     [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"segmentEndTime %i", segementNumber]];
     [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"segmentTotalTime %i", segementNumber]];
-    [result setObject:[self getSegmentLocationInfo:[result objectForKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]] :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
+    //[result setObject:[self getSegmentLocationInfo:[result objectForKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]] :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
     return result;
 }//getSegmentDetails
 
@@ -417,10 +417,33 @@
     return result;
 }//getSegmentType
 
-+(NSString *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
++(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
+{
+    NSMutableDictionary *result;
+    if ([segmentType isEqual:@"walk"] == TRUE) {
+        result = [self getWalkInfo:rootElement];
+    } else if ([segmentType isEqual:@"ride"] == TRUE) {
+        result = [self getRideInfo:rootElement];
+    } else if ([segmentType isEqual:@"transfer"] == TRUE) {
+        result = [self getTransferInfo:rootElement];
+    }
+    return result;
+}//getSegmentLocationInfo
+
++(NSMutableDictionary *)getWalkInfo:(TBXMLElement *)rootElement
 {
     
-}//getSegmentLocationInfo
+}//getWalkInfo
+
++(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement
+{
+    
+}//getRideInfo
+
++(NSMutableDictionary *)getTransferInfo:(TBXMLElement *)rootElement
+{
+    
+}//getTransferInfo
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement
 {

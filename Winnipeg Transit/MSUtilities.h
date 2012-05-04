@@ -10,6 +10,14 @@
 
 @interface MSUtilities : NSObject
 
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary:(NSString *)fileName;
+
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary:(NSString *)fileName;
+
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray:(NSString *)fileName;
+
++(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName;
+
 +(NSString *)getFirmwareVersion;
 
 +(BOOL)firmwareIsHigherThanFour;
