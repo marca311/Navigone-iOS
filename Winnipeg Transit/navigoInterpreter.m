@@ -420,30 +420,40 @@
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result;
-    if ([segmentType isEqual:@"walk"] == TRUE) {
-        result = [self getWalkInfo:rootElement];
-    } else if ([segmentType isEqual:@"ride"] == TRUE) {
+    if ([segmentType isEqual:@"ride"] == TRUE) {
         result = [self getRideInfo:rootElement];
-    } else if ([segmentType isEqual:@"transfer"] == TRUE) {
-        result = [self getTransferInfo:rootElement];
+    } else {
+        //[laskdf]
     }
     return result;
 }//getSegmentLocationInfo
 
-+(NSMutableDictionary *)getWalkInfo:(TBXMLElement *)rootElement
++(NSString *)getInstructionType:(TBXMLElement *)rootElement
+{
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    rootElement = rootElement->nextSibling;
+    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"variant"]) {
+        return @"bus";
+    } else {
+        rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    }
+    
+}//getInstructionType
+
++(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement
 {
     
-}//getWalkInfo
+}//getOriginData
+
++(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement
+{
+    
+}//getStopData
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement
 {
     
 }//getRideInfo
-
-+(NSMutableDictionary *)getTransferInfo:(TBXMLElement *)rootElement
-{
-    
-}//getTransferInfo
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement
 {

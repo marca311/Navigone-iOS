@@ -71,11 +71,13 @@
 
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getWalkInfo:(TBXMLElement *)rootElement;
++(NSString *)getInstructionType:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;
-
-+(NSMutableDictionary *)getTransferInfo:(TBXMLElement *)rootElement;
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement;
 
@@ -89,9 +91,6 @@
 
 +(NSString *)getSegmentToCoordinates:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement;
-
-+(NSString *)getSegmentToStop:(TBXMLElement *)rootElement;
 //I will use the previous address interpreting system to get location names and stuff   
 
 @end
