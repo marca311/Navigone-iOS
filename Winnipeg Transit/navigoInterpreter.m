@@ -432,10 +432,11 @@
 {
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
     rootElement = rootElement->nextSibling;
-    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"variant"]) {
-        return @"bus";
-    } else {
-        rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"origin"]) {
+        return @"walk";
+    } else if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"stop"]) {
+        return @"stop";
     }
     
 }//getInstructionType
