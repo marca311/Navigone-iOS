@@ -371,6 +371,7 @@
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
     [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
+    [result setObject:[NSDate date] forKey:@"Entry time"];
     planLevel = [XMLParser extractKnownChildElement:@"segments" :planLevel];
     planLevel = [XMLParser extractUnknownChildElement:planLevel];
     //planLevel = [XMLParser extractUnknownChildElement:planLevel];
@@ -403,11 +404,12 @@
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     //[result setObject:@"Nomz" forKey:@"test"];
-    [result setObject:[self getSegmentType:rootElement] forKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]];
+    NSString *segmentType = [self getSegmentType:rootElement];
+    [result setObject:segmentType forKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]];
     [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"segmentStartTime %i", segementNumber]];
     [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"segmentEndTime %i", segementNumber]];
     [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"segmentTotalTime %i", segementNumber]];
-    //[result setObject:[self getSegmentLocationInfo:[result objectForKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]] :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
+    //[result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
     return result;
 }//getSegmentDetails
 
@@ -423,19 +425,19 @@
     if ([segmentType isEqual:@"ride"] == TRUE) {
         result = [self getRideInfo:rootElement];
     } else {
-        //[laskdf]
+        result = @"not-ride";
     }
     return result;
 }//getSegmentLocationInfo
 
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement
 {
-    rootElement = [XMLParser extractUnknownChildElement:rootElement];
-    rootElement = rootElement->nextSibling;
-    rootElement = [XMLParser extractUnknownChildElement:rootElement];
-    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"origin"]) {
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = planLayer->nextSibling;
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]]isEqual:@"origin"]) {
         return @"walk";
-    } else if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:rootElement]]isEqual:@"stop"]) {
+    } else if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]]isEqual:@"stop"]) {
         return @"stop";
     }
     
@@ -453,6 +455,11 @@
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement
 {
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = planLayer->nextSibling;
+    //planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    NSString *variantNumber = [XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]];
+    return nil;
     
 }//getRideInfo
 

@@ -18,6 +18,12 @@
 
 +(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName;
 
++(void)generateCacheDB;
+
++(void)checkCacheAge;
+
++(void)deleteOldSavedRoutes;
+
 +(NSString *)getFirmwareVersion;
 
 +(BOOL)firmwareIsHigherThanFour;

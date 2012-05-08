@@ -119,9 +119,9 @@
     //Method testing area
     NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
     TBXMLElement *plannerResultRootElement = [navigoInterpreter getRootElement:testData];
-    NSMutableArray *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
-    NSMutableArray *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
-    [MSUtilities saveMutableArrayToFile:testPlan :@"Blob.plist"];
+    NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
+    NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
+    [MSUtilities saveMutableDictionaryToFile:testPlan :@"Blob"];
     NSLog(@"End of Arrays");
     
     [super viewDidLoad];

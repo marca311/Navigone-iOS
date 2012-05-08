@@ -14,7 +14,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedDictionary writeToFile:filePath atomically:YES];
 }//saveMutableDictionaryToFile
 
@@ -22,7 +22,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedDictionary writeToFile:filePath atomically:YES]; 
 }//saveDictionaryToFile
 
@@ -30,7 +30,7 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedArray writeToFile:filePath atomically:YES];
 }//saveMutableArrayToFile
 
@@ -38,9 +38,36 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",documentsDirectory]];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedArray writeToFile:filePath atomically:YES];
 }//saveArrayToFile
+
++(void)generateCacheDB
+{
+    NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
+    NSFileManager *fileMan = [[NSFileManager alloc]init];
+    int routeNumber = 0;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
+    while ([fileMan fileExistsAtPath:filePath]) {
+        NSDictionary *routeFile = [[NSDictionary alloc]initWithContentsOfFile:filePath];
+        [database setObject:[routeFile objectForKey:@"Entry time"] forKey:filePath];
+        routeNumber++;
+    }
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
+    [database writeToFile:dbPath atomically:YES];
+}//generateCacheDB
+
++(void)checkCacheAge
+{
+    
+}//checkCacheAge
+
++(void)deleteOldSavedRoutes
+{
+    
+}//deleteOldSavedRoutes
 
 +(NSString *)getFirmwareVersion
 {
