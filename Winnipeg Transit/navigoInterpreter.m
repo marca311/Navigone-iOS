@@ -409,7 +409,7 @@
     [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"segmentStartTime %i", segementNumber]];
     [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"segmentEndTime %i", segementNumber]];
     [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"segmentTotalTime %i", segementNumber]];
-    //[result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
+    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
     return result;
 }//getSegmentDetails
 
@@ -425,7 +425,7 @@
     if ([segmentType isEqual:@"ride"] == TRUE) {
         result = [self getRideInfo:rootElement];
     } else {
-        result = @"not-ride";
+        [result setObject:@"not-ride" forKey:@"LocationType"];
     }
     return result;
 }//getSegmentLocationInfo

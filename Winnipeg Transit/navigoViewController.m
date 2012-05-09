@@ -121,7 +121,8 @@
     TBXMLElement *plannerResultRootElement = [navigoInterpreter getRootElement:testData];
     NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
     NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
-    [MSUtilities saveMutableDictionaryToFile:testPlan :@"Blob"];
+    [MSUtilities saveMutableDictionaryToFile:testPlan :@"Route1"];
+    [MSUtilities generateCacheDB];
     NSLog(@"End of Arrays");
     
     [super viewDidLoad];

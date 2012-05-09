@@ -46,14 +46,15 @@
 {
     NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
     NSFileManager *fileMan = [[NSFileManager alloc]init];
-    int routeNumber = 0;
+    int routeNumber = 1;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
-    while ([fileMan fileExistsAtPath:filePath]) {
+    while ([fileMan fileExistsAtPath:filePath] == YES) {
         NSDictionary *routeFile = [[NSDictionary alloc]initWithContentsOfFile:filePath];
-        [database setObject:[routeFile objectForKey:@"Entry time"] forKey:filePath];
-        routeNumber++;
+        [database setObject:[routeFile objectForKey:@"Entry time"] forKey:[NSString stringWithFormat:@"Route%i",routeNumber]];
+        routeNumber += 1;
+        filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
     }
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
     [database writeToFile:dbPath atomically:YES];
