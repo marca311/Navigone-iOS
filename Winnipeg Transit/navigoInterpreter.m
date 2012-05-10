@@ -421,8 +421,9 @@
 
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
 {
-    NSMutableDictionary *result;
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     if ([segmentType isEqual:@"ride"] == TRUE) {
+        [result setObject:@"ride" forKey:@"LocationType"];
         result = [self getRideInfo:rootElement];
     } else {
         [result setObject:@"not-ride" forKey:@"LocationType"];
@@ -455,11 +456,13 @@
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement
 {
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     planLayer = planLayer->nextSibling;
-    //planLayer = [XMLParser extractUnknownChildElement:planLayer];
-    NSString *variantNumber = [XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]];
-    return nil;
+    planLayer = [XMLParser extractKnownChildElement:@"key" :planLayer];
+    NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
+    [result setObject:variantNumber forKey:@"Variant Number"];
+    return result;
     
 }//getRideInfo
 
