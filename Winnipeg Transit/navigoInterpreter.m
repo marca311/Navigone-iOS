@@ -405,11 +405,11 @@
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     //[result setObject:@"Nomz" forKey:@"test"];
     NSString *segmentType = [self getSegmentType:rootElement];
-    [result setObject:segmentType forKey:[NSString stringWithFormat:@"segmentType %i", segementNumber]];
-    [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"segmentStartTime %i", segementNumber]];
-    [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"segmentEndTime %i", segementNumber]];
-    [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"segmentTotalTime %i", segementNumber]];
-    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:[NSString stringWithFormat:@"segmentLocationInfo %i", segementNumber]];
+    [result setObject:segmentType forKey:@"segmentType"];
+    [result setObject:[self getStartTime:rootElement] forKey:@"segmentStartTime"];
+    [result setObject:[self getEndTime:rootElement] forKey:@"segmentEndTime"];
+    [result setObject:[self getTotalTime:rootElement] forKey:@"segmentTotalTime"];
+    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"segmentLocationInfo"];
     return result;
 }//getSegmentDetails
 
@@ -426,7 +426,7 @@
         [result setObject:@"ride" forKey:@"LocationType"];
         result = [self getRideInfo:rootElement];
     } else {
-        [result setObject:@"not-ride" forKey:@"LocationType"];
+        [result setObject:[self getInstructionType:rootElement] forKey:@"LocationType"];
     }
     return result;
 }//getSegmentLocationInfo
@@ -434,6 +434,7 @@
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
     planLayer = planLayer->nextSibling;
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
     if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]]isEqual:@"origin"]) {
