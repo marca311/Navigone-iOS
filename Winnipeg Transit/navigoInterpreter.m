@@ -466,8 +466,8 @@
     NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
+    [result setObject:[self getVariantName:variantNumber] forKey:@"Variant Name"];
     return result;
-    
 }//getRideInfo
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement
@@ -475,10 +475,18 @@
     
 }//getBusNumber
 
-+(NSString *)getBusName:(TBXMLElement *)rootElement
++(NSString *)getVariantName:(NSString *)variantKey
 {
-    
-}//getBusName
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]];
+    urlString = [urlString ];
+    NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]]];
+    NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
+    TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];
+    TBXMLElement *elementOfVariant = [XMLParser getRootElement:variantXML];
+    elementOfVariant = [XMLParser extractKnownChildElement:@"name" :elementOfVariant];
+    NSString *result = [XMLParser getValueFromElement:elementOfVariant];
+    return result;
+}//getVariantName
 
 +(NSString *)getStopNumber:(TBXMLElement *)rootElement
 {

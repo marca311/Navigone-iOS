@@ -81,7 +81,7 @@
 
 +(NSString *)getBusNumber:(TBXMLElement *)rootElement;
 
-+(NSString *)getBusName:(TBXMLElement *)rootElement;
++(NSString *)getVariantName:(NSString *)variantKey;
 
 +(NSString *)getStopNumber:(TBXMLElement *)rootElement;
 
