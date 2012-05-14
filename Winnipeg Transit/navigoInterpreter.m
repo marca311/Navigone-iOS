@@ -410,6 +410,7 @@
     [result setObject:[self getEndTime:rootElement] forKey:@"segmentEndTime"];
     [result setObject:[self getTotalTime:rootElement] forKey:@"segmentTotalTime"];
     [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"segmentLocationInfo"];
+    
     return result;
 }//getSegmentDetails
 
@@ -422,24 +423,25 @@
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
-    if ([segmentType isEqual:@"ride"] == TRUE) {
-        [result setObject:@"ride" forKey:@"LocationType"];
+    if ([segmentType isEqual:@"ride"]) {
         result = [self getRideInfo:rootElement];
+        return result;
     } else {
         [result setObject:[self getInstructionType:rootElement] forKey:@"LocationType"];
+        return result;
     }
-    return result;
 }//getSegmentLocationInfo
 
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    //planLayer = [XMLParser extractUnknownChildElement:planLayer];
     planLayer = planLayer->nextSibling;
+    //planLayer = planLayer->nextSibling;
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
-    if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]]isEqual:@"origin"]) {
+    if ([[XMLParser getElementName:planLayer]isEqual:@"origin"]) {
         return @"walk";
-    } else if ([[XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]]isEqual:@"stop"]) {
+    } else if ([[XMLParser getElementName:planLayer]isEqual:@"stop"]) {
         return @"stop";
     }
     
@@ -462,6 +464,7 @@
     planLayer = planLayer->nextSibling;
     planLayer = [XMLParser extractKnownChildElement:@"key" :planLayer];
     NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
+    [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
     return result;
     
