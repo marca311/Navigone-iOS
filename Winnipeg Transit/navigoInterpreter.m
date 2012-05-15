@@ -432,12 +432,15 @@
     }
 }//getSegmentLocationInfo
 
++(NSMutableDictionary *)getSegmentPartDetails:(TBXMLElement *)rootElement
+{
+    
+}//getSegmentPartDetails
+
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    //planLayer = [XMLParser extractUnknownChildElement:planLayer];
     planLayer = planLayer->nextSibling;
-    //planLayer = planLayer->nextSibling;
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
     if ([[XMLParser getElementName:planLayer]isEqual:@"origin"]) {
         return @"walk";
@@ -477,8 +480,8 @@
 
 +(NSString *)getVariantName:(NSString *)variantKey
 {
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]];
-    urlString = [urlString ];
+    variantKey = [variantKey stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]];
     NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]]];
     NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
     TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];

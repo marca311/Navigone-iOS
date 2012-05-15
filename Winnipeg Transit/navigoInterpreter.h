@@ -71,6 +71,8 @@
 
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
 
++(NSMutableDictionary *)getSegmentPartDetails:(TBXMLElement *)rootElement;
+
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement;
