@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UniversalViewController.h"
 
-@interface navigoResultViewController : UIViewController
+@interface navigoResultViewController : UniversalViewController
 
 @end

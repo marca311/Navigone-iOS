@@ -470,6 +470,7 @@
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
     [result setObject:[self getVariantName:variantNumber] forKey:@"Variant Name"];
+    //[result setObject:[self getBusNumber:planLayer] forKey:@"Bus Number"];
     return result;
 }//getRideInfo
 
@@ -481,7 +482,6 @@
 +(NSString *)getVariantName:(NSString *)variantKey
 {
     variantKey = [variantKey stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
-    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]];
     NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]]];
     NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
     TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];

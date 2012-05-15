@@ -2,7 +2,7 @@
 //  MSUtilities.m
 //  Winnipeg Transit
 //
-//  Created by Keith Brenneman on 12-03-19.
+//  Created by Marcus Dyck on 12-03-19.
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 

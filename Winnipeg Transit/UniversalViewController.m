@@ -24,6 +24,11 @@
     [self resignFirstResponder];
 }
 
+-(IBAction)dismissView:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

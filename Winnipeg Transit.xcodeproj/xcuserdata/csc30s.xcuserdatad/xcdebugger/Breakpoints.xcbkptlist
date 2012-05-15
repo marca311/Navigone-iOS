@@ -611,7 +611,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "437"
          endingLineNumber = "437"
-         landmarkName = "+getInstructionType:"
+         landmarkName = "+getSegmentPartDetails:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -624,7 +624,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "438"
          endingLineNumber = "438"
-         landmarkName = "+getInstructionType:"
+         landmarkName = "+getSegmentPartDetails:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -637,8 +637,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "439"
          endingLineNumber = "439"
-         landmarkName = "+getInstructionType:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -736,46 +736,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358715829.062827"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "485"
-         endingLineNumber = "485"
-         landmarkName = "+getVariantName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358718724.739239"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "481"
-         endingLineNumber = "481"
-         landmarkName = "+getVariantName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358718725.405069"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "480"
-         endingLineNumber = "480"
-         landmarkName = "+getVariantName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358718725.845142"
+         timestampString = "358789545.116074"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "482"
@@ -788,7 +749,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358718726.33312"
+         timestampString = "358789545.116074"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "483"
@@ -801,11 +762,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Winnipeg Transit/navigoInterpreter.m"
-         timestampString = "358718726.653126"
+         timestampString = "358789545.116074"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "484"
          endingLineNumber = "484"
+         landmarkName = "+getVariantName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/navigoInterpreter.m"
+         timestampString = "358789545.116074"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "485"
+         endingLineNumber = "485"
          landmarkName = "+getVariantName:"
          landmarkType = "5">
       </FileBreakpoint>
