@@ -32,7 +32,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *dateField;
 @property (nonatomic, retain) IBOutlet UITextField *mode;
 @property (nonatomic, retain) IBOutlet UISwitch *easyAccessSwitch;
-@property (nonatomic)                  BOOL easyAccess;
+@property (nonatomic)         BOOL easyAccess;
 @property (nonatomic, retain) IBOutlet UITextField *walkSpeed;
 @property (nonatomic, retain) IBOutlet UITextField *maxWalkTime;
 @property (nonatomic, retain) IBOutlet UITextField *minTransferWait;
@@ -48,6 +48,8 @@
 @property (nonatomic, retain) NSString *modeString;
 
 -(IBAction)submitButton:(id)sender;
+
+-(NSMutableDictionary *)getRoutePlans:(NSData *)resultXMLFile;
 
 -(IBAction)openDatePicker:(id)sender;
 

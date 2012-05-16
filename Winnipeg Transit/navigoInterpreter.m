@@ -241,6 +241,12 @@
     return result;
 }//getRootElement
 
++(NSMutableDictionary *)getRouteData:(NSData *)xmlFile
+{
+    TBXMLElement *rootElement = [self getRootElement:xmlFile];
+    //put primary results and the rest into one dictionary, then save it to file and generate cache
+}//getRouteData
+
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];

@@ -39,6 +39,8 @@
 
 +(TBXMLElement *)getRootElement:(NSData *)xmlFile;
 
++(NSMutableDictionary *)getRouteData:(NSData *)xmlFile;
+
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
