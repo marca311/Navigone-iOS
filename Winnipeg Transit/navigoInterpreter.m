@@ -8,6 +8,7 @@
 
 #import "navigoInterpreter.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation navigoInterpreter
 
@@ -246,12 +247,17 @@
     TBXMLElement *rootElement = [self getRootElement:xmlFile];
     //put primary results and the rest into one dictionary, then save it to file and generate cache
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
-    [result setObject:[navigoInterpreter getPrimaryResults:rootElement] forKey:@"Primary Results"];
-    
+    NSMutableDictionary *primaryResults = [navigoInterpreter getPrimaryResults:rootElement];
+    [result setObject:[NSDate date] forKey:@"Entry time"];
+    [result setObject:primaryResults forKey:@"Primary Results"];
+    int numberOfPlans = [[primaryResults objectForKey:@"NumberOfPlans"]intValue];
+    for (int i = 0; i < numberOfPlans; i++) {
+        //insert code here
+    }
     //NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
     //NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
-    //[MSUtilities saveMutableDictionaryToFile:testPlan :@"Route1"];
-    //[MSUtilities generateCacheDB];
+    [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
+    [MSUtilities generateCacheDB];
 }//getRouteData
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
@@ -384,7 +390,6 @@
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
     [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
-    [result setObject:[NSDate date] forKey:@"Entry time"];
     planLevel = [XMLParser extractKnownChildElement:@"segments" :planLevel];
     planLevel = [XMLParser extractUnknownChildElement:planLevel];
     //planLevel = [XMLParser extractUnknownChildElement:planLevel];
