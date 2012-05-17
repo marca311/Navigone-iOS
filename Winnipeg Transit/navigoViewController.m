@@ -160,11 +160,10 @@
         [searchArray addObject:maxTransferWait.text];
         [searchArray addObject:maxTransfers.text];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        TBXMLElement *plannerResultRootElement = [navigoInterpreter getRootElement:resultXMLFile];
-        NSMutableDictionary *primaryResults = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
-        NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
+        NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:resultXMLFile];
+        [MSUtilities saveMutableDictionaryToFile:routeDict :@"Route1"];
+        [MSUtilities generateCacheDB];
         [self performSegueWithIdentifier:@"toResults" sender:self];
-        
     }
 }
 

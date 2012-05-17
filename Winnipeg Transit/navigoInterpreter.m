@@ -245,6 +245,13 @@
 {
     TBXMLElement *rootElement = [self getRootElement:xmlFile];
     //put primary results and the rest into one dictionary, then save it to file and generate cache
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    [result setObject:[navigoInterpreter getPrimaryResults:rootElement] forKey:@"Primary Results"];
+    
+    //NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
+    //NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
+    //[MSUtilities saveMutableDictionaryToFile:testPlan :@"Route1"];
+    //[MSUtilities generateCacheDB];
 }//getRouteData
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
