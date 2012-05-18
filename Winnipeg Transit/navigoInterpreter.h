@@ -44,6 +44,8 @@
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
++(NSMutableDictionary *)getPlanResults:(TBXMLElement *)rootElement;
+
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;

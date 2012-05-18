@@ -271,15 +271,15 @@
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
     for (int i = 0; i < numberOfPlans; i++) {
-        [result setObject:[NSString stringWithFormat:@"%i",i+1] forKey:@"Plan"];
-        [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"easyAccess %i",i+1]];
-        [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"startTime %i",i+1]];
-        [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"endTime %i",i+1]];
-        [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"totalTime %i",i+1]];
-        [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"walkTime %i",i+1]];
-        [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"rideTime %i",i+1]];
-        [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"waitTime %i",i+1]];
-        //NSArray method, I'm trying the above dictionary method to see if it works better. I'm hoping it will be more readable.
+        NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan%i",i+1];
+        [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"%@ easyAccess",planNumber]];
+        [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"%@ startTime",planNumber]];
+        [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"%@ endTime",planNumber]];
+        [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"%@ totalTime",planNumber]];
+        [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"%@ walkTime",planNumber]];
+        [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"%@ rideTime",planNumber]];
+        [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"%@ waitTime",planNumber]];
+        //NSArray method, I'm trying the above dictionary method to see if it works better. I'm hoping it will be more readable and more easily accessable.
         /*
         [result addObject:[self getEasyAccess:rootElement]];
         [result addObject:[self getStartTime:rootElement]];
@@ -293,6 +293,15 @@
     }
     return result;
 }
+
++(NSMutableDictionary *)getPlanResults:(TBXMLElement *)rootElement
+{
+    /*
+    for (int planInt; <#condition#>; <#increment#>) {
+        <#statements#>
+    }
+     */
+}//getPlanResults 
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
