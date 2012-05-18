@@ -250,9 +250,11 @@
     NSMutableDictionary *primaryResults = [navigoInterpreter getPrimaryResults:rootElement];
     [result setObject:[NSDate date] forKey:@"Entry time"];
     [result setObject:primaryResults forKey:@"Primary Results"];
-    int numberOfPlans = [[primaryResults objectForKey:@"NumberOfPlans"]intValue];
-    for (int i = 0; i < numberOfPlans; i++) {
-        //insert code here
+    NSString *numberOfPlansString = [primaryResults objectForKey:@"NumberOfPlans"];
+    int numberOfPlans = [numberOfPlansString intValue];
+    for (int i = 1; i < numberOfPlans+1; i++) {
+        NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan %i",i];
+        [result setObject:[self getPlanDetails:numberOfPlansString :rootElement] forKey:planNumber];
     }
     //NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
     //NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
