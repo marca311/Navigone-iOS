@@ -49,13 +49,25 @@
     int routeNumber = 1;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
+    NSArray *folderContents = [fileMan contentsOfDirectoryAtPath:documentsDirectory error:nil];
+    for (int i = 0; i < [folderContents count]; i++) {
+        NSString *currentFile = [folderContents objectAtIndex:i];
+        if ([currentFile isEqual:@"CacheDatabase.plist"]) {
+            
+        } else if ([currentFile hasSuffix:@".plist"]) {
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:currentFile];
+            NSDictionary *routeFile = [[NSDictionary alloc]initWithContentsOfFile:filePath];
+            currentFile = [currentFile stringByReplacingOccurrencesOfString:@".plist" withString:@""];
+            [database setObject:[routeFile objectForKey:@"Entry time"] forKey:currentFile];
+        }
+    }
+/*    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
     while ([fileMan fileExistsAtPath:filePath] == YES) {
         NSDictionary *routeFile = [[NSDictionary alloc]initWithContentsOfFile:filePath];
         [database setObject:[routeFile objectForKey:@"Entry time"] forKey:[NSString stringWithFormat:@"Route%i",routeNumber]];
         routeNumber += 1;
         filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
-    }
+    } */
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
     [database writeToFile:dbPath atomically:YES];
 }//generateCacheDB

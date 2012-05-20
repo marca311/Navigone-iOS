@@ -245,7 +245,6 @@
 +(NSMutableDictionary *)getRouteData:(NSData *)xmlFile
 {
     TBXMLElement *rootElement = [self getRootElement:xmlFile];
-    //put primary results and the rest into one dictionary, then save it to file and generate cache
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     NSMutableDictionary *primaryResults = [navigoInterpreter getPrimaryResults:rootElement];
     [result setObject:[NSDate date] forKey:@"Entry time"];
@@ -256,10 +255,9 @@
         NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan %i",i];
         [result setObject:[self getPlanDetails:numberOfPlansString :rootElement] forKey:planNumber];
     }
-    //NSMutableDictionary *test = [navigoInterpreter getPrimaryResults:plannerResultRootElement];
-    //NSMutableDictionary *testPlan = [navigoInterpreter getPlanDetails:@"1" :plannerResultRootElement];
     [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
     [MSUtilities generateCacheDB];
+    return nil;
 }//getRouteData
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
@@ -267,18 +265,17 @@
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
     [result setObject:numberOfPlansString forKey:@"NumberOfPlans"];
-    //[result addObject:numberOfPlansString];
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
     for (int i = 0; i < numberOfPlans; i++) {
         NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan%i",i+1];
-        [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"%@ easyAccess",planNumber]];
-        [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"%@ startTime",planNumber]];
-        [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"%@ endTime",planNumber]];
-        [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"%@ totalTime",planNumber]];
-        [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"%@ walkTime",planNumber]];
-        [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"%@ rideTime",planNumber]];
-        [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"%@ waitTime",planNumber]];
+        [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"%@ Easy Access",planNumber]];
+        [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Start Time",planNumber]];
+        [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"%@ End Time",planNumber]];
+        [result setObject:[self getTotalTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Total Time",planNumber]];
+        [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Walk Time",planNumber]];
+        [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Ride Time",planNumber]];
+        [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Wait Time",planNumber]];
         //NSArray method, I'm trying the above dictionary method to see if it works better. I'm hoping it will be more readable and more easily accessable.
         /*
         [result addObject:[self getEasyAccess:rootElement]];
@@ -294,13 +291,15 @@
     return result;
 }
 
-+(NSMutableDictionary *)getPlanResults:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getPlanResults:(NSString *)numberOfPlans:(TBXMLElement *)rootElement
 {
-    /*
-    for (int planInt; <#condition#>; <#increment#>) {
-        <#statements#>
+    TBXMLElement *xmlLayer = rootElement;
+    int numberOfPlansInt = [numberOfPlans intValue];
+    xmlLayer = [XMLParser extractUnknownChildElement:xmlLayer];
+    for (int planInt; planInt < numberOfPlansInt; planInt++) {
+        NSString *planPrefix = [[NSString alloc]initWithFormat:@"Plan%i"];
+        
     }
-     */
 }//getPlanResults 
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
