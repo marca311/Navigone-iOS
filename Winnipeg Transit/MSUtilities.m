@@ -74,7 +74,10 @@
 
 +(void)checkCacheAge
 {
-    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
+    NSDictionary *dataBase = [[NSDictionary alloc]initWithContentsOfFile:dbPath];
 }//checkCacheAge
 
 +(void)deleteOldSavedRoutes
