@@ -94,9 +94,9 @@
 
 +(NSString *)getStopName:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement;
++(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement;
 
-+(NSString *)getSegmentToCoordinates:(TBXMLElement *)rootElement;
++(NSString *)getOriginAddressFromCoords:(NSString *)coordinates;
 
 //I will use the previous address interpreting system to get location names and stuff   
 

@@ -455,7 +455,12 @@
         result = [self getRideInfo:rootElement];
         return result;
     } else {
-        [result setObject:[self getInstructionType:rootElement] forKey:@"LocationType"];
+        NSString *instructionType = [self getInstructionType:rootElement];
+        [result setObject:instructionType forKey:@"LocationType"];
+        if ([instructionType isEqual:@"origin"]) {
+            NSString *segmentCoordinates = [self getSegmentCoordinates:rootElement];
+            [result setObject:segmentCoordinates forKey:@"Coordinates"];
+        }
         return result;
     }
 }//getSegmentLocationInfo
@@ -529,15 +534,15 @@
     
 }//getStopName
 
-+(NSString *)getSegmentFromCoordinates:(TBXMLElement *)rootElement
++(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement
 {
     
-}//getSegmentFromCoordinates
+}//getSegmentCoordinates
 
-+(NSString *)getSegmentToCoordinates:(TBXMLElement *)rootElement
++(NSString *)getOriginAddressFromCoords:(NSString *)coordinates
 {
     
-}//getSegmentToCoordinates
+}//getOriginAddressFromCoords
 
 +(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement
 {
