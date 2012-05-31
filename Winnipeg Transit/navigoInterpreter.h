@@ -80,8 +80,6 @@
 
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement;
-
 +(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;
@@ -96,6 +94,18 @@
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement;
 
-//I will use the previous address interpreting system to get location names and stuff   
+# pragma mark - Get Segment Address Details
+
++(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getDestinationData:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getStopDetails:(TBXMLElement *)rootElement;
+
++(NSMutableDictionary *)getAddressDetails:(TBXMLElement *)rootElement;
+
+
 
 @end

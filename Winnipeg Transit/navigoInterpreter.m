@@ -459,9 +459,10 @@
         //location: segment
         TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
         planLayer = planLayer->nextSibling;
-        if ([instructionType isEqualToString:@"origin"] || [instructionType isEqualToString:@"destination"]) {
-            NSString *segmentCoordinates = [self getSegmentCoordinates:planLayer];
-            [result setObject:segmentCoordinates forKey:@"Coordinates"];
+        if ([instructionType isEqualToString:@"origin"]) {
+            result = [self getOriginData:planLayer];
+        } else if ([instructionType isEqualToString:@"destination"]) {
+            result = [self getDestinationData:planLayer];
         }
         return result;
     }
@@ -480,11 +481,6 @@
     NSString *result = [XMLParser getElementName:planLayer];
     return result;
 }//getInstructionType
-
-+(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement
-{
-    
-}//getOriginData
 
 +(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement
 {
@@ -558,5 +554,33 @@
 {
     
 }//getSegmentToStop
+
+# pragma mark - Get Segment Address Details
+
++(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement
+{
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = 
+}//getOriginData
+
++(NSMutableDictionary *)getDestinationData:(TBXMLElement *)rootElement
+{
+    
+}//getDestinationData
+
++(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement
+{
+    
+}//getMonumentDetails
+
++(NSMutableDictionary *)getStopDetails:(TBXMLElement *)rootElement
+{
+    
+}//getStopDetails
+
++(NSMutableDictionary *)getAddressDetails:(TBXMLElement *)rootElement
+{
+    
+}//getAddressDetails
 
 @end
