@@ -437,8 +437,7 @@
     [result setObject:[self getStartTime:rootElement] forKey:@"segmentStartTime"];
     [result setObject:[self getEndTime:rootElement] forKey:@"segmentEndTime"];
     [result setObject:[self getTotalTime:rootElement] forKey:@"segmentTotalTime"];
-    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"segmentLocationInfo"];
-    
+    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"segmentLocationInfo"];    
     return result;
 }//getSegmentDetails
 
@@ -457,8 +456,11 @@
     } else {
         NSString *instructionType = [self getInstructionType:rootElement];
         [result setObject:instructionType forKey:@"LocationType"];
-        if ([instructionType isEqual:@"origin"]) {
-            NSString *segmentCoordinates = [self getSegmentCoordinates:rootElement];
+        //location: segment
+        TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+        planLayer = planLayer->nextSibling;
+        if ([instructionType isEqualToString:@"origin"] || [instructionType isEqualToString:@"destination"]) {
+            NSString *segmentCoordinates = [self getSegmentCoordinates:planLayer];
             [result setObject:segmentCoordinates forKey:@"Coordinates"];
         }
         return result;
@@ -475,12 +477,8 @@
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     planLayer = planLayer->nextSibling;
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
-    if ([[XMLParser getElementName:planLayer]isEqual:@"origin"]) {
-        return @"walk";
-    } else if ([[XMLParser getElementName:planLayer]isEqual:@"stop"]) {
-        return @"stop";
-    }
-    
+    NSString *result = [XMLParser getElementName:planLayer];
+    return result;
 }//getInstructionType
 
 +(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement
@@ -503,13 +501,16 @@
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
     [result setObject:[self getVariantName:variantNumber] forKey:@"Variant Name"];
-    //[result setObject:[self getBusNumber:planLayer] forKey:@"Bus Number"];
+    [result setObject:[self getBusNumber:variantNumber] forKey:@"Bus Number"];
     return result;
 }//getRideInfo
 
-+(NSString *)getBusNumber:(TBXMLElement *)rootElement
++(NSString *)getBusNumber:(NSString *)variantNumber
 {
-    
+    NSString *result = [[NSString alloc]init];
+    NSArray *array = [variantNumber componentsSeparatedByString:@"-"];
+    result = [array objectAtIndex:0];
+    return result;
 }//getBusNumber
 
 +(NSString *)getVariantName:(NSString *)variantKey
@@ -537,13 +538,16 @@
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement
 {
-    
+    NSString *result = [[NSString alloc]init];
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = planLayer->nextSibling;
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    NSString *latitude = [XMLParser getValueFromElement:planLayer];
+    planLayer = planLayer->nextSibling;
+    NSString *longitude = [XMLParser getValueFromElement:planLayer];
+    result = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
+    return result;
 }//getSegmentCoordinates
-
-+(NSString *)getOriginAddressFromCoords:(NSString *)coordinates
-{
-    
-}//getOriginAddressFromCoords
 
 +(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement
 {

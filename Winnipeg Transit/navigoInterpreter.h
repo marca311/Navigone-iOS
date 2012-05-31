@@ -86,7 +86,7 @@
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;
 
-+(NSString *)getBusNumber:(TBXMLElement *)rootElement;
++(NSString *)getBusNumber:(NSString *)variantNumber;
 
 +(NSString *)getVariantName:(NSString *)variantKey;
 
@@ -95,8 +95,6 @@
 +(NSString *)getStopName:(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement;
-
-+(NSString *)getOriginAddressFromCoords:(NSString *)coordinates;
 
 //I will use the previous address interpreting system to get location names and stuff   
 
