@@ -559,8 +559,14 @@
 
 +(NSMutableDictionary *)getOriginData:(TBXMLElement *)rootElement
 {
+    NSMutableDictionary *result;
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
-    planLayer = 
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    if ([[XMLParser getElementName:planLayer] isEqualToString:@"monument"]) {
+        result = [self getMonumentDetails:planLayer];
+        [result setObject:@"Monument" forKey:@"Type"];
+        return result;
+    }
 }//getOriginData
 
 +(NSMutableDictionary *)getDestinationData:(TBXMLElement *)rootElement
@@ -570,7 +576,17 @@
 
 +(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement
 {
-    
+    TBXMLElement *planLayer = 
+    TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :rootElement];
+    NSString *monumentName = [XMLParser getValueFromElement:monumentNameElement];
+    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :streetNumberElement];
+    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
+    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    streetNameElement = [XMLParser extractKnownChildElement:@"street" :streetNameElement];
+    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
+    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
+    result = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
 }//getMonumentDetails
 
 +(NSMutableDictionary *)getStopDetails:(TBXMLElement *)rootElement
@@ -582,5 +598,34 @@
 {
     
 }//getAddressDetails
+
+NSString *locationType = [self getLocationTypeFromSearchedItem:theElementChild];
+if ([locationType isEqualToString:@"address"]) {
+    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :theElementChild];
+    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
+    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"street" :theElementChild];
+    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
+    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
+    result = [NSString stringWithFormat:@"%@ %@",houseNumber,streetName];
+} else if ([locationType isEqualToString:@"monument"]) {
+    TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :theElementChild];
+    NSString *monumentName = [XMLParser getValueFromElement:monumentNameElement];
+    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :streetNumberElement];
+    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
+    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    streetNameElement = [XMLParser extractKnownChildElement:@"street" :streetNameElement];
+    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
+    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
+    result = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
+} else if ([locationType isEqualToString:@"intersection"]) {
+    TBXMLElement *firstStreetElement = [XMLParser extractKnownChildElement:@"street" :theElementChild];
+    firstStreetElement = [XMLParser extractKnownChildElement:@"name" :firstStreetElement];
+    NSString *firstStreetName = [XMLParser getValueFromElement:firstStreetElement];
+    TBXMLElement *secondStreetElement = [XMLParser extractKnownChildElement:@"cross-street" :theElementChild];
+    secondStreetElement = [XMLParser extractKnownChildElement:@"name" :secondStreetElement];
+    NSString *secondStreetName = [XMLParser getValueFromElement:secondStreetElement];
+    result = [NSString stringWithFormat:@"%@ @ %@",firstStreetName,secondStreetName];
+
 
 @end
