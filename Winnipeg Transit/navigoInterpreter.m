@@ -576,13 +576,14 @@
 
 +(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement
 {
-    TBXMLElement *planLayer = 
-    TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :rootElement];
+    Nsmu
+    TBXMLElement *planLayer = rootElement;
+    TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :planLayer];
     NSString *monumentName = [XMLParser getValueFromElement:monumentNameElement];
-    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"address" :planLayer];
     streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :streetNumberElement];
     NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
-    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
+    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"address" :planLayer];
     streetNameElement = [XMLParser extractKnownChildElement:@"street" :streetNameElement];
     streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
     NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
