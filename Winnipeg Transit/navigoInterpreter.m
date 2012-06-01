@@ -576,7 +576,7 @@
 
 +(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement
 {
-    Nsmu
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     TBXMLElement *planLayer = rootElement;
     TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :planLayer];
     NSString *monumentName = [XMLParser getValueFromElement:monumentNameElement];

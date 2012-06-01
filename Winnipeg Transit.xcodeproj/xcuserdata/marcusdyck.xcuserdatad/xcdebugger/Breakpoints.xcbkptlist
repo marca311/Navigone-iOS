@@ -78,7 +78,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "454"
          endingLineNumber = "454"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -91,7 +91,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "455"
          endingLineNumber = "455"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,7 +104,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "456"
          endingLineNumber = "456"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -117,7 +117,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "457"
          endingLineNumber = "457"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "460"
          endingLineNumber = "460"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -143,7 +143,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "458"
          endingLineNumber = "458"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -156,7 +156,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "463"
          endingLineNumber = "463"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "464"
          endingLineNumber = "464"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "465"
          endingLineNumber = "465"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +195,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "466"
          endingLineNumber = "466"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -208,7 +208,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "467"
          endingLineNumber = "467"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "461"
          endingLineNumber = "461"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,7 +234,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "462"
          endingLineNumber = "462"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentLocationInfo::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -247,8 +247,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "547"
          endingLineNumber = "547"
-         landmarkName = "+getSegmentDetails::"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -260,7 +260,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "548"
          endingLineNumber = "548"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentFromStop:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "546"
          endingLineNumber = "546"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentCoordinates:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -286,7 +286,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "549"
          endingLineNumber = "549"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentFromStop:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -299,7 +299,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "550"
          endingLineNumber = "550"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentFromStop:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -312,7 +312,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "551"
          endingLineNumber = "551"
-         landmarkName = "+getSegmentDetails::"
+         landmarkName = "+getSegmentFromStop:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -325,8 +325,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "552"
          endingLineNumber = "552"
-         landmarkName = "+getSegmentDetails::"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
