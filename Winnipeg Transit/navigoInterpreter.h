@@ -106,6 +106,8 @@
 
 +(NSMutableDictionary *)getAddressDetails:(TBXMLElement *)rootElement;
 
++(NSMutableDictionary *)getIntersectionDetails:(TBXMLElement *)rootElement;
 
++(NSMutableDictionary *)getPointDetails:(TBXMLElement *)rootElement;
 
 @end

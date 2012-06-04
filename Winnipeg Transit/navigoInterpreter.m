@@ -450,6 +450,7 @@
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *child = [[NSMutableDictionary alloc]init];
     if ([segmentType isEqual:@"ride"]) {
         result = [self getRideInfo:rootElement];
         return result;
@@ -457,12 +458,29 @@
         NSString *instructionType = [self getInstructionType:rootElement];
         [result setObject:instructionType forKey:@"LocationType"];
         //location: segment
+        
         TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+        //location: times
         planLayer = planLayer->nextSibling;
-        if ([instructionType isEqualToString:@"origin"]) {
-            result = [self getOriginData:planLayer];
-        } else if ([instructionType isEqualToString:@"destination"]) {
-            result = [self getDestinationData:planLayer];
+        //location: from/to
+        for (int i = 0; i <= 1; i++) {
+            if ([instructionType isEqualToString:@"origin"]) {
+                child = [self getOriginData:planLayer];
+            } else if ([instructionType isEqualToString:@"destination"]) {
+                child = [self getDestinationData:planLayer];
+            } else if ([instructionType isEqualToString:@"stop"]) {
+                child = [self getStopDetails:planLayer];
+            }
+            NSString *direction = [XMLParser getElementName:planLayer];
+            [result setObject:child forKey:direction];
+            
+            //fix here, work on planLayer stuff and from and to
+            if (i != 1) {
+                planLayer = planLayer->nextSibling;
+                planLayer = planLayer->nextSibling;
+                instructionType = [XMLParser extractUnknownChildElement:planLayer;
+            }
+            
         }
         return result;
     }
@@ -562,16 +580,44 @@
     NSMutableDictionary *result;
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     planLayer = [XMLParser extractUnknownChildElement:planLayer];
-    if ([[XMLParser getElementName:planLayer] isEqualToString:@"monument"]) {
+    NSString *locationType = [XMLParser getElementName:planLayer];
+    if ([locationType isEqualToString:@"monument"]) {
         result = [self getMonumentDetails:planLayer];
         [result setObject:@"Monument" forKey:@"Type"];
         return result;
+    } else if ([locationType isEqualToString:@"address"]) {
+        result = [self getAddressDetails:planLayer];
+        [result setObject:@"Address" forKey:@"Type"];
+    } else if ([locationType isEqualToString:@"intersection"]) {
+        result = [self getAddressDetails:planLayer];
+        [result setObject:@"Intersection" forKey:@"Type"];
+    } else if ([locationType isEqualToString:@"point"]) {
+        result = [self getPointDetails:planLayer];
+        [result setObject:@"Point" forKey:@"Type"];
     }
+    [result setObject:@"Origin" forKey:@"Static"];
+    return result;
 }//getOriginData
 
 +(NSMutableDictionary *)getDestinationData:(TBXMLElement *)rootElement
 {
-    
+    NSMutableDictionary *result;
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    NSString *locationType = [XMLParser getElementName:planLayer];
+    if ([locationType isEqualToString:@"monument"]) {
+        result = [self getMonumentDetails:planLayer];
+        [result setObject:@"Monument" forKey:@"Type"];
+        return result;
+    } else if ([locationType isEqualToString:@"address"]) {
+        result = [self getAddressDetails:planLayer];
+        [result setObject:@"Address" forKey:@"Type"];
+    } else if ([locationType isEqualToString:@"intersection"]) {
+        result = [self getAddressDetails:planLayer];
+        [result setObject:@"Intersection" forKey:@"Type"];
+    }
+    [result setObject:@"Destination" forKey:@"Static"];
+    return result;
 }//getDestinationData
 
 +(NSMutableDictionary *)getMonumentDetails:(TBXMLElement *)rootElement
@@ -587,46 +633,74 @@
     streetNameElement = [XMLParser extractKnownChildElement:@"street" :streetNameElement];
     streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
     NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
-    result = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
+    NSString *humanReadable = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
+    [result setObject:humanReadable forKey:@"Human Readable"];
+    [result setObject:monumentName forKey:@"Monument Name"];
+    [result setObject:houseNumber forKey:@"Monument Address"];
+    [result setObject:streetName forKey:@"Monument Street"];
+    return result;
 }//getMonumentDetails
 
 +(NSMutableDictionary *)getStopDetails:(TBXMLElement *)rootElement
 {
-    
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"key" :planLayer];
+    [result setObject:[XMLParser getValueFromElement:planLayer] forKey:@"Stop Number"];
+    NSString *stopNumber = [XMLParser getValueFromElement:planLayer];
+    planLayer = planLayer->nextSibling;
+    [result setObject:[XMLParser getValueFromElement:planLayer] forKey:@"Stop Name"];
+    planLayer = planLayer->nextSibling;
+    NSString *coordinates = [self getSegmentCoordinates:planLayer];
+    NSArray *array = [coordinates componentsSeparatedByString:@","];
+    [result setObject:[array objectAtIndex:0] forKey:@"Longitude"];
+    [result setObject:[array objectAtIndex:1] forKey:@"Latitude"];
+    return result;
 }//getStopDetails
 
 +(NSMutableDictionary *)getAddressDetails:(TBXMLElement *)rootElement
 {
-    
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    TBXMLElement *planLayer = rootElement;
+    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :planLayer];
+    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
+    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"street" :planLayer];
+    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
+    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
+    NSString *humanReadable = [NSString stringWithFormat:@"%@ %@",houseNumber,streetName];
+    [result setObject:humanReadable forKey:@"Human Readable"];
+    [result setObject:houseNumber forKey:@"Address Number"];
+    [result setObject:streetName forKey:@"Street Name"];
+    return result;
 }//getAddressDetails
 
-NSString *locationType = [self getLocationTypeFromSearchedItem:theElementChild];
-if ([locationType isEqualToString:@"address"]) {
-    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :theElementChild];
-    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
-    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"street" :theElementChild];
-    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
-    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
-    result = [NSString stringWithFormat:@"%@ %@",houseNumber,streetName];
-} else if ([locationType isEqualToString:@"monument"]) {
-    TBXMLElement *monumentNameElement = [XMLParser extractKnownChildElement:@"name" :theElementChild];
-    NSString *monumentName = [XMLParser getValueFromElement:monumentNameElement];
-    TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
-    streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :streetNumberElement];
-    NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
-    TBXMLElement *streetNameElement = [XMLParser extractKnownChildElement:@"address" :theElementChild];
-    streetNameElement = [XMLParser extractKnownChildElement:@"street" :streetNameElement];
-    streetNameElement = [XMLParser extractKnownChildElement:@"name" :streetNameElement];
-    NSString *streetName = [XMLParser getValueFromElement:streetNameElement];
-    result = [NSString stringWithFormat:@"%@ (%@ %@)",monumentName,houseNumber,streetName];
-} else if ([locationType isEqualToString:@"intersection"]) {
-    TBXMLElement *firstStreetElement = [XMLParser extractKnownChildElement:@"street" :theElementChild];
++(NSMutableDictionary *)getIntersectionDetails:(TBXMLElement *)rootElement
+{
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    TBXMLElement *planLayer = rootElement;
+    TBXMLElement *firstStreetElement = [XMLParser extractKnownChildElement:@"street" :planLayer];
     firstStreetElement = [XMLParser extractKnownChildElement:@"name" :firstStreetElement];
     NSString *firstStreetName = [XMLParser getValueFromElement:firstStreetElement];
-    TBXMLElement *secondStreetElement = [XMLParser extractKnownChildElement:@"cross-street" :theElementChild];
+    TBXMLElement *secondStreetElement = [XMLParser extractKnownChildElement:@"cross-street" :planLayer];
     secondStreetElement = [XMLParser extractKnownChildElement:@"name" :secondStreetElement];
     NSString *secondStreetName = [XMLParser getValueFromElement:secondStreetElement];
-    result = [NSString stringWithFormat:@"%@ @ %@",firstStreetName,secondStreetName];
+    NSString *humanReadable = [NSString stringWithFormat:@"%@ @ %@",firstStreetName,secondStreetName];
+    [result setObject:humanReadable forKey:@"Human Readable"];
+    [result setObject:firstStreetName forKey:@"First Street Name"];
+    [result setObject:secondStreetName forKey:@"Second Street Name"];
+    return result;
+}//getIntersectionDetails
 
++(NSMutableDictionary *)getPointDetails:(TBXMLElement *)rootElement
+{
+    NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
+    TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
+    NSString *coordinates = [self getSegmentCoordinates:planLayer];
+    NSArray *array = [coordinates componentsSeparatedByString:@","];
+    [result setObject:coordinates forKey:@"Combined"];
+    [result setObject:[array objectAtIndex:0] forKey:@"Longitude"];
+    [result setObject:[array objectAtIndex:1] forKey:@"Latitude"];
+    return result;
+}//getPointDetails
 
 @end
