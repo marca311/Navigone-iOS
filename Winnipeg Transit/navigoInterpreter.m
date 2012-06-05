@@ -404,7 +404,7 @@
     planLevel = [XMLParser extractUnknownChildElement:planLevel];
     //planLevel = [XMLParser extractUnknownChildElement:planLevel];
     for (int i = 0; i < [numberOfSegments intValue]; i++) {
-        [result setObject:[self getSegmentDetails:i:planLevel] forKey:[NSString stringWithFormat:@"segment %i",i]];
+        [result setObject:[self getSegmentDetails:i:planLevel] forKey:[NSString stringWithFormat:@"Segment %i",i]];
         planLevel = planLevel->nextSibling;
         
     }
@@ -433,11 +433,11 @@
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     //[result setObject:@"Nomz" forKey:@"test"];
     NSString *segmentType = [self getSegmentType:rootElement];
-    [result setObject:segmentType forKey:@"segmentType"];
-    [result setObject:[self getStartTime:rootElement] forKey:@"segmentStartTime"];
-    [result setObject:[self getEndTime:rootElement] forKey:@"segmentEndTime"];
-    [result setObject:[self getTotalTime:rootElement] forKey:@"segmentTotalTime"];
-    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"segmentLocationInfo"];    
+    [result setObject:segmentType forKey:@"Segment Type"];
+    [result setObject:[self getStartTime:rootElement] forKey:@"Segment Start Time"];
+    [result setObject:[self getEndTime:rootElement] forKey:@"Segment End Time"];
+    [result setObject:[self getTotalTime:rootElement] forKey:@"Segment Total Time"];
+    [result setObject:[self getSegmentLocationInfo:segmentType :rootElement] forKey:@"Segment Location Info"];    
     return result;
 }//getSegmentDetails
 
@@ -473,12 +473,12 @@
             }
             NSString *direction = [XMLParser getElementName:planLayer];
             [result setObject:child forKey:direction];
-            
-            //fix here, work on planLayer stuff and from and to
             if (i != 1) {
-                planLayer = planLayer->nextSibling;
-                planLayer = planLayer->nextSibling;
-                instructionType = [XMLParser extractUnknownChildElement:planLayer;
+                while (![[XMLParser getElementName:planLayer]isEqualToString:@"to"]) {
+                    planLayer = planLayer->nextSibling;
+                }
+                TBXMLElement *instructionLayer = [XMLParser extractUnknownChildElement:planLayer];
+                instructionType = [XMLParser getElementName:instructionLayer];
             }
             
         }
@@ -514,8 +514,15 @@
     NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
-    [result setObject:[self getVariantName:variantNumber] forKey:@"Variant Name"];
-    [result setObject:[self getBusNumber:variantNumber] forKey:@"Bus Number"];
+    NSArray *array = [[self getVariantName:variantNumber]componentsSeparatedByString:@" to "];
+    NSString *routeName = [array objectAtIndex:0];
+    NSString *variantName = [array objectAtIndex:1];
+    [result setObject:routeName forKey:@"Route Name"];
+    [result setObject:variantName forKey:@"Variant Name"];
+    NSString *routeNumber = [self getBusNumber:variantNumber];
+    [result setObject:routeNumber forKey:@"Route Number"];
+    NSString *humanReadable = [[NSString alloc]initWithFormat:@"%@ %@ (%@)",routeNumber,routeName,variantName];
+    [result setObject:humanReadable forKey:@"Human Readable"];
     return result;
 }//getRideInfo
 
@@ -530,7 +537,7 @@
 +(NSString *)getVariantName:(NSString *)variantKey
 {
     variantKey = [variantKey stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
-    NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?usage=long&api-key=%@",variantKey,[self getAPIKey]]];
+    NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?&api-key=%@",variantKey,[self getAPIKey]]];
     NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
     TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];
     TBXMLElement *elementOfVariant = [XMLParser getRootElement:variantXML];
@@ -538,17 +545,6 @@
     NSString *result = [XMLParser getValueFromElement:elementOfVariant];
     return result;
 }//getVariantName
-
-+(NSString *)getStopNumber:(TBXMLElement *)rootElement
-{
-    
-}
-//getStopNumber
-
-+(NSString *)getStopName:(TBXMLElement *)rootElement
-{
-    
-}//getStopName
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement
 {
@@ -655,6 +651,7 @@
     NSArray *array = [coordinates componentsSeparatedByString:@","];
     [result setObject:[array objectAtIndex:0] forKey:@"Longitude"];
     [result setObject:[array objectAtIndex:1] forKey:@"Latitude"];
+    [result setObject:@"Stop" forKey:@"Type"];
     return result;
 }//getStopDetails
 
@@ -702,5 +699,107 @@
     [result setObject:[array objectAtIndex:1] forKey:@"Latitude"];
     return result;
 }//getPointDetails
+
+#pragma mark - Produce Human Readable Results
+
++(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary
+{
+    
+    //Work in this area here and put all the data into arrays, hopefully my head will be clearer tomorrow
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
+    int numberOfPlans = [[primaryResults objectForKey:@"NumberOfPlans"]intValue];
+    for (int i = 0; i < numberOfPlans; i++) {
+        NSString *planString = [[NSString alloc]initWithFormat:@"Plan %i",i];
+        NSDictionary *currentPlan = [dictionary objectForKey:planString];
+        int numberOfSegments = [[currentPlan objectForKey:@"NumberOfSegments"]intValue];
+        for (int s = 0; s < numberOfSegments; s++) {
+            NSString *segmentString = [[NSString alloc]initWithFormat:@"Segment %i",s];
+            NSDictionary *currentSegment = [currentPlan objectForKey:segmentString];
+            NSArray *patternArray = [self patternInterpreter:currentSegment];
+            for (int c = 0; c < [patternArray count]; c++) {
+                [currentSegment addObject:[patternArray objectAtIndex:c]];
+            }
+        }
+    }
+    return result;
+}//getHumanReadableResults
+
++(NSString *)humanReadableAddress:(NSDictionary *)dictionary
+{
+    NSString *result = [dictionary objectForKey:@"Human Readable"];
+}//humanReadableAddress
+
++(NSString *)humanReadableWalk:(NSDictionary *)dictionary
+{
+    NSString *walkTime = [dictionary objectForKey:@"Segment Total Time"];
+    NSString *result = [[NSString alloc]initWithFormat:@"Walk %@ minutes",walkTime];
+    return result;
+}//humanReadableWalk
+
++(NSString *)humanReadableRide:(NSDictionary *)dictionary
+{
+    NSString *result = [[NSString alloc]initWithFormat:@"Ride: ", [dictionary objectForKey:@"Human Readable"]];
+    return result;
+}//humanReadableRide
+
++(NSString *)humanReadableTransfer:(NSDictionary *)dictionary
+{
+    NSString *transferTime = [dictionary objectForKey:@"Segment Total Time"];
+    NSString *result = [[NSString alloc]initWithFormat:@"Transfer %@ minutes",transferTime];
+    return result;
+}//humanReadableTransfer
+
++(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *segmentType = [dictionary objectForKey:@"Segment Type"];
+    if ([segmentType isEqualToString:@"walk"] || [segmentType isEqualToString:@"transfer"]) {
+        NSString *segmentStartTime = [self timeAdder:[dictionary objectForKey:@"Segment Start Time"]];
+        NSString *segmentEndTime = [self timeAdder:[dictionary objectForKey:@"Segment End Time"]];
+        NSDictionary *from = [dictionary objectForKey:@"from"];
+        if ([[from objectForKey:@"Type"]isEqualToString:@"Point"]) {
+            //messy, but less memory intensive (maybe)
+            [result addObject:[NSString stringWithFormat:@"%@  Coordinates %@, %@",segmentStartTime,[from objectForKey:@"Latitude"],[from objectForKey:@"Longitude"]]];
+        } else if ([[from objectForKey:@"Type"] isEqualToString:@"Address"]) {
+            NSString *result = [from objectForKey:@"Human Readable"];
+            result = [NSString stringWithFormat:@"%@  %@",segmentStartTime,result];
+        } else if ([[from objectForKey:@"Type"] isEqualToString:@"Monument"]) {
+            NSString *result = [from objectForKey:@"Human Readable"];
+            result = [NSString stringWithFormat:@"%@  %@",segmentStartTime,result];
+        }
+        [result addObject:result];
+        if ([segmentType isEqualToString:@"walk"]) {
+            [result addObject:[self humanReadableWalk:dictionary]];
+        } else if ([segmentType isEqualToString:@"transfer"]) {
+            [result addObject:[self humanReadableTransfer:dictionary]];
+        }
+        NSDictionary *to = [dictionary objectForKey:@"to"];
+        if ([[to objectForKey:@"Type"]isEqualToString:@"Point"]) {
+            //messy, but less memory intensive (maybe)
+            [result addObject:[NSString stringWithFormat:@"%@  Coordinates %@, %@",segmentEndTime,[to objectForKey:@"Latitude"],[to objectForKey:@"Longitude"]]];
+        } else if ([[to objectForKey:@"Type"] isEqualToString:@"Address"]) {
+            NSString *result = [to objectForKey:@"Human Readable"];
+            result = [NSString stringWithFormat:@"%@  %@",segmentEndTime,result];
+        } else if ([[to objectForKey:@"Type"] isEqualToString:@"Monument"]) {
+            NSString *result = [to objectForKey:@"Human Readable"];
+            result = [NSString stringWithFormat:@"%@  %@",segmentEndTime,result];
+        }
+        [result addObject:result];
+        
+    } else if ([segmentType isEqualToString:@"ride"]) {
+        [result addObject:[self humanReadableRide:dictionary]];
+    }
+    return result;
+}//patternInterpreter
+
++(NSString *)timeAdder:(NSDate *)date
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    format.dateFormat = @"HH:mm";
+    NSString *resultTime = [format stringFromDate:date];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@  %@",resultTime, string];
+    return result;
+}//timeAdder
 
 @end

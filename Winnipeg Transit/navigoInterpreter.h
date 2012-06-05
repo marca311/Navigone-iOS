@@ -88,10 +88,6 @@
 
 +(NSString *)getVariantName:(NSString *)variantKey;
 
-+(NSString *)getStopNumber:(TBXMLElement *)rootElement;
-
-+(NSString *)getStopName:(TBXMLElement *)rootElement;
-
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement;
 
 # pragma mark - Get Segment Address Details
@@ -109,5 +105,21 @@
 +(NSMutableDictionary *)getIntersectionDetails:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getPointDetails:(TBXMLElement *)rootElement;
+
+#pragma mark - Produce Human Readable Results
+
++(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary;
+
++(NSString *)humanReadableAddress:(NSDictionary *)dictionary;
+
++(NSString *)humanReadableWalk:(NSDictionary *)dictionary;
+
++(NSString *)humanReadableRide:(NSDictionary *)dictionary;
+
++(NSString *)humanReadableTransfer:(NSDictionary *)dictionary;
+
++(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary;
+
++(NSString *)timeAdder:(NSDate *)date;
 
 @end
