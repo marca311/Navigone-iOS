@@ -256,8 +256,8 @@
         [result setObject:[self getPlanDetails:numberOfPlansString :rootElement] forKey:planNumber];
     }
     [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
-    [MSUtilities generateCacheDB];
-    return nil;
+    //[MSUtilities generateCacheDB];
+    return result;
 }//getRouteData
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
@@ -704,31 +704,28 @@
 
 +(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary
 {
-    
-    //Work in this area here and put all the data into arrays, hopefully my head will be clearer tomorrow
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
     int numberOfPlans = [[primaryResults objectForKey:@"NumberOfPlans"]intValue];
-    for (int i = 0; i < numberOfPlans; i++) {
+    for (int i = 1; i <= numberOfPlans; i++) {
+        NSMutableArray *planResult = [[NSMutableArray alloc]init];
         NSString *planString = [[NSString alloc]initWithFormat:@"Plan %i",i];
         NSDictionary *currentPlan = [dictionary objectForKey:planString];
         int numberOfSegments = [[currentPlan objectForKey:@"NumberOfSegments"]intValue];
         for (int s = 0; s < numberOfSegments; s++) {
+            NSMutableArray *segmentResult = [[NSMutableArray alloc]init];
             NSString *segmentString = [[NSString alloc]initWithFormat:@"Segment %i",s];
             NSDictionary *currentSegment = [currentPlan objectForKey:segmentString];
             NSArray *patternArray = [self patternInterpreter:currentSegment];
             for (int c = 0; c < [patternArray count]; c++) {
-                [currentSegment addObject:[patternArray objectAtIndex:c]];
+                [segmentResult addObject:[patternArray objectAtIndex:c]];
             }
+            [planResult addObject: segmentResult];
         }
+        [result addObject:planResult];
     }
     return result;
 }//getHumanReadableResults
-
-+(NSString *)humanReadableAddress:(NSDictionary *)dictionary
-{
-    NSString *result = [dictionary objectForKey:@"Human Readable"];
-}//humanReadableAddress
 
 +(NSString *)humanReadableWalk:(NSDictionary *)dictionary
 {
@@ -798,7 +795,7 @@
     NSDateFormatter *format = [[NSDateFormatter alloc]init];
     format.dateFormat = @"HH:mm";
     NSString *resultTime = [format stringFromDate:date];
-    NSString *result = [[NSString alloc]initWithFormat:@"%@  %@",resultTime, string];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",resultTime];
     return result;
 }//timeAdder
 
