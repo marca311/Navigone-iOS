@@ -704,6 +704,8 @@
 
 +(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary
 {
+    
+    //There is something seriously wrong here, I plan to reprogram, but do more planning first
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
     int numberOfPlans = [[primaryResults objectForKey:@"NumberOfPlans"]intValue];
