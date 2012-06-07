@@ -249,7 +249,7 @@
     NSMutableDictionary *primaryResults = [navigoInterpreter getPrimaryResults:rootElement];
     [result setObject:[NSDate date] forKey:@"Entry time"];
     [result setObject:primaryResults forKey:@"Primary Results"];
-    NSString *numberOfPlansString = [primaryResults objectForKey:@"NumberOfPlans"];
+    NSString *numberOfPlansString = [primaryResults objectForKey:@"Number Of Plans"];
     int numberOfPlans = [numberOfPlansString intValue];
     for (int i = 1; i < numberOfPlans+1; i++) {
         NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan %i",i];
@@ -264,11 +264,11 @@
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
-    [result setObject:numberOfPlansString forKey:@"NumberOfPlans"];
+    [result setObject:numberOfPlansString forKey:@"Number Of Plans"];
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
     for (int i = 0; i < numberOfPlans; i++) {
-        NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan%i",i+1];
+        NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan%i",i];
         [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"%@ Easy Access",planNumber]];
         [result setObject:[self getStartTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Start Time",planNumber]];
         [result setObject:[self getEndTime:rootElement] forKey:[NSString stringWithFormat:@"%@ End Time",planNumber]];
@@ -298,7 +298,6 @@
     xmlLayer = [XMLParser extractUnknownChildElement:xmlLayer];
     for (int planInt; planInt < numberOfPlansInt; planInt++) {
         NSString *planPrefix = [[NSString alloc]initWithFormat:@"Plan%i"];
-        
     }
 }//getPlanResults 
 
@@ -399,7 +398,7 @@
         planLevel = planLevel->nextSibling;
     }
     NSString *numberOfSegments = [self getNumberOfSegments:planLevel];
-    [result setObject:numberOfSegments forKey:@"NumberOfSegments"];
+    [result setObject:numberOfSegments forKey:@"Number Of Segments"];
     planLevel = [XMLParser extractKnownChildElement:@"segments" :planLevel];
     planLevel = [XMLParser extractUnknownChildElement:planLevel];
     //planLevel = [XMLParser extractUnknownChildElement:planLevel];
@@ -704,8 +703,43 @@
 
 +(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary
 {
-    
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
+    int numberOfPlans = [[primaryResults objectForKey:@"Number Of Plans"]intValue];
+    for (int p = 0; p < numberOfPlans; p++) {
+        NSString *planName = [[NSString alloc]init];
+        planName = [NSString stringWithFormat:@"Plan %i",p];
+        NSDictionary *planDictionary = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:planName]];
+        int numberOfSegments = [[planDictionary objectForKey:@"Number Of Segments"]intValue];
+        for (int s = 0; s < numberOfSegments; s++) {
+            NSString *segmentName = [[NSString alloc]init];
+            segmentName = [NSString stringWithFormat:@"Segment %i",s];
+            NSDictionary *segmentDictionary = [[NSDictionary alloc]initWithDictionary:[planDictionary objectForKey:segmentName]];
+            NSArray *patternArray = [[NSArray alloc]initWithArray:[self patternInterpreter:segmentDictionary]];
+            
+        }
+    }
 }//makeHumanReadableResults
+
++(NSString *)humanReadableWalk:(NSDictionary *)dictionary
+{
+    
+}//humanReadableWalk
+
++(NSString *)humanReadableRide:(NSDictionary *)dictionary
+{
+    
+}//humanReadableRide
+
++(NSString *)humanReadableTransfer:(NSDictionary *)dictionary
+{
+    
+}//humanReadableTransfer
+
++(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary
+{
+    
+}//patternPransfer
 
 +(NSString *)timeAdder:(NSDate *)date
 {

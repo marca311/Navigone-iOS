@@ -110,8 +110,6 @@
 
 +(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary;
 
-+(NSString *)humanReadableAddress:(NSDictionary *)dictionary;
-
 +(NSString *)humanReadableWalk:(NSDictionary *)dictionary;
 
 +(NSString *)humanReadableRide:(NSDictionary *)dictionary;
