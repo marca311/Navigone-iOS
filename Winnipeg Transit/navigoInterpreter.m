@@ -707,17 +707,23 @@
     NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
     int numberOfPlans = [[primaryResults objectForKey:@"Number Of Plans"]intValue];
     for (int p = 0; p < numberOfPlans; p++) {
+        NSMutableArray *planResult = [[NSMutableArray alloc]init];
         NSString *planName = [[NSString alloc]init];
         planName = [NSString stringWithFormat:@"Plan %i",p];
         NSDictionary *planDictionary = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:planName]];
         int numberOfSegments = [[planDictionary objectForKey:@"Number Of Segments"]intValue];
         for (int s = 0; s < numberOfSegments; s++) {
+            NSMutableArray *segmentResult = [[NSMutableArray alloc]init];
             NSString *segmentName = [[NSString alloc]init];
             segmentName = [NSString stringWithFormat:@"Segment %i",s];
             NSDictionary *segmentDictionary = [[NSDictionary alloc]initWithDictionary:[planDictionary objectForKey:segmentName]];
             NSArray *patternArray = [[NSArray alloc]initWithArray:[self patternInterpreter:segmentDictionary]];
-            
+            for (int p = 0; p < [patternArray count]; p++) {
+                [segmentResult addObject:[patternArray objectAtIndex:p]];
+            }
+            [planResult addObject:segmentResult];
         }
+        [result addObject:planResult];
     }
 }//makeHumanReadableResults
 
@@ -738,8 +744,13 @@
 
 +(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary
 {
-    
-}//patternPransfer
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *segmentType = [[NSString alloc]init];
+    segmentType = [dictionary objectForKey:@"Segment Type"];
+    if ([segmentType isEqualToString:@"ride"]) {
+        if
+    }
+}//patternInterpreter
 
 +(NSString *)timeAdder:(NSDate *)date
 {
