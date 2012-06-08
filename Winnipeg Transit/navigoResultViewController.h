@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UniversalViewController.h"
+#import "MSUtilities.h"
 
-@interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate>
+@interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate> {
+    UITableView *resultsTable;
+    NSArray *resultsArray;
+}
 
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
+@property (nonatomic, retain) NSArray *resultsArray;
 
 @end

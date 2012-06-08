@@ -122,7 +122,6 @@
     NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:routeDict];
     [MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
     NSLog(@"End of Arrays");
-    [self performSegueWithIdentifier:@"toResults" sender:self];
     
     [super viewDidLoad];
 }
@@ -186,7 +185,7 @@
 
 -(IBAction)testButton
 {
-    NSLog(@"This does nothing right now");
+    [self performSegueWithIdentifier:@"toResults" sender:self];
 }
 
 - (void)viewDidUnload

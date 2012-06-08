@@ -253,10 +253,11 @@
     int numberOfPlans = [numberOfPlansString intValue];
     for (int i = 1; i < numberOfPlans+1; i++) {
         NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan %i",i];
-        [result setObject:[self getPlanDetails:numberOfPlansString :rootElement] forKey:planNumber];
+        NSString *planNumberString = [[NSString alloc]initWithFormat:@"%i",i];
+        [result setObject:[self getPlanDetails:planNumberString :rootElement] forKey:planNumber];
     }
     [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
-    //[MSUtilities generateCacheDB];
+    [MSUtilities generateCacheDB];
     return result;
 }//getRouteData
 

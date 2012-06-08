@@ -24,6 +24,8 @@
 		4316809A15013F6900A41785 /* navigoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809915013F6900A41785 /* navigoViewController.m */; };
 		4316809D15013F8300A41785 /* timetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809C15013F8300A41785 /* timetableViewController.m */; };
 		431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316809F15013FA400A41785 /* stopscheduleViewController.m */; };
+		4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4342D4531582611600A4A558 /* MSTableViewCell.m */; };
+		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
 		6F378F0315267F3E00FCA44D /* navigoResultViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */; };
@@ -80,6 +82,9 @@
 		4316809C15013F8300A41785 /* timetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timetableViewController.m; sourceTree = "<group>"; };
 		4316809E15013FA400A41785 /* stopscheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stopscheduleViewController.h; sourceTree = "<group>"; };
 		4316809F15013FA400A41785 /* stopscheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stopscheduleViewController.m; sourceTree = "<group>"; };
+		4342D4521582611600A4A558 /* MSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTableViewCell.h; sourceTree = "<group>"; };
+		4342D4531582611600A4A558 /* MSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTableViewCell.m; sourceTree = "<group>"; };
+		4342D4561582627E00A4A558 /* MSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTableViewCell.xib; path = ../MSTableViewCell.xib; sourceTree = "<group>"; };
 		435617DD151266050022F903 /* UniversalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalViewController.h; sourceTree = "<group>"; };
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
@@ -192,6 +197,9 @@
 				6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */,
 				430505A115177FAE00C08BC7 /* MSUtilities.h */,
 				430505A215177FAE00C08BC7 /* MSUtilities.m */,
+				4342D4521582611600A4A558 /* MSTableViewCell.h */,
+				4342D4531582611600A4A558 /* MSTableViewCell.m */,
+				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
 				6F415616150553D400A5DB67 /* TBXML */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
 			);
@@ -342,6 +350,7 @@
 				6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */,
 				6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */,
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
+				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +398,7 @@
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
 				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
+				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

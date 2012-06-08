@@ -42,6 +42,15 @@
     [savedArray writeToFile:filePath atomically:YES];
 }//saveArrayToFile
 
++(NSArray *)getHumanArray
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"HumanArray.plist"];
+    NSArray *result = [[NSArray alloc]initWithContentsOfFile:filePath];
+    return result;
+}
+
 +(void)generateCacheDB
 {
     NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
@@ -52,7 +61,7 @@
     NSArray *folderContents = [fileMan contentsOfDirectoryAtPath:documentsDirectory error:nil];
     for (int i = 0; i < [folderContents count]; i++) {
         NSString *currentFile = [folderContents objectAtIndex:i];
-        if ([currentFile isEqual:@"CacheDatabase.plist"]) {
+        if ([currentFile isEqual:@"CacheDatabase.plist"] || [currentFile isEqualToString:@"HumanArray.plist"]) {
             
         } else if ([currentFile hasSuffix:@".plist"]) {
             NSString *filePath = [documentsDirectory stringByAppendingPathComponent:currentFile];

@@ -18,6 +18,8 @@
 
 +(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName;
 
++(NSArray *)getHumanArray;
+
 +(void)generateCacheDB;
 
 +(void)checkCacheAge;
