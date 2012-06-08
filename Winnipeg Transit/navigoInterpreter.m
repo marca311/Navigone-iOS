@@ -355,6 +355,9 @@
     planLayer = [XMLParser extractKnownChildElement:@"total" :planLayer];
     NSString *result;
     result = [XMLParser getValueFromElement:planLayer];
+    if ([result isEqualToString:@"-1436"]) {
+        result = @"10";
+    }
     return result;
 }//getTotalTime
 
@@ -706,40 +709,55 @@
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
     int numberOfPlans = [[primaryResults objectForKey:@"Number Of Plans"]intValue];
-    for (int p = 0; p < numberOfPlans; p++) {
+    for (int p = 1; p <= numberOfPlans; p++) {
         NSMutableArray *planResult = [[NSMutableArray alloc]init];
         NSString *planName = [[NSString alloc]init];
         planName = [NSString stringWithFormat:@"Plan %i",p];
         NSDictionary *planDictionary = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:planName]];
         int numberOfSegments = [[planDictionary objectForKey:@"Number Of Segments"]intValue];
-        for (int s = 0; s < numberOfSegments; s++) {
-            NSMutableArray *segmentResult = [[NSMutableArray alloc]init];
+        for (int s = 0; s <= numberOfSegments; s++) {
             NSString *segmentName = [[NSString alloc]init];
             segmentName = [NSString stringWithFormat:@"Segment %i",s];
             NSDictionary *segmentDictionary = [[NSDictionary alloc]initWithDictionary:[planDictionary objectForKey:segmentName]];
-            NSArray *patternArray = [[NSArray alloc]initWithArray:[self patternInterpreter:segmentDictionary]];
+            NSArray *patternArray = [[NSArray alloc]init];
+            patternArray = [self patternInterpreter:segmentDictionary];
             for (int p = 0; p < [patternArray count]; p++) {
-                [segmentResult addObject:[patternArray objectAtIndex:p]];
+                [planResult addObject:[patternArray objectAtIndex:p]];
             }
-            [planResult addObject:segmentResult];
         }
         [result addObject:planResult];
     }
+    return result;
 }//makeHumanReadableResults
 
 +(NSString *)humanReadableWalk:(NSDictionary *)dictionary
 {
-    
+    NSString *result = [[NSString alloc]init];
+    NSString *walkTime = [[NSString alloc]init];
+    walkTime = [dictionary objectForKey:@"Segment Total Time"];
+    result = [NSString stringWithFormat:@"Walk %@ minutes",walkTime];
+    return result;
 }//humanReadableWalk
 
-+(NSString *)humanReadableRide:(NSDictionary *)dictionary
++(NSMutableArray *)humanReadableRide:(NSDictionary *)dictionary
 {
-    
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *resultString = [[NSString alloc]init];
+    NSDictionary *info = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:@"Segment Location Info"]];
+    resultString = [info objectForKey:@"Human Readable"];
+    resultString = [NSString stringWithFormat:@"Ride: %@",resultString];
+    [result addObject:resultString];
+    return result;
 }//humanReadableRide
 
 +(NSString *)humanReadableTransfer:(NSDictionary *)dictionary
 {
-    
+    NSString *result = [[NSString alloc]init];
+    NSString *transferTime = [[NSString alloc]init];
+    transferTime = [dictionary objectForKey:@"Segment Total Time"];
+    result = [NSString stringWithFormat:@"Transfer %@ minutes",transferTime];
+    return result;
+
 }//humanReadableTransfer
 
 +(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary
@@ -748,7 +766,14 @@
     NSString *segmentType = [[NSString alloc]init];
     segmentType = [dictionary objectForKey:@"Segment Type"];
     if ([segmentType isEqualToString:@"ride"]) {
-        if
+        result = [self humanReadableRide:dictionary];
+        return result;
+    } else {
+        result = [self toFromInterpreter:dictionary];
+        return result;
+        
+        //[result addObject:@"notRide"];
+        //return result;
     }
 }//patternInterpreter
 
@@ -760,5 +785,77 @@
     NSString *result = [[NSString alloc]initWithFormat:@"%@",resultTime];
     return result;
 }//timeAdder
+
++(NSMutableArray *)toFromInterpreter:(NSDictionary *)dictionary
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSDictionary *segmentLocationInfo = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:@"Segment Location Info"]];
+    NSDictionary *currentDictionary = [[NSDictionary alloc]initWithDictionary:[segmentLocationInfo objectForKey:@"from"]];
+    NSString *currentTime = [[NSString alloc]init];
+    currentTime = [self timeAdder:[dictionary objectForKey:@"Segment Start Time"]];
+    for (int i = 0; i <= 1; i++) {
+        NSString *locationType = [[NSString alloc]init];
+        locationType = [currentDictionary objectForKey:@"Type"];
+        if ([locationType isEqualToString:@"Address"]) {
+            [result addObject:[self addressHInterpreter:currentDictionary:currentTime]];
+        } else if ([locationType isEqualToString:@"Stop"]) {
+            [result addObject:[self stopHInterpreter:currentDictionary:currentTime]];
+        } else if ([locationType isEqualToString:@"Monument"]) {
+            [result addObject:[self monumentHInterpreter:currentDictionary:currentTime]];
+        } else if ([locationType isEqualToString:@"Point"]) {
+            [result addObject:[self pointHInterpreter:currentDictionary:currentTime]];
+        }
+        if (i == 1) {
+            return result;
+        }
+        NSString *segmentMovementType = [[NSString alloc]init];
+        segmentMovementType = [dictionary objectForKey:@"Segment Type"];
+        if ([segmentMovementType isEqualToString:@"transfer"]) {
+            [result addObject:[self humanReadableTransfer:dictionary]];
+        } else if ([segmentMovementType isEqualToString:@"walk"]) {
+            [result addObject:[self humanReadableWalk:dictionary]];
+        }
+        currentDictionary = [segmentLocationInfo objectForKey:@"to"];
+        currentTime = [self timeAdder:[dictionary objectForKey:@"Segment End Time"]];
+    }
+}//toFromInterpreter
+
++(NSString *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time
+{
+    NSString *result = [[NSString alloc]init];
+    NSString *latitude =  [[NSString alloc]init];
+    latitude = [dictionary objectForKey:@"Latitude"];
+    NSString *longitude = [[NSString alloc]init];
+    longitude = [dictionary objectForKey:@"Longitude"];
+    result = [NSString stringWithFormat:@"%@  Coordinates: %@, %@",time ,latitude, longitude];
+    return result;
+}//pointHInterpreter
+
++(NSString *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time
+{
+    NSString *result = [[NSString alloc]init];
+    result = [dictionary objectForKey:@"Human Readable"];
+    result = [NSString stringWithFormat:@"%@  %@",time, result];
+    return result;
+}//addressHInterpreter
+
++(NSString *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time
+{
+    NSString *result = [[NSString alloc]init];
+    result = [dictionary objectForKey:@"Human Readable"];
+    result = [NSString stringWithFormat:@"%@  %@",time, result];
+    return result;
+}//monumentHInterpreter
+
++(NSString *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time
+{
+    NSString *result = [[NSString alloc]init];
+    NSString *stopName = [[NSString alloc]init];
+    NSString *stopNumber = [[NSString alloc]init];
+    stopName = [dictionary objectForKey:@"Stop Name"];
+    stopNumber = [dictionary objectForKey:@"Stop Number"];
+    result = [NSString stringWithFormat:@"%@  Bus Stop: %@ (%@)",time ,stopName, stopNumber];
+    return result;
+}//stopHInterpreter
 
 @end

@@ -119,9 +119,10 @@
     //Method testing area
     NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
     NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:testData];
-    //NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:routeDict];
-    //[MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
+    NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:routeDict];
+    [MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
     NSLog(@"End of Arrays");
+    [self performSegueWithIdentifier:@"toResults" sender:self];
     
     [super viewDidLoad];
 }

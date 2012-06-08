@@ -223,6 +223,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="planButton" destination="Pjs-j4-iv6" id="46v-ka-ORh"/>
+                        <outlet property="resultsTable" destination="rI9-eA-2az" id="bgK-86-JbJ"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1053" y="-138"/>
@@ -278,6 +282,52 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="UniversalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissView:"/>
+            </relationships>
+        </class>
+        <class className="navigoResultViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoResultViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="planButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="resultsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="navigoViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTap:"/>
+                <relationship kind="action" name="datePickerValueChanged:"/>
+                <relationship kind="action" name="openDatePicker:"/>
+                <relationship kind="action" name="submitButton:"/>
+                <relationship kind="action" name="testButton"/>
+                <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destinationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="easyAccessSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="maxTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTransfers" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxWalkTime" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="walkSpeed" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="stopscheduleViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/stopscheduleViewController.h"/>
+        </class>
+        <class className="timetableViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timetableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

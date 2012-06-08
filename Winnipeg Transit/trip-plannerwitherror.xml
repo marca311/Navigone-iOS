@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plans xmlns:xlink="http://www.w3.org/1999/xlink" xlink:base="" query-time="2012-06-07T22:24:41">
+  <plan number="1">
+    <easy-access>true</easy-access>
+    <times>
+      <start>2012-06-07T22:52:00</start>
+      <end>2012-06-07T23:39:00</end>
+      <durations>
+        <total unit="min">47</total>
+        <walking unit="min">10</walking>
+        <waiting unit="min">10</waiting>
+        <riding unit="min">27</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-06-07T22:52:00</start>
+          <end>2012-06-07T23:00:00</end>
+          <durations>
+            <total unit="min">8</total>
+            <walking unit="min">8</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <point>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>633861</x>
+                  <y>5525798</y>
+                </utm>
+                <geographic>
+                  <latitude>49.86961</latitude>
+                  <longitude>-97.13716</longitude>
+                </geographic>
+              </centre>
+            </point>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.87379</lat>
+            <lng>-97.137</lng>
+          </maximum>
+          <minimum>
+            <lat>49.86918</lat>
+            <lng>-97.14144</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/11029">
+            <key>11029</key>
+            <name>Southbound Southwest Transitway at Osborne Station</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633561</x>
+                <y>5526189</y>
+              </utm>
+              <geographic>
+                <latitude>49.8732</latitude>
+                <longitude>-97.1412</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:00:00</start>
+          <end>2012-06-07T23:20:00</end>
+          <durations>
+            <total unit="min">20</total>
+            <riding unit="min">20</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/66-0-U">
+          <key>66-0-U</key>
+          <name>Grant to Unicity</name>
+          <description/>
+          <destinations xlink:href="variants/66-0-U/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.87317</lat>
+            <lng>-97.14109</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.27953</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-06-07T23:20:00</start>
+          <end>2012-06-07T23:30:00</end>
+          <durations>
+            <total unit="min">10</total>
+            <walking unit="min">0</walking>
+            <waiting unit="min">10</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/60542">
+            <key>60542</key>
+            <name>Westbound Roblin at Buckingham</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>623656</x>
+                <y>5524294</y>
+              </utm>
+              <geographic>
+                <latitude>49.85829</latitude>
+                <longitude>-97.27959</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <to>
+          <stop xlink:href="stops/60542">
+            <key>60542</key>
+            <name>Westbound Roblin at Buckingham</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>623656</x>
+                <y>5524294</y>
+              </utm>
+              <geographic>
+                <latitude>49.85829</latitude>
+                <longitude>-97.27959</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:30:00</start>
+          <end>2012-06-07T23:37:00</end>
+          <durations>
+            <total unit="min">7</total>
+            <riding unit="min">7</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/79-0-K%23">
+          <key>79-0-K#</key>
+          <name>Charleswood to Westdale via Kenaston</name>
+          <description/>
+          <destinations xlink:href="variants/79-0-K%23/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86323</lat>
+            <lng>-97.27953</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85506</lat>
+            <lng>-97.31993</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-06-07T23:37:00</start>
+          <end>2012-06-07T23:39:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <walking unit="min">2</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/60591">
+            <key>60591</key>
+            <name>Southbound Dale at Alder South</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>620758</x>
+                <y>5523869</y>
+              </utm>
+              <geographic>
+                <latitude>49.85506</latitude>
+                <longitude>-97.32002</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85511</lat>
+            <lng>-97.31992</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85499</lat>
+            <lng>-97.32166</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <address>
+              <key>123</key>
+              <street-number>55</street-number>
+              <street xlink:href="streets/48">
+                <key>48</key>
+                <name>Alder Bay</name>
+                <type abbr="Bay">Bay</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>620640</x>
+                  <y>5523860</y>
+                </utm>
+                <geographic>
+                  <latitude>49.855</latitude>
+                  <longitude>-97.32166</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="2">
+    <easy-access>true</easy-access>
+    <times>
+      <start>2012-06-07T23:06:00</start>
+      <end>2012-06-08T00:09:00</end>
+      <durations>
+        <total unit="min">63</total>
+        <walking unit="min">6</walking>
+        <waiting unit="min">15</waiting>
+        <riding unit="min">-1398</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-06-07T23:06:00</start>
+          <end>2012-06-07T23:07:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <point>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>633861</x>
+                  <y>5525798</y>
+                </utm>
+                <geographic>
+                  <latitude>49.86961</latitude>
+                  <longitude>-97.13716</longitude>
+                </geographic>
+              </centre>
+            </point>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.86961</lat>
+            <lng>-97.137</lng>
+          </maximum>
+          <minimum>
+            <lat>49.86908</lat>
+            <lng>-97.13769</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10064">
+            <key>10064</key>
+            <name>Northbound Osborne at Glasgow</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633838</x>
+                <y>5525742</y>
+              </utm>
+              <geographic>
+                <latitude>49.86912</latitude>
+                <longitude>-97.1375</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:07:00</start>
+          <end>2012-06-07T23:15:00</end>
+          <durations>
+            <total unit="min">8</total>
+            <riding unit="min">8</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/16-0-B">
+          <key>16-0-B</key>
+          <name>Selkirk-Osborne to Tyndall Park via Burrows</name>
+          <description/>
+          <destinations xlink:href="variants/16-0-B/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89042</lat>
+            <lng>-97.13761</lng>
+          </maximum>
+          <minimum>
+            <lat>49.86908</lat>
+            <lng>-97.14992</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-06-07T23:15:00</start>
+          <end>2012-06-07T23:22:00</end>
+          <durations>
+            <total unit="min">7</total>
+            <walking unit="min">2</walking>
+            <waiting unit="min">5</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10704">
+            <key>10704</key>
+            <name>Northbound Vaughan at Graham (The Bay)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>632954</x>
+                <y>5528091</y>
+              </utm>
+              <geographic>
+                <latitude>49.89043</latitude>
+                <longitude>-97.14899</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.8914</lat>
+            <lng>-97.14899</lng>
+          </maximum>
+          <minimum>
+            <lat>49.89041</lat>
+            <lng>-97.15054</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10545">
+            <key>10545</key>
+            <name>Westbound Portage at Colony</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>632840</x>
+                <y>5528176</y>
+              </utm>
+              <geographic>
+                <latitude>49.89122</latitude>
+                <longitude>-97.15054</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:22:00</start>
+          <end>2012-06-07T23:34:00</end>
+          <durations>
+            <total unit="min">12</total>
+            <riding unit="min">12</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/11-0-W">
+          <key>11-0-W</key>
+          <name>Portage-Kildonan to Westwood</name>
+          <description/>
+          <destinations xlink:href="variants/11-0-W/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.8911</lat>
+            <lng>-97.15045</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88066</lat>
+            <lng>-97.19906</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-06-07T23:34:00</start>
+          <end>2012-06-07T23:45:00</end>
+          <durations>
+            <total unit="min">11</total>
+            <walking unit="min">1</walking>
+            <waiting unit="min">10</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10561">
+            <key>10561</key>
+            <name>Westbound Portage at Tylehurst (Polo Park)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>629379</x>
+                <y>5526933</y>
+              </utm>
+              <geographic>
+                <latitude>49.8808</latitude>
+                <longitude>-97.19912</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.88165</lat>
+            <lng>-97.19905</lng>
+          </maximum>
+          <minimum>
+            <lat>49.88059</lat>
+            <lng>-97.19942</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10825">
+            <key>10825</key>
+            <name>Southbound Polo Park at Polo Park (79)</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>629375</x>
+                <y>5527027</y>
+              </utm>
+              <geographic>
+                <latitude>49.88165</latitude>
+                <longitude>-97.19914</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:45:00</start>
+          <end>2012-06-08T00:07:00</end>
+          <durations>
+            <total unit="min">-1418</total>
+            <riding unit="min">-1418</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/79-0-K%23">
+          <key>79-0-K#</key>
+          <name>Charleswood to Westdale via Kenaston</name>
+          <description/>
+          <destinations xlink:href="variants/79-0-K%23/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88165</lat>
+            <lng>-97.19908</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85506</lat>
+            <lng>-97.31993</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-06-08T00:07:00</start>
+          <end>2012-06-08T00:09:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <walking unit="min">2</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/60591">
+            <key>60591</key>
+            <name>Southbound Dale at Alder South</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>620758</x>
+                <y>5523869</y>
+              </utm>
+              <geographic>
+                <latitude>49.85506</latitude>
+                <longitude>-97.32002</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85511</lat>
+            <lng>-97.31992</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85499</lat>
+            <lng>-97.32166</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <address>
+              <key>123</key>
+              <street-number>55</street-number>
+              <street xlink:href="streets/48">
+                <key>48</key>
+                <name>Alder Bay</name>
+                <type abbr="Bay">Bay</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>620640</x>
+                  <y>5523860</y>
+                </utm>
+                <geographic>
+                  <latitude>49.855</latitude>
+                  <longitude>-97.32166</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+  <plan number="3">
+    <easy-access>false</easy-access>
+    <times>
+      <start>2012-06-07T23:06:00</start>
+      <end>2012-06-08T00:09:00</end>
+      <durations>
+        <total unit="min">63</total>
+        <walking unit="min">3</walking>
+        <waiting unit="min">14</waiting>
+        <riding unit="min">47</riding>
+      </durations>
+    </times>
+    <segments>
+      <segment type="walk">
+        <times>
+          <start>2012-06-07T23:06:00</start>
+          <end>2012-06-07T23:07:00</end>
+          <durations>
+            <total unit="min">1</total>
+            <walking unit="min">1</walking>
+          </durations>
+        </times>
+        <from>
+          <origin>
+            <point>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>633861</x>
+                  <y>5525798</y>
+                </utm>
+                <geographic>
+                  <latitude>49.86961</latitude>
+                  <longitude>-97.13716</longitude>
+                </geographic>
+              </centre>
+            </point>
+          </origin>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.86961</lat>
+            <lng>-97.137</lng>
+          </maximum>
+          <minimum>
+            <lat>49.86908</lat>
+            <lng>-97.13769</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <stop xlink:href="stops/10064">
+            <key>10064</key>
+            <name>Northbound Osborne at Glasgow</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633838</x>
+                <y>5525742</y>
+              </utm>
+              <geographic>
+                <latitude>49.86912</latitude>
+                <longitude>-97.1375</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:07:00</start>
+          <end>2012-06-07T23:15:00</end>
+          <durations>
+            <total unit="min">8</total>
+            <riding unit="min">8</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/16-0-B">
+          <key>16-0-B</key>
+          <name>Selkirk-Osborne to Tyndall Park via Burrows</name>
+          <description/>
+          <destinations xlink:href="variants/16-0-B/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.88896</lat>
+            <lng>-97.13761</lng>
+          </maximum>
+          <minimum>
+            <lat>49.86908</lat>
+            <lng>-97.14992</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-06-07T23:15:00</start>
+          <end>2012-06-07T23:24:00</end>
+          <durations>
+            <total unit="min">9</total>
+            <walking unit="min">0</walking>
+            <waiting unit="min">9</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/10703">
+            <key>10703</key>
+            <name>Northbound Vaughan at St. Mary</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633014</x>
+                <y>5527932</y>
+              </utm>
+              <geographic>
+                <latitude>49.88899</latitude>
+                <longitude>-97.14821</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <to>
+          <stop xlink:href="stops/10703">
+            <key>10703</key>
+            <name>Northbound Vaughan at St. Mary</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>633014</x>
+                <y>5527932</y>
+              </utm>
+              <geographic>
+                <latitude>49.88899</latitude>
+                <longitude>-97.14821</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-07T23:24:00</start>
+          <end>2012-06-07T23:56:00</end>
+          <durations>
+            <total unit="min">32</total>
+            <riding unit="min">32</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/66-0-U">
+          <key>66-0-U</key>
+          <name>Grant to Unicity</name>
+          <description/>
+          <destinations xlink:href="variants/66-0-U/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.89334</lat>
+            <lng>-97.13166</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85606</lat>
+            <lng>-97.27953</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="transfer">
+        <times>
+          <start>2012-06-07T23:56:00</start>
+          <end>2012-06-08T00:00:00</end>
+          <durations>
+            <total unit="min">-1436</total>
+            <walking unit="min">0</walking>
+            <waiting unit="min">4</waiting>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/60542">
+            <key>60542</key>
+            <name>Westbound Roblin at Buckingham</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>623656</x>
+                <y>5524294</y>
+              </utm>
+              <geographic>
+                <latitude>49.85829</latitude>
+                <longitude>-97.27959</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <to>
+          <stop xlink:href="stops/60542">
+            <key>60542</key>
+            <name>Westbound Roblin at Buckingham</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>623656</x>
+                <y>5524294</y>
+              </utm>
+              <geographic>
+                <latitude>49.85829</latitude>
+                <longitude>-97.27959</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </to>
+      </segment>
+      <segment type="ride">
+        <times>
+          <start>2012-06-08T00:00:00</start>
+          <end>2012-06-08T00:07:00</end>
+          <durations>
+            <total unit="min">7</total>
+            <riding unit="min">7</riding>
+          </durations>
+        </times>
+        <variant xlink:href="variants/79-0-K%23">
+          <key>79-0-K#</key>
+          <name>Charleswood to Westdale via Kenaston</name>
+          <description/>
+          <destinations xlink:href="variants/79-0-K%23/destinations"/>
+        </variant>
+        <bounds>
+          <maximum>
+            <lat>49.86323</lat>
+            <lng>-97.27953</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85506</lat>
+            <lng>-97.31993</lng>
+          </minimum>
+        </bounds>
+      </segment>
+      <segment type="walk">
+        <times>
+          <start>2012-06-08T00:07:00</start>
+          <end>2012-06-08T00:09:00</end>
+          <durations>
+            <total unit="min">2</total>
+            <walking unit="min">2</walking>
+          </durations>
+        </times>
+        <from>
+          <stop xlink:href="stops/60591">
+            <key>60591</key>
+            <name>Southbound Dale at Alder South</name>
+            <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+              <utm zone="14U">
+                <x>620758</x>
+                <y>5523869</y>
+              </utm>
+              <geographic>
+                <latitude>49.85506</latitude>
+                <longitude>-97.32002</longitude>
+              </geographic>
+            </centre>
+          </stop>
+        </from>
+        <bounds>
+          <maximum>
+            <lat>49.85511</lat>
+            <lng>-97.31992</lng>
+          </maximum>
+          <minimum>
+            <lat>49.85499</lat>
+            <lng>-97.32166</lng>
+          </minimum>
+        </bounds>
+        <to>
+          <destination>
+            <address>
+              <key>123</key>
+              <street-number>55</street-number>
+              <street xlink:href="streets/48">
+                <key>48</key>
+                <name>Alder Bay</name>
+                <type abbr="Bay">Bay</type>
+              </street>
+              <centre xmlns:utm="http://winnipegtransit.com/coordinates/utm" xmlns:ang="http://winnipegtransit.com/coordinates/angular">
+                <utm zone="14U">
+                  <x>620640</x>
+                  <y>5523860</y>
+                </utm>
+                <geographic>
+                  <latitude>49.855</latitude>
+                  <longitude>-97.32166</longitude>
+                </geographic>
+              </centre>
+            </address>
+          </destination>
+        </to>
+      </segment>
+    </segments>
+  </plan>
+</plans>

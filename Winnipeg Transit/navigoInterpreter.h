@@ -112,12 +112,22 @@
 
 +(NSString *)humanReadableWalk:(NSDictionary *)dictionary;
 
-+(NSString *)humanReadableRide:(NSDictionary *)dictionary;
++(NSMutableArray *)humanReadableRide:(NSDictionary *)dictionary;
 
 +(NSString *)humanReadableTransfer:(NSDictionary *)dictionary;
 
 +(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary;
 
 +(NSString *)timeAdder:(NSDate *)date;
+
++(NSMutableArray *)toFromInterpreter:(NSDictionary *)dictionary;
+
++(NSString *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
+
++(NSString *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
+
++(NSString *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
+
++(NSString *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
 @end
