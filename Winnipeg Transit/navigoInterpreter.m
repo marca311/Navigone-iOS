@@ -257,6 +257,8 @@
         [result setObject:[self getPlanDetails:planNumberString :rootElement] forKey:planNumber];
     }
     [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
+    NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:result];
+    [MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
     [MSUtilities generateCacheDB];
     return result;
 }//getRouteData
@@ -517,7 +519,11 @@
     NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
-    NSArray *array = [[self getVariantName:variantNumber]componentsSeparatedByString:@" to "];
+    NSString *fullVariantResults = [self getVariantName:variantNumber];
+    NSArray *array = [fullVariantResults componentsSeparatedByString:@" to "];
+    if ([array count] == 1) {
+        array = [fullVariantResults componentsSeparatedByString:@" via "];
+    }
     NSString *routeName = [array objectAtIndex:0];
     NSString *variantName = [array objectAtIndex:1];
     [result setObject:routeName forKey:@"Route Name"];
@@ -763,6 +769,7 @@
     transferTime = [dictionary objectForKey:@"Segment Total Time"];
     NSString *text = [NSString stringWithFormat:@"Transfer %@ minutes",transferTime];
     [result addObject:@"transfer"];
+    [result addObject:text];
     return result;
 
 }//humanReadableTransfer
@@ -870,6 +877,9 @@
     stopName = [dictionary objectForKey:@"Stop Name"];
     stopNumber = [dictionary objectForKey:@"Stop Number"];
     NSString *text = [NSString stringWithFormat:@"Bus Stop: %@ (%@)",stopName, stopNumber];
+    [result addObject:stopNumber];
+    [result addObject:text];
+    [result addObject:time];
     return result;
 }//stopHInterpreter
 

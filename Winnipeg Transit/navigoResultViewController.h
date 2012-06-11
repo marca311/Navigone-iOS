@@ -10,6 +10,7 @@
 #import "UniversalViewController.h"
 #import "MSUtilities.h"
 #import "MSTableViewCell.h"
+#import "navigoViewLibrary.h"
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate> {
     UITableView *resultsTable;

@@ -12,6 +12,6 @@
 
 @property (nonatomic, retain) IBOutlet UITextView *textView;
 @property (nonatomic, retain) IBOutlet UIImageView *image;
-@property (nonatomic, retain) IBOutlet UIView *viewForBackground;
+@property (nonatomic, retain) IBOutlet UILabel *time;
 
 @end

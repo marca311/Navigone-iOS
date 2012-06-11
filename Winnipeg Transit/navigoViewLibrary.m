@@ -141,4 +141,19 @@
     
 }
 
++(NSString *)sendPicture:(NSArray *)array
+{
+    
+}//sendPicture
+
++(NSString *)sendTime:(NSArray *)array
+{
+    NSString *type = [[NSString alloc]initWithFormat:@"%@",[array objectAtIndex:0]];
+    if ([type isEqualToString:@"walk"] || [type isEqualToString:@"transfer"] || [type isEqualToString:@"ride"]) {
+        return @"";
+    } else {
+        return [array objectAtIndex:2];
+    }
+}//sendTime
+
 @end

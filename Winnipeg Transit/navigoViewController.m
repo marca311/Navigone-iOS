@@ -117,10 +117,10 @@
     mode.inputView = modePicker;
     
     //Method testing area
-    NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
+    //NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
+    NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
     NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:testData];
-    NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:routeDict];
-    [MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
     NSLog(@"End of Arrays");
     
     [super viewDidLoad];

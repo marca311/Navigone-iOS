@@ -10,7 +10,7 @@
 
 @implementation MSTableViewCell
 
-@synthesize textView, image, viewForBackground;
+@synthesize textView, image, time;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

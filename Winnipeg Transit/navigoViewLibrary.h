@@ -37,4 +37,8 @@
 
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text1;
 
++(NSString *)sendPicture:(NSArray *)array;
+
++(NSString *)sendTime:(NSArray *)array;
+
 @end
