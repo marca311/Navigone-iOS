@@ -10,7 +10,7 @@
 
 @interface MSTableViewCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UITextView *textView;
 @property (nonatomic, retain) IBOutlet UIImageView *image;
 @property (nonatomic, retain) IBOutlet UIView *viewForBackground;
 

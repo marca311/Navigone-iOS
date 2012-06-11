@@ -110,11 +110,11 @@
 
 +(NSMutableArray *)makeHumanReadableResults:(NSDictionary *)dictionary;
 
-+(NSString *)humanReadableWalk:(NSDictionary *)dictionary;
++(NSMutableArray *)humanReadableWalk:(NSDictionary *)dictionary;
 
 +(NSMutableArray *)humanReadableRide:(NSDictionary *)dictionary;
 
-+(NSString *)humanReadableTransfer:(NSDictionary *)dictionary;
++(NSMutableArray *)humanReadableTransfer:(NSDictionary *)dictionary;
 
 +(NSMutableArray *)patternInterpreter:(NSDictionary *)dictionary;
 
@@ -122,12 +122,12 @@
 
 +(NSMutableArray *)toFromInterpreter:(NSDictionary *)dictionary;
 
-+(NSString *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
-+(NSString *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
-+(NSString *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
-+(NSString *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
 @end

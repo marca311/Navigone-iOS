@@ -8,6 +8,7 @@
 
 #import "navigoResultViewController.h"
 #import "MSUtilities.h"
+#import "MSTableViewCell.h"
 
 @interface navigoResultViewController ()
 
@@ -41,21 +42,48 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     NSString *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
-	
+    /*
     static NSString *CellIdentifier = @"CellIdentifier";
 	
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    MSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    [[cell textLabel] setFont:[UIFont fontWithName:@"Helvetica" size:10]];
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[MSTableViewCell class]]) {
+                cell = (MSTableViewCell *)currentObject;
+                break;
+            }
+        }
+    }
 	
-    [[cell textLabel] setText:contentForThisRow];
+    cell.textView.text = contentForThisRow;
+    
     return cell;
+*/
+    NSString *uniqueIdentifier = @"CellIdentifier";
+    MSTableViewCell *cell = nil;
+    cell = (MSTableViewCell *) [self.resultsTable dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if(cell == nil)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        //NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (MSTableViewCell *)currentObject;
+                break;
+            }
+        }
+    }
+        
+    cell.textView.text = contentForThisRow;
+
+    return cell;
+ 
 }
 
 - (void)tableView:(UITableView *)tableView:didSelectRowAtIndexPath:(NSIndexPath *)indexPath

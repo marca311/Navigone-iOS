@@ -35,4 +35,6 @@
 
 +(NSArray *)getModeArray;
 
+-(UIImage *)addText:(UIImage *)img text:(NSString *)text1;
+
 @end

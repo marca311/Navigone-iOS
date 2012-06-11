@@ -731,12 +731,14 @@
     return result;
 }//makeHumanReadableResults
 
-+(NSString *)humanReadableWalk:(NSDictionary *)dictionary
++(NSMutableArray *)humanReadableWalk:(NSDictionary *)dictionary
 {
-    NSString *result = [[NSString alloc]init];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *walkTime = [[NSString alloc]init];
     walkTime = [dictionary objectForKey:@"Segment Total Time"];
-    result = [NSString stringWithFormat:@"Walk %@ minutes",walkTime];
+    NSString *text = [NSString stringWithFormat:@"Walk %@ minutes",walkTime];
+    [result addObject:@"walk"];
+    [result addObject:text];
     return result;
 }//humanReadableWalk
 
@@ -747,16 +749,20 @@
     NSDictionary *info = [[NSDictionary alloc]initWithDictionary:[dictionary objectForKey:@"Segment Location Info"]];
     resultString = [info objectForKey:@"Human Readable"];
     resultString = [NSString stringWithFormat:@"Ride: %@",resultString];
-    [result addObject:resultString];
+    NSMutableArray *child = [[NSMutableArray alloc]init];
+    [child addObject:@"ride"];
+    [child addObject:resultString];
+    [result addObject:child];
     return result;
 }//humanReadableRide
 
-+(NSString *)humanReadableTransfer:(NSDictionary *)dictionary
++(NSMutableArray *)humanReadableTransfer:(NSDictionary *)dictionary
 {
-    NSString *result = [[NSString alloc]init];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *transferTime = [[NSString alloc]init];
     transferTime = [dictionary objectForKey:@"Segment Total Time"];
-    result = [NSString stringWithFormat:@"Transfer %@ minutes",transferTime];
+    NSString *text = [NSString stringWithFormat:@"Transfer %@ minutes",transferTime];
+    [result addObject:@"transfer"];
     return result;
 
 }//humanReadableTransfer
@@ -819,43 +825,51 @@
         currentDictionary = [segmentLocationInfo objectForKey:@"to"];
         currentTime = [self timeAdder:[dictionary objectForKey:@"Segment End Time"]];
     }
+    return nil;
 }//toFromInterpreter
 
-+(NSString *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time
 {
-    NSString *result = [[NSString alloc]init];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *latitude =  [[NSString alloc]init];
     latitude = [dictionary objectForKey:@"Latitude"];
     NSString *longitude = [[NSString alloc]init];
     longitude = [dictionary objectForKey:@"Longitude"];
-    result = [NSString stringWithFormat:@"%@  Coordinates: %@, %@",time ,latitude, longitude];
+    [result addObject:@"point"];
+    NSString *text = [NSString stringWithFormat:@"Coordinates: %@, %@",latitude, longitude];
+    [result addObject:text];
+    [result addObject:time];
     return result;
 }//pointHInterpreter
 
-+(NSString *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time
 {
-    NSString *result = [[NSString alloc]init];
-    result = [dictionary objectForKey:@"Human Readable"];
-    result = [NSString stringWithFormat:@"%@  %@",time, result];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *text = [dictionary objectForKey:@"Human Readable"];
+    [result addObject:@"address"];
+    [result addObject:text];
+    [result addObject:time];
     return result;
 }//addressHInterpreter
 
-+(NSString *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time
 {
-    NSString *result = [[NSString alloc]init];
-    result = [dictionary objectForKey:@"Human Readable"];
-    result = [NSString stringWithFormat:@"%@  %@",time, result];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *text = [dictionary objectForKey:@"Human Readable"];
+    [result addObject:@"monument"];
+    [result addObject:text];
+    [result addObject:time];
     return result;
 }//monumentHInterpreter
 
-+(NSString *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time
 {
-    NSString *result = [[NSString alloc]init];
+    NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *stopName = [[NSString alloc]init];
     NSString *stopNumber = [[NSString alloc]init];
     stopName = [dictionary objectForKey:@"Stop Name"];
     stopNumber = [dictionary objectForKey:@"Stop Number"];
-    result = [NSString stringWithFormat:@"%@  Bus Stop: %@ (%@)",time ,stopName, stopNumber];
+    NSString *text = [NSString stringWithFormat:@"Bus Stop: %@ (%@)",stopName, stopNumber];
     return result;
 }//stopHInterpreter
 
