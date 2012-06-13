@@ -41,4 +41,6 @@
 
 +(NSString *)sendTime:(NSArray *)array;
 
++(UIView *)greyOutAndActivity;
+
 @end

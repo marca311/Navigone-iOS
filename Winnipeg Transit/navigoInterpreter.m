@@ -520,9 +520,13 @@
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
     NSString *fullVariantResults = [self getVariantName:variantNumber];
+    fullVariantResults = [fullVariantResults stringByReplacingOccurrencesOfString:@" via " withString:@" to "];
     NSArray *array = [fullVariantResults componentsSeparatedByString:@" to "];
     if ([array count] == 1) {
-        array = [fullVariantResults componentsSeparatedByString:@" via "];
+        NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+        [tempArray addObject:[array objectAtIndex:0]];
+        [tempArray addObject:@""];
+        array = tempArray;
     }
     NSString *routeName = [array objectAtIndex:0];
     NSString *variantName = [array objectAtIndex:1];
@@ -531,6 +535,9 @@
     NSString *routeNumber = [self getBusNumber:variantNumber];
     [result setObject:routeNumber forKey:@"Route Number"];
     NSString *humanReadable = [[NSString alloc]initWithFormat:@"%@ %@ (%@)",routeNumber,routeName,variantName];
+    if ([[array objectAtIndex:1] isEqualToString:@""]) {
+        humanReadable = [NSString stringWithFormat:@"(%@)",[array objectAtIndex:0]];
+    }
     [result setObject:humanReadable forKey:@"Human Readable"];
     return result;
 }//getRideInfo

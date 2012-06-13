@@ -13,6 +13,7 @@
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 #import "navigoResultViewController.h"
+#import "DejalActivityView.h"
 
 @implementation navigoViewController
 
@@ -36,6 +37,7 @@
 @synthesize pickerBar;
 @synthesize modeArray;
 @synthesize modeString;
+@synthesize separator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -137,10 +139,14 @@
 
 -(IBAction)submitButton:(id)sender
 {
+    UIView *viewToUse = self.view;
+    viewToUse = self.tabBarController.tabBar.superview;
+    [DejalBezelActivityView activityViewForView:viewToUse];
     if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
     } else {
+        
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
         originLabel.text = originText;
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
@@ -152,7 +158,7 @@
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
         [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        [searchArray addObject:walkSpeed.text];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@";
         [searchArray addObject:maxWalkTime.text];
         [searchArray addObject:minTransferWait.text];
         [searchArray addObject:maxTransferWait.text];
@@ -185,7 +191,10 @@
 
 -(IBAction)testButton
 {
-    [self performSegueWithIdentifier:@"toResults" sender:self];
+    CGContextRef
+    //[UIImageView beginAnimations:<#(NSString *)#> context:<#(void *)#>
+    //[self.view addSubview:[navigoViewLibrary greyOutAndActivity]];
+    //[self performSegueWithIdentifier:@"toResults" sender:self];
 }
 
 - (void)viewDidUnload

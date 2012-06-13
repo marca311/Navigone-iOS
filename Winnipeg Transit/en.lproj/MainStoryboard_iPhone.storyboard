@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -16,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Origin" minimumFontSize="12" id="JAh-ph-yCG">
-                                <rect key="frame" x="10" y="20" width="117" height="31"/>
+                                <rect key="frame" x="20" y="30" width="117" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -25,7 +24,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" minimumFontSize="17" id="cD2-DB-a5q">
-                                <rect key="frame" x="10" y="64" width="117" height="31"/>
+                                <rect key="frame" x="145" y="236" width="117" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -34,24 +33,28 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" minimumFontSize="17" id="dBW-2j-B5f">
-                                <rect key="frame" x="10" y="103" width="76" height="31"/>
+                                <rect key="frame" x="20" y="236" width="76" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="IY1-b6-9Qg">
-                                <rect key="frame" x="100" y="192" width="79" height="27"/>
+                                <rect key="frame" x="236" y="298" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy access" lineBreakMode="tailTruncation" minimumFontSize="10" id="nzo-zI-fIq">
-                                <rect key="frame" x="0.0" y="192" width="96" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Other" lineBreakMode="tailTruncation" minimumFontSize="10" id="nzo-zI-fIq">
+                                <rect key="frame" x="10" y="181" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="Nqn-90-vNY">
+                                <rect key="frame" x="0.0" y="210" width="320" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mode" adjustsFontSizeToFit="NO" minimumFontSize="17" id="GSY-Dw-i4B">
-                                <rect key="frame" x="10" y="142" width="162" height="31"/>
+                                <rect key="frame" x="20" y="321" width="162" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -59,51 +62,10 @@
                                     <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="1sL-nn-nxP"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Walk Speed" minimumFontSize="17" id="j7L-Vp-spT">
-                                <rect key="frame" x="30" y="252" width="97" height="31"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="sKd-4h-VWv">
+                                <rect key="frame" x="0.0" y="163" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="jj2-eu-WFp"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Max walk time" minimumFontSize="17" id="J8y-S2-OnJ">
-                                <rect key="frame" x="30" y="298" width="97" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="LKX-1x-7N5"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="min transfer wait" minimumFontSize="17" id="asy-K3-H5a">
-                                <rect key="frame" x="163" y="298" width="108" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="S11-SX-35y"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="max transfer wait" minimumFontSize="17" id="0oD-2Q-NYU">
-                                <rect key="frame" x="91" y="360" width="97" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="6JT-wZ-kqp"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="max transfers" minimumFontSize="17" id="Ffc-zK-vVe">
-                                <rect key="frame" x="203" y="238" width="97" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="DVg-8K-oE8"/>
-                                </connections>
-                            </textField>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" minimumFontSize="10" id="Xim-6b-PHE">
                                 <rect key="frame" x="128" y="6" width="164" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0g-F2-qrs">
-                                <rect key="frame" x="241" y="367" width="59" height="24"/>
+                                <rect key="frame" x="219" y="30" width="73" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit">
@@ -134,13 +96,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" id="Wjp-C9-Z2T">
-                                <rect key="frame" x="88" y="103" width="176" height="31"/>
+                                <rect key="frame" x="20" y="281" width="176" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U01-xK-nAh">
-                                <rect key="frame" x="12" y="348" width="72" height="37"/>
+                                <rect key="frame" x="20" y="354" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Test">
@@ -154,6 +116,35 @@
                                     <action selector="testButton" destination="2" eventType="touchUpInside" id="1Bi-dq-UhV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="vwX-2X-x2W">
+                                <rect key="frame" x="0.0" y="69" width="320" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="w7W-sz-LsL">
+                                <rect key="frame" x="0.0" y="116" width="320" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Origin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DKg-Be-Axl">
+                                <rect key="frame" x="20" y="6" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yNb-sB-YUl">
+                                <rect key="frame" x="10" y="87" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zVZ-1g-9Aj">
+                                <rect key="frame" x="10" y="134" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <connections>
@@ -166,15 +157,10 @@
                         <outlet property="destination" destination="cD2-DB-a5q" id="6pZ-XI-yX3"/>
                         <outlet property="destinationLabel" destination="acl-XI-DKE" id="TfK-Wh-edV"/>
                         <outlet property="easyAccessSwitch" destination="IY1-b6-9Qg" id="Tz4-88-d2w"/>
-                        <outlet property="maxTransferWait" destination="0oD-2Q-NYU" id="Fwz-PR-mK4"/>
-                        <outlet property="maxTransfers" destination="Ffc-zK-vVe" id="cM7-nP-Bag"/>
-                        <outlet property="maxWalkTime" destination="J8y-S2-OnJ" id="3kd-oW-XdU"/>
-                        <outlet property="minTransferWait" destination="asy-K3-H5a" id="9gA-0S-aoh"/>
                         <outlet property="mode" destination="GSY-Dw-i4B" id="sc5-Nc-5D2"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="Xim-6b-PHE" id="Gdk-9E-FGN"/>
                         <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
-                        <outlet property="walkSpeed" destination="j7L-Vp-spT" id="DsG-fg-j3d"/>
                         <segue destination="Yb6-Xe-lvz" kind="modal" identifier="toResults" modalTransitionStyle="coverVertical" id="9BL-9I-9qg"/>
                     </connections>
                 </viewController>
@@ -286,6 +272,9 @@
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="separator.png" width="320" height="10"/>
+    </resources>
     <classes>
         <class className="UniversalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
@@ -321,6 +310,7 @@
                 <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="separator" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="walkSpeed" candidateClass="UITextField"/>
             </relationships>

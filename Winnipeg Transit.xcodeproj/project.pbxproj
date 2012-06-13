@@ -35,6 +35,8 @@
 		6F41561F150553D400A5DB67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561C150553D400A5DB67 /* TBXML.m */; };
 		6F519A031502F7C600395F84 /* 10064.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F519A021502F7C600395F84 /* 10064.xml */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
+		6F5802F31587F86A0031A17E /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5802F21587F86A0031A17E /* separator.png */; };
+		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
 		6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B86B1526AB6B00FFCD99 /* Icon-72.png */; };
@@ -42,6 +44,7 @@
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
+		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		6F519A021502F7C600395F84 /* 10064.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 10064.xml; sourceTree = "<group>"; };
 		6F519A081502F84200395F84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		6F5802F21587F86A0031A17E /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
+		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
+		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
 		6F60B8671526AB0200FFCD99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6F60B8691526AB0C00FFCD99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6F60B86B1526AB6B00FFCD99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F6B2F4D150F97E600185233 /* locations_Clift.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = locations_Clift.xml; sourceTree = "<group>"; };
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
+		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +208,11 @@
 				4342D4521582611600A4A558 /* MSTableViewCell.h */,
 				4342D4531582611600A4A558 /* MSTableViewCell.m */,
 				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
+				6FDEA9741587955F00D363EC /* DejalActivityView.h */,
+				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
+				6F5802F21587F86A0031A17E /* separator.png */,
+				6F5802F5158817660031A17E /* MSSeparator.h */,
+				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6F415616150553D400A5DB67 /* TBXML */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
 			);
@@ -351,6 +364,7 @@
 				6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */,
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
+				6F5802F31587F86A0031A17E /* separator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +413,8 @@
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
 				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
 				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
+				6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */,
+				6F5802F7158817660031A17E /* MSSeparator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

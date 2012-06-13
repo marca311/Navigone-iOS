@@ -155,5 +155,13 @@
         return [array objectAtIndex:2];
     }
 }//sendTime
+/*
++(UIView *)greyOutAndActivity
+{
+    UIView *grey = [[UIView alloc]initWithFrame:[CGRectMake(0, 0, 25, 25)]]);
+    grey.backgroundColor = [UIColor blackColor];
+    grey.alpha = 0.5;
+    return grey;
+}//greyOutAndActivity*/
 
 @end

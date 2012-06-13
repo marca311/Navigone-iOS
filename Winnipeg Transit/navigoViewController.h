@@ -14,6 +14,7 @@
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 #import "navigoResultViewController.h"
+#import "DejalActivityView.h"
 
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
     UITextField *origin;
@@ -46,6 +47,7 @@
 @property (nonatomic, retain) UIToolbar *pickerBar;
 @property (nonatomic, retain) NSArray *modeArray;
 @property (nonatomic, retain) NSString *modeString;
+@property (nonatomic, retain) IBOutlet UIImageView *separator;
 
 -(IBAction)submitButton:(id)sender;
 
