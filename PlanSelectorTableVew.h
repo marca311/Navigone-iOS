@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PlanSelectorTableVew : UITableView <UITableViewDelegate, UITableViewDataSource>
-{
-    UITableView *planTableView;
-}
-
-@property 
 
 - (void)setFrameFromButton:(UIButton *)button;
 
