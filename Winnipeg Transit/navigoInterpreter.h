@@ -130,4 +130,12 @@
 
 +(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
+# pragma mark - Error Processing
+
++(void)displayConnectionError;
+
++(void)displayDataError;
+
++(void)displayNoConnectionError;
+
 @end

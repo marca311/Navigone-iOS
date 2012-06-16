@@ -14,6 +14,7 @@
 #import "navigoViewLibrary.h"
 #import "navigoResultViewController.h"
 #import "DejalActivityView.h"
+#import "MSSeparator.h"
 
 @implementation navigoViewController
 
@@ -37,7 +38,7 @@
 @synthesize pickerBar;
 @synthesize modeArray;
 @synthesize modeString;
-@synthesize separator;
+@synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -119,6 +120,7 @@
     mode.inputView = modePicker;
     
     //Method testing area
+    
     //NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
     NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
@@ -139,9 +141,9 @@
 
 -(IBAction)submitButton:(id)sender
 {
-    UIView *viewToUse = self.view;
+    /*UIView *viewToUse = self.view;
     viewToUse = self.tabBarController.tabBar.superview;
-    [DejalBezelActivityView activityViewForView:viewToUse];
+    [DejalBezelActivityView activityViewForView:viewToUse];*/
     if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
@@ -158,11 +160,12 @@
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
         [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@";
-        [searchArray addObject:maxWalkTime.text];
-        [searchArray addObject:minTransferWait.text];
-        [searchArray addObject:maxTransferWait.text];
-        [searchArray addObject:maxTransfers.text];
+        NSLog([[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]);
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
         NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:resultXMLFile];
         [self performSegueWithIdentifier:@"toResults" sender:self];
@@ -191,10 +194,7 @@
 
 -(IBAction)testButton
 {
-    CGContextRef
-    //[UIImageView beginAnimations:<#(NSString *)#> context:<#(void *)#>
-    //[self.view addSubview:[navigoViewLibrary greyOutAndActivity]];
-    //[self performSegueWithIdentifier:@"toResults" sender:self];
+    [self performSegueWithIdentifier:@"toResults" sender:self];
 }
 
 - (void)viewDidUnload

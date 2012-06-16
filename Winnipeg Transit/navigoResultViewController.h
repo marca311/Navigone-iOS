@@ -12,13 +12,25 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 
-@interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UITableView *resultsTable;
     NSArray *resultsArray;
+    
+    UITextField *planField;
 }
 
+@property (nonatomic, retain) NSArray *planArray;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
 @property (nonatomic, retain) NSArray *resultsArray;
+@property (nonatomic, retain) IBOutlet UIButton *test;
+
+//Temporary text field till the table works
+@property (nonatomic, retain) IBOutlet UITextField *planField;
+@property (nonatomic, retain) IBOutlet UILabel *numPlans;
+
+-(IBAction)reloadTable:(id)sender;
+
+-(IBAction)testButton;
 
 @end

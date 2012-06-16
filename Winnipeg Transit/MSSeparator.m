@@ -30,4 +30,18 @@
 }
 */
 
+-(void)moveSeparatorUp
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5f];
+    
+    CGRect currentPosition = self.frame;
+    currentPosition.origin.y = currentPosition.origin.y - 20;
+    self.frame = currentPosition;
+    
+    [UIView commitAnimations];
+    
+    
+}//moveSeparatorUp
+
 @end

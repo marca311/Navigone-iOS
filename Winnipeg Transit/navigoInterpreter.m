@@ -555,6 +555,9 @@
     variantKey = [variantKey stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
     NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?&api-key=%@",variantKey,[self getAPIKey]]];
     NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
+    if (variantSearch == nil) {
+        [self displayConnectionError];
+    }
     TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];
     TBXMLElement *elementOfVariant = [XMLParser getRootElement:variantXML];
     elementOfVariant = [XMLParser extractKnownChildElement:@"name" :elementOfVariant];
@@ -889,5 +892,34 @@
     [result addObject:time];
     return result;
 }//stopHInterpreter
+
+# pragma mark - Error Processing
+
++(void)displayConnectionError
+{
+    NSString *title = @"Error";
+    NSString *message = @"There was an error connecting to the database, please try again";
+    NSString *cancel = @"Okay";
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:cancel otherButtonTitles: nil];
+    [alertView show];
+}//displayConnectionError
+
++(void)displayDataError
+{
+    NSString *title = @"Error";
+    NSString *message = @"There was an error processing the data, please report this to marcusjbdyck@gmail.com";
+    NSString *cancel = @"Okay";
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:cancel otherButtonTitles: nil];
+    [alertView show];
+}//displayDataError
+
++(void)displayNoConnectionError
+{
+    NSString *title = @"Error";
+    NSString *message = @"It appears you are not connected to the internet, please connect and try again";
+    NSString *cancel = @"Okay";
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:cancel otherButtonTitles: nil];
+    [alertView show];
+}//displayNoConnectionError
 
 @end

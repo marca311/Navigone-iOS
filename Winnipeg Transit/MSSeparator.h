@@ -10,4 +10,9 @@
 
 @interface MSSeparator : UIImageView
 
+-(void)moveSeparatorUp;
+
+//@property (nonatomic, retain) UIImageView
+
+
 @end

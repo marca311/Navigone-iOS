@@ -155,13 +155,19 @@
         return [array objectAtIndex:2];
     }
 }//sendTime
-/*
-+(UIView *)greyOutAndActivity
+
++(UITableView *)planTableView:(NSDictionary *)dictionary senderButton:(UIButton *)button
 {
-    UIView *grey = [[UIView alloc]initWithFrame:[CGRectMake(0, 0, 25, 25)]]);
-    grey.backgroundColor = [UIColor blackColor];
-    grey.alpha = 0.5;
-    return grey;
-}//greyOutAndActivity*/
+    CGRect tableRect;
+    tableRect.origin.x = button.frame.origin.x;
+    tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
+    tableRect.size.width = (button.frame.origin.x + button.frame.size.width);
+    tableRect.size.height = 200;
+    UITableView *result = [[UITableView alloc]initWithFrame:tableRect];
+    //result.dataSource = 
+}//planTableView
+
+
+
 
 @end

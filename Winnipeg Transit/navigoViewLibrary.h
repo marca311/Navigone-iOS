@@ -41,6 +41,6 @@
 
 +(NSString *)sendTime:(NSArray *)array;
 
-+(UIView *)greyOutAndActivity;
++(UITableView *)planTableView:(NSDictionary *)dictionary senderButton:(UIButton *)button;
 
 @end

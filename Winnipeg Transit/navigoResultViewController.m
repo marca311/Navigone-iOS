@@ -19,7 +19,8 @@
 
 @synthesize resultsTable;
 @synthesize planButton;
-@synthesize resultsArray;
+@synthesize resultsArray, planArray;
+@synthesize planField,numPlans,test;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,8 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    resultsArray = [MSUtilities getHumanArray];
-    resultsArray = [resultsArray objectAtIndex:0];
+    planArray = [MSUtilities getHumanArray];
+    resultsArray = [planArray objectAtIndex:0];
+    numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
 	//put in the table loading methods and data loading too.
 }
 
@@ -65,12 +67,32 @@
     cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
 
     return cell;
- 
 }
 
 - (void)tableView:(UITableView *)tableView:didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    //textField = planField;
+    resultsArray = [planArray objectAtIndex:([planField.text intValue] - 1)];
+    [resultsTable reloadData];
+    NSLog(planField.text);
+}
+
+-(IBAction)reloadTable:(id)sender
+{
+    [self resignFirstResponder];
+    resultsArray = [planArray objectAtIndex:[planField.text intValue]];
+    [resultsTable reloadData];
+    NSLog(planField.text);
+}
+
+-(IBAction)testButton
+{
+    [navigoViewLibrary planTableView:nil senderButton:test];
 }
 
 - (void)viewDidUnload

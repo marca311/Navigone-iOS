@@ -20,6 +20,17 @@
     //UIViewController *timetableVC = [[timetableViewController alloc]initWithNibName:@"TheNib" bundle:nil];
     self.window.rootViewController = navigoVC;
     [self.window makeKeyAndVisible];*/
+    
+    // Set the application defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc]init];
+    [appDefaults setObject:@"4" forKey:@"walk_speed"];
+    [appDefaults setObject:@"20" forKey:@"max_walk_time"];
+    [appDefaults setObject:@"0" forKey:@"min_transfer_wait_time"];
+    [appDefaults setObject:@"20" forKey:@"max_transfer_time"];
+    [appDefaults setObject:@"0" forKey:@"max_transfers"];
+    [defaults registerDefaults:appDefaults];
+    [defaults synchronize];
     return YES;
 }
 							

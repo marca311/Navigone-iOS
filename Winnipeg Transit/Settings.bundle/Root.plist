@@ -93,6 +93,8 @@
 			<string>max_transfers</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
+			<key>DefaultValue</key>
+			<string>0</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

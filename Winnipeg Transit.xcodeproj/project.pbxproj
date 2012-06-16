@@ -46,6 +46,9 @@
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
+		6FF56FA4158BC49000CC015C /* PlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */; };
+		6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */; };
+		6FF56FAF158C237A00CC015C /* PlanSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,11 @@
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
+		6FF56FA2158BC49000CC015C /* PlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanTableViewCell.h; sourceTree = "<group>"; };
+		6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanTableViewCell.m; sourceTree = "<group>"; };
+		6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanTableViewCell.xib; sourceTree = "<group>"; };
+		6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanSelectorTableVew.h; sourceTree = "<group>"; };
+		6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanSelectorTableVew.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,8 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6FF56FB0158C237F00CC015C /* Tableviews */,
+				6FF56FA6158BC49C00CC015C /* Tableview Cells */,
 				6FEA7B9A152D53750026469A /* NIB Files */,
 				6F6B2F4D150F97E600185233 /* locations_Clift.xml */,
 				6F4155CE15050CF100A5DB67 /* trip-planner.xml */,
@@ -205,9 +215,6 @@
 				6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */,
 				430505A115177FAE00C08BC7 /* MSUtilities.h */,
 				430505A215177FAE00C08BC7 /* MSUtilities.m */,
-				4342D4521582611600A4A558 /* MSTableViewCell.h */,
-				4342D4531582611600A4A558 /* MSTableViewCell.m */,
-				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
 				6FDEA9741587955F00D363EC /* DejalActivityView.h */,
 				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
 				6F5802F21587F86A0031A17E /* separator.png */,
@@ -277,6 +284,29 @@
 				6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */,
 			);
 			name = "NIB Files";
+			sourceTree = "<group>";
+		};
+		6FF56FA6158BC49C00CC015C /* Tableview Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4342D4521582611600A4A558 /* MSTableViewCell.h */,
+				4342D4531582611600A4A558 /* MSTableViewCell.m */,
+				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
+				6FF56FA2158BC49000CC015C /* PlanTableViewCell.h */,
+				6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */,
+				6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */,
+			);
+			name = "Tableview Cells";
+			sourceTree = "<group>";
+		};
+		6FF56FB0158C237F00CC015C /* Tableviews */ = {
+			isa = PBXGroup;
+			children = (
+				6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */,
+				6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */,
+			);
+			name = Tableviews;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +395,7 @@
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
 				6F5802F31587F86A0031A17E /* separator.png in Resources */,
+				6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +446,8 @@
 				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
 				6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */,
 				6F5802F7158817660031A17E /* MSSeparator.m in Sources */,
+				6FF56FA4158BC49000CC015C /* PlanTableViewCell.m in Sources */,
+				6FF56FAF158C237A00CC015C /* PlanSelectorTableVew.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
