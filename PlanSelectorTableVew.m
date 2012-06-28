@@ -7,15 +7,27 @@
 //
 
 #import "PlanSelectorTableVew.h"
+#import "PlanTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PlanSelectorTableVew
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrameFromButton:(UIButton *)button
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-    }
+    CGRect tableRect = CGRectMake(0, 0, 0, 0);
+    tableRect.origin.x = button.frame.origin.x;
+    tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
+    tableRect.size.width = button.frame.size.width;
+    tableRect.size.height = 44;
+    self = [self initWithFrame:tableRect];
+    
+    //Creates border
+    CALayer *layer = self.layer;
+    layer.borderWidth = 2;
+    layer.borderColor = [[UIColor blackColor] CGColor];
+    layer.cornerRadius = 10;
+    layer.masksToBounds = YES;
+
     return self;
 }
 
@@ -28,24 +40,35 @@
 }
 */
 
-- (void)setFrameFromButton:(UIButton *)button
-{
-    CGRect tableRect;
-    tableRect.origin.x = button.frame.origin.x;
-    tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
-    tableRect.size.width = (button.frame.origin.x + button.frame.size.width);
-    tableRect.size.height = 200;
-    self.frame = tableRect;
-}//setFromFromButton
-
 - (void)setDataSourceArray:(NSArray *)array
 {
     
 }//setDataSourceArray
 
-- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
+    NSString *uniqueIdentifier = @"CellIdentifier";
+    PlanTableViewCell *cell = nil;
+    cell = (PlanTableViewCell *) [self dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if(cell == nil)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (PlanTableViewCell *)currentObject;
+                break;
+            }
+        }
+    }
     
+    //cell.textView.text = [contentForThisRow objectAtIndex:1];
+    //cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
+    
+    return cell;
+
 }
 
 

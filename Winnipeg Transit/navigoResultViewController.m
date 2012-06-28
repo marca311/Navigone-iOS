@@ -10,6 +10,7 @@
 #import "MSUtilities.h"
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
+#import "PlanSelectorTableVew.h"
 
 @interface navigoResultViewController ()
 
@@ -20,7 +21,7 @@
 @synthesize resultsTable;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
-@synthesize planField,numPlans,test;
+@synthesize planField,numPlans,test,testTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -82,7 +83,7 @@
     NSLog(planField.text);
 }
 
--(IBAction)reloadTable:(id)sender
+-(IBAction)reloadTable
 {
     [self resignFirstResponder];
     resultsArray = [planArray objectAtIndex:[planField.text intValue]];
@@ -92,7 +93,15 @@
 
 -(IBAction)testButton
 {
-    [navigoViewLibrary planTableView:nil senderButton:test];
+    testTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:test];
+    [self.view addSubview:testTable];
+}
+
+-(IBAction)closePlans
+{
+    if (testTable != nil) {
+        [testTable removeFromSuperview];
+    }
 }
 
 - (void)viewDidUnload

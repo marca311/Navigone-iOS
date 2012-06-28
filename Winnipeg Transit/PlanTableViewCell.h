@@ -12,6 +12,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *startTime;
 @property (nonatomic, retain) IBOutlet UILabel *endTime;
-@property (nonatomic, retain) IBOutlet UIImageView *image;
+@property (nonatomic, retain) IBOutlet UILabel *buses;
 
 @end

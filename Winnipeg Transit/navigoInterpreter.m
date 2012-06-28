@@ -311,7 +311,9 @@
     do {
         result = [XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]];
     } while ((planLayer = planLayer->nextSibling));
+#if TARGET_IPHONE_SIMULATOR
     NSLog([NSString stringWithFormat:@"Result:%@",result]);
+#endif
     return result;
 }//getNumberOfPlans
 

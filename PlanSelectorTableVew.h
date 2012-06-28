@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlanTableViewCell.h"
 
 @interface PlanSelectorTableVew : UITableView <UITableViewDelegate, UITableViewDataSource>
+
+- (id)initWithFrameFromButton:(UIButton *)button;
 
 - (void)setFrameFromButton:(UIButton *)button;
 

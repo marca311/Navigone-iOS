@@ -113,8 +113,6 @@
     
     //setting up the mode picker
     modePicker = [[UIPickerView alloc]initWithFrame:CGRectZero];
-    modePicker.delegate = self;
-    modePicker.dataSource = self;
     modePicker.showsSelectionIndicator = YES;
     modeArray = [navigoViewLibrary getModeArray];
     mode.inputView = modePicker;
@@ -125,7 +123,7 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
     NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
     NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:testData];
-    NSLog(@"End of Arrays");
+    NSLog(@"Main UI Loaded");
     
     [super viewDidLoad];
 }

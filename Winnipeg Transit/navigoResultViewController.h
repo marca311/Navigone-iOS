@@ -11,6 +11,7 @@
 #import "MSUtilities.h"
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
+#import "PlanSelectorTableVew.h"
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UITableView *resultsTable;
@@ -24,13 +25,16 @@
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
 @property (nonatomic, retain) NSArray *resultsArray;
 @property (nonatomic, retain) IBOutlet UIButton *test;
+@property (nonatomic, retain) PlanSelectorTableVew *testTable;
 
 //Temporary text field till the table works
 @property (nonatomic, retain) IBOutlet UITextField *planField;
 @property (nonatomic, retain) IBOutlet UILabel *numPlans;
 
--(IBAction)reloadTable:(id)sender;
+-(IBAction)reloadTable;
 
 -(IBAction)testButton;
+
+-(IBAction)closePlans;
 
 @end

@@ -43,6 +43,7 @@
 		6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */; };
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
+		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
@@ -116,6 +117,8 @@
 		6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewLibrary.h; sourceTree = "<group>"; };
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F6B2F4D150F97E600185233 /* locations_Clift.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = locations_Clift.xml; sourceTree = "<group>"; };
+		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
+		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 			children = (
 				6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */,
 				6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */,
+				6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */,
+				6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */,
 			);
 			name = Tableviews;
 			path = ..;
@@ -448,6 +453,7 @@
 				6F5802F7158817660031A17E /* MSSeparator.m in Sources */,
 				6FF56FA4158BC49000CC015C /* PlanTableViewCell.m in Sources */,
 				6FF56FAF158C237A00CC015C /* PlanSelectorTableVew.m in Sources */,
+				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
