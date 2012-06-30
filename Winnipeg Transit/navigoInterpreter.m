@@ -10,6 +10,8 @@
 #import "XMLParser.h"
 #import "MSUtilities.h"
 
+NSString *currentFile;
+
 @implementation navigoInterpreter
 
 +(NSString *)getAPIKey {
@@ -242,7 +244,7 @@
     return result;
 }//getRootElement
 
-+(NSMutableDictionary *)getRouteData:(NSData *)xmlFile
++(void)getRouteData:(NSData *)xmlFile
 {
     TBXMLElement *rootElement = [self getRootElement:xmlFile];
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
@@ -256,12 +258,19 @@
         NSString *planNumberString = [[NSString alloc]initWithFormat:@"%i",i];
         [result setObject:[self getPlanDetails:planNumberString :rootElement] forKey:planNumber];
     }
-    [MSUtilities saveMutableDictionaryToFile:result :@"Route1"];
-    NSMutableArray *hrResult = [navigoInterpreter makeHumanReadableResults:result];
-    [MSUtilities saveArrayToFile:hrResult :@"HumanArray"];
-    [MSUtilities generateCacheDB];
-    return result;
+    [self saveToFile:result];
 }//getRouteData
+
++(void)saveToFile:(NSDictionary *)dictionary
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
+    NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
+    [MSUtilities saveDictionaryToFile:dictionary :entryTime];
+    [MSUtilities generateCacheDB];
+    NSLog([NSString stringWithFormat:@"Entry saved as: %@.plist",entryTime]);
+    currentFile = entryTime;
+}//saveToFile
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
 {
@@ -279,16 +288,6 @@
         [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Walk Time",planNumber]];
         [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Ride Time",planNumber]];
         [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Wait Time",planNumber]];
-        //NSArray method, I'm trying the above dictionary method to see if it works better. I'm hoping it will be more readable and more easily accessable.
-        /*
-        [result addObject:[self getEasyAccess:rootElement]];
-        [result addObject:[self getStartTime:rootElement]];
-        [result addObject:[self getEndTime:rootElement]];
-        [result addObject:[self getTotalTime:rootElement]];
-        [result addObject:[self getWalkTime:rootElement]];
-        [result addObject:[self getRideTime:rootElement]];
-        [result addObject:[self getWaitTime:rootElement]];
-         */
         rootElement = rootElement->nextSibling;
     }
     return result;
@@ -302,6 +301,9 @@
     for (int planInt; planInt < numberOfPlansInt; planInt++) {
         NSString *planPrefix = [[NSString alloc]initWithFormat:@"Plan%i"];
     }
+    return nil;
+    
+    //I don't think this method does anything, I'll look at it later.
 }//getPlanResults 
 
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
@@ -395,6 +397,23 @@
     result = [XMLParser getValueFromElement:planLayer];
     return result;
 }//getWaitTime
+
++(NSString *)getOrigin:(TBXMLElement *)rootElement
+{
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"segments" :rootElement];
+    planLayer = [XMLParser extractUnknownChildElement:planLayer];
+    planLayer = [XMLParser extractKnownChildElement:@"from" :planLayer];
+    return nil;
+    
+    //This will be finished later
+}//getOrigin
+
++(NSString *)getDestination:(TBXMLElement *)rootElement
+{
+    return nil;
+    
+    //This will be finished later
+}//getDestination
 
 #pragma mark - Get plan details
 

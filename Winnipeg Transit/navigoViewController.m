@@ -120,9 +120,9 @@
     //Method testing area
     
     //NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
-    NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
-    NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:testData];
+    //NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
+    //NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
+    //[navigoInterpreter getRouteData:testData];
     NSLog(@"Main UI Loaded");
     
     [super viewDidLoad];
@@ -165,16 +165,10 @@
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        NSMutableDictionary *routeDict = [navigoInterpreter getRouteData:resultXMLFile];
+        [navigoInterpreter getRouteData:resultXMLFile];
         [self performSegueWithIdentifier:@"toResults" sender:self];
     }
 }
-
--(NSMutableDictionary *)getRoutePlans:(NSData *)resultXMLFile
-{
-    //add stuff here
-}
-
 
 -(IBAction)backgroundTap:(id)sender
 {
@@ -188,10 +182,12 @@
     [minTransferWait resignFirstResponder];
     [maxTransferWait resignFirstResponder];
     [maxTransfers resignFirstResponder];
+    NSLog(@"Background tap");
 }
 
 -(IBAction)testButton
 {
+    currentFile = @"Route1";
     [self performSegueWithIdentifier:@"toResults" sender:self];
 }
 

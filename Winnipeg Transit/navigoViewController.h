@@ -55,8 +55,6 @@
 
 -(IBAction)submitButton:(id)sender;
 
--(NSMutableDictionary *)getRoutePlans:(NSData *)resultXMLFile;
-
 -(IBAction)openDatePicker:(id)sender;
 
 -(IBAction)datePickerValueChanged:(id)sender;

@@ -11,6 +11,7 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
+#import "navigoInterpreter.h"
 
 @interface navigoResultViewController ()
 
@@ -35,7 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    planArray = [MSUtilities getHumanArray];
+    NSDictionary *resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
+    planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];;
     resultsArray = [planArray objectAtIndex:0];
     numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
 	//put in the table loading methods and data loading too.
@@ -94,7 +96,7 @@
 -(IBAction)testButton
 {
     testTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:test];
-    [self.view addSubview:testTable];
+    [testTable showAndAnimate:self.view];
 }
 
 -(IBAction)closePlans

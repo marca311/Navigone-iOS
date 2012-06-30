@@ -51,6 +51,16 @@
     return result;
 }
 
++(NSDictionary *)loadDictionaryWithName:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    fileName = [[NSString alloc]initWithFormat:@"%@.plist",fileName];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSDictionary *result = [[NSDictionary alloc]initWithContentsOfFile:filePath];
+    return result;
+}
+
 +(void)generateCacheDB
 {
     NSMutableDictionary *database = [[NSMutableDictionary alloc]init];

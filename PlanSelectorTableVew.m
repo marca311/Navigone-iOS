@@ -12,13 +12,15 @@
 
 @implementation PlanSelectorTableVew
 
+@synthesize tableRect, primaryResults, resultsArray;
+
 - (id)initWithFrameFromButton:(UIButton *)button
 {
-    CGRect tableRect = CGRectMake(0, 0, 0, 0);
+    tableRect = CGRectMake(0, 0, 0, 0);
     tableRect.origin.x = button.frame.origin.x;
     tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
     tableRect.size.width = button.frame.size.width;
-    tableRect.size.height = 44;
+    tableRect.size.height = 1;
     self = [self initWithFrame:tableRect];
     
     //Creates border
@@ -28,6 +30,8 @@
     layer.cornerRadius = 10;
     layer.masksToBounds = YES;
 
+    self.delegate = self;
+    self.dataSource = self;
     return self;
 }
 
@@ -40,10 +44,22 @@
 }
 */
 
+- (void)showAndAnimate:(UIView *)theView
+{
+    [theView addSubview:self];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    tableRect.size.height = 44;
+    self.frame = tableRect;
+    [UIView commitAnimations];
+}
+
 - (void)setDataSourceArray:(NSArray *)array
 {
     
 }//setDataSourceArray
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [resultsArray count]; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -51,7 +67,7 @@
     NSString *uniqueIdentifier = @"CellIdentifier";
     PlanTableViewCell *cell = nil;
     cell = (PlanTableViewCell *) [self dequeueReusableCellWithIdentifier:uniqueIdentifier];
-    if(cell == nil)
+    if (cell == nil)
     {
         NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects)
@@ -64,8 +80,7 @@
         }
     }
     
-    //cell.textView.text = [contentForThisRow objectAtIndex:1];
-    //cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
+    
     
     return cell;
 

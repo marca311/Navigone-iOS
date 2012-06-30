@@ -20,6 +20,8 @@
 
 +(NSArray *)getHumanArray;
 
++(NSDictionary *)loadDictionaryWithName:(NSString *)fileName;
+
 +(void)generateCacheDB;
 
 +(void)checkCacheAge;

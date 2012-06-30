@@ -12,6 +12,7 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
+#import "navigoInterpreter.h"
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UITableView *resultsTable;

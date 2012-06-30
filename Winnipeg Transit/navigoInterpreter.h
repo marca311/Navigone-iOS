@@ -10,6 +10,8 @@
 #import "XMLParser.h"
 #import "MSUtilities.h"
 
+extern NSString *currentFile;
+
 @interface navigoInterpreter : NSObject
 
 +(NSString *)getAPIKey;
@@ -40,7 +42,9 @@
 
 +(TBXMLElement *)getRootElement:(NSData *)xmlFile;
 
-+(NSMutableDictionary *)getRouteData:(NSData *)xmlFile;
++(void)getRouteData:(NSData *)xmlFile;
+
++(void)saveToFile:(NSDictionary *)dictionary;
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
@@ -61,6 +65,10 @@
 +(NSString *)getRideTime:(TBXMLElement *)rootElement;
  
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement;
+
++(NSString *)getOrigin:(TBXMLElement *)rootElement;
+
++(NSString *)getDestination:(TBXMLElement *)rootElement;
 
 #pragma mark - Get plan details
 
