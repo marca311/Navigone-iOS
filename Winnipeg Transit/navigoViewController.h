@@ -17,7 +17,7 @@
 #import "DejalActivityView.h"
 #import "MSSeparator.h"
 
-@interface navigoViewController : UniversalViewController <UITextFieldDelegate> {
+@interface navigoViewController : UniversalViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UITextField *origin;
     UITextField *timeDate;
     UIToolbar *pickerBar;
@@ -25,6 +25,7 @@
     UISegmentedControl *nextPreviousControl;
     UIDatePicker *timePicker;
     UIDatePicker *datePicker;
+    UIPickerView *modePicker;
     NSArray *modeArray;
 }
 

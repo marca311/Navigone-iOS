@@ -115,6 +115,8 @@
     modePicker = [[UIPickerView alloc]initWithFrame:CGRectZero];
     modePicker.showsSelectionIndicator = YES;
     modeArray = [navigoViewLibrary getModeArray];
+    modePicker.delegate = self;
+    modePicker.dataSource = self;
     mode.inputView = modePicker;
     
     //Method testing area

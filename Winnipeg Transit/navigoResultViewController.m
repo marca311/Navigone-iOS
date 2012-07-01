@@ -80,9 +80,11 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     //textField = planField;
-    resultsArray = [planArray objectAtIndex:([planField.text intValue] - 1)];
-    [resultsTable reloadData];
-    NSLog(planField.text);
+    if (![planField.text isEqual:@""]) {
+        resultsArray = [planArray objectAtIndex:([planField.text intValue] - 1)];
+        [resultsTable reloadData];
+        NSLog(planField.text);
+    }
 }
 
 -(IBAction)reloadTable

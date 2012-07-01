@@ -59,7 +59,7 @@
     
 }//setDataSourceArray
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return [resultsArray count]; }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 5; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -69,7 +69,7 @@
     cell = (PlanTableViewCell *) [self dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil)
     {
-        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"PlanTableViewCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects)
         {
             if([currentObject isKindOfClass:[UITableViewCell class]])
