@@ -13,10 +13,6 @@
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
 
-@interface navigoResultViewController ()
-
-@end
-
 @implementation navigoResultViewController
 
 @synthesize resultsTable;
