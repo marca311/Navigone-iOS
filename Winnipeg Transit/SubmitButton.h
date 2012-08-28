@@ -10,4 +10,8 @@
 
 @interface SubmitButton : UIButton
 
+-(int)checkCurrentLocation;
+
+-(void)nextButtonLocation;
+
 @end
