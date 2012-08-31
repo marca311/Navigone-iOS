@@ -16,6 +16,7 @@
 #import "navigoResultViewController.h"
 #import "DejalActivityView.h"
 #import "MSSeparator.h"
+#import "SubmitButton.h"
 
 @interface navigoViewController : UniversalViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UITextField *origin;
@@ -53,6 +54,7 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *destinationSeparator;
 @property (nonatomic, retain) IBOutlet MSSeparator *timeSeparator;
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
+@property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
 
 -(IBAction)submitButton:(id)sender;
 

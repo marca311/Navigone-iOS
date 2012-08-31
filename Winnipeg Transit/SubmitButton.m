@@ -24,30 +24,47 @@
 {
     int result;
     CGRect location = self.frame;
-    int x = location.origin.x;
     int y = location.origin.y;
-    switch (x) {
-        case 39:
+    switch (y) {
+        case 37:
             result = 1;
             break;
-        case 86:
+        case 84:
             result = 2;
+            break;
+        case 170:
+            result = 3;
             break;
             
         default:
-            result = 7;
+            result = 5;
             break;
     }
+    return result;
 }
 
 -(void)nextButtonLocation
 {
-    NSInteger *currentField = [self checkCurrentLocation];
+    int currentField = [self checkCurrentLocation];
     CGRect resultLocation;
     resultLocation = self.frame;
+    switch (currentField) {
+        case 1:
+            resultLocation.origin.y = 86;
+            break;
+        case 2:
+            resultLocation.origin.y = 172;
+            break;
+        case 3:
+            break;
+            
+        default:
+            break;
+    }
     [UIView beginAnimations:nil context:nil];
-    resultLocation.origin.x = 
-    
+    [UIView setAnimationDuration:0.3];
+    self.frame = resultLocation;
+    [UIView commitAnimations];
 }
 
 /*

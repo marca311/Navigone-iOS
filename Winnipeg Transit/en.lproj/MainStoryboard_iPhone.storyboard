@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Origin" minimumFontSize="12" id="JAh-ph-yCG">
-                                <rect key="frame" x="130" y="317" width="117" height="31"/>
+                                <rect key="frame" x="10" y="37" width="209" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -24,7 +24,7 @@
                                 </connections>
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" minimumFontSize="17" id="cD2-DB-a5q">
-                                <rect key="frame" x="10" y="86" width="117" height="31"/>
+                                <rect key="frame" x="10" y="84" width="209" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" minimumFontSize="17" id="dBW-2j-B5f">
-                                <rect key="frame" x="10" y="130" width="76" height="31"/>
+                                <rect key="frame" x="10" y="131" width="76" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -42,19 +42,20 @@
                                 <rect key="frame" x="236" y="298" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Other" lineBreakMode="tailTruncation" minimumFontSize="10" id="nzo-zI-fIq">
-                                <rect key="frame" x="10" y="181" width="51" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Other" lineBreakMode="tailTruncation" minimumFontSize="10" id="nzo-zI-fIq">
+                                <rect key="frame" x="227" y="252" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="Nqn-90-vNY" customClass="MSSeparator">
-                                <rect key="frame" x="0.0" y="210" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="123" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Time Day Separator"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mode" adjustsFontSizeToFit="NO" minimumFontSize="17" id="GSY-Dw-i4B">
-                                <rect key="frame" x="10" y="177" width="162" height="31"/>
+                                <rect key="frame" x="10" y="170" width="162" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -63,11 +64,11 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="sKd-4h-VWv" customClass="MSSeparator">
-                                <rect key="frame" x="0.0" y="163" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="299" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0g-F2-qrs">
-                                <rect key="frame" x="227" y="86" width="73" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0g-F2-qrs" customClass="SubmitButton">
+                                <rect key="frame" x="227" y="37" width="73" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit">
@@ -78,11 +79,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="submitButton:" destination="2" eventType="touchUpInside" id="1ed-F4-0rg"/>
+                                    <action selector="submitButton:" destination="2" eventType="touchUpInside" id="Yw9-jN-nMM"/>
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" minimumFontSize="17" id="Wjp-C9-Z2T">
-                                <rect key="frame" x="100" y="130" width="176" height="31"/>
+                                <rect key="frame" x="94" y="131" width="125" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -103,29 +104,31 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="vwX-2X-x2W" customClass="MSSeparator">
-                                <rect key="frame" x="0.0" y="130" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="170" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Destination Separator"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="separator.png" id="w7W-sz-LsL" customClass="MSSeparator">
-                                <rect key="frame" x="0.0" y="39" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Origin Separator"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Origin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DKg-Be-Axl">
-                                <rect key="frame" x="10" y="10" width="290" height="21"/>
+                                <rect key="frame" x="10" y="8" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yNb-sB-YUl">
-                                <rect key="frame" x="10" y="57" width="290" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yNb-sB-YUl">
+                                <rect key="frame" x="10" y="94" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zVZ-1g-9Aj">
-                                <rect key="frame" x="50" y="241" width="290" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zVZ-1g-9Aj">
+                                <rect key="frame" x="10" y="141" width="290" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -142,15 +145,15 @@
                         <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
                         <outlet property="destination" destination="cD2-DB-a5q" id="6pZ-XI-yX3"/>
                         <outlet property="destinationLabel" destination="yNb-sB-YUl" id="Aoa-sb-Lwo"/>
-                        <outlet property="destinationSeparator" destination="w7W-sz-LsL" id="q4i-gI-9GE"/>
+                        <outlet property="destinationSeparator" destination="vwX-2X-x2W" id="I2a-Du-OZT"/>
                         <outlet property="easyAccessSwitch" destination="IY1-b6-9Qg" id="Tz4-88-d2w"/>
                         <outlet property="mode" destination="GSY-Dw-i4B" id="sc5-Nc-5D2"/>
                         <outlet property="origin" destination="JAh-ph-yCG" id="oJG-Zv-UD6"/>
                         <outlet property="originLabel" destination="DKg-Be-Axl" id="ng9-wW-aP3"/>
-                        <outlet property="originSeparator" destination="vwX-2X-x2W" id="FHr-em-ggA"/>
-                        <outlet property="otherSeparator" destination="Nqn-90-vNY" id="wpy-Na-zZR"/>
+                        <outlet property="originSeparator" destination="w7W-sz-LsL" id="pH7-3E-wi2"/>
+                        <outlet property="submitButton" destination="Q0g-F2-qrs" id="xAz-FB-U4G"/>
                         <outlet property="timeField" destination="dBW-2j-B5f" id="OoC-Tk-45R"/>
-                        <outlet property="timeSeparator" destination="sKd-4h-VWv" id="7Y0-7b-HRu"/>
+                        <outlet property="timeSeparator" destination="Nqn-90-vNY" id="cmW-C6-ftp"/>
                         <segue destination="Yb6-Xe-lvz" kind="modal" identifier="toResults" modalTransitionStyle="coverVertical" id="9BL-9I-9qg"/>
                     </connections>
                 </viewController>
@@ -303,6 +306,69 @@
     <resources>
         <image name="separator.png" width="320" height="10"/>
     </resources>
+    <classes>
+        <class className="MSSeparator" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MSSeparator.h"/>
+        </class>
+        <class className="SubmitButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SubmitButton.h"/>
+        </class>
+        <class className="UniversalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissView:"/>
+            </relationships>
+        </class>
+        <class className="navigoResultViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closePlans"/>
+                <relationship kind="action" name="reloadTable"/>
+                <relationship kind="action" name="testButton"/>
+                <relationship kind="outlet" name="numPlans" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="planButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="planField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="resultsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="test" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="navigoViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTap:"/>
+                <relationship kind="action" name="datePickerValueChanged:"/>
+                <relationship kind="action" name="openDatePicker:"/>
+                <relationship kind="action" name="submitButton:"/>
+                <relationship kind="action" name="testButton"/>
+                <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destinationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="destinationSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="easyAccessSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="maxTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTransfers" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxWalkTime" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="originSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="otherSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="submitButton" candidateClass="SubmitButton"/>
+                <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timeSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="walkSpeed" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="stopscheduleViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/stopscheduleViewController.h"/>
+        </class>
+        <class className="timetableViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timetableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

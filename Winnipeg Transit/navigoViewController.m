@@ -15,6 +15,8 @@
 #import "navigoResultViewController.h"
 #import "DejalActivityView.h"
 #import "MSSeparator.h"
+#import "SubmitButton.h"
+#import "AnimationInstructionSheet.h"
 
 @implementation navigoViewController
 
@@ -39,6 +41,7 @@
 @synthesize modeArray;
 @synthesize modeString;
 @synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
+@synthesize submitButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -189,8 +192,11 @@
 
 -(IBAction)testButton
 {
+    /*
     currentFile = @"Route1";
     [self performSegueWithIdentifier:@"toResults" sender:self];
+     */
+    [AnimationInstructionSheet toStageTwo:self];
 }
 
 - (void)viewDidUnload

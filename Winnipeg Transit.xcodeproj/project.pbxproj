@@ -46,6 +46,7 @@
 		6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7646A8159E9E6D008AEE88 /* MSExitBar.m */; };
 		6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F91DBA515BD03D1005B9B7A /* SubmitButton.m */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
+		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
@@ -125,6 +126,8 @@
 		6F91DBA515BD03D1005B9B7A /* SubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitButton.m; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
+		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
+		6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationInstructionSheet.m; sourceTree = "<group>"; };
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
@@ -228,8 +231,6 @@
 				6FDEA9741587955F00D363EC /* DejalActivityView.h */,
 				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
 				6F5802F21587F86A0031A17E /* separator.png */,
-				6F5802F5158817660031A17E /* MSSeparator.h */,
-				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6F415616150553D400A5DB67 /* TBXML */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
 			);
@@ -294,6 +295,10 @@
 				6F7646A8159E9E6D008AEE88 /* MSExitBar.m */,
 				6F91DBA415BD03D1005B9B7A /* SubmitButton.h */,
 				6F91DBA515BD03D1005B9B7A /* SubmitButton.m */,
+				6F5802F5158817660031A17E /* MSSeparator.h */,
+				6F5802F6158817660031A17E /* MSSeparator.m */,
+				6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */,
+				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
 			);
 			name = "Custom UI Features";
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
+				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
