@@ -914,6 +914,22 @@ NSString *currentFile;
     return result;
 }//stopHInterpreter
 
++(NSMutableArray *)planListMaker:(NSDictionary *)dictionary
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
+    int numberOfPlans = [[primaryResults objectForKey:@"Number Of Plans"]intValue];
+    for (int i = 0; i<numberOfPlans; i++) {
+        NSMutableArray *secondary = [[NSMutableArray alloc]init];
+        NSDate *startDate = [primaryResults objectForKey:[NSString stringWithFormat:@"Plan%i Start Time",i]];
+        [secondary addObject:[self timeAdder:startDate]];
+        NSDate *endDate = [primaryResults objectForKey:[NSString stringWithFormat:@"Plan%i End Time",i]];
+        [secondary addObject:[self timeAdder:endDate]];
+        [result addObject:secondary];
+    }
+    return result;
+}//planListMaker
+
 # pragma mark - Error Processing
 
 +(void)displayConnectionError

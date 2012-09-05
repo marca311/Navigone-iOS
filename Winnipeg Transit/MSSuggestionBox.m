@@ -7,6 +7,7 @@
 //
 
 #import "MSSuggestionBox.h"
+#import "navigoInterpreter.h"
 
 @implementation MSSuggestionBox
 
@@ -31,6 +32,16 @@
     self.frame = theFrame;
     return self;
 }
+
+//Accidental placement in a different class, I'll implement this later.
++ (NSData *)sendQuery:(NSString *)query
+{
+    query = [NSString stringWithFormat:@"http://api.winnipegtransit.com/locations:%@?api-key=%@",query,[navigoInterpreter getAPIKey]];
+    NSURL *queryURL = [[NSURL alloc]initWithString:query];
+    NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
+    return result;
+}//sendQuery
+
 
 -(void)changeSizeFromEntries:(NSArray *)array
 {

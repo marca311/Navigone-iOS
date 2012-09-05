@@ -22,6 +22,7 @@ extern NSString *currentFile;
 
 +(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem;
 
+//Useful for location tags and quick results
 +(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem;
 
 +(NSString *)getLocationTypeFromSearchedItem:(TBXMLElement *)element;
@@ -137,6 +138,8 @@ extern NSString *currentFile;
 +(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
 
 +(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
+
++(NSMutableArray *)planListMaker:(NSDictionary *)dictionary;
 
 # pragma mark - Error Processing
 

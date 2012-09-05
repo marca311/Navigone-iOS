@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSSuggestionBox : UITableView
+@interface MSSuggestionBox : UITableView <UITableViewDataSource, UITableViewDelegate> {
+    
+}
 
 -(id)initWithFrameFromField:(UITextField *)textField;
 

@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSDictionary *resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
+    resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
     planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];;
     resultsArray = [planArray objectAtIndex:0];
     numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];

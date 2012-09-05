@@ -14,9 +14,12 @@
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
 
+extern NSDictionary *resultDictionary;
+
 @interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UITableView *resultsTable;
     NSArray *resultsArray;
+    NSDictionary *resultDictionary;
     
     UITextField *planField;
 }

@@ -32,8 +32,7 @@
 @synthesize minTransferWait;
 @synthesize maxTransferWait;
 @synthesize maxTransfers;
-@synthesize originLabel;
-@synthesize destinationLabel;
+@synthesize originLabel, destinationLabel, timeDateLabel;
 @synthesize timePicker;
 @synthesize datePicker;
 @synthesize modePicker;
@@ -75,7 +74,7 @@
 	pickerBar.tintColor = [UIColor darkGrayColor];
 	
 	NSMutableArray *items = [NSMutableArray array];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap)];
 	[items addObject:doneButton];
 	pickerBar.items = items;	
 	
@@ -105,13 +104,13 @@
     [timePicker setDate:[NSDate date]];
     timePicker = [[UIDatePicker alloc]init];
     timePicker.datePickerMode = UIDatePickerModeTime;
-    [timePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [timePicker addTarget:self action:@selector(datePickerValueChanged) forControlEvents:UIControlEventValueChanged];
     timeField.inputView = timePicker;
     
     //setting up the date picker
     datePicker = [[UIDatePicker alloc]init];
     datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [datePicker addTarget:self action:@selector(datePickerValueChanged) forControlEvents:UIControlEventValueChanged];
     dateField.inputView = datePicker;
     
     //setting up the mode picker
@@ -130,19 +129,24 @@
     //[navigoInterpreter getRouteData:testData];
     NSLog(@"Main UI Loaded");
     
-    [super viewDidLoad];
-}
-
--(IBAction)datePickerValueChanged:(id)sender {
+    //Small script to load current time into time and date pickers
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
     timeField.text = display;
-    NSLog(display);
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
-    NSLog(display);
+    mode.text = @"Depart After";
+    [super viewDidLoad];
+    
 }
 
--(IBAction)submitButton:(id)sender
+-(IBAction)datePickerValueChanged {
+    NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
+    timeField.text = display;
+    display = [navigoViewLibrary dateFromNSDate:datePicker.date];
+    dateField.text = display;
+}
+
+-(IBAction)submitButtonClick
 {
     /*UIView *viewToUse = self.view;
     viewToUse = self.tabBarController.tabBar.superview;
@@ -153,11 +157,11 @@
     } else {
         
         NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
-        originLabel.text = originText;
+        originLabel.titleLabel.text = originText;
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
         [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:origin.text]];
         NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
-        destinationLabel.text = destinationText;
+        destinationLabel.titleLabel.text = destinationText;
         [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:destination.text]];
         [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
@@ -175,7 +179,7 @@
     }
 }
 
--(IBAction)backgroundTap:(id)sender
+-(IBAction)backgroundTap
 {
     [origin resignFirstResponder];
     [destination resignFirstResponder];
@@ -187,16 +191,38 @@
     [minTransferWait resignFirstResponder];
     [maxTransferWait resignFirstResponder];
     [maxTransfers resignFirstResponder];
-    NSLog(@"Background tap");
+}
+
+-(IBAction)clearFields
+{
+    origin.text = @"";
+    destination.text = @"";
+    NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
+    timeField.text = display;
+    display = [navigoViewLibrary dateFromNSDate:datePicker.date];
+    dateField.text = display;
+    mode.text = @"Depart After";
+    [AnimationInstructionSheet toStageOne:self];
 }
 
 -(IBAction)testButton
 {
-    /*
     currentFile = @"Route1";
     [self performSegueWithIdentifier:@"toResults" sender:self];
-     */
+}
+
+//Actions for origin, destination and time/date labels/buttons
+-(IBAction)originLabelClick
+{
+    [AnimationInstructionSheet toStageOne:self];
+}
+-(IBAction)destinationLabelClick
+{
     [AnimationInstructionSheet toStageTwo:self];
+}
+-(IBAction)timeDateLabelClick
+{
+    [AnimationInstructionSheet toStageThree:self];
 }
 
 - (void)viewDidUnload

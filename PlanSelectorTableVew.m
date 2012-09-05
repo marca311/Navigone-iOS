@@ -9,6 +9,8 @@
 #import "PlanSelectorTableVew.h"
 #import "PlanTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "navigoInterpreter.h"
+#import "navigoResultViewController.h"
 
 @implementation PlanSelectorTableVew
 
@@ -54,17 +56,26 @@
     [UIView commitAnimations];
 }
 
-- (void)setDataSourceArray:(NSArray *)array
+- (void)setDataSourceArray
 {
-    
+    //primaryResults = [navigoInterpreter planListMaker:resultDictionary];
 }//setDataSourceArray
+
+- (void)getFrameSizeFromArray:(NSArray *)array
+{
+    //Adjusts frame size based on how many entries are in the table to a max of 3
+    
+    
+    CGRect theFrame = self.frame;
+    //theFrame.size.height =
+}//getFrameSizeFromArray
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 5; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
-    NSString *uniqueIdentifier = @"CellIdentifier";
+    NSString *uniqueIdentifier = @"PlanCellIdentifier";
     PlanTableViewCell *cell = nil;
     cell = (PlanTableViewCell *) [self dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil)
@@ -80,6 +91,7 @@
         }
     }
     
+    //cell.buses.text = [primaryResults objectAtIndex:[indexPath]];
     
     
     return cell;

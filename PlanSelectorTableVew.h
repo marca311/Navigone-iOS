@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "PlanTableViewCell.h"
+#import "navigoInterpreter.h"
 
 @interface PlanSelectorTableVew : UITableView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) CGRect tableRect;
-@property (nonatomic, retain) NSDictionary *primaryResults;
+@property (nonatomic, retain) NSArray *primaryResults;
 @property (nonatomic, retain) NSArray *resultsArray;
 
 - (id)initWithFrameFromButton:(UIButton *)button;
 
 - (void)showAndAnimate:(UIView *)theView;
 
-- (void)setDataSourceArray:(NSArray *)array;
+- (void)setDataSourceArray;
+
+- (void)getFrameSizeFromArray:(NSArray *)array;
 
 @end

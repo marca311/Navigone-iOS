@@ -42,8 +42,9 @@
 @property (nonatomic, retain) IBOutlet UITextField *minTransferWait;
 @property (nonatomic, retain) IBOutlet UITextField *maxTransferWait;
 @property (nonatomic, retain) IBOutlet UITextField *maxTransfers;
-@property (nonatomic, retain) IBOutlet UILabel *originLabel;
-@property (nonatomic, retain) IBOutlet UILabel *destinationLabel;
+@property (nonatomic, retain) IBOutlet UIButton *originLabel;
+@property (nonatomic, retain) IBOutlet UIButton *destinationLabel;
+@property (nonatomic, retain) IBOutlet UIButton *timeDateLabel;
 @property (nonatomic, retain) UIDatePicker *timePicker;
 @property (nonatomic, retain) UIDatePicker *datePicker;
 @property (nonatomic, retain) UIPickerView *modePicker;
@@ -56,14 +57,21 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
 
--(IBAction)submitButton:(id)sender;
+-(IBAction)submitButtonClick;
 
--(IBAction)openDatePicker:(id)sender;
+-(IBAction)openDatePicker;
 
--(IBAction)datePickerValueChanged:(id)sender;
+-(IBAction)datePickerValueChanged;
 
--(IBAction)backgroundTap:(id)sender;
+-(IBAction)backgroundTap;
+
+-(IBAction)clearFields;
 
 -(IBAction)testButton;
+
+//Actions for origin, destination and time/date labels/buttons
+-(IBAction)originLabelClick;
+-(IBAction)destinationLabelClick;
+-(IBAction)timeDateLabelClick;
 
 @end
