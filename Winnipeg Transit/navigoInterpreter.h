@@ -49,8 +49,6 @@ extern NSString *currentFile;
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getPlanResults:(NSString *)numberOfPlans:(TBXMLElement *)rootElement;
-
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement;
 
 +(NSString *)getEasyAccess:(TBXMLElement *)rootElement;

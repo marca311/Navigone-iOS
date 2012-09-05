@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "652"
          endingLineNumber = "652"
-         landmarkName = "+getStopDetails:"
+         landmarkName = "+getDestinationData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "653"
          endingLineNumber = "653"
-         landmarkName = "+getStopDetails:"
+         landmarkName = "+getDestinationData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "654"
          endingLineNumber = "654"
-         landmarkName = "+getStopDetails:"
+         landmarkName = "+getDestinationData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "518"
          endingLineNumber = "518"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getSegmentPartDetails:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -91,7 +91,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "664"
          endingLineNumber = "664"
-         landmarkName = "+getStopDetails:"
+         landmarkName = "+getMonumentDetails:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,8 +104,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "519"
          endingLineNumber = "519"
-         landmarkName = "+getRideInfo:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -117,7 +117,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "521"
          endingLineNumber = "521"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getInstructionType:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "520"
          endingLineNumber = "520"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getInstructionType:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -143,7 +143,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "523"
          endingLineNumber = "523"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getInstructionType:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -156,7 +156,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "527"
          endingLineNumber = "527"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getInstructionType:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,8 +169,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "528"
          endingLineNumber = "528"
-         landmarkName = "+getRideInfo:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "529"
          endingLineNumber = "529"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getStopData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +195,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "530"
          endingLineNumber = "530"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getStopData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -208,7 +208,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "531"
          endingLineNumber = "531"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getStopData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "532"
          endingLineNumber = "532"
-         landmarkName = "+getRideInfo:"
+         landmarkName = "+getStopData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,8 +234,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "533"
          endingLineNumber = "533"
-         landmarkName = "+getRideInfo:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -260,7 +260,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "553"
          endingLineNumber = "553"
-         landmarkName = "+getVariantName:"
+         landmarkName = "+getRideInfo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "555"
          endingLineNumber = "555"
-         landmarkName = "+getVariantName:"
+         landmarkName = "+getRideInfo:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

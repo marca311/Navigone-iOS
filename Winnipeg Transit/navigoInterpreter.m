@@ -293,19 +293,6 @@ NSString *currentFile;
     return result;
 }
 
-+(NSMutableDictionary *)getPlanResults:(NSString *)numberOfPlans:(TBXMLElement *)rootElement
-{
-    TBXMLElement *xmlLayer = rootElement;
-    int numberOfPlansInt = [numberOfPlans intValue];
-    xmlLayer = [XMLParser extractUnknownChildElement:xmlLayer];
-    for (int planInt; planInt < numberOfPlansInt; planInt++) {
-        NSString *planPrefix = [[NSString alloc]initWithFormat:@"Plan%i"];
-    }
-    return nil;
-    
-    //I don't think this method does anything, I'll look at it later.
-}//getPlanResults 
-
 +(NSString *)getNumberOfPlans:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
