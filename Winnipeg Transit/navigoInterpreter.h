@@ -65,6 +65,8 @@ extern NSString *currentFile;
  
 +(NSString *)getWaitTime:(TBXMLElement *)rootElement;
 
++(NSString *)getListOfBuses:(TBXMLElement *)rootElement;
+
 +(NSString *)getOrigin:(TBXMLElement *)rootElement;
 
 +(NSString *)getDestination:(TBXMLElement *)rootElement;

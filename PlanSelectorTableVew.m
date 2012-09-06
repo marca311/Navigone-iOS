@@ -58,7 +58,7 @@
 
 - (void)setDataSourceArray
 {
-    //primaryResults = [navigoInterpreter planListMaker:resultDictionary];
+    primaryResults = [navigoInterpreter planListMaker:resultDictionary];
 }//setDataSourceArray
 
 - (void)getFrameSizeFromArray:(NSArray *)array

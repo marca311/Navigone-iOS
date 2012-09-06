@@ -288,6 +288,7 @@ NSString *currentFile;
         [result setObject:[self getWalkTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Walk Time",planNumber]];
         [result setObject:[self getRideTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Ride Time",planNumber]];
         [result setObject:[self getWaitTime:rootElement] forKey:[NSString stringWithFormat:@"%@ Wait Time",planNumber]];
+        [result setObject:[self getListOfBuses:rootElement] forKey:[NSString stringWithFormat:@"%@ Buses",planNumber]];
         rootElement = rootElement->nextSibling;
     }
     return result;
@@ -384,6 +385,25 @@ NSString *currentFile;
     result = [XMLParser getValueFromElement:planLayer];
     return result;
 }//getWaitTime
+
++(NSString *)getListOfBuses:(TBXMLElement *)rootElement
+{
+    NSMutableArray *buses = [[NSMutableArray alloc]init];
+    NSString *result = [[NSString alloc]init];
+    TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"segments" :rootElement];
+    planLayer = [XMLParser extractKnownChildElement:@"segment" :planLayer];
+    NSString *segmentType = [[NSString alloc]init];
+    segmentType = [XMLParser getAttributeValue:planLayer];
+    if ([segmentType isEqualToString:@"ride"]) {
+        TBXMLElement *segmentLayer = [XMLParser extractKnownChildElement:@"variant" :planLayer];
+        segmentLayer = [XMLParser extractKnownChildElement:@"key" :segmentLayer];
+        [buses addObject:[XMLParser getValueFromElement:segmentLayer]];
+    } else  if (planLayer->nextSibling) {
+        planLayer = planLayer->nextSibling;
+    }
+    result = [buses description];
+    return  result;
+}//getListOfBuses
 
 +(NSString *)getOrigin:(TBXMLElement *)rootElement
 {
@@ -912,6 +932,8 @@ NSString *currentFile;
         [secondary addObject:[self timeAdder:startDate]];
         NSDate *endDate = [primaryResults objectForKey:[NSString stringWithFormat:@"Plan%i End Time",i]];
         [secondary addObject:[self timeAdder:endDate]];
+        NSString *buses = [primaryResults objectForKey:[NSString stringWithFormat:@"Plan%i Buses",i]];
+        [secondary addObject:buses];
         [result addObject:secondary];
     }
     return result;
