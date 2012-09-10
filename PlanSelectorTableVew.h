@@ -22,6 +22,6 @@
 
 - (void)setDataSourceArray:(NSDictionary *)dictionary;
 
-- (void)getFrameSizeFromArray:(NSArray *)array;
+- (CGRect)getFrameSizeFromArray;
 
 @end

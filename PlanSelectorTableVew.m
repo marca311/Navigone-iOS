@@ -50,7 +50,7 @@
     [theView addSubview:self];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    tableRect.size.height = 44;
+    self.frame = [self getFrameSizeFromArray];
     self.frame = tableRect;
     [UIView commitAnimations];
 }
@@ -58,21 +58,21 @@
 - (void)setDataSourceArray:(NSDictionary *)dictionary
 {
     primaryResults = [navigoInterpreter planListMaker:dictionary];
-    NSLog(@"nomz");
 }//setDataSourceArray
 
-- (void)getFrameSizeFromArray:(NSArray *)array
+- (CGRect)getFrameSizeFromArray
 {
     //Adjusts frame size based on how many entries are in the table to a max of 3
     int frameHeight;
     int numberOfPlans = [[primaryResults objectAtIndex:0]intValue];
-    if (numberOfPlans < 3) {
-        numberOfPlans = numberOfPlans * 44;
+    if (numberOfPlans <= 3) {
+        frameHeight = numberOfPlans * 44;
     } else {
-        
+        frameHeight = 132;
     }
     CGRect theFrame = self.frame;
-    //theFrame.size.height =
+    theFrame.size.height = frameHeight;
+    return theFrame;
 }//getFrameSizeFromArray
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 5; }
