@@ -204,7 +204,7 @@ NSString *currentFile;
                 break;
         }
     }
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,maxTransfers,[self getAPIKey]];
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
     NSLog(urlString);
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
@@ -274,11 +274,13 @@ NSString *currentFile;
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement
 {
+    //XML Location: Root of File
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     NSString *numberOfPlansString = [self getNumberOfPlans:rootElement];
     [result setObject:numberOfPlansString forKey:@"Number Of Plans"];
     int numberOfPlans = [numberOfPlansString intValue];
     rootElement = [XMLParser extractUnknownChildElement:rootElement];
+    //XML Location: <Plan number="x">
     for (int i = 0; i < numberOfPlans; i++) {
         NSString *planNumber = [[NSString alloc]initWithFormat:@"Plan%i",i];
         [result setObject:[self getEasyAccess:rootElement] forKey:[NSString stringWithFormat:@"%@ Easy Access",planNumber]];
@@ -393,16 +395,29 @@ NSString *currentFile;
     TBXMLElement *planLayer = [XMLParser extractKnownChildElement:@"segments" :rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"segment" :planLayer];
     NSString *segmentType = [[NSString alloc]init];
-    segmentType = [XMLParser getAttributeValue:planLayer];
-    if ([segmentType isEqualToString:@"ride"]) {
-        TBXMLElement *segmentLayer = [XMLParser extractKnownChildElement:@"variant" :planLayer];
-        segmentLayer = [XMLParser extractKnownChildElement:@"key" :segmentLayer];
-        [buses addObject:[XMLParser getValueFromElement:segmentLayer]];
-    } else  if (planLayer->nextSibling) {
-        planLayer = planLayer->nextSibling;
+    while (planLayer->nextSibling) {
+        segmentType = [XMLParser getAttributeValue:[XMLParser extractAttribute:planLayer]];
+        if ([segmentType isEqualToString:@"ride"]) {
+            TBXMLElement *segmentLayer = [XMLParser extractKnownChildElement:@"variant" :planLayer];
+            segmentLayer = [XMLParser extractKnownChildElement:@"key" :segmentLayer];
+            NSString *variantNumber = [[NSString alloc]init];
+            variantNumber = [XMLParser getValueFromElement:segmentLayer];
+            [buses addObject:[self getBusNumber:variantNumber]];
+            planLayer = planLayer->nextSibling;
+        } else {
+            planLayer = planLayer->nextSibling;
+        }
     }
     result = [buses description];
+    //Improving Readability of results
+    result = [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"( " withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"," withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@")" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"   " withString:@""];
     return  result;
+    
+    
 }//getListOfBuses
 
 +(NSString *)getOrigin:(TBXMLElement *)rootElement
@@ -926,6 +941,7 @@ NSString *currentFile;
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSDictionary *primaryResults = [dictionary objectForKey:@"Primary Results"];
     int numberOfPlans = [[primaryResults objectForKey:@"Number Of Plans"]intValue];
+    [result addObject:[primaryResults objectForKey:@"Number Of Plans"]];
     for (int i = 0; i<numberOfPlans; i++) {
         NSMutableArray *secondary = [[NSMutableArray alloc]init];
         NSDate *startDate = [primaryResults objectForKey:[NSString stringWithFormat:@"Plan%i Start Time",i]];

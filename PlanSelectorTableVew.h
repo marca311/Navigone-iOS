@@ -20,7 +20,7 @@
 
 - (void)showAndAnimate:(UIView *)theView;
 
-- (void)setDataSourceArray;
+- (void)setDataSourceArray:(NSDictionary *)dictionary;
 
 - (void)getFrameSizeFromArray:(NSArray *)array;
 

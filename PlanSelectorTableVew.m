@@ -10,7 +10,6 @@
 #import "PlanTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "navigoInterpreter.h"
-#import "navigoResultViewController.h"
 
 @implementation PlanSelectorTableVew
 
@@ -56,16 +55,22 @@
     [UIView commitAnimations];
 }
 
-- (void)setDataSourceArray
+- (void)setDataSourceArray:(NSDictionary *)dictionary
 {
-    primaryResults = [navigoInterpreter planListMaker:resultDictionary];
+    primaryResults = [navigoInterpreter planListMaker:dictionary];
+    NSLog(@"nomz");
 }//setDataSourceArray
 
 - (void)getFrameSizeFromArray:(NSArray *)array
 {
     //Adjusts frame size based on how many entries are in the table to a max of 3
-    
-    
+    int frameHeight;
+    int numberOfPlans = [[primaryResults objectAtIndex:0]intValue];
+    if (numberOfPlans < 3) {
+        numberOfPlans = numberOfPlans * 44;
+    } else {
+        
+    }
     CGRect theFrame = self.frame;
     //theFrame.size.height =
 }//getFrameSizeFromArray

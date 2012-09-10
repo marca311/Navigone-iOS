@@ -13,6 +13,8 @@
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
 
+NSDictionary *resultDictionary;
+
 @implementation navigoResultViewController
 
 @synthesize resultsTable;
@@ -37,6 +39,9 @@
     resultsArray = [planArray objectAtIndex:0];
     numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
 	//put in the table loading methods and data loading too.
+    
+    PlanSelectorTableVew *tester = [[PlanSelectorTableVew alloc]init];
+    [tester setDataSourceArray:resultDictionary];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

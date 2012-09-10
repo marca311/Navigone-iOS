@@ -382,7 +382,7 @@
 		4316804815013E4100A41785 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = marca311;
 			};
 			buildConfigurationList = 4316804B15013E4100A41785 /* Build configuration list for PBXProject "Winnipeg Transit" */;
