@@ -18,10 +18,10 @@
 
 - (id)initWithFrameFromButton:(UIButton *)button;
 
-- (void)showAndAnimate:(UIView *)theView;
+- (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary;
 
 - (void)setDataSourceArray:(NSDictionary *)dictionary;
 
-- (CGRect)getFrameSizeFromArray;
+- (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary;
 
 @end

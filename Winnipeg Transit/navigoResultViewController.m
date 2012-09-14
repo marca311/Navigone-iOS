@@ -40,8 +40,8 @@ NSDictionary *resultDictionary;
     numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
 	//put in the table loading methods and data loading too.
     
-    PlanSelectorTableVew *tester = [[PlanSelectorTableVew alloc]init];
-    [tester setDataSourceArray:resultDictionary];
+    //PlanSelectorTableVew *tester = [[PlanSelectorTableVew alloc]init];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -98,8 +98,9 @@ NSDictionary *resultDictionary;
 
 -(IBAction)testButton
 {
+    [testTable setDataSourceArray:resultDictionary];
     testTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:test];
-    [testTable showAndAnimate:self.view];
+    [testTable showAndAnimate:self.view:resultDictionary];
 }
 
 -(IBAction)closePlans

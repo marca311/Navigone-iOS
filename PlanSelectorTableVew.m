@@ -45,13 +45,13 @@
 }
 */
 
-- (void)showAndAnimate:(UIView *)theView
+- (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary
 {
     [theView addSubview:self];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.frame = [self getFrameSizeFromArray];
-    self.frame = tableRect;
+    self.frame = [self getFrameSizeFromArray:dictionary];
+    //self.frame = tableRect;
     [UIView commitAnimations];
 }
 
@@ -60,9 +60,10 @@
     primaryResults = [navigoInterpreter planListMaker:dictionary];
 }//setDataSourceArray
 
-- (CGRect)getFrameSizeFromArray
+- (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary
 {
     //Adjusts frame size based on how many entries are in the table to a max of 3
+    primaryResults = [navigoInterpreter planListMaker:dictionary];
     int frameHeight;
     int numberOfPlans = [[primaryResults objectAtIndex:0]intValue];
     if (numberOfPlans <= 3) {
