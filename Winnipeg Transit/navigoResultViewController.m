@@ -100,7 +100,7 @@ NSDictionary *resultDictionary;
 
 -(IBAction)planButtonPress
 {
-    if (planSelectorTable == nil) {
+    if ([planSelectorTable isUserInteractionEnabled] == NO) {
         [planSelectorTable setDataSourceArray:resultDictionary];
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
         [planSelectorTable showAndAnimate:self.view:resultDictionary];
@@ -111,6 +111,7 @@ NSDictionary *resultDictionary;
 {
     if (planSelectorTable != nil) {
         [planSelectorTable removeFromSuperview];
+        planSelectorTable = nil;
     }
 }
 
