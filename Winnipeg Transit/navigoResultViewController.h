@@ -20,6 +20,7 @@ extern NSDictionary *resultDictionary;
     UITableView *resultsTable;
     NSArray *resultsArray;
     NSDictionary *resultDictionary;
+    PlanSelectorTableVew *planSelectorTable;
     
     UITextField *planField;
 }
@@ -28,8 +29,7 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
 @property (nonatomic, retain) NSArray *resultsArray;
-@property (nonatomic, retain) IBOutlet UIButton *test;
-@property (nonatomic, retain) PlanSelectorTableVew *testTable;
+@property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
 
 //Temporary text field till the table works
 @property (nonatomic, retain) IBOutlet UITextField *planField;
@@ -37,7 +37,7 @@ extern NSDictionary *resultDictionary;
 
 -(IBAction)reloadTable;
 
--(IBAction)testButton;
+-(IBAction)planButtonPress;
 
 -(IBAction)closePlans;
 

@@ -20,7 +20,7 @@ NSDictionary *resultDictionary;
 @synthesize resultsTable;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
-@synthesize planField,numPlans,test,testTable;
+@synthesize planField,numPlans,planSelectorTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,6 +76,8 @@ NSDictionary *resultDictionary;
 - (void)tableView:(UITableView *)tableView:didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"Clicked table entry");
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -96,17 +98,19 @@ NSDictionary *resultDictionary;
     NSLog(planField.text);
 }
 
--(IBAction)testButton
+-(IBAction)planButtonPress
 {
-    [testTable setDataSourceArray:resultDictionary];
-    testTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:test];
-    [testTable showAndAnimate:self.view:resultDictionary];
+    if (planSelectorTable == nil) {
+        [planSelectorTable setDataSourceArray:resultDictionary];
+        planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
+        [planSelectorTable showAndAnimate:self.view:resultDictionary];
+    }
 }
 
 -(IBAction)closePlans
 {
-    if (testTable != nil) {
-        [testTable removeFromSuperview];
+    if (planSelectorTable != nil) {
+        [planSelectorTable removeFromSuperview];
     }
 }
 

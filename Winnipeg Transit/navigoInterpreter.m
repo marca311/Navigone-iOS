@@ -412,7 +412,6 @@ NSString *currentFile;
     //Improving Readability of results
     result = [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@"( " withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"," withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@")" withString:@""];
     result = [result stringByReplacingOccurrencesOfString:@"   " withString:@""];
     return  result;
