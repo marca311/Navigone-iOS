@@ -13,6 +13,7 @@
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
+#import "PlanDisplayTableViewViewController.h"
 
 extern NSDictionary *resultDictionary;
 

@@ -22,17 +22,17 @@
     tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
     tableRect.size.width = button.frame.size.width;
     tableRect.size.height = 1;
-    self = [self initWithFrame:tableRect];
+    self.tableView = [self.tableView initWithFrame:tableRect];
     
     //Creates border
-    CALayer *layer = self.layer;
+    CALayer *layer = self.tableView.layer;
     layer.borderWidth = 2;
     layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 10;
     layer.masksToBounds = YES;
 
-    self.delegate = self;
-    self.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     return self;
 }
 
@@ -50,7 +50,7 @@
     [theView addSubview:self];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.frame = [self getFrameSizeFromArray:dictionary];
+    self.tableView.frame = [self getFrameSizeFromArray:dictionary];
     //self.frame = tableRect;
     [UIView commitAnimations];
 }
@@ -73,7 +73,7 @@
     } else {
         frameHeight = 132 + 15;
     }
-    CGRect theFrame = self.frame;
+    CGRect theFrame = self.tableView.frame;
     theFrame.size.height = frameHeight;
     return theFrame;
 }//getFrameSizeFromArray
@@ -85,7 +85,7 @@
     //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"PlanCellIdentifier";
     PlanTableViewCell *cell = nil;
-    cell = (PlanTableViewCell *) [self dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    cell = (PlanTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil)
     {
         NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"PlanTableViewCell" owner:nil options:nil];

@@ -10,7 +10,7 @@
 #import "PlanTableViewCell.h"
 #import "navigoInterpreter.h"
 
-@interface PlanSelectorTableVew : UITableView <UITableViewDelegate, UITableViewDataSource>
+@interface PlanSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) CGRect tableRect;
 @property (nonatomic, retain) NSArray *primaryResults;

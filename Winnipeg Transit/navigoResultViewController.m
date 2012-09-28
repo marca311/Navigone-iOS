@@ -13,6 +13,7 @@
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
 
+
 NSDictionary *resultDictionary;
 
 @implementation navigoResultViewController
@@ -100,7 +101,7 @@ NSDictionary *resultDictionary;
 
 -(IBAction)planButtonPress
 {
-    if ([planSelectorTable isUserInteractionEnabled] == NO) {
+    if ([planSelectorTable.tableView isUserInteractionEnabled] == NO) {
         [planSelectorTable setDataSourceArray:resultDictionary];
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
         [planSelectorTable showAndAnimate:self.view:resultDictionary];
@@ -110,7 +111,7 @@ NSDictionary *resultDictionary;
 -(IBAction)closePlans
 {
     if (planSelectorTable != nil) {
-        [planSelectorTable removeFromSuperview];
+        [planSelectorTable.tableView removeFromSuperview];
         planSelectorTable = nil;
     }
 }
