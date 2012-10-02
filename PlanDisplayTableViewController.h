@@ -1,5 +1,5 @@
 //
-//  PlanDisplayTableViewViewController.h
+//  PlanDisplayTableViewController.h
 //  Winnipeg Transit
 //
 //  Created by Marcus Dyck on 12-09-27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlanDisplayTableViewViewController : UITableViewController
+@interface PlanDisplayTableViewController : UITableViewController
 
 @end

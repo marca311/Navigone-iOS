@@ -45,7 +45,7 @@
 		6F6B2F4E150F97E600185233 /* locations_Clift.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F6B2F4D150F97E600185233 /* locations_Clift.xml */; };
 		6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7646A8159E9E6D008AEE88 /* MSExitBar.m */; };
 		6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F91DBA515BD03D1005B9B7A /* SubmitButton.m */; };
-		6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.m */; };
+		6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
@@ -125,8 +125,8 @@
 		6F7646A8159E9E6D008AEE88 /* MSExitBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSExitBar.m; sourceTree = "<group>"; };
 		6F91DBA415BD03D1005B9B7A /* SubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitButton.h; sourceTree = "<group>"; };
 		6F91DBA515BD03D1005B9B7A /* SubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitButton.m; sourceTree = "<group>"; };
-		6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayTableViewViewController.h; sourceTree = "<group>"; };
-		6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayTableViewViewController.m; sourceTree = "<group>"; };
+		6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayTableViewController.h; sourceTree = "<group>"; };
+		6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayTableViewController.m; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
@@ -331,8 +331,8 @@
 		6FF56FB0158C237F00CC015C /* Tableviews */ = {
 			isa = PBXGroup;
 			children = (
-				6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.h */,
-				6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.m */,
+				6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewController.h */,
+				6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */,
 				6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */,
 				6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */,
 				6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */,
@@ -485,7 +485,7 @@
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
-				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewViewController.m in Sources */,
+				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

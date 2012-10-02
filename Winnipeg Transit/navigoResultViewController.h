@@ -13,7 +13,7 @@
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
-#import "PlanDisplayTableViewViewController.h"
+#import "PlanDisplayTableViewController.h"
 
 extern NSDictionary *resultDictionary;
 
@@ -30,6 +30,7 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
 @property (nonatomic, retain) NSArray *resultsArray;
+@property (nonatomic, retain) PlanDisplayTableViewController *planTable;
 @property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
 
 //Temporary text field till the table works

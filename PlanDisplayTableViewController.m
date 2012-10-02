@@ -1,18 +1,18 @@
 //
-//  PlanDisplayTableViewViewController.m
+//  PlanDisplayTableViewController.m
 //  Winnipeg Transit
 //
 //  Created by Marcus Dyck on 12-09-27.
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "PlanDisplayTableViewViewController.h"
+#import "PlanDisplayTableViewController.h"
 
-@interface PlanDisplayTableViewViewController ()
+@interface PlanDisplayTableViewController ()
 
 @end
 
-@implementation PlanDisplayTableViewViewController
+@implementation PlanDisplayTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
