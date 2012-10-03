@@ -167,7 +167,6 @@
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
         [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        NSLog([[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]);
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];

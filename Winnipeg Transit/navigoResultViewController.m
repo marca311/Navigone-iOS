@@ -21,7 +21,7 @@ NSDictionary *resultDictionary;
 @synthesize resultsTable;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
-@synthesize planField,numPlans,planSelectorTable;
+@synthesize planField,numPlans,planSelectorTable,planTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,46 +39,11 @@ NSDictionary *resultDictionary;
     planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];;
     resultsArray = [planArray objectAtIndex:0];
     numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
-	//put in the table loading methods and data loading too.
     
-    //PlanSelectorTableVew *tester = [[PlanSelectorTableVew alloc]init];
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [resultsArray count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
-    NSString *uniqueIdentifier = @"CellIdentifier";
-    MSTableViewCell *cell = nil;
-    cell = (MSTableViewCell *) [self.resultsTable dequeueReusableCellWithIdentifier:uniqueIdentifier];
-    if(cell == nil)
-    {
-        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
-        for(id currentObject in topLevelObjects)
-        {
-            if([currentObject isKindOfClass:[UITableViewCell class]])
-            {
-                cell = (MSTableViewCell *)currentObject;
-                break;
-            }
-        }
-    }
-        
-    cell.textView.text = [contentForThisRow objectAtIndex:1];
-    cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
-
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView:didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSLog(@"Clicked table entry");
+    //Add plan table to view
+    planTable = [planTable init];
+    [planTable setPlanDataArray:resultsArray];
+    resultsTable = planTable.tableView;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -87,7 +52,6 @@ NSDictionary *resultDictionary;
     if (![planField.text isEqual:@""]) {
         resultsArray = [planArray objectAtIndex:([planField.text intValue] - 1)];
         [resultsTable reloadData];
-        NSLog(planField.text);
     }
 }
 
@@ -96,7 +60,6 @@ NSDictionary *resultDictionary;
     [self resignFirstResponder];
     resultsArray = [planArray objectAtIndex:[planField.text intValue]];
     [resultsTable reloadData];
-    NSLog(planField.text);
 }
 
 -(IBAction)planButtonPress

@@ -14,6 +14,8 @@
 
 @implementation PlanDisplayTableViewController
 
+@synthesize currentArray;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -47,30 +49,51 @@
 }
 
 #pragma mark - Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
+} */
+
+-(void)setPlanDataArray:(NSArray *)array
+{
+    NSLog(@"setting plan array");
+    currentArray = array;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [currentArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
+    NSString *uniqueIdentifier = @"CellIdentifier";
+    MSTableViewCell *cell = nil;
+    cell = (MSTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if(cell == nil)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (MSTableViewCell *)currentObject;
+                break;
+            }
+        }
+    }
     
-    // Configure the cell...
+    cell.textView.text = [contentForThisRow objectAtIndex:1];
+    cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -115,6 +138,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

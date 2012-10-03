@@ -15,7 +15,7 @@ NSString *currentFile;
 @implementation navigoInterpreter
 
 +(NSString *)getAPIKey {
-    NSString *result = [[NSString alloc]initWithString:@"VzHTwXmEnjQ0vUG0U3y9"];
+    NSString *result = @"VzHTwXmEnjQ0vUG0U3y9";
     return result;
 }
 
@@ -131,7 +131,6 @@ NSString *currentFile;
 +(NSString *)getLocationTypeFromSearchedItem:(TBXMLElement *)element
 {
     NSString *result = [XMLParser getElementName:element];
-    NSLog(result);
     return result;
 }//getLocationTypeFromSearchedItem
 
@@ -167,7 +166,6 @@ NSString *currentFile;
     NSString *objectFromIndex = [[NSString alloc]init];
     for (int itemsInArray = 0; itemsInArray < 11; itemsInArray++) {
         objectFromIndex = [queryArray objectAtIndex:itemsInArray];
-        NSLog(objectFromIndex);
         switch (itemsInArray) {
             case 0:
                 origin = objectFromIndex;
@@ -205,7 +203,6 @@ NSString *currentFile;
         }
     }
     NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
-    NSLog(urlString);
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
     return result;
@@ -268,7 +265,7 @@ NSString *currentFile;
     NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
     [MSUtilities saveDictionaryToFile:dictionary :entryTime];
     [MSUtilities generateCacheDB];
-    NSLog([NSString stringWithFormat:@"Entry saved as: %@.plist",entryTime]);
+
     currentFile = entryTime;
 }//saveToFile
 
@@ -533,11 +530,6 @@ NSString *currentFile;
     }
 }//getSegmentLocationInfo
 
-+(NSMutableDictionary *)getSegmentPartDetails:(TBXMLElement *)rootElement
-{
-    
-}//getSegmentPartDetails
-
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement
 {
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
@@ -546,11 +538,6 @@ NSString *currentFile;
     NSString *result = [XMLParser getElementName:planLayer];
     return result;
 }//getInstructionType
-
-+(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement
-{
-    
-}//getStopData
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement
 {
@@ -619,16 +606,6 @@ NSString *currentFile;
     result = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
     return result;
 }//getSegmentCoordinates
-
-+(NSString *)getSegmentFromStop:(TBXMLElement *)rootElement
-{
-    
-}//getSegmentFromStop
-
-+(NSString *)getSegmentToStop:(TBXMLElement *)rootElement
-{
-    
-}//getSegmentToStop
 
 # pragma mark - Get Segment Address Details
 
@@ -704,7 +681,6 @@ NSString *currentFile;
     TBXMLElement *planLayer = [XMLParser extractUnknownChildElement:rootElement];
     planLayer = [XMLParser extractKnownChildElement:@"key" :planLayer];
     [result setObject:[XMLParser getValueFromElement:planLayer] forKey:@"Stop Number"];
-    NSString *stopNumber = [XMLParser getValueFromElement:planLayer];
     planLayer = planLayer->nextSibling;
     [result setObject:[XMLParser getValueFromElement:planLayer] forKey:@"Stop Name"];
     planLayer = planLayer->nextSibling;

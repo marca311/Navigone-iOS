@@ -84,12 +84,7 @@ extern NSString *currentFile;
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
-
-+(NSMutableDictionary *)getSegmentPartDetails:(TBXMLElement *)rootElement;
-
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement;
-
-+(NSMutableDictionary *)getStopData:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;
 

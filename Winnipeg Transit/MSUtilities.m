@@ -65,7 +65,6 @@
 {
     NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
     NSFileManager *fileMan = [[NSFileManager alloc]init];
-    int routeNumber = 1;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSArray *folderContents = [fileMan contentsOfDirectoryAtPath:documentsDirectory error:nil];

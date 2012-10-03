@@ -141,11 +141,6 @@
     
 }
 
-+(NSString *)sendPicture:(NSArray *)array
-{
-    
-}//sendPicture
-
 +(NSString *)sendTime:(NSArray *)array
 {
     NSString *type = [[NSString alloc]initWithFormat:@"%@",[array objectAtIndex:0]];

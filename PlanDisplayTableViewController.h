@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSTableViewCell.h"
+#import "navigoViewLibrary.h"
 
 @interface PlanDisplayTableViewController : UITableViewController
+
+@property (nonatomic, retain) NSArray *currentArray;
+
+-(void)setPlanDataArray:(NSArray *)array;
 
 @end

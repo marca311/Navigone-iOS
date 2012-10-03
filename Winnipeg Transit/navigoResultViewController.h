@@ -17,7 +17,7 @@
 
 extern NSDictionary *resultDictionary;
 
-@interface navigoResultViewController : UniversalViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface navigoResultViewController : UniversalViewController <UITableViewDelegate, UITextFieldDelegate> {
     UITableView *resultsTable;
     NSArray *resultsArray;
     NSDictionary *resultDictionary;
