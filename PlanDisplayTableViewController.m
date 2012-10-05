@@ -71,6 +71,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
     MSTableViewCell *cell = nil;

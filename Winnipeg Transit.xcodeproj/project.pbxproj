@@ -50,6 +50,7 @@
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
+		6FE62BA0161E80EC00AEE13C /* PlanDisplayTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE62B9F161E80EC00AEE13C /* PlanDisplayTableView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
 		6FF56FA4158BC49000CC015C /* PlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */; };
@@ -134,6 +135,8 @@
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		6FE62B9E161E80EC00AEE13C /* PlanDisplayTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayTableView.h; sourceTree = "<group>"; };
+		6FE62B9F161E80EC00AEE13C /* PlanDisplayTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayTableView.m; sourceTree = "<group>"; };
 		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
 		6FF56FA2158BC49000CC015C /* PlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanTableViewCell.h; sourceTree = "<group>"; };
 		6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanTableViewCell.m; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 			children = (
 				6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewController.h */,
 				6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */,
+				6FE62B9E161E80EC00AEE13C /* PlanDisplayTableView.h */,
+				6FE62B9F161E80EC00AEE13C /* PlanDisplayTableView.m */,
 				6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */,
 				6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */,
 				6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */,
@@ -486,6 +491,7 @@
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */,
+				6FE62BA0161E80EC00AEE13C /* PlanDisplayTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

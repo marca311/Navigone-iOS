@@ -42,8 +42,10 @@ NSDictionary *resultDictionary;
     
     //Add plan table to view
     planTable = [planTable init];
-    [planTable setPlanDataArray:resultsArray];
-    resultsTable = planTable.tableView;
+    planTable.currentArray = planArray;
+    resultsTable = planTable;
+    planTable.dataSource = planTable;
+    planTable.delegate = planTable;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField

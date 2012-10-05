@@ -236,15 +236,11 @@
                                     <action selector="planButtonPress" destination="Yb6-Xe-lvz" eventType="touchUpInside" id="PjC-Rk-O9G"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="rI9-eA-2az">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="rI9-eA-2az" customClass="PlanDisplayTableView">
                                 <rect key="frame" x="20" y="104" width="280" height="336"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.44170770100000001" green="0.67343792930000002" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Yb6-Xe-lvz" id="feq-Dw-fEv"/>
-                                    <outlet property="delegate" destination="Yb6-Xe-lvz" id="bxP-GH-sxe"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dFP-Me-Nff">
                                 <rect key="frame" x="40" y="70" width="42" height="21"/>
@@ -303,7 +299,7 @@
                     </view>
                     <connections>
                         <outlet property="planButton" destination="Pjs-j4-iv6" id="ffa-Lp-dQN"/>
-                        <outlet property="resultsTable" destination="rI9-eA-2az" id="bgK-86-JbJ"/>
+                        <outlet property="planTable" destination="rI9-eA-2az" id="xzc-OL-9Ob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wba-IY-oqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,6 +360,77 @@
     <resources>
         <image name="separator.png" width="320" height="10"/>
     </resources>
+    <classes>
+        <class className="MSSeparator" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MSSeparator.h"/>
+        </class>
+        <class className="PlanDisplayTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlanDisplayTableView.h"/>
+        </class>
+        <class className="SubmitButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SubmitButton.h"/>
+        </class>
+        <class className="UniversalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UniversalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissView:"/>
+            </relationships>
+        </class>
+        <class className="navigoResultViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closePlans"/>
+                <relationship kind="action" name="planButtonPress"/>
+                <relationship kind="action" name="reloadTable"/>
+                <relationship kind="outlet" name="numPlans" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="planButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="planField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="planTable" candidateClass="PlanDisplayTableView"/>
+                <relationship kind="outlet" name="resultsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="navigoViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/navigoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTap"/>
+                <relationship kind="action" name="clearFields"/>
+                <relationship kind="action" name="datePickerValueChanged"/>
+                <relationship kind="action" name="destinationLabelClick"/>
+                <relationship kind="action" name="openDatePicker"/>
+                <relationship kind="action" name="originLabelClick"/>
+                <relationship kind="action" name="submitButtonClick"/>
+                <relationship kind="action" name="testButton"/>
+                <relationship kind="action" name="timeDateLabelClick"/>
+                <relationship kind="outlet" name="dateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destination" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="destinationLabel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="destinationSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="easyAccessSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keyboardToolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="maxTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTransfers" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxWalkTime" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTransferWait" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mode" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="origin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="originLabel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="originSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="otherSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="submitButton" candidateClass="SubmitButton"/>
+                <relationship kind="outlet" name="timeDateLabel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timeSeparator" candidateClass="MSSeparator"/>
+                <relationship kind="outlet" name="walkSpeed" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="stopscheduleViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/stopscheduleViewController.h"/>
+        </class>
+        <class className="timetableViewController" superclassName="UniversalViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timetableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
