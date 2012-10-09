@@ -14,6 +14,10 @@
 
 @property (nonatomic, retain) NSArray *currentArray;
 
+-(PlanDisplayTableViewController *)initWithCorrectFrame;
+
+-(void)showTable:(UIView *)theView;
+
 -(void)setPlanDataArray:(NSArray *)array;
 
 @end

@@ -33,10 +33,6 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet PlanDisplayTableView *planTable;
 @property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
 
-//Temporary text field till the table works
-@property (nonatomic, retain) IBOutlet UITextField *planField;
-@property (nonatomic, retain) IBOutlet UILabel *numPlans;
-
 -(IBAction)reloadTable;
 
 -(IBAction)planButtonPress;

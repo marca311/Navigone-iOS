@@ -21,7 +21,7 @@ NSDictionary *resultDictionary;
 @synthesize resultsTable;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
-@synthesize planField,numPlans,planSelectorTable,planTable;
+@synthesize planSelectorTable,planTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +38,6 @@ NSDictionary *resultDictionary;
     resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
     planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];;
     resultsArray = [planArray objectAtIndex:0];
-    numPlans.text = [NSString stringWithFormat:@"%i",[planArray count]];
     
     //Add plan table to view
     planTable = [planTable init];
