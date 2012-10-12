@@ -25,6 +25,33 @@
     return self;
 }
 
+-(id)initWithCorrectFrame:(NSArray *)theArray
+{
+    self = [[PlanDisplayTableViewController alloc]init];
+    CGRect theFrame;
+    theFrame.origin.x = 20;
+    theFrame.origin.y = 104;
+    theFrame.size.width = 280;
+    theFrame.size.height = 336;
+    self.tableView = [self.tableView initWithFrame:theFrame];
+    self.tableView.rowHeight = 68;
+    currentArray = theArray;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    return self;
+}//initAndShowWithCorrectFrame
+
+-(void)showTable:(UIView *)theView
+{
+    [theView addSubview:self.tableView];
+}//showTable
+
+-(void)changeTablePlan:(NSArray *)theArray
+{
+    currentArray = theArray;
+    [self.tableView reloadData];
+}//changeTablePlan
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,12 +83,6 @@
     // Return the number of sections.
     return 0;
 } */
-
--(void)setPlanDataArray:(NSArray *)array
-{
-    NSLog(@"setting plan array");
-    currentArray = array;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

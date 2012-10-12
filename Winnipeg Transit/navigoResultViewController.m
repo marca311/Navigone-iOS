@@ -40,11 +40,8 @@ NSDictionary *resultDictionary;
     resultsArray = [planArray objectAtIndex:0];
     
     //Add plan table to view
-    planTable = [planTable init];
-    planTable.currentArray = planArray;
-    resultsTable = planTable;
-    planTable.dataSource = planTable;
-    planTable.delegate = planTable;
+    planTable = [[PlanDisplayTableViewController alloc]initWithCorrectFrame:resultsArray];
+    [planTable showTable:self.view];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -68,6 +65,7 @@ NSDictionary *resultDictionary;
     if ([planSelectorTable.tableView isUserInteractionEnabled] == NO) {
         [planSelectorTable setDataSourceArray:resultDictionary];
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
+        planSelectorTable.tableView.delegate = self;
         [planSelectorTable showAndAnimate:self.view:resultDictionary];
     }
 }
@@ -84,6 +82,11 @@ NSDictionary *resultDictionary;
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"You clicked a button!");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

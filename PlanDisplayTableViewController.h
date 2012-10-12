@@ -10,14 +10,14 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 
-@interface PlanDisplayTableViewController : UITableViewController
+@interface PlanDisplayTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSArray *currentArray;
 
--(PlanDisplayTableViewController *)initWithCorrectFrame;
+-(id)initWithCorrectFrame:(NSArray *)theArray;
 
 -(void)showTable:(UIView *)theView;
 
--(void)setPlanDataArray:(NSArray *)array;
+-(void)changeTablePlan:(NSArray *)theArray;
 
 @end

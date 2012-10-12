@@ -30,8 +30,7 @@
     layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 10;
     layer.masksToBounds = YES;
-
-    self.tableView.delegate = self;
+    
     self.tableView.dataSource = self;
     return self;
 }
@@ -47,7 +46,7 @@
 
 - (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary
 {
-    [theView addSubview:self];
+    [theView addSubview:self.tableView];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     self.tableView.frame = [self getFrameSizeFromArray:dictionary];

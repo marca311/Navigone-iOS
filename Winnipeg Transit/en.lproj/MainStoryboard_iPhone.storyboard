@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G56" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G56" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Navigo View Controller - Navigo-->
@@ -235,16 +235,6 @@
                                     <action selector="planButtonPress" destination="Yb6-Xe-lvz" eventType="touchUpInside" id="PjC-Rk-O9G"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="rI9-eA-2az" customClass="PlanDisplayTableView">
-                                <rect key="frame" x="20" y="104" width="280" height="336"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="0.44170770100000001" green="0.67343792930000002" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Yb6-Xe-lvz" id="eNd-7i-BvS"/>
-                                    <outlet property="delegate" destination="Yb6-Xe-lvz" id="bY9-Mk-4ow"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dFP-Me-Nff">
                                 <rect key="frame" x="40" y="70" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -302,7 +292,6 @@
                     </view>
                     <connections>
                         <outlet property="planButton" destination="Pjs-j4-iv6" id="ffa-Lp-dQN"/>
-                        <outlet property="planTable" destination="rI9-eA-2az" id="xzc-OL-9Ob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wba-IY-oqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,8 +356,8 @@
         <class className="MSSeparator" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MSSeparator.h"/>
         </class>
-        <class className="PlanDisplayTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlanDisplayTableView.h"/>
+        <class className="PlanDisplayTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlanDisplayTableViewController.h"/>
         </class>
         <class className="SubmitButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SubmitButton.h"/>
@@ -386,10 +375,8 @@
                 <relationship kind="action" name="closePlans"/>
                 <relationship kind="action" name="planButtonPress"/>
                 <relationship kind="action" name="reloadTable"/>
-                <relationship kind="outlet" name="numPlans" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="planButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="planField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="planTable" candidateClass="PlanDisplayTableView"/>
+                <relationship kind="outlet" name="planTable" candidateClass="PlanDisplayTableViewController"/>
                 <relationship kind="outlet" name="resultsTable" candidateClass="UITableView"/>
             </relationships>
         </class>

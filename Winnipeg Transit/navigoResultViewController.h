@@ -13,16 +13,12 @@
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
 #import "navigoInterpreter.h"
-#import "PlanDisplayTableView.h"
+#import "PlanDisplayTableViewController.h"
 
 extern NSDictionary *resultDictionary;
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDelegate, UITextFieldDelegate> {
-    UITableView *resultsTable;
-    NSArray *resultsArray;
-    NSDictionary *resultDictionary;
     PlanSelectorTableVew *planSelectorTable;
-    
     UITextField *planField;
 }
 
@@ -30,7 +26,7 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
 @property (nonatomic, retain) NSArray *resultsArray;
-@property (nonatomic, retain) IBOutlet PlanDisplayTableView *planTable;
+@property (nonatomic, retain) IBOutlet PlanDisplayTableViewController *planTable;
 @property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
 
 -(IBAction)reloadTable;
