@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSSuggestionBox : UITableView <UITableViewDataSource, UITableViewDelegate> {
+@interface MSSuggestionBox : UITableViewController <UITableViewDataSource> {
     
 }
 
+@property (nonatomic, retain) NSArray *tableArray;
+
 -(id)initWithFrameFromField:(UITextField *)textField;
+
+-(void)getSuggestions:(NSString *)query;
 
 @end

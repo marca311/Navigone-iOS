@@ -41,6 +41,7 @@
 @synthesize modeString;
 @synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
 @synthesize submitButton;
+@synthesize suggestionBox;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -135,6 +136,7 @@
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
     mode.text = @"Depart After";
+    
     [super viewDidLoad];
     
 }
@@ -148,9 +150,32 @@
 
 -(IBAction)submitButtonClick
 {
-    /*UIView *viewToUse = self.view;
-    viewToUse = self.tabBarController.tabBar.superview;
-    [DejalBezelActivityView activityViewForView:viewToUse];*/
+    int buttonLocation = [submitButton checkCurrentLocation];
+    if (buttonLocation == 1 && [submitButton.titleLabel.text isEqualToString:@"Next"]) [AnimationInstructionSheet toStageTwo:self];
+    else if (buttonLocation == 2 && [submitButton.titleLabel.text isEqualToString:@"Next"])
+    {
+        [AnimationInstructionSheet toStageThree:self];
+        [submitButton setTitle:@"Submit" forState:nil];
+    }
+    else {
+        NSMutableArray *searchArray = [[NSMutableArray alloc]init];
+        [searchArray addObject:[[navigoInterpreter getAddressInfoFromQuery:origin.text] objectAtIndex:1]];
+        [searchArray addObject:[[navigoInterpreter getAddressInfoFromQuery:destination.text] objectAtIndex:1]];
+        [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
+        [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
+        [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
+        [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
+        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
+        NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
+        [navigoInterpreter getRouteData:resultXMLFile];
+        [self performSegueWithIdentifier:@"toResults" sender:self];
+    }
+    
+    /* This is the old submit button code that I will keep around till the NEXT button is working well.
     if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
         UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
         [missingStuff show];
@@ -175,7 +200,7 @@
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
         [navigoInterpreter getRouteData:resultXMLFile];
         [self performSegueWithIdentifier:@"toResults" sender:self];
-    }
+    } */
 }
 
 -(IBAction)backgroundTap
@@ -222,6 +247,37 @@
 -(IBAction)timeDateLabelClick
 {
     [AnimationInstructionSheet toStageThree:self];
+}
+
+#pragma mark - Actions for origin and destination suggestion boxes
+
+-(IBAction)originBoxEdit
+{
+    suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
+    [self.view addSubview:suggestionBox.tableView];
+}
+-(IBAction)originBoxChanged
+{
+    [suggestionBox getSuggestions:origin.text];
+}
+-(IBAction)originBoxFinished
+{
+    [suggestionBox.tableView removeFromSuperview];
+    suggestionBox = nil;
+}
+-(IBAction)destinationBoxEdit
+{
+    suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
+    [self.view addSubview:suggestionBox.tableView];
+}
+-(IBAction)destinationBoxChanged
+{
+    [suggestionBox getSuggestions:destination.text];
+}
+-(IBAction)destinationBoxFinished
+{
+    [suggestionBox.tableView removeFromSuperview];
+    suggestionBox = nil;
 }
 
 - (void)viewDidUnload

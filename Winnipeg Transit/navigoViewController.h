@@ -17,10 +17,9 @@
 #import "DejalActivityView.h"
 #import "MSSeparator.h"
 #import "SubmitButton.h"
+#import "MSSuggestionBox.h"
 
-@interface navigoViewController : UniversalViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
-    UITextField *origin;
-    UITextField *timeDate;
+@interface navigoViewController : UniversalViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
     UIToolbar *pickerBar;
     IBOutlet UIToolbar *keyboardToolbar;
     UISegmentedControl *nextPreviousControl;
@@ -56,6 +55,7 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *timeSeparator;
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
+@property (nonatomic, retain) MSSuggestionBox *suggestionBox;
 
 -(IBAction)submitButtonClick;
 
@@ -73,5 +73,13 @@
 -(IBAction)originLabelClick;
 -(IBAction)destinationLabelClick;
 -(IBAction)timeDateLabelClick;
+
+//Actions for origin and destination suggestion boxes
+-(IBAction)originBoxEdit;
+-(IBAction)originBoxChanged;
+-(IBAction)originBoxFinished;
+-(IBAction)destinationBoxEdit;
+-(IBAction)destinationBoxChanged;
+-(IBAction)destinationBoxFinished;
 
 @end

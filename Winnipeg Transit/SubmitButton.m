@@ -38,6 +38,7 @@
             
         default:
             result = 5;
+            NSLog(@"Button is in a non standard location");
             break;
     }
     return result;

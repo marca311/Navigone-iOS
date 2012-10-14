@@ -20,12 +20,13 @@ extern NSString *currentFile;
 
 +(BOOL)queryIsNotError:(NSData *)dataFile;
 
-+(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem;
++(NSArray *)getAddressInfoFromQuery:(NSString *)query;
 
-//Useful for location tags and quick results
-+(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem;
++(NSString *)getAddressKeyFromElement:(TBXMLElement *)theElement;
 
-+(NSString *)getLocationTypeFromSearchedItem:(TBXMLElement *)element;
++(NSString *)getAddressNameFromElement:(TBXMLElement *)theElement;
+
++(NSArray *)getQuerySuggestions:(NSString *)query;
 
 +(BOOL)entryIsBlank:(NSString *)stringToCheck;
 

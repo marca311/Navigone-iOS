@@ -8,6 +8,7 @@
 
 #import "AnimationInstructionSheet.h"
 #import "navigoViewController.h"
+#import "MSUtilities.h"
 
 @implementation AnimationInstructionSheet
 
@@ -65,6 +66,10 @@
         [naviView.destination becomeFirstResponder];
     }
     
+    //Section to change label to location name
+    NSString *title = [self getLabelLocation:naviView.origin];
+    if (title != nil) [naviView.originLabel setTitle:title forState:nil];
+     
     //Moves destination label, because the origin label never has to move
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
     destinationLabelRect.origin.y = 55;
@@ -91,14 +96,18 @@
     naviView.origin.alpha = 0;
     [UIView commitAnimations];
     naviView.origin.hidden = YES;
-}
+}//stageOneToStageTwo
+
 +(void)stageOneToStageThree:(navigoViewController *)naviView
 {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.origin isFirstResponder]) {
         [naviView.timeField becomeFirstResponder];
     }
-
+    
+    //Section to change label to location name
+    NSString *title = [self getLabelLocation:naviView.origin];
+    if (title != nil) [naviView.originLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
@@ -138,14 +147,18 @@
     naviView.origin.alpha = 0;
     [UIView commitAnimations];
     naviView.origin.hidden = YES;
+}//stageOneToStageThree
 
-}
 +(void)stageTwoToStageThree:(navigoViewController *)naviView
 {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.destination isFirstResponder]) {
         [naviView.timeField becomeFirstResponder];
     }
+    
+    //Section to change label to location name
+    NSString *title = [self getLabelLocation:naviView.destination];
+    if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
@@ -179,7 +192,8 @@
     naviView.mode.alpha = 1;
     [UIView commitAnimations];
     naviView.destination.hidden = YES;
-}
+}//stageTwoToStageThree
+
 +(void)stageThreeToStageTwo:(navigoViewController *)naviView
 {
     //Dismiss pickers and if a responder is already in action, switch responders
@@ -219,8 +233,8 @@
     naviView.timeField.hidden = YES;
     naviView.dateField.hidden = YES;
     naviView.mode.hidden = YES;
+}//stageThreeToStageTwo
 
-}
 +(void)stageThreeToStageOne:(navigoViewController *)naviView
 {
     //Dismiss pickers and if a responder is already in action, switch responders
@@ -266,13 +280,18 @@
     naviView.timeField.hidden = YES;
     naviView.dateField.hidden = YES;
     naviView.mode.hidden = YES;
-}
+}//stageThreeToStageOne
+
 +(void)stageTwoToStageOne:(navigoViewController *)naviView
 {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.destination isFirstResponder]) {
         [naviView.origin becomeFirstResponder];
-    }    
+    }
+    
+    //Section to change label to location name
+    NSString *title = [self getLabelLocation:naviView.destination];
+    if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
@@ -299,7 +318,23 @@
     naviView.origin.alpha = 1;
     [UIView commitAnimations];
     naviView.destination.hidden = YES;
+}//stageTwoToStageOne
 
-}
++(BOOL)changeLabel:(NSString *)fieldText
+{
+    if ([MSUtilities isQueryBlank:fieldText] || ![MSUtilities hasInternet]) return NO;
+    else return YES;
+}//changeLabel
+
++(NSString *)getLabelLocation:(UITextField *)textField
+{
+    if ([self changeLabel:textField.text])
+    {
+        NSArray *resultArray = [navigoInterpreter getAddressInfoFromQuery:textField.text];
+        NSString *result = [resultArray objectAtIndex:0];
+        return result;
+    }
+    return nil;
+}//getLabelLocation
 
 @end

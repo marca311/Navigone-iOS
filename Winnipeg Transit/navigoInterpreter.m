@@ -60,41 +60,40 @@ NSString *currentFile;
     }
 }//queryIsNotError
 
-+(NSString *)getAddressKeyFromSearchedItem:(NSString *)searchedItem
++(NSArray *)getAddressInfoFromQuery:(NSString *)query
 {
-    if ([self getXMLFileForSearchedItem:searchedItem] == nil) return nil;
-    else {
-        NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
-        TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
-        TBXMLElement *theElement = [XMLParser getRootElement:theFile];
-        TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
-        NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[self getLocationTypeFromSearchedItem:theElementChild]];
-        theElementChild = [XMLParser extractKnownChildElement:@"key" :theElementChild];
-        NSString *result = [XMLParser getValueFromElement:theElementChild];
-        if ([locationType isEqualToString:@"intersection"]) {
-            NSArray *resultArray = [result componentsSeparatedByString:@":"];
-            result = [resultArray objectAtIndex:0];
-        }
-        NSString *addressType = [[NSString alloc]init];
-        if ([locationType isEqualToString:@"address"]) addressType = @"addresses";
-        else if ([locationType isEqualToString:@"monument"]) addressType = @"monuments";
-        else if ([locationType isEqualToString:@"intersection"]) addressType = @"intersections";
-        result = [NSString stringWithFormat:@"%@/%@",addressType,result];
-#if TARGET_IPHONE_SIMULATOR
-    NSLog(result);
-#endif
-    return result;
-    }
-}
-
-+(NSString *)getLocationNameFromSearchedItem:(NSString *)searchedItem
-{
-    NSString *result;
-    NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:searchedItem]];
+    NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:query]];
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+    NSString *addressReadable = [self getAddressNameFromElement:theElement];
+    NSString *addressKey = [self getAddressKeyFromElement:theElement];
+    NSArray *result = [[NSArray alloc]initWithObjects:addressReadable, addressKey, nil];
+    return result;
+}//getAddressInfoFromElement
+
++(NSString *)getAddressKeyFromElement:(TBXMLElement *)theElement
+{
     TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
-    NSString *locationType = [self getLocationTypeFromSearchedItem:theElementChild];
+    NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[XMLParser getElementName:theElementChild]];
+    theElementChild = [XMLParser extractKnownChildElement:@"key" :theElementChild];
+    NSString *result = [XMLParser getValueFromElement:theElementChild];
+    if ([locationType isEqualToString:@"intersection"]) {
+        NSArray *resultArray = [result componentsSeparatedByString:@":"];
+        result = [resultArray objectAtIndex:0];
+    }
+    NSString *addressType = [[NSString alloc]init];
+    if ([locationType isEqualToString:@"address"]) addressType = @"addresses";
+    else if ([locationType isEqualToString:@"monument"]) addressType = @"monuments";
+    else if ([locationType isEqualToString:@"intersection"]) addressType = @"intersections";
+    result = [NSString stringWithFormat:@"%@/%@",addressType,result];
+    return result;
+}
+
++(NSString *)getAddressNameFromElement:(TBXMLElement *)theElement
+{
+    NSString *result;
+    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
+    NSString *locationType = [XMLParser getElementName:theElementChild];
     if ([locationType isEqualToString:@"address"]) {
         TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :theElementChild];
         NSString *houseNumber = [XMLParser getValueFromElement:streetNumberElement];
@@ -128,11 +127,18 @@ NSString *currentFile;
     return result;
 }//getLocationNameFromSearchedItem
 
-+(NSString *)getLocationTypeFromSearchedItem:(TBXMLElement *)element
++(NSArray *)getQuerySuggestions:(NSString *)query
 {
-    NSString *result = [XMLParser getElementName:element];
+    //Makes the suggestion array for the suggestions table
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSData *queryXML = [self getXMLFileForSearchedItem:query];
+    TBXML *theFile = [XMLParser loadXmlDocumentFromData:queryXML];
+    TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+    do {
+        [result addObject:[self getAddressNameFromElement:theElement]];
+    } while (theElement->nextSibling);
     return result;
-}//getLocationTypeFromSearchedItem
+}//getQuerySuggestions
 
 + (NSString *)timeFormatForServer:(NSDate *)timeObject
 {

@@ -54,11 +54,6 @@
     [UIView commitAnimations];
 }
 
-- (void)setDataSourceArray:(NSDictionary *)dictionary
-{
-    primaryResults = [navigoInterpreter planListMaker:dictionary];
-}//setDataSourceArray
-
 - (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary
 {
     //Adjusts frame size based on how many entries are in the table to a max of 3
@@ -77,7 +72,8 @@
     return theFrame;
 }//getFrameSizeFromArray
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 5; }
+//The -1 is because the first entry in primaryResults is the number of plans
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([primaryResults count] - 1); }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

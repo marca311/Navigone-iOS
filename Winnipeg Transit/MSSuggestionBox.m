@@ -7,18 +7,12 @@
 //
 
 #import "MSSuggestionBox.h"
+#import <QuartzCore/QuartzCore.h>
 #import "navigoInterpreter.h"
 
 @implementation MSSuggestionBox
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+@synthesize tableArray;
 
 -(id)initWithFrameFromField:(UITextField *)textField
 {
@@ -27,19 +21,30 @@
     theFrame.origin.y = (textField.frame.origin.y + textField.frame.size.height);
     
     theFrame.size.width = textField.frame.size.width;
-    theFrame.size.height = 20;
+    theFrame.size.height = 100;
     
-    self.frame = theFrame;
+    self.tableView = [self.tableView initWithFrame:theFrame];
+    
+    //Border
+    CALayer *layer = self.tableView.layer;
+    layer.borderWidth = 2;
+    layer.borderColor = [[UIColor blackColor] CGColor];
+    layer.cornerRadius = 10;
+    layer.masksToBounds = YES;    
+    
+    self.tableView.dataSource = self;
     return self;
 }
 
-//Accidental placement in a different class, I'll implement this later.
-+ (NSData *)sendQuery:(NSString *)query
+- (void)getSuggestions:(NSString *)query
 {
-    query = [NSString stringWithFormat:@"http://api.winnipegtransit.com/locations:%@?api-key=%@",query,[navigoInterpreter getAPIKey]];
-    NSURL *queryURL = [[NSURL alloc]initWithString:query];
-    NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
-    return result;
+    if ([MSUtilities isQueryBlank:query]) {
+        [self.tableView reloadData];
+    } else {
+        NSArray *locationArray = [navigoInterpreter getQuerySuggestions:query];
+        tableArray = locationArray;
+        [self.tableView reloadData];
+    }
 }//sendQuery
 
 
@@ -47,10 +52,10 @@
 {
     int sizeOfCell = 40;
     int numberOfEntries = [array count];
-    CGRect theFrame = self.frame;
+    CGRect theFrame = self.tableView.frame;
     theFrame.size.height = (numberOfEntries * sizeOfCell) + sizeOfCell;
-    self.frame = theFrame;
-    [self reloadData];
+    self.tableView.frame = theFrame;
+    [self.tableView reloadData];
 }
 
 /*
@@ -61,5 +66,22 @@
     // Drawing code
 }
 */
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [tableArray count]; }
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
+    NSString *uniqueIdentifier = @"CellIdentifier";
+    UITableViewCell *cell = nil;
+    cell = (UITableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
+    }
+    
+    return cell;
+}
 
 @end

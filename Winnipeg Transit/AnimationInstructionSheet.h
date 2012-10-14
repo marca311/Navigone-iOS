@@ -26,4 +26,8 @@
 +(void)stageThreeToStageOne:(navigoViewController *)naviView;
 +(void)stageTwoToStageOne:(navigoViewController *)naviView;
 
+//Methods for other stuff relating to animation
++(BOOL)changeLabel:(NSString *)fieldText;
++(NSString *)getLabelLocation:(UITextField *)textField;
+
 @end

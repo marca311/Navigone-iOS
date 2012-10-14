@@ -22,6 +22,7 @@ NSDictionary *resultDictionary;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
 @synthesize planSelectorTable,planTable;
+@synthesize planList, currentPlan, planTitleArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,8 +37,14 @@ NSDictionary *resultDictionary;
 {
     [super viewDidLoad];
     resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
-    planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];;
-    resultsArray = [planArray objectAtIndex:0];
+    planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];
+    currentPlan = 0;
+    resultsArray = [planArray objectAtIndex:currentPlan];
+    planList = [navigoInterpreter planListMaker:resultDictionary];
+    planTitleArray = [planList objectAtIndex:(currentPlan+1)];
+    self.buses.text = [planTitleArray objectAtIndex:2];
+    self.startTime.text = [planTitleArray objectAtIndex:0];
+    self.endTime.text = [planTitleArray objectAtIndex:1];
     
     //Add plan table to view
     planTable = [[PlanDisplayTableViewController alloc]initWithCorrectFrame:resultsArray];
@@ -63,7 +70,7 @@ NSDictionary *resultDictionary;
 -(IBAction)planButtonPress
 {
     if ([planSelectorTable.tableView isUserInteractionEnabled] == NO) {
-        [planSelectorTable setDataSourceArray:resultDictionary];
+        planSelectorTable.primaryResults = planList;
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
         planSelectorTable.tableView.delegate = self;
         [planSelectorTable showAndAnimate:self.view:resultDictionary];
@@ -78,6 +85,15 @@ NSDictionary *resultDictionary;
     }
 }
 
+-(void)changePlanSelectorArray:(int)arrayNumber
+{
+    planTitleArray = [planList objectAtIndex:(currentPlan+1)];
+    self.buses.text = [planTitleArray objectAtIndex:2];
+    self.startTime.text = [planTitleArray objectAtIndex:0];
+    self.endTime.text = [planTitleArray objectAtIndex:1];
+    resultsArray = [planArray objectAtIndex:arrayNumber];
+}//changePlanSelectorArray
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -86,7 +102,13 @@ NSDictionary *resultDictionary;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"You clicked a button!");
+    currentPlan = indexPath.row;
+    [self changePlanSelectorArray:currentPlan];
+    [planTable changeTablePlan:resultsArray];
+    [planSelectorTable.tableView removeFromSuperview];
+    planSelectorTable = nil;
+    NSIndexPath *topIndex = [NSIndexPath indexPathForRow:0 inSection:0];
+    [planTable.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

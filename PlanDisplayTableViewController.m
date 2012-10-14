@@ -35,6 +35,10 @@
     theFrame.size.height = 336;
     self.tableView = [self.tableView initWithFrame:theFrame];
     self.tableView.rowHeight = 68;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
+    self.tableView.backgroundView = nil;
+
     currentArray = theArray;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -110,6 +114,9 @@
             }
         }
     }
+    
+    cell.textView.backgroundColor = [UIColor clearColor];
+    cell.textView.opaque = NO;
     
     cell.textView.text = [contentForThisRow objectAtIndex:1];
     cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];

@@ -28,11 +28,20 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) NSArray *resultsArray;
 @property (nonatomic, retain) IBOutlet PlanDisplayTableViewController *planTable;
 @property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
+@property (nonatomic, retain) NSArray *planList;
+@property (nonatomic) int currentPlan;
+@property (nonatomic, retain) NSArray *planTitleArray;
+//Plan selector button text boxes
+@property (nonatomic, retain) IBOutlet UILabel *startTime;
+@property (nonatomic, retain) IBOutlet UILabel *endTime;
+@property (nonatomic, retain) IBOutlet UILabel *buses;
 
 -(IBAction)reloadTable;
 
 -(IBAction)planButtonPress;
 
 -(IBAction)closePlans;
+
+-(void)changePlanSelectorArray:(int)arrayNumber;
 
 @end

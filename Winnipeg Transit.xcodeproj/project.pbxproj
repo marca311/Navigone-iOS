@@ -30,6 +30,7 @@
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
 		6F378F0315267F3E00FCA44D /* navigoResultViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
+		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F4155CF15050CF100A5DB67 /* trip-planner.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F4155CE15050CF100A5DB67 /* trip-planner.xml */; };
 		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
 		6F41561F150553D400A5DB67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561C150553D400A5DB67 /* TBXML.m */; };
@@ -103,6 +104,7 @@
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
 		6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navigoResultViewNib.xib; sourceTree = "<group>"; };
 		6F378F0A1526869B00FCA44D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6F4155CE15050CF100A5DB67 /* trip-planner.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "trip-planner.xml"; sourceTree = "<group>"; };
 		6F415619150553D400A5DB67 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
 		6F41561A150553D400A5DB67 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */,
 				4316805615013E4100A41785 /* UIKit.framework in Frameworks */,
 				4316805815013E4100A41785 /* Foundation.framework in Frameworks */,
 				4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */,
@@ -172,6 +175,7 @@
 		4316804615013E4100A41785 = {
 			isa = PBXGroup;
 			children = (
+				6F3D82E7162B423600313642 /* SystemConfiguration.framework */,
 				6F60B86D1526ACD100FFCD99 /* Icons */,
 				4316805B15013E4100A41785 /* Winnipeg Transit */,
 				4316808715013E4200A41785 /* Winnipeg TransitTests */,

@@ -32,4 +32,8 @@
 
 +(BOOL)firmwareIsHigherThanFour;
 
++(BOOL)hasInternet;
+
++(BOOL)isQueryBlank:(NSString *)query;
+
 @end

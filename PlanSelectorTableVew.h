@@ -20,8 +20,6 @@
 
 - (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary;
 
-- (void)setDataSourceArray:(NSDictionary *)dictionary;
-
 - (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary;
 
 @end
