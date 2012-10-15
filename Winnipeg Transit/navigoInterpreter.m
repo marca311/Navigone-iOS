@@ -65,15 +65,16 @@ NSString *currentFile;
     NSData *data = [[NSData alloc]initWithData:[self getXMLFileForSearchedItem:query]];
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:data];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
-    NSString *addressReadable = [self getAddressNameFromElement:theElement];
-    NSString *addressKey = [self getAddressKeyFromElement:theElement];
+    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
+    NSString *addressReadable = [self getAddressNameFromElement:theElementChild];
+    NSString *addressKey = [self getAddressKeyFromElement:theElementChild];
     NSArray *result = [[NSArray alloc]initWithObjects:addressReadable, addressKey, nil];
     return result;
 }//getAddressInfoFromElement
 
 +(NSString *)getAddressKeyFromElement:(TBXMLElement *)theElement
 {
-    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
+    TBXMLElement *theElementChild = theElement;
     NSString *locationType = [[NSString alloc]initWithFormat:@"%@",[XMLParser getElementName:theElementChild]];
     theElementChild = [XMLParser extractKnownChildElement:@"key" :theElementChild];
     NSString *result = [XMLParser getValueFromElement:theElementChild];
@@ -92,7 +93,7 @@ NSString *currentFile;
 +(NSString *)getAddressNameFromElement:(TBXMLElement *)theElement
 {
     NSString *result;
-    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
+    TBXMLElement *theElementChild = theElement;
     NSString *locationType = [XMLParser getElementName:theElementChild];
     if ([locationType isEqualToString:@"address"]) {
         TBXMLElement *streetNumberElement = [XMLParser extractKnownChildElement:@"street-number" :theElementChild];
@@ -134,9 +135,10 @@ NSString *currentFile;
     NSData *queryXML = [self getXMLFileForSearchedItem:query];
     TBXML *theFile = [XMLParser loadXmlDocumentFromData:queryXML];
     TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
     do {
-        [result addObject:[self getAddressNameFromElement:theElement]];
-    } while (theElement->nextSibling);
+        [result addObject:[self getAddressNameFromElement:theElementChild]];
+    } while ((theElementChild = theElementChild->nextSibling));
     return result;
 }//getQuerySuggestions
 

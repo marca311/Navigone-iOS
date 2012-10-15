@@ -56,6 +56,9 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
+//These store the query results (location name and key) for the entered origin and destination
+@property (nonatomic, retain) NSArray *originResults;
+@property (nonatomic, retain) NSArray *destinationResults;
 
 -(IBAction)submitButtonClick;
 

@@ -81,6 +81,8 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
     }
     
+    cell.textLabel.text = [tableArray objectAtIndex:indexPath.row];
+    
     return cell;
 }
 

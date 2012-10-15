@@ -42,6 +42,7 @@
 @synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
 @synthesize submitButton;
 @synthesize suggestionBox;
+@synthesize originResults, destinationResults;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -226,6 +227,8 @@
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
     mode.text = @"Depart After";
+    [originLabel setTitle:@"Origin" forState:nil];
+    [destinationLabel setTitle:@"Destination" forState:nil];
     [AnimationInstructionSheet toStageOne:self];
 }
 

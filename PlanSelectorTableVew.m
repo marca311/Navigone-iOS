@@ -62,7 +62,7 @@
     int numberOfPlans = [[primaryResults objectAtIndex:0]intValue];
     if (numberOfPlans <= 3) {
         frameHeight = numberOfPlans * 44;
-        frameHeight = frameHeight + 15;
+        //frameHeight = frameHeight + 15;
         //The + 15 is to allow the user to see that there are more objects in the table, applies in the else statement too.
     } else {
         frameHeight = 132 + 15;
