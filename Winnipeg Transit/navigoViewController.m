@@ -42,7 +42,7 @@
 @synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
 @synthesize submitButton;
 @synthesize suggestionBox;
-@synthesize originResults, destinationResults;
+@synthesize originResults, destinationResults, currentField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -256,7 +256,9 @@
 
 -(IBAction)originBoxEdit
 {
+    currentField = @"origin";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
+    suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)originBoxChanged
@@ -270,7 +272,9 @@
 }
 -(IBAction)destinationBoxEdit
 {
+    currentField = @"destination";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
+    suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)destinationBoxChanged
@@ -282,6 +286,22 @@
     [suggestionBox.tableView removeFromSuperview];
     suggestionBox = nil;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Workaround until I fix the crash bug that happens with unrecognized queries
+    NSString *answer = [[NSString alloc]init];
+    answer = [suggestionBox.tableArray objectAtIndex:indexPath.row];
+    [suggestionBox.tableView removeFromSuperview];
+    suggestionBox = nil;
+    if ([currentField isEqualToString:@"origin"]) {
+        self.origin.text = answer;
+    } else if ([currentField isEqualToString:@"destination"]) {
+        self.destination.text = answer;
+    }
+}
+
+#pragma mark -
 
 - (void)viewDidUnload
 {

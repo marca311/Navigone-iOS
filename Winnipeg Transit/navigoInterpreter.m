@@ -131,15 +131,22 @@ NSString *currentFile;
 +(NSArray *)getQuerySuggestions:(NSString *)query
 {
     //Makes the suggestion array for the suggestions table
-    NSMutableArray *result = [[NSMutableArray alloc]init];
-    NSData *queryXML = [self getXMLFileForSearchedItem:query];
-    TBXML *theFile = [XMLParser loadXmlDocumentFromData:queryXML];
-    TBXMLElement *theElement = [XMLParser getRootElement:theFile];
-    TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
-    do {
-        [result addObject:[self getAddressNameFromElement:theElementChild]];
-    } while ((theElementChild = theElementChild->nextSibling));
-    return result;
+    if (![MSUtilities isQueryBlank:query])
+    {
+        NSMutableArray *result = [[NSMutableArray alloc]init];
+        NSData *queryXML = [self getXMLFileForSearchedItem:query];
+        TBXML *theFile = [XMLParser loadXmlDocumentFromData:queryXML];
+        TBXMLElement *theElement = [XMLParser getRootElement:theFile];
+        TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
+        do {
+            [result addObject:[self getAddressNameFromElement:theElementChild]];
+        } while ((theElementChild = theElementChild->nextSibling));
+        return result;
+    } else {
+        NSArray *result = [[NSArray alloc]initWithObjects: nil];
+        return result;
+    }
+    
 }//getQuerySuggestions
 
 + (NSString *)timeFormatForServer:(NSDate *)timeObject

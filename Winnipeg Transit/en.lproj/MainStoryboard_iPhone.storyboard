@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Navigo View Controller - Navigo-->
@@ -20,6 +20,9 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="1Bg-Lg-b6H"/>
+                                    <action selector="originBoxChanged" destination="2" eventType="editingChanged" id="HlP-2O-5vn"/>
+                                    <action selector="originBoxEdit" destination="2" eventType="editingDidBegin" id="YZa-K3-D2C"/>
+                                    <action selector="originBoxFinished" destination="2" eventType="editingDidEnd" id="5qh-XY-LuA"/>
                                 </connections>
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Polo park" borderStyle="roundedRect" placeholder="Destination" minimumFontSize="17" clearButtonMode="whileEditing" id="cD2-DB-a5q">
@@ -28,6 +31,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="destinationBoxChanged" destination="2" eventType="editingChanged" id="dkI-oy-0ec"/>
+                                    <action selector="destinationBoxEdit" destination="2" eventType="editingDidBegin" id="PRf-Cp-I8O"/>
+                                    <action selector="destinationBoxFinished" destination="2" eventType="editingDidEnd" id="gu3-q4-KdM"/>
                                     <action selector="dismissKeyboard:" destination="2" eventType="editingDidEndOnExit" id="hMs-Ai-1iS"/>
                                 </connections>
                             </textField>

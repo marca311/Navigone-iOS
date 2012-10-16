@@ -19,7 +19,7 @@
 #import "SubmitButton.h"
 #import "MSSuggestionBox.h"
 
-@interface navigoViewController : UniversalViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface navigoViewController : UniversalViewController <UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UIToolbar *pickerBar;
     IBOutlet UIToolbar *keyboardToolbar;
     UISegmentedControl *nextPreviousControl;
@@ -27,6 +27,7 @@
     UIDatePicker *datePicker;
     UIPickerView *modePicker;
     NSArray *modeArray;
+    MSSuggestionBox *suggestionBox;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *origin;
@@ -59,6 +60,8 @@
 //These store the query results (location name and key) for the entered origin and destination
 @property (nonatomic, retain) NSArray *originResults;
 @property (nonatomic, retain) NSArray *destinationResults;
+//Tells the tableview delegate which field is currently selected so it can send the text to the correct one
+@property (nonatomic, retain) NSString *currentField;
 
 -(IBAction)submitButtonClick;
 

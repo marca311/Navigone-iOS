@@ -36,6 +36,8 @@
 		6F41561F150553D400A5DB67 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561C150553D400A5DB67 /* TBXML.m */; };
 		6F519A031502F7C600395F84 /* 10064.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6F519A021502F7C600395F84 /* 10064.xml */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
+		6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */; };
+		6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */; };
 		6F5802F31587F86A0031A17E /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5802F21587F86A0031A17E /* separator.png */; };
 		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
@@ -112,6 +114,9 @@
 		6F519A021502F7C600395F84 /* 10064.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 10064.xml; sourceTree = "<group>"; };
 		6F519A081502F84200395F84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionBoxCell.h; sourceTree = "<group>"; };
+		6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionBoxCell.m; sourceTree = "<group>"; };
+		6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionBoxCell.xib; sourceTree = "<group>"; };
 		6F5802F21587F86A0031A17E /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
 		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
@@ -328,6 +333,9 @@
 				6FF56FA2158BC49000CC015C /* PlanTableViewCell.h */,
 				6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */,
 				6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */,
+				6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */,
+				6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */,
+				6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -433,6 +441,7 @@
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
 				6F5802F31587F86A0031A17E /* separator.png in Resources */,
 				6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */,
+				6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +499,7 @@
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */,
+				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

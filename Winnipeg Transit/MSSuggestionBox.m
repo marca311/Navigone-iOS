@@ -9,6 +9,7 @@
 #import "MSSuggestionBox.h"
 #import <QuartzCore/QuartzCore.h>
 #import "navigoInterpreter.h"
+#import "SuggestionBoxCell.h"
 
 @implementation MSSuggestionBox
 
@@ -38,13 +39,14 @@
 
 - (void)getSuggestions:(NSString *)query
 {
-    if ([MSUtilities isQueryBlank:query]) {
-        [self.tableView reloadData];
-    } else {
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *locationArray = [navigoInterpreter getQuerySuggestions:query];
-        tableArray = locationArray;
-        [self.tableView reloadData];
-    }
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            tableArray = locationArray;
+            [self.tableView reloadData];
+        });
+    });
 }//sendQuery
 
 
@@ -74,14 +76,23 @@
 {
     //NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = nil;
-    cell = (UITableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    SuggestionBoxCell *cell = nil;
+    cell = (SuggestionBoxCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"SuggestionBoxCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (SuggestionBoxCell *)currentObject;
+                break;
+            }
+        }
+
     }
     
-    cell.textLabel.text = [tableArray objectAtIndex:indexPath.row];
+    cell.textBox.text = [tableArray objectAtIndex:indexPath.row];
     
     return cell;
 }
