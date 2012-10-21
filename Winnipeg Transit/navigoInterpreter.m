@@ -11,6 +11,7 @@
 #import "MSUtilities.h"
 
 NSString *currentFile;
+NSMutableDictionary *queriedDictionary;
 
 @implementation navigoInterpreter
 
@@ -139,14 +140,16 @@ NSString *currentFile;
         TBXMLElement *theElement = [XMLParser getRootElement:theFile];
         TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
         do {
-            [result addObject:[self getAddressNameFromElement:theElementChild]];
+            NSString *addressName = [self getAddressNameFromElement:theElementChild];
+            NSString *addressKey = [self getAddressKeyFromElement:theElementChild];
+            NSArray *elementArray = [[NSArray alloc]initWithObjects:addressName, addressKey, nil];
+            [result addObject:elementArray];
         } while ((theElementChild = theElementChild->nextSibling));
         return result;
     } else {
         NSArray *result = [[NSArray alloc]initWithObjects: nil];
         return result;
     }
-    
 }//getQuerySuggestions
 
 + (NSString *)timeFormatForServer:(NSDate *)timeObject

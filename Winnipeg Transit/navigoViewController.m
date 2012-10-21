@@ -123,12 +123,6 @@
     modePicker.dataSource = self;
     mode.inputView = modePicker;
     
-    //Method testing area
-    
-    //NSData *testData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"http://api.winnipegtransit.com/trip-planner?destination=addresses/123&walk-speed=5.3&origin=utm/633861,5525798&api-key=VzHTwXmEnjQ0vUG0U3y9"]];
-    //NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trip-planner" ofType:@"xml"];
-    //NSData *testData = [[NSData alloc]initWithContentsOfFile:filePath];
-    //[navigoInterpreter getRouteData:testData];
     NSLog(@"Main UI Loaded");
     
     //Small script to load current time into time and date pickers
@@ -137,6 +131,8 @@
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
     mode.text = @"Depart After";
+    
+    queriedDictionary = [[NSMutableDictionary alloc]init];
     
     [super viewDidLoad];
     
@@ -160,8 +156,8 @@
     }
     else {
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
-        [searchArray addObject:[[navigoInterpreter getAddressInfoFromQuery:origin.text] objectAtIndex:1]];
-        [searchArray addObject:[[navigoInterpreter getAddressInfoFromQuery:destination.text] objectAtIndex:1]];
+        [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
+        [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
         [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
@@ -175,33 +171,6 @@
         [navigoInterpreter getRouteData:resultXMLFile];
         [self performSegueWithIdentifier:@"toResults" sender:self];
     }
-    
-    /* This is the old submit button code that I will keep around till the NEXT button is working well.
-    if ([origin.text isEqualToString:@""] || [destination.text isEqualToString:@""]) {
-        UIAlertView *missingStuff = [navigoViewLibrary dataMissing];
-        [missingStuff show];
-    } else {
-        
-        NSString *originText = [navigoInterpreter getLocationNameFromSearchedItem:origin.text];
-        originLabel.titleLabel.text = originText;
-        NSMutableArray *searchArray = [[NSMutableArray alloc]init];
-        [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:origin.text]];
-        NSString *destinationText = [navigoInterpreter getLocationNameFromSearchedItem:destination.text];
-        destinationLabel.titleLabel.text = destinationText;
-        [searchArray addObject:[navigoInterpreter getAddressKeyFromSearchedItem:destination.text]];
-        [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
-        [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
-        [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
-        [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
-        NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        [navigoInterpreter getRouteData:resultXMLFile];
-        [self performSegueWithIdentifier:@"toResults" sender:self];
-    } */
 }
 
 -(IBAction)backgroundTap
@@ -289,14 +258,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Workaround until I fix the crash bug that happens with unrecognized queries
+    NSArray *answerArray = [[NSArray alloc]init];
+    answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
     NSString *answer = [[NSString alloc]init];
-    answer = [suggestionBox.tableArray objectAtIndex:indexPath.row];
+    answer = [answerArray objectAtIndex:0];
     [suggestionBox.tableView removeFromSuperview];
     suggestionBox = nil;
     if ([currentField isEqualToString:@"origin"]) {
+        [queriedDictionary setObject:answerArray forKey:@"origin"];
         self.origin.text = answer;
     } else if ([currentField isEqualToString:@"destination"]) {
+        [queriedDictionary setObject:answerArray forKey:@"destination"];
         self.destination.text = answer;
     }
 }

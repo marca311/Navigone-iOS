@@ -67,7 +67,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:naviView.origin];
+    NSString *title = [self getLabelLocation:@"origin"];
     if (title != nil) [naviView.originLabel setTitle:title forState:nil];
      
     //Moves destination label, because the origin label never has to move
@@ -106,7 +106,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:naviView.origin];
+    NSString *title = [self getLabelLocation:@"origin"];
     if (title != nil) [naviView.originLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
@@ -157,7 +157,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:naviView.destination];
+    NSString *title = [self getLabelLocation:@"destination"];
     if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
@@ -290,7 +290,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:naviView.destination];
+    NSString *title = [self getLabelLocation:@"destination"];
     if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
     
     //Move all components up to proper positions
@@ -326,13 +326,13 @@
     else return YES;
 }//changeLabel
 
-+(NSString *)getLabelLocation:(UITextField *)textField
++(NSString *)getLabelLocation:(NSString *)field
 {
-    if ([self changeLabel:textField.text])
+    NSArray *currentArray = [queriedDictionary objectForKey:field];
+    NSString *currentString = [currentArray objectAtIndex:0];
+    if ([self changeLabel:currentString])
     {
-        NSArray *resultArray = [navigoInterpreter getAddressInfoFromQuery:textField.text];
-        NSString *result = [resultArray objectAtIndex:0];
-        return result;
+        return currentString;
     }
     return nil;
 }//getLabelLocation

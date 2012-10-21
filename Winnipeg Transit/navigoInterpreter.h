@@ -11,6 +11,7 @@
 #import "MSUtilities.h"
 
 extern NSString *currentFile;
+extern NSMutableDictionary *queriedDictionary;
 
 @interface navigoInterpreter : NSObject
 

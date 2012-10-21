@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 #import "AppDelegate.h"
 #import "navigoViewController.h"
 #import "timetableViewController.h"
@@ -31,6 +33,11 @@
     [appDefaults setObject:@"0" forKey:@"max_transfers"];
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
+    
+    if (IS_IPHONE_5) {
+        <#statements#>
+    }
+    
     return YES;
 }
 							

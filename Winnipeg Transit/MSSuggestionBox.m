@@ -60,15 +60,6 @@
     [self.tableView reloadData];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [tableArray count]; }
 
 
@@ -92,7 +83,7 @@
 
     }
     
-    cell.textBox.text = [tableArray objectAtIndex:indexPath.row];
+    cell.textBox.text = [[tableArray objectAtIndex:indexPath.row] objectAtIndex:0];
     
     return cell;
 }
