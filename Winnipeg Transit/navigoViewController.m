@@ -152,7 +152,7 @@
     else if (buttonLocation == 2 && [submitButton.titleLabel.text isEqualToString:@"Next"])
     {
         [AnimationInstructionSheet toStageThree:self];
-        [submitButton setTitle:@"Submit" forState:nil];
+        [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     }
     else {
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
@@ -191,13 +191,14 @@
 {
     origin.text = @"";
     destination.text = @"";
+    [submitButton setTitle:@"Next" forState:UIControlStateNormal];
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
     timeField.text = display;
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
     mode.text = @"Depart After";
     [originLabel setTitle:@"Origin" forState:nil];
-    [destinationLabel setTitle:@"Destination" forState:nil];
+    [destinationLabel setTitle:@"Destination" forState:UIControlStateNormal];
     [AnimationInstructionSheet toStageOne:self];
 }
 

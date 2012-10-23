@@ -45,19 +45,19 @@ NSMutableDictionary *queriedDictionary;
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"Tries: %i",tries);
 #endif
+    
     return resultXMLFile;
     
 }//getXMLFileForSearchedItem
 
 +(BOOL)queryIsNotError:(NSData *)dataFile
 {
-    NSData *errorPage = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"error_page" ofType:@"html"]];
-    NSData *notSearchable = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"not_searchable_error" ofType:@""]];
-    if ([dataFile isEqualToData:notSearchable] == YES || [dataFile isEqualToData:errorPage] == YES) {
-        NSLog(@"Error, retry");
-        return NO;
-    } else {
+    TBXML *mainFile = [XMLParser loadXmlDocumentFromData:dataFile];
+    TBXMLElement *rootElement = [XMLParser getRootElement:mainFile];
+    if ((rootElement = rootElement->firstChild)) {
         return YES;
+    } else {
+        return NO;
     }
 }//queryIsNotError
 
@@ -136,6 +136,10 @@ NSMutableDictionary *queriedDictionary;
     {
         NSMutableArray *result = [[NSMutableArray alloc]init];
         NSData *queryXML = [self getXMLFileForSearchedItem:query];
+        if ([self queryIsNotError:queryXML] == NO) {
+            NSArray *result = [[NSArray alloc]initWithObjects: nil];
+            return result;
+        }
         TBXML *theFile = [XMLParser loadXmlDocumentFromData:queryXML];
         TBXMLElement *theElement = [XMLParser getRootElement:theFile];
         TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];

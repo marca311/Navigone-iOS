@@ -73,7 +73,7 @@
     NSArray *folderContents = [fileMan contentsOfDirectoryAtPath:documentsDirectory error:nil];
     for (int i = 0; i < [folderContents count]; i++) {
         NSString *currentFile = [folderContents objectAtIndex:i];
-        if ([currentFile isEqual:@"CacheDatabase.plist"] || [currentFile isEqualToString:@"HumanArray.plist"]) {
+        if ([currentFile isEqual:@"CacheDatabase.plist"] || [currentFile isEqualToString:@"HumanArray.plist"] || [currentFile isEqualToString:@"Route1.plist"]) {
             
         } else if ([currentFile hasSuffix:@".plist"]) {
             NSString *filePath = [documentsDirectory stringByAppendingPathComponent:currentFile];

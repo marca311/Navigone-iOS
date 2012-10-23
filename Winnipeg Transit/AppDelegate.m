@@ -34,10 +34,6 @@
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
     
-    if (IS_IPHONE_5) {
-        <#statements#>
-    }
-    
     return YES;
 }
 							

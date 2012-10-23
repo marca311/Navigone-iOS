@@ -68,7 +68,7 @@
     
     //Section to change label to location name
     NSString *title = [self getLabelLocation:@"origin"];
-    if (title != nil) [naviView.originLabel setTitle:title forState:nil];
+    if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
      
     //Moves destination label, because the origin label never has to move
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
@@ -107,7 +107,7 @@
     
     //Section to change label to location name
     NSString *title = [self getLabelLocation:@"origin"];
-    if (title != nil) [naviView.originLabel setTitle:title forState:nil];
+    if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
@@ -158,7 +158,7 @@
     
     //Section to change label to location name
     NSString *title = [self getLabelLocation:@"destination"];
-    if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
+    if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
@@ -291,7 +291,7 @@
     
     //Section to change label to location name
     NSString *title = [self getLabelLocation:@"destination"];
-    if (title != nil) [naviView.destinationLabel setTitle:title forState:nil];
+    if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
