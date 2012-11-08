@@ -28,7 +28,6 @@
 		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
-		6F35592416336B6200241065 /* MainStoryboard_iPhone5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F35592316336B6200241065 /* MainStoryboard_iPhone5.storyboard */; };
 		6F378F0315267F3E00FCA44D /* navigoResultViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
@@ -102,7 +101,6 @@
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
-		6F35592316336B6200241065 /* MainStoryboard_iPhone5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone5.storyboard; sourceTree = "<group>"; };
 		6F378F0215267F3E00FCA44D /* navigoResultViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navigoResultViewNib.xib; sourceTree = "<group>"; };
 		6F378F0A1526869B00FCA44D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -215,7 +213,6 @@
 				4316806415013E4100A41785 /* AppDelegate.h */,
 				4316806515013E4100A41785 /* AppDelegate.m */,
 				4316806715013E4100A41785 /* MainStoryboard_iPhone.storyboard */,
-				6F35592316336B6200241065 /* MainStoryboard_iPhone5.storyboard */,
 				4316806A15013E4100A41785 /* MainStoryboard_iPad.storyboard */,
 				4316809815013F6900A41785 /* navigoViewController.h */,
 				4316809915013F6900A41785 /* navigoViewController.m */,
@@ -436,7 +433,6 @@
 				6F5802F31587F86A0031A17E /* separator.png in Resources */,
 				6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */,
 				6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */,
-				6F35592416336B6200241065 /* MainStoryboard_iPhone5.storyboard in Resources */,
 				6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

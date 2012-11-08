@@ -22,7 +22,8 @@
     tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
     tableRect.size.width = button.frame.size.width;
     tableRect.size.height = 1;
-    self.tableView = [self.tableView initWithFrame:tableRect];
+    self.tableView = [self.tableView init];
+    self.tableView.frame = tableRect;
     
     //Creates border
     CALayer *layer = self.tableView.layer;

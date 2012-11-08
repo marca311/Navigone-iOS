@@ -24,7 +24,8 @@
     theFrame.size.width = textField.frame.size.width;
     theFrame.size.height = 100;
         
-    self.tableView = [self.tableView initWithFrame:theFrame];
+    self.tableView = [self.tableView init];
+    self.tableView.frame = theFrame;
     
     //Border
     CALayer *layer = self.tableView.layer;
@@ -34,11 +35,6 @@
     layer.masksToBounds = YES;    
     
     self.tableView.dataSource = self;
-    NSLog([NSString stringWithFormat:@"%f",self.tableView.frame.size.width]);
-    NSLog([NSString stringWithFormat:@"%f",self.tableView.frame.size.height]);
-    NSLog([NSString stringWithFormat:@"%f",theFrame.size.width]);
-    NSLog([NSString stringWithFormat:@"%f",theFrame.size.height]);
-    self.tableView = [self.tableView initWithFrame:theFrame];
     return self;
 }
 

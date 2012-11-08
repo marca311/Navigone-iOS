@@ -33,7 +33,8 @@
     theFrame.origin.y = 104;
     theFrame.size.width = 280;
     theFrame.size.height = 336;
-    self.tableView = [self.tableView initWithFrame:theFrame];
+    self.tableView = [self.tableView init];
+    self.tableView.frame = theFrame;
     self.tableView.rowHeight = 68;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;

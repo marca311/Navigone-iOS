@@ -197,6 +197,7 @@ NSMutableDictionary *queriedDictionary;
                 break;
             case 2:
                 time = objectFromIndex;
+                NSLog(@"time: %@",time);
                 break;
             case 3:
                 date = objectFromIndex;
