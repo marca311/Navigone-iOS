@@ -224,7 +224,9 @@ NSMutableDictionary *queriedDictionary;
                 break;
         }
     }
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
+    //Test to find out if removing options fixes inconsistencies
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&api-key=%@",origin,destination,time,date,mode,easyMode,[self getAPIKey]];
+    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
     return result;
