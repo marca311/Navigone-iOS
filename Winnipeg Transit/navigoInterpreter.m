@@ -159,7 +159,7 @@ NSMutableDictionary *queriedDictionary;
 + (NSString *)timeFormatForServer:(NSDate *)timeObject
 {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
-    [serverFormat setDateFormat:@"HH:MM"];
+    [serverFormat setDateFormat:@"HH:mm"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
     return result;
 }//timeFormatForServer
@@ -230,6 +230,9 @@ NSMutableDictionary *queriedDictionary;
     //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"Query URL: %@",urlString);
+#endif
     return result;
 }//getXMLFileFromResults
          
