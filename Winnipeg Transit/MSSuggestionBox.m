@@ -61,7 +61,7 @@
     [self.tableView reloadData];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [tableArray count]; }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([tableArray count]+1); }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,8 +83,12 @@
         }
 
     }
-    
-    cell.textBox.text = [[tableArray objectAtIndex:indexPath.row] objectAtIndex:0];
+    if (indexPath.row == tableArray.count) {
+        cell.textBox.text = @"Search History";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        cell.textBox.text = [[tableArray objectAtIndex:indexPath.row] objectAtIndex:0];
+    }
     
     return cell;
 }

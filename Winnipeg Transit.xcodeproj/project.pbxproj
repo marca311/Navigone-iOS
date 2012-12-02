@@ -38,6 +38,8 @@
 		6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */; };
 		6F5802F31587F86A0031A17E /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5802F21587F86A0031A17E /* separator.png */; };
 		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
+		6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */; };
+		6F5BD0A9166B1DE40077B2EB /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
 		6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B86B1526AB6B00FFCD99 /* Icon-72.png */; };
@@ -116,6 +118,9 @@
 		6F5802F21587F86A0031A17E /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
 		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
+		6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
 		6F60B8671526AB0200FFCD99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6F60B8691526AB0C00FFCD99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6F60B86B1526AB6B00FFCD99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -305,6 +310,9 @@
 				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */,
 				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
+				6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */,
+				6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */,
+				6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */,
 			);
 			name = "Custom UI Features";
 			sourceTree = "<group>";
@@ -434,6 +442,7 @@
 				6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */,
 				6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */,
 				6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */,
+				6F5BD0A9166B1DE40077B2EB /* PlaceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +501,7 @@
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */,
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
+				6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

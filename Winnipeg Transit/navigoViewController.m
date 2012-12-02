@@ -260,6 +260,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *answerArray = [[NSArray alloc]init];
+    if (indexPath.row == answerArray.count) {
+        //Go to place history
+    } else {
+        answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
+        NSString *answer = [[NSString alloc]init];
+        answer = [answerArray objectAtIndex:0];
+        [suggestionBox.tableView removeFromSuperview];
+        suggestionBox = nil;
+        if ([currentField isEqualToString:@"origin"]) {
+            [queriedDictionary setObject:answerArray forKey:@"origin"];
+            self.origin.text = answer;
+        } else if ([currentField isEqualToString:@"destination"]) {
+            [queriedDictionary setObject:answerArray forKey:@"destination"];
+            self.destination.text = answer;
+        }
+
+    } /*
     answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
     NSString *answer = [[NSString alloc]init];
     answer = [answerArray objectAtIndex:0];
@@ -271,7 +288,7 @@
     } else if ([currentField isEqualToString:@"destination"]) {
         [queriedDictionary setObject:answerArray forKey:@"destination"];
         self.destination.text = answer;
-    }
+    } */
 }
 
 #pragma mark -
