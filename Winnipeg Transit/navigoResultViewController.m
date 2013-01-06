@@ -74,13 +74,16 @@ NSDictionary *resultDictionary;
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
         planSelectorTable.tableView.delegate = self;
         [planSelectorTable showAndAnimate:self.view:resultDictionary];
+    } else {
+        [planSelectorTable closeAndAnimate];
+        planSelectorTable = nil;
     }
 }
 
 -(IBAction)closePlans
 {
     if (planSelectorTable != nil) {
-        [planSelectorTable.tableView removeFromSuperview];
+        [planSelectorTable closeAndAnimate];
         planSelectorTable = nil;
     }
 }

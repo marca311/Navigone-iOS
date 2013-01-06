@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UniversalViewController.h"
 
-@interface PlaceViewController : UIViewController
+@interface PlaceViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
+    UITableView *theTableView;
+}
 
-@property (nonatomic, retain) UITableView *theTableView;
+@property (nonatomic, retain) IBOutlet UITableView *theTableView;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *editButton;
+
+-(IBAction)editTable;
+
+#pragma mark - File Handling methods
+
++(void)addLocation:(NSString *)locationName :(NSString *)locationKey;
++(void)removeLocation:(NSString *)index;
++(void)addToSaved:(NSString *)locationName :(NSString *)locationKey;
++(void)removeFromSaved:(NSString *)index;
++(void)changeSavedName:(NSString *)index :(NSString *)newName;
 
 @end

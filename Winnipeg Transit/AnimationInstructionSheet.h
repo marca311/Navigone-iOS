@@ -13,12 +13,16 @@
 
 @interface AnimationInstructionSheet : NSObject
 
-//Main Animation Arguments
+//Relative Animation Methods
++(void)toNextStage:(navigoViewController *)naviView;
++(void)toPreviousStage:(navigoViewController *)naviView;
+
+//Main Animation Methods
 +(void)toStageOne:(navigoViewController *)naviView;
 +(void)toStageTwo:(navigoViewController *)naviView;
 +(void)toStageThree:(navigoViewController *)naviView;
 
-//Secondary Animation Arguments
+//Secondary Animation Methods
 +(void)stageOneToStageTwo:(navigoViewController *)naviView;
 +(void)stageOneToStageThree:(navigoViewController *)naviView;
 +(void)stageTwoToStageThree:(navigoViewController *)naviView;

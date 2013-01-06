@@ -13,11 +13,19 @@
 @interface PlanDisplayTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSArray *currentArray;
+@property (nonatomic, retain) UIImage *locationImage;
+@property (nonatomic, retain) UIImage *stopImage;
+@property (nonatomic, retain) UIImage *monumentImage;
+@property (nonatomic, retain) UIImage *rideImage;
+@property (nonatomic, retain) UIImage *walkImage;
+@property (nonatomic, retain) UIImage *transferImage;
 
 -(id)initWithCorrectFrame:(NSArray *)theArray;
 
 -(void)showTable:(UIView *)theView;
 
 -(void)changeTablePlan:(NSArray *)theArray;
+
+-(UIImage *)useCorrectImage:(NSArray *)theArray;
 
 @end

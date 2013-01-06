@@ -12,7 +12,30 @@
 
 @implementation AnimationInstructionSheet
 
-//Main Animation Arguments
+//Relative Methods
++(void)toNextStage:(navigoViewController *)naviView {
+    int buttonLocation = [naviView.submitButton checkCurrentLocation];
+    switch (buttonLocation) {
+        case 1:
+            [self stageOneToStageTwo:naviView];
+            break;
+        case 2:
+            [self stageTwoToStageThree:naviView];
+            break;
+    }
+}
++(void)toPreviousStage:(navigoViewController *)naviView {
+    int buttonLocation = [naviView.submitButton checkCurrentLocation];
+    switch (buttonLocation) {
+        case 3:
+            [self stageThreeToStageTwo:naviView];
+            break;
+        case 2:
+            [self stageTwoToStageOne:naviView];
+    }
+}
+
+//Main Animation Methods
 //These are to cut down on the amount of other methods I would otherwise have to write.
 //These are linked to the view controller so I don't have to introduce so many objects into one method.
 +(void)toStageOne:(navigoViewController *)naviView;
@@ -58,7 +81,7 @@
     }
 }
 
-//Secondary Animation Arguments
+//Secondary Animation Methods
 +(void)stageOneToStageTwo:(navigoViewController *)naviView
 {
     //Dismiss keyboard and if a responder is already in action, switch responders

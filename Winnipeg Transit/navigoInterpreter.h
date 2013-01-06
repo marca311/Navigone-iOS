@@ -92,7 +92,7 @@ extern NSMutableDictionary *queriedDictionary;
 
 +(NSString *)getBusNumber:(NSString *)variantNumber;
 
-+(NSString *)getVariantName:(NSString *)variantKey;
++(NSString *)getVariantName:(TBXMLElement *)theElement;
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement;
 

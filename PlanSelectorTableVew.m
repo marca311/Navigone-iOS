@@ -51,8 +51,17 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     self.tableView.frame = [self getFrameSizeFromArray:dictionary];
-    //self.frame = tableRect;
     [UIView commitAnimations];
+}
+
+- (void)closeAndAnimate {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    CGRect closeRect = self.tableView.frame;
+    closeRect.size.height = 1;
+    self.tableView.frame = closeRect;
+    [UIView commitAnimations];
+    [self.tableView removeFromSuperview];
 }
 
 - (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary

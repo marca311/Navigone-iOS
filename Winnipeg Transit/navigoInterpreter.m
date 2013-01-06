@@ -576,8 +576,9 @@ NSMutableDictionary *queriedDictionary;
     NSString *variantNumber = [XMLParser getValueFromElement:planLayer];
     [result setObject:@"ride" forKey:@"LocationType"];
     [result setObject:variantNumber forKey:@"Variant Number"];
-    NSString *fullVariantResults = [self getVariantName:variantNumber];
-    fullVariantResults = [fullVariantResults stringByReplacingOccurrencesOfString:@" via " withString:@" to "];
+    planLayer = planLayer->nextSibling;
+    NSString *fullVariantResults = [XMLParser getValueFromElement:planLayer];
+    //fullVariantResults = [fullVariantResults stringByReplacingOccurrencesOfString:@" via " withString:@" to "];
     NSArray *array = [fullVariantResults componentsSeparatedByString:@" to "];
     if ([array count] == 1) {
         NSMutableArray *tempArray = [[NSMutableArray alloc]init];
@@ -606,21 +607,6 @@ NSMutableDictionary *queriedDictionary;
     result = [array objectAtIndex:0];
     return result;
 }//getBusNumber
-
-+(NSString *)getVariantName:(NSString *)variantKey
-{
-    variantKey = [variantKey stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
-    NSURL *variantURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"http://api.winnipegtransit.com/variants/%@?&api-key=%@",variantKey,[self getAPIKey]]];
-    NSData *variantSearch = [[NSData alloc]initWithContentsOfURL:variantURL];
-    if (variantSearch == nil) {
-        [self displayConnectionError];
-    }
-    TBXML *variantXML = [XMLParser loadXmlDocumentFromData:variantSearch];
-    TBXMLElement *elementOfVariant = [XMLParser getRootElement:variantXML];
-    elementOfVariant = [XMLParser extractKnownChildElement:@"name" :elementOfVariant];
-    NSString *result = [XMLParser getValueFromElement:elementOfVariant];
-    return result;
-}//getVariantName
 
 +(NSString *)getSegmentCoordinates:(TBXMLElement *)rootElement
 {

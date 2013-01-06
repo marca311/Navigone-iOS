@@ -57,6 +57,25 @@
     [self.tableView reloadData];
 }//changeTablePlan
 
+-(UIImage *)useCorrectImage:(NSArray *)theArray {
+    NSString *segmentType = [theArray objectAtIndex:0];
+    if ([segmentType isEqualToString:@"ride"]) {
+        UIImage *result = [[UIImage alloc]initWithContentsOfFile:@"ride.png"];
+        return result;
+    } else if ([segmentType isEqualToString:@"monument"]) {
+        UIImage *result = [[UIImage alloc]initWithContentsOfFile:@"monument.gif"];
+        return result;
+    } else if ([segmentType isEqualToString:@"stop"]) {
+        UIImage *result = [[UIImage alloc]initWithContentsOfFile:@"stop.png"];
+        return result;
+    } else if ([segmentType isEqualToString:@"transfer"]) {
+        UIImage *result = [[UIImage alloc]initWithContentsOfFile:@"transfer.png"];
+        return result;
+    } else {
+        return NULL;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -121,6 +140,7 @@
     
     cell.textView.text = [contentForThisRow objectAtIndex:1];
     cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
+    cell.image.image = [self useCorrectImage:contentForThisRow];
     
     return cell;
 }

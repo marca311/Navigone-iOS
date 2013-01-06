@@ -2,7 +2,7 @@
 //  MSTableViewCell.h
 //  Winnipeg Transit
 //
-//  Created by Tristan Brenneman on 12-06-08.
+//  Created by Marcus Dyck on 12-06-08.
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 

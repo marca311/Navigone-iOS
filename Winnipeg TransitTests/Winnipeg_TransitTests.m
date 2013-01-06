@@ -2,7 +2,7 @@
 //  Winnipeg_TransitTests.m
 //  Winnipeg TransitTests
 //
-//  Created by Keith Brenneman on 12-03-02.
+//  Created by Marcus Dyck on 12-03-02.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 

@@ -17,6 +17,7 @@
 #import "MSSeparator.h"
 #import "SubmitButton.h"
 #import "AnimationInstructionSheet.h"
+#import "PlaceViewController.h"
 
 @implementation navigoViewController
 
@@ -197,7 +198,7 @@
     display = [navigoViewLibrary dateFromNSDate:datePicker.date];
     dateField.text = display;
     mode.text = @"Depart After";
-    [originLabel setTitle:@"Origin" forState:nil];
+    [originLabel setTitle:@"Origin" forState:UIControlStateNormal];
     [destinationLabel setTitle:@"Destination" forState:UIControlStateNormal];
     [AnimationInstructionSheet toStageOne:self];
 }
@@ -259,10 +260,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *answerArray = [[NSArray alloc]init];
-    if (indexPath.row == answerArray.count) {
-        //Go to place history
+    if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
+        PlaceViewController *history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
+        if ([MSUtilities firmwareIsHigherThanFour]) {
+            [self presentViewController:history animated:YES completion:NULL];
+        } else {
+            [self presentModalViewController:history animated:YES];
+        }
     } else {
+        NSArray *answerArray = [[NSArray alloc]init];
         answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
         NSString *answer = [[NSString alloc]init];
         answer = [answerArray objectAtIndex:0];
@@ -270,25 +276,13 @@
         suggestionBox = nil;
         if ([currentField isEqualToString:@"origin"]) {
             [queriedDictionary setObject:answerArray forKey:@"origin"];
-            self.origin.text = answer;
+            [originLabel setTitle:answer forState:UIControlStateNormal];
         } else if ([currentField isEqualToString:@"destination"]) {
             [queriedDictionary setObject:answerArray forKey:@"destination"];
-            self.destination.text = answer;
+            [destinationLabel setTitle:answer forState:UIControlStateNormal];
         }
-
-    } /*
-    answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
-    NSString *answer = [[NSString alloc]init];
-    answer = [answerArray objectAtIndex:0];
-    [suggestionBox.tableView removeFromSuperview];
-    suggestionBox = nil;
-    if ([currentField isEqualToString:@"origin"]) {
-        [queriedDictionary setObject:answerArray forKey:@"origin"];
-        self.origin.text = answer;
-    } else if ([currentField isEqualToString:@"destination"]) {
-        [queriedDictionary setObject:answerArray forKey:@"destination"];
-        self.destination.text = answer;
-    } */
+        [AnimationInstructionSheet toNextStage:self];
+    }
 }
 
 #pragma mark -

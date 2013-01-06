@@ -127,6 +127,25 @@
     else if ([firmwareVersion isEqualToString:@"3.1"]) return NO;
     else if ([firmwareVersion isEqualToString:@"3.1.2"]) return NO;
     else if ([firmwareVersion isEqualToString:@"3.1.3"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.0"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.0.1"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.0.2"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.1"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.1"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.5"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.6"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.6"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.7"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.8"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.9"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.2.10"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3.1"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3.2"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3.3"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3.4"]) return NO;
+    else if ([firmwareVersion isEqualToString:@"4.3.5"]) return NO;
     else {return YES;}
 }//firmwareIsHigherThanFour
 
