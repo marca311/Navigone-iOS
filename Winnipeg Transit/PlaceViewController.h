@@ -15,15 +15,19 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *theTableView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, retain) NSMutableArray *savedLocations;
+@property (nonatomic, retain) NSMutableArray *previousLocations;
 
 -(IBAction)editTable;
 
 #pragma mark - File Handling methods
 
-+(void)addLocation:(NSString *)locationName :(NSString *)locationKey;
-+(void)removeLocation:(NSString *)index;
-+(void)addToSaved:(NSString *)locationName :(NSString *)locationKey;
-+(void)removeFromSaved:(NSString *)index;
-+(void)changeSavedName:(NSString *)index :(NSString *)newName;
+-(void)saveFile;
+-(void)addLocation:(NSString *)locationName :(NSString *)locationKey;
+-(void)removeLocation:(NSIndexPath *)index;
+-(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex;
+-(void)changeSavedName:(NSString *)index :(NSString *)newName;
+//Static method for adding entries
++(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey;
 
 @end

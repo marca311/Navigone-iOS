@@ -16,6 +16,7 @@
 @implementation PlaceViewController
 
 @synthesize theTableView, editButton;
+@synthesize savedLocations, previousLocations;
 
 - (void)loadPlaceDictionary:(UIView *)superView {
     
@@ -50,6 +51,12 @@
     }
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath { return true; }
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 20; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,6 +65,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier];
+        cell.showsReorderControl = true;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"Cell %i",indexPath.row];
     return cell;
@@ -81,16 +89,37 @@
 
 #pragma mark - File handling methods
 
-+(void)addLocation:(NSString *)locationName :(NSString *)locationKey {
+-(void)saveFile {
+    NSMutableDictionary *theDictionary = [[NSMutableDictionary alloc]init];
+    [theDictionary setObject:savedLocations forKey:@"SavedLocations"];
+    [theDictionary setObject:previousLocations forKey:@"PreviousLocations"];
+    [MSUtilities saveDictionaryToFile:theDictionary :@"SearchHistory"];
+}
+-(void)addLocation:(NSString *)locationName :(NSString *)locationKey {
     
 }
-+(void)removeLocation:(NSString *)index {
+-(void)removeLocation:(NSIndexPath *)index {
+    NSInteger section = index.section;
+    NSInteger row = index.row;
+    switch (section) {
+        case 0:
+            [savedLocations removeObjectAtIndex:row];
+            break;
+            
+        case 1:
+            [previousLocations removeObjectAtIndex:row];
+            break;
+    }
+}
+-(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex {
+    if ([currentIndex section] == 0) {
+        
+}
+-(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {
     
 }
-+(void)addToSaved:(NSString *)locationName :(NSString *)locationKey {
-    
-}
-+(void)changeSavedName:(NSString *)index :(NSString *)newName {
+//Static method for adding entries
++(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey {
     
 }
 
