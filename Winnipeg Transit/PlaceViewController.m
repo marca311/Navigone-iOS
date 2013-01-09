@@ -71,8 +71,10 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Add code to remove entry
+- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+    for (int i = 0; i<[indexPaths count]; i++) {
+        [self removeLocation:[indexPaths objectAtIndex:i]];
+    }
 }
 
 -(IBAction)editTable {
@@ -112,14 +114,42 @@
     }
 }
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex {
-    if ([currentIndex section] == 0) {
-        
+    NSInteger firstSection = currentIndex.section;
+    NSInteger firstRow = currentIndex.row;
+    NSInteger secondSection = proposedIndex.section;
+    NSInteger secondRow = proposedIndex.row;
+    if (firstSection == 0) {
+        if (secondSection == 0) {
+            NSArray *currentItem = [savedLocations objectAtIndex:firstRow];
+            [savedLocations removeObjectAtIndex:firstRow];
+            [savedLocations insertObject:currentItem atIndex:secondRow];
+        } else if (secondSection == 1) {
+            NSArray *currentItem = [savedLocations objectAtIndex:firstRow];
+            [savedLocations removeObjectAtIndex:firstRow];
+            [previousLocations insertObject:currentItem atIndex:secondRow];
+        }
+    } else if (firstSection == 1) {
+        if (secondSection == 0) {
+            NSArray *currentItem = [previousLocations objectAtIndex:firstRow];
+            [previousLocations removeObjectAtIndex:firstRow];
+            [savedLocations insertObject:currentItem atIndex:secondRow];
+        } else if (secondSection == 1) {
+            NSArray *currentItem = [previousLocations objectAtIndex:firstRow];
+            [previousLocations removeObjectAtIndex:firstRow];
+            [previousLocations insertObject:currentItem atIndex:secondRow];
+        }
+    }
 }
 -(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {
     
 }
 //Static method for adding entries
 +(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey {
+    
+}
+
+//Static method to create a blank file on first run
++(void)createBlankFile {
     
 }
 

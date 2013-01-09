@@ -18,6 +18,8 @@
 
 +(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName;
 
++(BOOL)fileExists:(NSString *)fileName;
+
 +(NSArray *)getHumanArray;
 
 +(NSDictionary *)loadDictionaryWithName:(NSString *)fileName;

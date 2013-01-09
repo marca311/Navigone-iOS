@@ -29,5 +29,7 @@
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
 +(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey;
+//Static method to create a blank file on first run
++(void)createBlankFile;
 
 @end

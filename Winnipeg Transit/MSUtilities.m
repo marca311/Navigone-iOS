@@ -45,6 +45,15 @@
     [savedArray writeToFile:filePath atomically:YES];
 }//saveArrayToFile
 
++(BOOL)fileExists:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSFileManager *fileMan = [[NSFileManager alloc]init];
+    BOOL result = [fileMan fileExistsAtPath:filePath];
+    return result;
+}//checkFileExists
+
 +(NSArray *)getHumanArray
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

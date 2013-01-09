@@ -124,8 +124,6 @@
     modePicker.dataSource = self;
     mode.inputView = modePicker;
     
-    NSLog(@"Main UI Loaded");
-    
     //Small script to load current time into time and date pickers
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
     timeField.text = display;
@@ -134,6 +132,12 @@
     mode.text = @"Depart After";
     
     queriedDictionary = [[NSMutableDictionary alloc]init];
+    
+    NSLog(@"Main UI Loaded");
+    
+    if (![MSUtilities fileExists:@"SearchHistory.plist"]) {
+        //insert method to make file here
+    }
     
     [super viewDidLoad];
     
