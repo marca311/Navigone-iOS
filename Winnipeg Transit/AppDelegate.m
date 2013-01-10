@@ -18,10 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /*UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView" bundle:nil];
+    UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView_iPhone" bundle:nil];
     //UIViewController *timetableVC = [[timetableViewController alloc]initWithNibName:@"TheNib" bundle:nil];
     self.window.rootViewController = navigoVC;
-    [self.window makeKeyAndVisible];*/
+    [self.window makeKeyAndVisible];
     
     // Set the application defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

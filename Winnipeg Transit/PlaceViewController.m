@@ -17,6 +17,7 @@
 
 @synthesize theTableView, editButton;
 @synthesize savedLocations, previousLocations;
+@synthesize fileExists;
 
 - (void)loadPlaceDictionary:(UIView *)superView {
     
@@ -34,6 +35,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
+    if (fileExists) {
+        NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
+        savedLocations = [theFile objectForKey:@"SavedLocations"];
+        previousLocations = [theFile objectForKey:@"PreviousLocations"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,10 +61,24 @@
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath { return true; }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
+    NSString *cellContent = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    if ([cellContent isEqualToString:@"No saved locations"] || [cellContent isEqualToString:@"No history"]) {
+        return UITableViewCellEditingStyleNone;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return 20; }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (fileExists) {
+        if (section == 0) {
+            return [savedLocations count];
+        } else if (section == 1) {
+            return [previousLocations count];
+        }
+    } else return 1;
+    return 1;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,7 +88,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier];
         cell.showsReorderControl = true;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %i",indexPath.row];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section == 0) {
+        if ([savedLocations count] > 0) {
+            cell.textLabel.text = [savedLocations objectAtIndex:row];
+        } else {
+            cell.textLabel.text = @"No saved locations";
+        }
+    } else if (section == 1) {
+        if ([savedLocations count] > 0) {
+            cell.textLabel.text = [previousLocations objectAtIndex:row];
+        } else {
+            cell.textLabel.text = @"No history";
+        }
+    }
     return cell;
 }
 
@@ -144,8 +179,20 @@
     
 }
 //Static method for adding entries
-+(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey {
-    
++(void)addEntryToFile:(NSArray *)item {
+    NSArray *saved = [[NSArray alloc]init];
+    NSMutableArray *previous = [[NSMutableArray alloc]init];
+    if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
+        NSDictionary *file = [[NSDictionary alloc]init];
+        file = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
+        saved = [file objectForKey:@"SavedLocations"];
+        previous = [file objectForKey:@"PreviousLocations"];
+    }
+    [previous addObject:item];
+    NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
+    [saver setObject:saved forKey:@"SavedLocations"];
+    [saver setObject:previous forKey:@"PreviousLocations"];
+    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
 }
 
 //Static method to create a blank file on first run

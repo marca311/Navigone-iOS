@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *editButton;
 @property (nonatomic, retain) NSMutableArray *savedLocations;
 @property (nonatomic, retain) NSMutableArray *previousLocations;
+@property (nonatomic) BOOL fileExists;
 
 -(IBAction)editTable;
 
@@ -28,7 +29,7 @@
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex;
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
-+(void)addEntryToFile:(NSString *)locationName :(NSString *)locationKey;
++(void)addEntryToFile:(NSArray *)item;
 //Static method to create a blank file on first run
 +(void)createBlankFile;
 

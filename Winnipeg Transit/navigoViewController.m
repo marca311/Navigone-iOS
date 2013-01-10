@@ -18,6 +18,7 @@
 #import "SubmitButton.h"
 #import "AnimationInstructionSheet.h"
 #import "PlaceViewController.h"
+#import "PlaceViewController.h"
 
 @implementation navigoViewController
 
@@ -163,6 +164,8 @@
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
         [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
         [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
+        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
+        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
         [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
@@ -174,7 +177,12 @@
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
         [navigoInterpreter getRouteData:resultXMLFile];
-        [self performSegueWithIdentifier:@"toResults" sender:self];
+        navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+        if ([MSUtilities firmwareIsHigherThanFour]) {
+            [self presentViewController:resultView animated:YES completion:NULL];
+        } else {
+            [self presentModalViewController:resultView animated:YES];
+        }
     }
 }
 
@@ -196,6 +204,7 @@
 {
     origin.text = @"";
     destination.text = @"";
+    [queriedDictionary removeAllObjects];
     [submitButton setTitle:@"Next" forState:UIControlStateNormal];
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
     timeField.text = display;
@@ -210,7 +219,12 @@
 -(IBAction)testButton
 {
     currentFile = @"Route1";
-    [self performSegueWithIdentifier:@"toResults" sender:self];
+    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+    if ([MSUtilities firmwareIsHigherThanFour]) {
+        [self presentViewController:resultView animated:YES completion:NULL];
+    } else {
+        [self presentModalViewController:resultView animated:YES];
+    }
 }
 
 //Actions for origin, destination and time/date labels/buttons

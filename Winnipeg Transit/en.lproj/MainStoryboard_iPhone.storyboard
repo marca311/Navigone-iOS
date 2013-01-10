@@ -183,7 +183,6 @@
                             <action selector="backgroundTap" destination="2" eventType="touchDown" id="CVH-CM-wxI"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Navigo" id="7"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateField" destination="Wjp-C9-Z2T" id="hiX-qa-6J2"/>
