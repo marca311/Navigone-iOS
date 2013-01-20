@@ -73,6 +73,16 @@
     return result;
 }
 
++(NSArray *)loadArrayWithName:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    fileName = [[NSString alloc]initWithFormat:@"%@.plist",fileName];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    NSArray *result = [[NSArray alloc]initWithContentsOfFile:filePath];
+    return result;
+}
+
 +(void)generateCacheDB
 {
     NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
@@ -108,6 +118,10 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
     NSDictionary *dataBase = [[NSDictionary alloc]initWithContentsOfFile:dbPath];
+    NSArray *theDates = [[NSArray alloc]init];
+    //TODO: Change the cache file into an array of arrays that contain the filename and nsdates
+    //604800 seconds in a week
+    
 }//checkCacheAge
 
 +(void)deleteOldSavedRoutes

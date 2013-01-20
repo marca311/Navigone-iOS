@@ -151,6 +151,7 @@
     }
 }//sendTime
 
+/*
 +(UITableView *)planTableView:(NSDictionary *)dictionary senderButton:(UIButton *)button
 {
     CGRect tableRect;
@@ -160,7 +161,7 @@
     tableRect.size.height = 200;
     UITableView *result = [[UITableView alloc]initWithFrame:tableRect];
     //result.dataSource = 
-}//planTableView
+}//planTableView */
 
 
 

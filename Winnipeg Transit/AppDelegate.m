@@ -18,9 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UIViewController *navigoVC = [[navigoViewController alloc]initWithNibName:@"NavigoView_iPhone" bundle:nil];
-    //UIViewController *timetableVC = [[timetableViewController alloc]initWithNibName:@"TheNib" bundle:nil];
-    self.window.rootViewController = navigoVC;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
+    } else {
+        //TODO:
+        self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
+    }
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
     // Set the application defaults

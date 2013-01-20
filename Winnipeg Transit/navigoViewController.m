@@ -164,8 +164,8 @@
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
         [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
         [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
-        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
         [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
+        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
         [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
         [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
         [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
@@ -206,9 +206,9 @@
     destination.text = @"";
     [queriedDictionary removeAllObjects];
     [submitButton setTitle:@"Next" forState:UIControlStateNormal];
-    NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
+    NSString *display = [navigoViewLibrary timeFromNSDate:[NSDate date]];
     timeField.text = display;
-    display = [navigoViewLibrary dateFromNSDate:datePicker.date];
+    display = [navigoViewLibrary dateFromNSDate:[NSDate date]];
     dateField.text = display;
     mode.text = @"Depart After";
     [originLabel setTitle:@"Origin" forState:UIControlStateNormal];
@@ -281,8 +281,10 @@
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         PlaceViewController *history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
         if ([MSUtilities firmwareIsHigherThanFour]) {
+            //iOS5 and higher only
             [self presentViewController:history animated:YES completion:NULL];
         } else {
+            //All others
             [self presentModalViewController:history animated:YES];
         }
     } else {

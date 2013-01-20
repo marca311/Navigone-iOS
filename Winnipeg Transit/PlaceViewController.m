@@ -8,6 +8,8 @@
 
 #import "PlaceViewController.h"
 #import "MSUtilities.h"
+#import "navigoInterpreter.h"
+#import "AnimationInstructionSheet.h"
 
 @interface PlaceViewController ()
 
@@ -58,7 +60,14 @@
     }
 }
 
--(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath { return true; }
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellContent = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    if ([cellContent isEqualToString:@"No saved locations"] || [cellContent isEqualToString:@"No history"]) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellContent = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
@@ -68,13 +77,24 @@
         return UITableViewCellEditingStyleDelete;
     }
 }
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self moveEntry:sourceIndexPath :destinationIndexPath];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (fileExists) {
         if (section == 0) {
-            return [savedLocations count];
+            if ([savedLocations count] == 0) {
+                return 1;
+            } else {
+                return [savedLocations count];
+            }
         } else if (section == 1) {
-            return [previousLocations count];
+            if ([previousLocations count] == 0) {
+                return 1;
+            } else {
+                return [previousLocations count];
+            }
         }
     } else return 1;
     return 1;
@@ -92,13 +112,15 @@
     NSInteger row = indexPath.row;
     if (section == 0) {
         if ([savedLocations count] > 0) {
-            cell.textLabel.text = [savedLocations objectAtIndex:row];
+            NSArray *cellData = [savedLocations objectAtIndex:row];
+            cell.textLabel.text = [cellData objectAtIndex:0];
         } else {
             cell.textLabel.text = @"No saved locations";
         }
     } else if (section == 1) {
-        if ([savedLocations count] > 0) {
-            cell.textLabel.text = [previousLocations objectAtIndex:row];
+        if ([previousLocations count] > 0) {
+            NSArray *cellData = [previousLocations objectAtIndex:row];
+            cell.textLabel.text = [cellData objectAtIndex:0];
         } else {
             cell.textLabel.text = @"No history";
         }
@@ -106,10 +128,52 @@
     return cell;
 }
 
-- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    for (int i = 0; i<[indexPaths count]; i++) {
-        [self removeLocation:[indexPaths objectAtIndex:i]];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self removeLocation:indexPath];
+        
+        if ([tableView numberOfRowsInSection:indexPath.section] == 1) {
+            [tableView reloadData];
+            [tableView setEditing:false animated:true];
+            [editButton setTitle:@"Edit"];
+            [editButton setStyle:UIBarButtonItemStyleBordered];
+        } else [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Check if the cell is a placeholder
+    UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([theCell.textLabel.text isEqualToString:@"No saved locations"] || [theCell.textLabel.text isEqualToString:@"No history"]) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        return;
+    }
+    //Load the parent view controller with compatability
+    navigoViewController *theParentViewController;
+    if ([MSUtilities firmwareIsHigherThanFour]) {
+        theParentViewController = ((navigoViewController *)self.presentingViewController);
+    } else {
+        theParentViewController = ((navigoViewController *)self.parentViewController);
+    }
+    //Get info from correct array
+    NSArray *chosenArray;
+    if (indexPath.section == 0) {
+        chosenArray = [savedLocations objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 1) {
+        chosenArray = [previousLocations objectAtIndex:indexPath.row];
+    }
+    int stage = [theParentViewController.submitButton checkCurrentLocation];
+    if (stage == 1) {
+        [queriedDictionary setObject:chosenArray forKey:@"origin"];
+        [theParentViewController.originLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
+    } else if (stage == 2) {
+        [queriedDictionary setObject:chosenArray forKey:@"destination"];
+        [theParentViewController.destinationLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
+    }
+    [theParentViewController.suggestionBox dismissSuggestionBox];
+    [AnimationInstructionSheet toNextStage:theParentViewController];
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)editTable {
@@ -121,6 +185,7 @@
         [theTableView setEditing:false animated:true];
         [editButton setTitle:@"Edit"];
         [editButton setStyle:UIBarButtonItemStyleBordered];
+        [self saveFile];
     }
 }
 
@@ -157,47 +222,82 @@
         if (secondSection == 0) {
             NSArray *currentItem = [savedLocations objectAtIndex:firstRow];
             [savedLocations removeObjectAtIndex:firstRow];
-            [savedLocations insertObject:currentItem atIndex:secondRow];
+            if ([savedLocations count] == 0) {
+                savedLocations = [[NSMutableArray alloc]initWithObjects:currentItem, nil];
+            } else [savedLocations insertObject:currentItem atIndex:secondRow];
         } else if (secondSection == 1) {
             NSArray *currentItem = [savedLocations objectAtIndex:firstRow];
             [savedLocations removeObjectAtIndex:firstRow];
-            [previousLocations insertObject:currentItem atIndex:secondRow];
+            if ([previousLocations count] == 0) {
+                previousLocations = [[NSMutableArray alloc]initWithObjects:currentItem, nil];
+            } else [previousLocations insertObject:currentItem atIndex:secondRow];
         }
     } else if (firstSection == 1) {
         if (secondSection == 0) {
             NSArray *currentItem = [previousLocations objectAtIndex:firstRow];
             [previousLocations removeObjectAtIndex:firstRow];
-            [savedLocations insertObject:currentItem atIndex:secondRow];
+            if ([savedLocations count] == 0) {
+                savedLocations = [[NSMutableArray alloc]initWithObjects:currentItem, nil];
+            } else [savedLocations insertObject:currentItem atIndex:secondRow];
         } else if (secondSection == 1) {
             NSArray *currentItem = [previousLocations objectAtIndex:firstRow];
             [previousLocations removeObjectAtIndex:firstRow];
-            [previousLocations insertObject:currentItem atIndex:secondRow];
+            if ([previousLocations count] == 0) {
+                previousLocations = [[NSMutableArray alloc]initWithObjects:currentItem, nil];
+            } else [previousLocations insertObject:currentItem atIndex:secondRow];
         }
     }
+    [self saveFile];
 }
 -(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {
     
 }
 //Static method for adding entries
 +(void)addEntryToFile:(NSArray *)item {
-    NSArray *saved = [[NSArray alloc]init];
-    NSMutableArray *previous = [[NSMutableArray alloc]init];
+    NSArray *savedLocationsList = [[NSArray alloc]init];
+    NSMutableArray *previousLocationsList = [[NSMutableArray alloc]init];
     if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
         NSDictionary *file = [[NSDictionary alloc]init];
         file = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
-        saved = [file objectForKey:@"SavedLocations"];
-        previous = [file objectForKey:@"PreviousLocations"];
+        savedLocationsList = [file objectForKey:@"SavedLocations"];
+        previousLocationsList = [file objectForKey:@"PreviousLocations"];
     }
-    [previous addObject:item];
-    NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
-    [saver setObject:saved forKey:@"SavedLocations"];
-    [saver setObject:previous forKey:@"PreviousLocations"];
-    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
-}
-
-//Static method to create a blank file on first run
-+(void)createBlankFile {
     
+    //Checks for duplicate entries
+    BOOL placed = NO;
+    NSString *key = [item objectAtIndex:1];
+    for (int i=0; i<[savedLocationsList count]; i++) {
+        NSString *checkKey = [[savedLocationsList objectAtIndex:i]objectAtIndex:1];
+        if ([key isEqualToString:checkKey]) {
+            NSArray *currentItem = [savedLocationsList objectAtIndex:i];
+            [previousLocationsList removeObject:item];
+            [previousLocationsList removeObject:currentItem];
+            [previousLocationsList insertObject:currentItem atIndex:0];
+            placed = YES;
+        }
+    }
+    for (int i=0; i<[previousLocationsList count]; i++) {
+        NSString *checkKey = [[previousLocationsList objectAtIndex:i]objectAtIndex:1];
+        if ([key isEqualToString:checkKey]) {
+            [previousLocationsList removeObject:item];
+            [previousLocationsList insertObject:item atIndex:0];
+            placed = YES;
+        }
+    }
+    
+    if (!placed) {
+        if ([previousLocationsList count] == 0) {
+            previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
+        } else {
+            [previousLocationsList insertObject:item atIndex:0];
+
+        }
+    }
+    
+    NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
+    [saver setObject:savedLocationsList forKey:@"SavedLocations"];
+    [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
+    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
 }
 
 @end

@@ -18,4 +18,6 @@
 
 -(void)getSuggestions:(NSString *)query;
 
+-(void)dismissSuggestionBox;
+
 @end

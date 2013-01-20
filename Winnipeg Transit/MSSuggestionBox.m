@@ -61,6 +61,10 @@
     [self.tableView reloadData];
 }
 
+-(void)dismissSuggestionBox {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([tableArray count]+1); }
 
 

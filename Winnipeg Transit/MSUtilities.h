@@ -24,6 +24,8 @@
 
 +(NSDictionary *)loadDictionaryWithName:(NSString *)fileName;
 
++(NSArray *)loadArrayWithName:(NSString *)fileName;
+
 +(void)generateCacheDB;
 
 +(void)checkCacheAge;
