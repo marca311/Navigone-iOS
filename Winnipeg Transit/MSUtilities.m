@@ -85,7 +85,7 @@
 
 +(void)generateCacheDB
 {
-    NSMutableDictionary *database = [[NSMutableDictionary alloc]init];
+    NSMutableArray *database = [[NSMutableArray alloc]init];
     NSFileManager *fileMan = [[NSFileManager alloc]init];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -97,8 +97,8 @@
         } else if ([currentFile hasSuffix:@".plist"]) {
             NSString *filePath = [documentsDirectory stringByAppendingPathComponent:currentFile];
             NSDictionary *routeFile = [[NSDictionary alloc]initWithContentsOfFile:filePath];
-            currentFile = [currentFile stringByReplacingOccurrencesOfString:@".plist" withString:@""];
-            [database setObject:[routeFile objectForKey:@"Entry time"] forKey:currentFile];
+            NSArray *theArray = [[NSArray alloc]initWithObjects:currentFile, [routeFile objectForKey:@"Entry time"], nil];
+            [database addObject:theArray];
         }
     }
 /*    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"Route%i.plist",routeNumber]];
@@ -117,8 +117,9 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
-    NSDictionary *dataBase = [[NSDictionary alloc]initWithContentsOfFile:dbPath];
+    NSArray *dataBase = [[NSDictionary alloc]initWithContentsOfFile:dbPath];
     NSArray *theDates = [[NSArray alloc]init];
+    
     //TODO: Change the cache file into an array of arrays that contain the filename and nsdates
     //604800 seconds in a week
     
