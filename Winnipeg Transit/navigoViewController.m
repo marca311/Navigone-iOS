@@ -161,6 +161,46 @@
         [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     }
     else {
+        DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
+        [activityView animateShow];
+        dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self resignFirstResponder];
+            NSMutableArray *searchArray = [[NSMutableArray alloc]init];
+            [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
+            [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
+            [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
+            [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
+            [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
+            [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
+            [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
+            [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
+            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
+            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
+            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
+            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
+            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
+            NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
+            
+            dispatch_async( dispatch_get_main_queue(), ^{
+                if ([navigoInterpreter queryIsError:resultXMLFile]) {
+                    UIAlertView *failQuery = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is no available route for the query you just entered. Please try a different query" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                    [activityView animateRemove];
+                    [failQuery show];
+                } else {
+                    [navigoInterpreter getRouteData:resultXMLFile];
+                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+                    [activityView animateRemove];
+                    if ([MSUtilities firmwareIsHigherThanFour]) {
+                        [self presentViewController:resultView animated:YES completion:NULL];
+                    } else {
+                        [self presentModalViewController:resultView animated:YES];
+                    }
+                }
+
+            });
+        });
+
+        /*[self resignFirstResponder];
         NSMutableArray *searchArray = [[NSMutableArray alloc]init];
         [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
         [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
@@ -176,13 +216,18 @@
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
         [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
         NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        [navigoInterpreter getRouteData:resultXMLFile];
-        navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
-        if ([MSUtilities firmwareIsHigherThanFour]) {
-            [self presentViewController:resultView animated:YES completion:NULL];
+        if ([navigoInterpreter queryIsError:resultXMLFile]) {
+            UIAlertView *failQuery = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is no available route for the query you just entered. Please try a different query" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [failQuery show];
         } else {
-            [self presentModalViewController:resultView animated:YES];
-        }
+            [navigoInterpreter getRouteData:resultXMLFile];
+            navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+            if ([MSUtilities firmwareIsHigherThanFour]) {
+                [self presentViewController:resultView animated:YES completion:NULL];
+            } else {
+                [self presentModalViewController:resultView animated:YES];
+            }
+        }*/
     }
 }
 

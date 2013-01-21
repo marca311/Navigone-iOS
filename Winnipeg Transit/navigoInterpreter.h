@@ -19,7 +19,7 @@ extern NSMutableDictionary *queriedDictionary;
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query;
 
-+(BOOL)queryIsNotError:(NSData *)dataFile;
++(BOOL)queryIsError:(NSData *)dataFile;
 
 +(NSArray *)getAddressInfoFromQuery:(NSString *)query;
 

@@ -42,6 +42,8 @@
         NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
         savedLocations = [theFile objectForKey:@"SavedLocations"];
         previousLocations = [theFile objectForKey:@"PreviousLocations"];
+        previousLocations = [PlaceViewController checkNumberOfEntries:previousLocations];
+        [self saveFile];
     }
 }
 
@@ -294,10 +296,19 @@
         }
     }
     
+    previousLocationsList = [PlaceViewController checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     [saver setObject:savedLocationsList forKey:@"SavedLocations"];
     [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
+}
++(NSMutableArray *)checkNumberOfEntries:(NSMutableArray *)theArray {
+    if ([theArray count] > 20) {
+        for (int i = ([theArray count]-1); i > 19; i--) {
+            [theArray removeObjectAtIndex:i];
+        }
+    }
+    return theArray;
 }
 
 @end

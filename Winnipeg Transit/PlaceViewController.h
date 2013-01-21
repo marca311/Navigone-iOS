@@ -30,7 +30,6 @@
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
 +(void)addEntryToFile:(NSArray *)item;
-//Static method to create a blank file on first run
-+(void)createBlankFile;
++(NSMutableArray *)checkNumberOfEntries:(NSArray *)theArray;
 
 @end

@@ -19,7 +19,7 @@
     return self;
 }
 
-- (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)dismissKeyboard;
 {
     [self resignFirstResponder];
 }

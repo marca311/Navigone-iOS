@@ -114,13 +114,19 @@
 
 +(void)checkCacheAge
 {
+    NSFileManager *fileManager = [[NSFileManager alloc]init];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"CacheDatabase.plist"];
-    NSArray *dataBase = [[NSDictionary alloc]initWithContentsOfFile:dbPath];
-    NSArray *theDates = [[NSArray alloc]init];
-    
-    //TODO: Change the cache file into an array of arrays that contain the filename and nsdates
+    NSArray *dataBase = [[NSArray alloc]initWithContentsOfFile:dbPath];
+    for (int i = 0; i < [dataBase count]; i++) {
+        NSArray *currentArray = [dataBase objectAtIndex:i];
+        NSDate *currentDate = [currentArray objectAtIndex:1];
+        if ([currentDate timeIntervalSinceNow] < -604800) {
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[currentArray objectAtIndex:0]];
+            [fileManager removeItemAtPath:filePath error:nil];
+        }
+    }
     //604800 seconds in a week
     
 }//checkCacheAge

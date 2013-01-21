@@ -41,7 +41,6 @@ NSMutableDictionary *queriedDictionary;
         }
     } while (resultXMLFile == nil);
     
-    //while ([self queryIsNotError:resultXMLFile] == NO);
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"Tries: %i",tries);
 #endif
@@ -50,16 +49,19 @@ NSMutableDictionary *queriedDictionary;
     
 }//getXMLFileForSearchedItem
 
-+(BOOL)queryIsNotError:(NSData *)dataFile
++(BOOL)queryIsError:(NSData *)dataFile
 {
+    if (dataFile == NULL) {
+        return YES;
+    }
     TBXML *mainFile = [XMLParser loadXmlDocumentFromData:dataFile];
     TBXMLElement *rootElement = [XMLParser getRootElement:mainFile];
     if ((rootElement = rootElement->firstChild)) {
-        return YES;
-    } else {
         return NO;
+    } else {
+        return YES;
     }
-}//queryIsNotError
+}//queryIsError
 
 +(NSArray *)getAddressInfoFromQuery:(NSString *)query
 {
@@ -136,7 +138,7 @@ NSMutableDictionary *queriedDictionary;
     {
         NSMutableArray *result = [[NSMutableArray alloc]init];
         NSData *queryXML = [self getXMLFileForSearchedItem:query];
-        if ([self queryIsNotError:queryXML] == NO) {
+        if ([self queryIsError:queryXML] == YES) {
             NSArray *result = [[NSArray alloc]initWithObjects: nil];
             return result;
         }
@@ -292,6 +294,7 @@ NSMutableDictionary *queriedDictionary;
     [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
     NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
     [MSUtilities saveDictionaryToFile:dictionary :entryTime];
+    [MSUtilities checkCacheAge];
     [MSUtilities generateCacheDB];
 
     currentFile = entryTime;

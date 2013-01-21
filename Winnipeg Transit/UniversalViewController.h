@@ -13,6 +13,6 @@
 
 -(IBAction)dismissKeyboard:(id)sender;
 
--(IBAction)dismissView:(id)sender;
+-(IBAction)dismissView;
 
 @end
