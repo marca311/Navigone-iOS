@@ -22,6 +22,7 @@ extern NSDictionary *resultDictionary;
     UITextField *planField;
 }
 
+@property (nonatomic, retain) NSString *currentFile;
 @property (nonatomic, retain) NSArray *planArray;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
@@ -35,6 +36,8 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UILabel *startTime;
 @property (nonatomic, retain) IBOutlet UILabel *endTime;
 @property (nonatomic, retain) IBOutlet UILabel *buses;
+
+-(id)initWithRoute:(NSString *)fileName nibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 
 -(IBAction)reloadTable;
 

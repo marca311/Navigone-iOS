@@ -45,6 +45,7 @@
 @synthesize submitButton;
 @synthesize suggestionBox;
 @synthesize originResults, destinationResults, currentField;
+@synthesize history;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -153,12 +154,15 @@
 
 -(IBAction)submitButtonClick
 {
+    [self fieldChecker];
     int buttonLocation = [submitButton checkCurrentLocation];
-    if (buttonLocation == 1 && [submitButton.titleLabel.text isEqualToString:@"Next"]) [AnimationInstructionSheet toStageTwo:self];
-    else if (buttonLocation == 2 && [submitButton.titleLabel.text isEqualToString:@"Next"])
-    {
-        [AnimationInstructionSheet toStageThree:self];
-        [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    if ([submitButton.titleLabel.text isEqualToString:@"Next"]) {
+        if (buttonLocation == 3) {
+            NSString *message = [[NSString alloc]initWithFormat:@"You appear to have missed a field or two, go check whether you have all of the fields filled"];
+            UIAlertView *emptyFieldAlert = [[UIAlertView alloc]initWithTitle:@"Uh oh" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [emptyFieldAlert show];
+        }
+        [AnimationInstructionSheet toNextStage:self];
     }
     else {
         DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
@@ -187,8 +191,8 @@
                     [activityView animateRemove];
                     [failQuery show];
                 } else {
-                    [navigoInterpreter getRouteData:resultXMLFile];
-                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+                    NSString *fileName = [navigoInterpreter getRouteData:resultXMLFile];
+                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithRoute:fileName nibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
                     [activityView animateRemove];
                     if ([MSUtilities firmwareIsHigherThanFour]) {
                         [self presentViewController:resultView animated:YES completion:NULL];
@@ -199,36 +203,14 @@
 
             });
         });
-
-        /*[self resignFirstResponder];
-        NSMutableArray *searchArray = [[NSMutableArray alloc]init];
-        [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
-        [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
-        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
-        [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
-        [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
-        [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
-        [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
-        [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
-        [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
-        NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
-        if ([navigoInterpreter queryIsError:resultXMLFile]) {
-            UIAlertView *failQuery = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is no available route for the query you just entered. Please try a different query" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-            [failQuery show];
-        } else {
-            [navigoInterpreter getRouteData:resultXMLFile];
-            navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
-            if ([MSUtilities firmwareIsHigherThanFour]) {
-                [self presentViewController:resultView animated:YES completion:NULL];
-            } else {
-                [self presentModalViewController:resultView animated:YES];
-            }
-        }*/
     }
+}
+
+//Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
+-(void)fieldChecker
+{
+    if ([self fieldsFilled]) [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    else [submitButton setTitle:@"Next" forState:UIControlStateNormal];
 }
 
 -(IBAction)backgroundTap
@@ -263,8 +245,7 @@
 
 -(IBAction)testButton
 {
-    currentFile = @"Route1";
-    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithRoute:@"Route1" nibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
     if ([MSUtilities firmwareIsHigherThanFour]) {
         [self presentViewController:resultView animated:YES completion:NULL];
     } else {
@@ -284,6 +265,29 @@
 -(IBAction)timeDateLabelClick
 {
     [AnimationInstructionSheet toStageThree:self];
+}
+
+#pragma mark - Method to detect whether all fields are filled
+-(BOOL)fieldsFilled
+{
+    BOOL originBOOL = NO;
+    BOOL destinationBOOL = NO;
+    BOOL timeBOOL = NO;
+    BOOL dateBOOL = NO;
+    BOOL modeBOOL = NO;
+    if ([self containsSomething:origin] || !([queriedDictionary objectForKey:@"origin"] == NULL)) originBOOL = YES;
+    if ([self containsSomething:destination] || !([queriedDictionary objectForKey:@"destination"] == NULL)) destinationBOOL = YES;
+    if ([self containsSomething:timeField]) timeBOOL = YES;
+    if ([self containsSomething:dateField]) dateBOOL = YES;
+    if ([self containsSomething:mode]) modeBOOL = YES;
+    if (originBOOL && destinationBOOL && timeBOOL && dateBOOL && modeBOOL) return YES;
+    else return NO;
+}
+//Small method to cut down on clutter on above method
+-(BOOL)containsSomething:(UITextField *)theTextField
+{
+    if ([theTextField.text isEqualToString:@""]) return NO;
+    else return YES;
 }
 
 #pragma mark - Actions for origin and destination suggestion boxes
@@ -324,7 +328,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
-        PlaceViewController *history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
+        history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
         if ([MSUtilities firmwareIsHigherThanFour]) {
             //iOS5 and higher only
             [self presentViewController:history animated:YES completion:NULL];
@@ -346,6 +350,7 @@
             [queriedDictionary setObject:answerArray forKey:@"destination"];
             [destinationLabel setTitle:answer forState:UIControlStateNormal];
         }
+        [self fieldChecker];
         [AnimationInstructionSheet toNextStage:self];
     }
 }

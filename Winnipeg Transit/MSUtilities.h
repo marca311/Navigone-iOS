@@ -30,7 +30,7 @@
 
 +(void)checkCacheAge;
 
-+(void)deleteOldSavedRoutes;
++(void)deleteFileWithName:(NSString *)fileName;
 
 +(NSString *)getFirmwareVersion;
 
@@ -39,5 +39,9 @@
 +(BOOL)hasInternet;
 
 +(BOOL)isQueryBlank:(NSString *)query;
+
++(NSString *)fixAmpersand:(NSString *)ampString;
+
++(NSString *)cleanString:(NSString *)theString;
 
 @end

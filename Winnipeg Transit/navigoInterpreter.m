@@ -10,7 +10,6 @@
 #import "XMLParser.h"
 #import "MSUtilities.h"
 
-NSString *currentFile;
 NSMutableDictionary *queriedDictionary;
 
 @implementation navigoInterpreter
@@ -24,10 +23,16 @@ NSMutableDictionary *queriedDictionary;
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
+    //Checks for characters that would make the app crash
+    BOOL isClean = YES;
+    if (!([query rangeOfString:@"&"].location == NSNotFound) || !([query rangeOfString:@"%"].location == NSNotFound) || !([query rangeOfString:@"$"].location == NSNotFound) || !([query rangeOfString:@"*"].location == NSNotFound) || !([query rangeOfString:@"!"].location == NSNotFound) || !([query rangeOfString:@"#"].location == NSNotFound) || !([query rangeOfString:@"("].location == NSNotFound) || !([query rangeOfString:@")"].location == NSNotFound) || !([query rangeOfString:@"|"].location == NSNotFound) || !([query rangeOfString:@"["].location == NSNotFound) || !([query rangeOfString:@"]"].location == NSNotFound) || !([query rangeOfString:@"{"].location == NSNotFound) || !([query rangeOfString:@"}"].location == NSNotFound) || !([query rangeOfString:@"\\"].location == NSNotFound) || !([query rangeOfString:@"'"].location == NSNotFound) || !([query rangeOfString:@"\""].location == NSNotFound) || !([query rangeOfString:@"<"].location == NSNotFound) || !([query rangeOfString:@">"].location == NSNotFound) || !([query rangeOfString:@"?"].location == NSNotFound) || !([query rangeOfString:@"/"].location == NSNotFound) || !([query rangeOfString:@","].location == NSNotFound) || !([query rangeOfString:@"."].location == NSNotFound) || !([query rangeOfString:@"+"].location == NSNotFound) || !([query rangeOfString:@"-"].location == NSNotFound) || !([query rangeOfString:@"_"].location == NSNotFound) || !([query rangeOfString:@"="].location == NSNotFound) || !([query rangeOfString:@"±"].location == NSNotFound) || !([query rangeOfString:@"§"].location == NSNotFound) || !([query rangeOfString:@":"].location == NSNotFound) || !([query rangeOfString:@";"].location == NSNotFound) ||
+        !([query rangeOfString:@"~"].location == NSNotFound)) {
+        isClean = NO;
+    }
     NSData *resultXMLFile = [[NSData alloc]init];
     int tries = 0;
     do {
-        if ([self entryIsBlank:query] == YES) return nil;
+        if ([self entryIsBlank:query] == YES && !isClean) return nil;
         else {
             tries = tries + 1;
             query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
@@ -134,6 +139,7 @@ NSMutableDictionary *queriedDictionary;
 +(NSArray *)getQuerySuggestions:(NSString *)query
 {
     //Makes the suggestion array for the suggestions table
+
     if (![MSUtilities isQueryBlank:query])
     {
         NSMutableArray *result = [[NSMutableArray alloc]init];
@@ -147,6 +153,8 @@ NSMutableDictionary *queriedDictionary;
         TBXMLElement *theElementChild = [XMLParser extractUnknownChildElement:theElement];
         do {
             NSString *addressName = [self getAddressNameFromElement:theElementChild];
+            //Replaces any ampersand placeholders
+            addressName = [MSUtilities fixAmpersand:addressName];
             NSString *addressKey = [self getAddressKeyFromElement:theElementChild];
             NSArray *elementArray = [[NSArray alloc]initWithObjects:addressName, addressKey, nil];
             [result addObject:elementArray];
@@ -199,7 +207,6 @@ NSMutableDictionary *queriedDictionary;
                 break;
             case 2:
                 time = objectFromIndex;
-                NSLog(@"time: %@",time);
                 break;
             case 3:
                 date = objectFromIndex;
@@ -271,7 +278,7 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }//getRootElement
 
-+(void)getRouteData:(NSData *)xmlFile
++(NSString *)getRouteData:(NSData *)xmlFile
 {
     TBXMLElement *rootElement = [self getRootElement:xmlFile];
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
@@ -285,10 +292,11 @@ NSMutableDictionary *queriedDictionary;
         NSString *planNumberString = [[NSString alloc]initWithFormat:@"%i",i];
         [result setObject:[self getPlanDetails:planNumberString :rootElement] forKey:planNumber];
     }
-    [self saveToFile:result];
+    return [self saveToFile:result];
+    
 }//getRouteData
 
-+(void)saveToFile:(NSDictionary *)dictionary
++(NSString *)saveToFile:(NSDictionary *)dictionary
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
@@ -296,8 +304,7 @@ NSMutableDictionary *queriedDictionary;
     [MSUtilities saveDictionaryToFile:dictionary :entryTime];
     [MSUtilities checkCacheAge];
     [MSUtilities generateCacheDB];
-
-    currentFile = entryTime;
+    return entryTime;
 }//saveToFile
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement

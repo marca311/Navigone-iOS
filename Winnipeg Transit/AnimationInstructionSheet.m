@@ -14,6 +14,7 @@
 
 //Relative Methods
 +(void)toNextStage:(navigoViewController *)naviView {
+    [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
         case 1:
@@ -25,6 +26,7 @@
     }
 }
 +(void)toPreviousStage:(navigoViewController *)naviView {
+    [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
         case 3:
@@ -40,6 +42,7 @@
 //These are linked to the view controller so I don't have to introduce so many objects into one method.
 +(void)toStageOne:(navigoViewController *)naviView;
 {
+    [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
         case 2:
@@ -54,6 +57,7 @@
 }
 +(void)toStageTwo:(navigoViewController *)naviView
 {
+    [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
         case 1:
@@ -68,6 +72,7 @@
 }
 +(void)toStageThree:(navigoViewController *)naviView
 {
+    [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
         case 1:

@@ -62,22 +62,21 @@
     }
 }
 
--(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellContent = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-    if ([cellContent isEqualToString:@"No saved locations"] || [cellContent isEqualToString:@"No history"]) {
-        return NO;
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == 0) {
+        if ([savedLocations count] == 0) return @"No saved locations";
     } else {
-        return YES;
+        if ([previousLocations count] == 0) return @"No history";
     }
+    return NULL;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellContent = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-    if ([cellContent isEqualToString:@"No saved locations"] || [cellContent isEqualToString:@"No history"]) {
-        return UITableViewCellEditingStyleNone;
-    } else {
-        return UITableViewCellEditingStyleDelete;
-    }
+    return UITableViewCellEditingStyleDelete;
 }
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     [self moveEntry:sourceIndexPath :destinationIndexPath];
@@ -86,17 +85,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (fileExists) {
         if (section == 0) {
-            if ([savedLocations count] == 0) {
-                return 1;
-            } else {
-                return [savedLocations count];
-            }
+            return [savedLocations count];
         } else if (section == 1) {
-            if ([previousLocations count] == 0) {
-                return 1;
-            } else {
-                return [previousLocations count];
-            }
+            return [previousLocations count];
         }
     } else return 1;
     return 1;
@@ -113,19 +104,11 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 0) {
-        if ([savedLocations count] > 0) {
-            NSArray *cellData = [savedLocations objectAtIndex:row];
-            cell.textLabel.text = [cellData objectAtIndex:0];
-        } else {
-            cell.textLabel.text = @"No saved locations";
-        }
+        NSArray *cellData = [savedLocations objectAtIndex:row];
+        cell.textLabel.text = [cellData objectAtIndex:0];
     } else if (section == 1) {
-        if ([previousLocations count] > 0) {
-            NSArray *cellData = [previousLocations objectAtIndex:row];
-            cell.textLabel.text = [cellData objectAtIndex:0];
-        } else {
-            cell.textLabel.text = @"No history";
-        }
+        NSArray *cellData = [previousLocations objectAtIndex:row];
+        cell.textLabel.text = [cellData objectAtIndex:0];
     }
     return cell;
 }
@@ -144,12 +127,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Check if the cell is a placeholder
-    UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
-    if ([theCell.textLabel.text isEqualToString:@"No saved locations"] || [theCell.textLabel.text isEqualToString:@"No history"]) {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        return;
-    }
     //Load the parent view controller with compatability
     navigoViewController *theParentViewController;
     if ([MSUtilities firmwareIsHigherThanFour]) {
@@ -172,9 +149,10 @@
         [queriedDictionary setObject:chosenArray forKey:@"destination"];
         [theParentViewController.destinationLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
     }
-    [theParentViewController.suggestionBox dismissSuggestionBox];
-    [AnimationInstructionSheet toNextStage:theParentViewController];
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+        //[theParentViewController fieldChecker];
+        [AnimationInstructionSheet toNextStage:theParentViewController];
+    });
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -249,6 +227,7 @@
             } else [previousLocations insertObject:currentItem atIndex:secondRow];
         }
     }
+    [theTableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
     [self saveFile];
 }
 -(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {

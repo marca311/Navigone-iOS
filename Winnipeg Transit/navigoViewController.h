@@ -18,15 +18,12 @@
 #import "MSSeparator.h"
 #import "SubmitButton.h"
 #import "MSSuggestionBox.h"
+#import "PlaceViewController.h"
 
 @interface navigoViewController : UniversalViewController <UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
-    UIToolbar *pickerBar;
-    IBOutlet UIToolbar *keyboardToolbar;
-    UISegmentedControl *nextPreviousControl;
     UIDatePicker *timePicker;
     UIDatePicker *datePicker;
     UIPickerView *modePicker;
-    NSArray *modeArray;
     MSSuggestionBox *suggestionBox;
 }
 
@@ -57,13 +54,17 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
+@property (nonatomic, retain) PlaceViewController *history;
 //These store the query results (location name and key) for the entered origin and destination
 @property (nonatomic, retain) NSArray *originResults;
 @property (nonatomic, retain) NSArray *destinationResults;
 //Tells the tableview delegate which field is currently selected so it can send the text to the correct one
 @property (nonatomic, retain) NSString *currentField;
 
+//Activiated when the submit button is clicked (duh)
 -(IBAction)submitButtonClick;
+//Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
+-(void)fieldChecker;
 
 -(IBAction)openDatePicker;
 
@@ -79,6 +80,9 @@
 -(IBAction)originLabelClick;
 -(IBAction)destinationLabelClick;
 -(IBAction)timeDateLabelClick;
+
+//Method to detect whether all fields are filled
+-(BOOL)fieldsFilled;
 
 //Actions for origin and destination suggestion boxes
 -(IBAction)originBoxEdit;

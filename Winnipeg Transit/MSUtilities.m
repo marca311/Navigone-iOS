@@ -131,10 +131,13 @@
     
 }//checkCacheAge
 
-+(void)deleteOldSavedRoutes
-{
-    
-}//deleteOldSavedRoutes
++(void)deleteFileWithName:(NSString *)fileName {
+    NSFileManager *fileManager = [[NSFileManager alloc]init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    [fileManager removeItemAtPath:filePath error:nil];
+}
 
 +(NSString *)getFirmwareVersion
 {
@@ -240,6 +243,17 @@
     } else {
         return NO;
     }
+}
+
++(NSString *)fixAmpersand:(NSString *)ampString
+{
+    ampString = [ampString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
+    return ampString;
+}
+
++(NSString *)cleanString:(NSString *)theString
+{
+    
 }
 
 @end

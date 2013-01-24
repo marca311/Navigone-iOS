@@ -18,11 +18,19 @@ NSDictionary *resultDictionary;
 
 @implementation navigoResultViewController
 
+@synthesize currentFile;
 @synthesize resultsTable;
 @synthesize planButton;
 @synthesize resultsArray, planArray;
 @synthesize planSelectorTable,planTable;
 @synthesize planList, currentPlan, planTitleArray;
+
+-(id)initWithRoute:(NSString *)fileName nibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    currentFile = fileName;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

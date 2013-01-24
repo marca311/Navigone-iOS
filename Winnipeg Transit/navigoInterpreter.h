@@ -10,7 +10,6 @@
 #import "XMLParser.h"
 #import "MSUtilities.h"
 
-extern NSString *currentFile;
 extern NSMutableDictionary *queriedDictionary;
 
 @interface navigoInterpreter : NSObject
@@ -45,9 +44,9 @@ extern NSMutableDictionary *queriedDictionary;
 
 +(TBXMLElement *)getRootElement:(NSData *)xmlFile;
 
-+(void)getRouteData:(NSData *)xmlFile;
++(NSString *)getRouteData:(NSData *)xmlFile;
 
-+(void)saveToFile:(NSDictionary *)dictionary;
++(NSString *)saveToFile:(NSDictionary *)dictionary;
 
 +(NSMutableDictionary *)getPrimaryResults:(TBXMLElement *)rootElement;
 
