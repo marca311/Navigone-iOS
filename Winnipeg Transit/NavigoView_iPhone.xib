@@ -287,7 +287,7 @@
 					</object>
 					<object class="IBUIButton" id="630286138">
 						<reference key="NSNextResponder" ref="983771249"/>
-						<int key="NSvFlags">1316</int>
+						<int key="NSvFlags">-2147482332</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{10, 354}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
@@ -403,7 +403,6 @@
 						<string key="NSFrame">{{10, 404}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -934,15 +933,15 @@
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="dismissKeyboard:">id</string>
-						<string key="dismissView:">id</string>
+						<string key="dismissView">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="dismissKeyboard:">
 							<string key="name">dismissKeyboard:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="dismissView:">
-							<string key="name">dismissView:</string>
+						<object class="IBActionInfo" key="dismissView">
+							<string key="name">dismissView</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
@@ -1039,7 +1038,6 @@
 						<string key="destinationLabel">UIButton</string>
 						<string key="destinationSeparator">MSSeparator</string>
 						<string key="easyAccessSwitch">UISwitch</string>
-						<string key="keyboardToolbar">UIToolbar</string>
 						<string key="maxTransferWait">UITextField</string>
 						<string key="maxTransfers">UITextField</string>
 						<string key="maxWalkTime">UITextField</string>
@@ -1075,10 +1073,6 @@
 						<object class="IBToOneOutletInfo" key="easyAccessSwitch">
 							<string key="name">easyAccessSwitch</string>
 							<string key="candidateClassName">UISwitch</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="keyboardToolbar">
-							<string key="name">keyboardToolbar</string>
-							<string key="candidateClassName">UIToolbar</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="maxTransferWait">
 							<string key="name">maxTransferWait</string>
