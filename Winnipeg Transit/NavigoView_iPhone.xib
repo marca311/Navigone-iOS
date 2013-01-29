@@ -934,6 +934,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="dismissKeyboard:">id</string>
 						<string key="dismissView">id</string>
+						<string key="dismissView:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="dismissKeyboard:">
@@ -942,6 +943,10 @@
 						</object>
 						<object class="IBActionInfo" key="dismissView">
 							<string key="name">dismissView</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="dismissView:">
+							<string key="name">dismissView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
@@ -1143,10 +1148,6 @@
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
 			<real value="1072" key="NS.object.0"/>
-		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>

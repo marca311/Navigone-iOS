@@ -20,6 +20,8 @@ extern NSMutableDictionary *queriedDictionary;
 
 +(BOOL)queryIsError:(NSData *)dataFile;
 
++(NSString *)replaceInvalidCharacters:(NSString *)theString;
+
 +(NSArray *)getAddressInfoFromQuery:(NSString *)query;
 
 +(NSString *)getAddressKeyFromElement:(TBXMLElement *)theElement;

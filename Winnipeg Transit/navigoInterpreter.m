@@ -19,21 +19,14 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }
 
-//Need to add failsafe for when url comes up without and xml
-
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
-    //Checks for characters that would make the app crash
-    BOOL isClean = YES;
-    if (!([query rangeOfString:@"&"].location == NSNotFound) || !([query rangeOfString:@"%"].location == NSNotFound) || !([query rangeOfString:@"$"].location == NSNotFound) || !([query rangeOfString:@"*"].location == NSNotFound) || !([query rangeOfString:@"!"].location == NSNotFound) || !([query rangeOfString:@"#"].location == NSNotFound) || !([query rangeOfString:@"("].location == NSNotFound) || !([query rangeOfString:@")"].location == NSNotFound) || !([query rangeOfString:@"|"].location == NSNotFound) || !([query rangeOfString:@"["].location == NSNotFound) || !([query rangeOfString:@"]"].location == NSNotFound) || !([query rangeOfString:@"{"].location == NSNotFound) || !([query rangeOfString:@"}"].location == NSNotFound) || !([query rangeOfString:@"\\"].location == NSNotFound) || !([query rangeOfString:@"'"].location == NSNotFound) || !([query rangeOfString:@"\""].location == NSNotFound) || !([query rangeOfString:@"<"].location == NSNotFound) || !([query rangeOfString:@">"].location == NSNotFound) || !([query rangeOfString:@"?"].location == NSNotFound) || !([query rangeOfString:@"/"].location == NSNotFound) || !([query rangeOfString:@","].location == NSNotFound) || !([query rangeOfString:@"."].location == NSNotFound) || !([query rangeOfString:@"+"].location == NSNotFound) || !([query rangeOfString:@"-"].location == NSNotFound) || !([query rangeOfString:@"_"].location == NSNotFound) || !([query rangeOfString:@"="].location == NSNotFound) || !([query rangeOfString:@"±"].location == NSNotFound) || !([query rangeOfString:@"§"].location == NSNotFound) || !([query rangeOfString:@":"].location == NSNotFound) || !([query rangeOfString:@";"].location == NSNotFound) ||
-        !([query rangeOfString:@"~"].location == NSNotFound)) {
-        isClean = NO;
-    }
     NSData *resultXMLFile = [[NSData alloc]init];
     int tries = 0;
     do {
-        if ([self entryIsBlank:query] == YES && !isClean) return nil;
+        if ([self entryIsBlank:query] == YES) return nil;
         else {
+            query = [self replaceInvalidCharacters:query];
             tries = tries + 1;
             query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
             NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
@@ -67,6 +60,16 @@ NSMutableDictionary *queriedDictionary;
         return YES;
     }
 }//queryIsError
+
++(NSString *)replaceInvalidCharacters:(NSString *)theString
+{
+    NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "];
+    theSet = [theSet invertedSet];
+    theString = [[theString componentsSeparatedByCharactersInSet:theSet ]componentsJoinedByString:@""];
+    theString = [theString stringByReplacingOccurrencesOfString:@"*" withString:@""];
+    theString = [theString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    return theString;
+}
 
 +(NSArray *)getAddressInfoFromQuery:(NSString *)query
 {

@@ -75,7 +75,8 @@
     return YES;
 }
 
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return UITableViewCellEditingStyleDelete;
 }
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -253,7 +254,11 @@
             NSArray *currentItem = [savedLocationsList objectAtIndex:i];
             [previousLocationsList removeObject:item];
             [previousLocationsList removeObject:currentItem];
-            [previousLocationsList insertObject:currentItem atIndex:0];
+            if ([previousLocationsList count] == 0) {
+                previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
+            } else {
+                [previousLocationsList insertObject:item atIndex:0];
+            }
             placed = YES;
         }
     }
@@ -271,7 +276,6 @@
             previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
         } else {
             [previousLocationsList insertObject:item atIndex:0];
-
         }
     }
     

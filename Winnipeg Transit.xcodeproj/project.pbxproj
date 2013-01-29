@@ -59,6 +59,8 @@
 		6FF56FA4158BC49000CC015C /* PlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* PlanTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* PlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */; };
 		6FF56FAF158C237A00CC015C /* PlanSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */; };
+		6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* SavedRouteViewController.m */; };
+		6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9116B7327200567861 /* SavedRouteView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +154,9 @@
 		6FF56FA7158BC4C500CC015C /* PlanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanTableViewCell.xib; sourceTree = "<group>"; };
 		6FF56FAD158C237A00CC015C /* PlanSelectorTableVew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanSelectorTableVew.h; sourceTree = "<group>"; };
 		6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanSelectorTableVew.m; sourceTree = "<group>"; };
+		6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRouteViewController.h; sourceTree = "<group>"; };
+		6FF7AC9016B7327200567861 /* SavedRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRouteViewController.m; sourceTree = "<group>"; };
+		6FF7AC9116B7327200567861 /* SavedRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedRouteView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,7 +323,8 @@
 				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
 				6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */,
 				6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */,
-				6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */,
+				6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */,
+				6FF7AC9016B7327200567861 /* SavedRouteViewController.m */,
 			);
 			name = "Custom UI Features";
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 			children = (
 				6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */,
 				6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */,
+				6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */,
+				6FF7AC9116B7327200567861 /* SavedRouteView.xib */,
 			);
 			name = "NIB Files";
 			sourceTree = "<group>";
@@ -451,6 +459,7 @@
 				6F580A96169925D700BAE14E /* ride.png in Resources */,
 				6F580A97169925D700BAE14E /* stop.png in Resources */,
 				6F580A98169925D700BAE14E /* transfer.png in Resources */,
+				6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +519,7 @@
 				6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */,
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
 				6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */,
+				6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +620,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Winnipeg Transit";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -622,6 +633,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Winnipeg Transit";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
