@@ -76,6 +76,8 @@
 
 -(IBAction)testButton;
 
+-(IBAction)tripHistoryButton;
+
 //Actions for origin, destination and time/date labels/buttons
 -(IBAction)originLabelClick;
 -(IBAction)destinationLabelClick;

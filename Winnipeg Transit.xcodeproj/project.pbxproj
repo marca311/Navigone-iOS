@@ -26,6 +26,7 @@
 		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
+		6F27EA8E16B8B09700444EEB /* MSTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27EA8D16B8B09700444EEB /* MSTrip.m */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
@@ -105,6 +106,8 @@
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
+		6F27EA8C16B8B09700444EEB /* MSTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTrip.h; sourceTree = "<group>"; };
+		6F27EA8D16B8B09700444EEB /* MSTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTrip.m; sourceTree = "<group>"; };
 		6F378F0A1526869B00FCA44D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6F415619150553D400A5DB67 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6F27EA8A16B8AFEA00444EEB /* Structure Classes */,
 				6F7646A5159E9D7D008AEE88 /* Custom UI Features */,
 				6FF56FB0158C237F00CC015C /* Tableviews */,
 				6FF56FA6158BC49C00CC015C /* Tableview Cells */,
@@ -282,6 +286,15 @@
 				4316808A15013E4200A41785 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F27EA8A16B8AFEA00444EEB /* Structure Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6F27EA8C16B8B09700444EEB /* MSTrip.h */,
+				6F27EA8D16B8B09700444EEB /* MSTrip.m */,
+			);
+			name = "Structure Classes";
 			sourceTree = "<group>";
 		};
 		6F415616150553D400A5DB67 /* TBXML */ = {
@@ -520,6 +533,7 @@
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
 				6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */,
 				6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */,
+				6F27EA8E16B8B09700444EEB /* MSTrip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

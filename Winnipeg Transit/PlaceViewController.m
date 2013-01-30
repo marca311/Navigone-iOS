@@ -194,6 +194,22 @@
             break;
     }
 }
+
++(void)clearLocations
+{
+    NSArray *savedLocationsList = [[NSArray alloc]init];
+    NSArray *previousLocationsList = [[NSArray alloc]init];
+    if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
+        NSDictionary *file = [[NSDictionary alloc]init];
+        file = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
+        savedLocationsList = [file objectForKey:@"SavedLocations"];
+    }
+    NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
+    [saver setObject:savedLocationsList forKey:@"SavedLocations"];
+    [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
+    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
+
+}
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex {
     NSInteger firstSection = currentIndex.section;
     NSInteger firstRow = currentIndex.row;

@@ -403,12 +403,36 @@
 						<string key="NSFrame">{{10, 404}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="755930564"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Clear</string>
+						<reference key="IBUIHighlightedTitleColor" ref="1056613947"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="722617907"/>
+						<reference key="IBUIFontDescription" ref="325470336"/>
+						<reference key="IBUIFont" ref="760579747"/>
+					</object>
+					<object class="IBUIButton" id="755930564">
+						<reference key="NSNextResponder" ref="983771249"/>
+						<int key="NSvFlags">1292</int>
+						<object class="NSPSMatrix" key="NSFrameMatrix"/>
+						<string key="NSFrame">{{90, 404}, {109, 37}}</string>
+						<reference key="NSSuperview" ref="983771249"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<int key="IBUIButtonType">1</int>
+						<string key="IBUINormalTitle">Trip History</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1056613947"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -707,6 +731,24 @@
 					</object>
 					<int key="connectionID">148</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">clearFields</string>
+						<reference key="source" ref="755930564"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">167</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">tripHistoryButton</string>
+						<reference key="source" ref="755930564"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">168</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -748,6 +790,7 @@
 							<reference ref="389098675"/>
 							<reference ref="696608516"/>
 							<reference ref="450209828"/>
+							<reference ref="755930564"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -836,6 +879,11 @@
 						<reference key="object" ref="450209828"/>
 						<reference key="parent" ref="983771249"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">166</int>
+						<reference key="object" ref="755930564"/>
+						<reference key="parent" ref="983771249"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -903,12 +951,15 @@
 				<string key="123.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="123.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="123.showNotes"/>
+				<string key="166.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<reference key="166.IBUserGuides" ref="0"/>
+				<boolean value="NO" key="166.showNotes"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">164</int>
+			<int key="maxID">168</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -974,6 +1025,7 @@
 						<string key="submitButtonClick">id</string>
 						<string key="testButton">id</string>
 						<string key="timeDateLabelClick">id</string>
+						<string key="tripHistoryButton">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="backgroundTap">
@@ -1034,6 +1086,10 @@
 						</object>
 						<object class="IBActionInfo" key="timeDateLabelClick">
 							<string key="name">timeDateLabelClick</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="tripHistoryButton">
+							<string key="name">tripHistoryButton</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

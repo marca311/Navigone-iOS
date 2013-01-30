@@ -18,7 +18,7 @@
 #import "SubmitButton.h"
 #import "AnimationInstructionSheet.h"
 #import "PlaceViewController.h"
-#import "PlaceViewController.h"
+#import "SavedRouteViewController.h"
 
 @implementation navigoViewController
 
@@ -265,6 +265,16 @@
 -(IBAction)timeDateLabelClick
 {
     [AnimationInstructionSheet toStageThree:self];
+}
+
+-(IBAction)tripHistoryButton
+{
+    SavedRouteViewController *tripHistoryController = [[SavedRouteViewController alloc]initSavedRouteViewController];
+    if ([MSUtilities firmwareIsHigherThanFour]) {
+        [self presentViewController:tripHistoryController animated:YES completion:NULL];
+    } else {
+        [self presentModalViewController:tripHistoryController animated:YES];
+    }
 }
 
 #pragma mark - Method to detect whether all fields are filled

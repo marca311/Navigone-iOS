@@ -26,6 +26,7 @@
 -(void)saveFile;
 -(void)addLocation:(NSString *)locationName :(NSString *)locationKey;
 -(void)removeLocation:(NSIndexPath *)index;
++(void)clearLocations;
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex;
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
