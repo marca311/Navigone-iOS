@@ -192,7 +192,8 @@
                     [failQuery show];
                 } else {
                     NSString *fileName = [navigoInterpreter getRouteData:resultXMLFile];
-                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithRoute:fileName nibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+                    [resultView setRoute:fileName];
                     [activityView animateRemove];
                     if ([MSUtilities firmwareIsHigherThanFour]) {
                         [self presentViewController:resultView animated:YES completion:NULL];
@@ -245,7 +246,8 @@
 
 -(IBAction)testButton
 {
-    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithRoute:@"Route1" nibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+    [resultView setRoute:@"Route1"];
     if ([MSUtilities firmwareIsHigherThanFour]) {
         [self presentViewController:resultView animated:YES completion:NULL];
     } else {

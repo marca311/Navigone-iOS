@@ -37,7 +37,7 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UILabel *endTime;
 @property (nonatomic, retain) IBOutlet UILabel *buses;
 
--(id)initWithRoute:(NSString *)fileName nibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+-(void)setRoute:(NSString *)theRoute;
 
 -(IBAction)reloadTable;
 

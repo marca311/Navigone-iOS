@@ -25,11 +25,8 @@ NSDictionary *resultDictionary;
 @synthesize planSelectorTable,planTable;
 @synthesize planList, currentPlan, planTitleArray;
 
--(id)initWithRoute:(NSString *)fileName nibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    currentFile = fileName;
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    return self;
+-(void)setRoute:(NSString *)theRoute {
+    currentFile = theRoute;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
