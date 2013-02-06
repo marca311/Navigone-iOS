@@ -121,7 +121,10 @@ NSDictionary *resultDictionary;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationPortrait)
+        return YES;
+    else return NO;
+    //TODO: Add call to work with iOS6 and orientations
 }
 
 @end

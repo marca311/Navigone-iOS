@@ -92,8 +92,6 @@
     //timeField = [navigoViewLibrary timePickerInputFormat:self.view];
   
     //setting accessory views
-    origin.inputAccessoryView = [self accessoryView];
-    destination.inputAccessoryView = [self accessoryView];
     timeField.inputAccessoryView = [self accessoryView];
     dateField.inputAccessoryView = [self accessoryView];
     mode.inputAccessoryView = [self accessoryView];
@@ -379,7 +377,15 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
+    /*
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationPortrait)
+        return YES;
+    else return NO; */
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - Picker Delegate protocols
