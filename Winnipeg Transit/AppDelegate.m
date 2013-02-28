@@ -22,7 +22,6 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
     } else {
-        //TODO:
         self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
     }
     self.window.rootViewController = self.viewController;
@@ -40,6 +39,10 @@
     [defaults synchronize];
     
     return YES;
+}
+
+-(void)getAPIKeys {
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

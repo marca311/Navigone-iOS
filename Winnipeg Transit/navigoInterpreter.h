@@ -14,8 +14,6 @@ extern NSMutableDictionary *queriedDictionary;
 
 @interface navigoInterpreter : NSObject
 
-+(NSString *)getAPIKey;
-
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query;
 
 +(BOOL)queryIsError:(NSData *)dataFile;
@@ -76,17 +74,17 @@ extern NSMutableDictionary *queriedDictionary;
 
 #pragma mark - Get plan details
 
-+(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber :(TBXMLElement *)rootElement;
 
 +(NSString *)getNumberOfSegments:(TBXMLElement *)rootElement;
 
 #pragma mark - Get segment details
 
-+(NSMutableDictionary *)getSegmentDetails:(int)segementNumber:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentDetails:(int)segementNumber :(TBXMLElement *)rootElement;
 
 +(NSString *)getSegmentType:(TBXMLElement *)rootElement;
 
-+(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType:(TBXMLElement *)rootElement;
++(NSMutableDictionary *)getSegmentLocationInfo:(NSString *)segmentType :(TBXMLElement *)rootElement;
 +(NSString *)getInstructionType:(TBXMLElement *)rootElement;
 
 +(NSMutableDictionary *)getRideInfo:(TBXMLElement *)rootElement;

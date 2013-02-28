@@ -8,7 +8,7 @@
 
 #import "SavedRouteViewController.h"
 #import "MSUtilities.h"
-#import "MSTrip.h"
+#import "MSRoute.h"
 
 @interface SavedRouteViewController ()
 

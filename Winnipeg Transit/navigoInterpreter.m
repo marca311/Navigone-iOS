@@ -9,15 +9,11 @@
 #import "navigoInterpreter.h"
 #import "XMLParser.h"
 #import "MSUtilities.h"
+#include "apiKeys.h"
 
 NSMutableDictionary *queriedDictionary;
 
 @implementation navigoInterpreter
-
-+(NSString *)getAPIKey {
-    NSString *result = @"VzHTwXmEnjQ0vUG0U3y9";
-    return result;
-}
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
@@ -29,7 +25,7 @@ NSMutableDictionary *queriedDictionary;
             query = [self replaceInvalidCharacters:query];
             tries = tries + 1;
             query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-            NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, [navigoInterpreter getAPIKey]];
+            NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, transitAPIKey];
 #if TARGET_IPHONE_SIMULATOR
             NSLog(query);
             NSLog(queryURL);
@@ -238,8 +234,8 @@ NSMutableDictionary *queriedDictionary;
         }
     }
     //Test to find out if removing options fixes inconsistencies
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&api-key=%@",origin,destination,time,date,mode,easyMode,[self getAPIKey]];
-    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,[self getAPIKey]];
+    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&api-key=%@",origin,destination,time,date,mode,easyMode,[self getAPIKey]];
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyMode,walkSpeed,maxWalkTime,minTransferWait,maxTransferWait,transitAPIKey];
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *result = [[NSData alloc]initWithContentsOfURL:queryURL];
 #if TARGET_IPHONE_SIMULATOR
@@ -476,7 +472,7 @@ NSMutableDictionary *queriedDictionary;
 
 #pragma mark - Get plan details
 
-+(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getPlanDetails:(NSString *)planNumber :(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     TBXMLElement *planLevel = [XMLParser extractUnknownChildElement:rootElement];
@@ -513,7 +509,7 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }//getNumberOfSegments
 
-+(NSMutableDictionary *)getSegmentDetails:(int)segementNumber:(TBXMLElement *)rootElement
++(NSMutableDictionary *)getSegmentDetails:(int)segementNumber :(TBXMLElement *)rootElement
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc]init];
     //[result setObject:@"Nomz" forKey:@"test"];
@@ -890,7 +886,7 @@ NSMutableDictionary *queriedDictionary;
     return nil;
 }//toFromInterpreter
 
-+(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary :(NSString *)time
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *latitude =  [[NSString alloc]init];
@@ -904,7 +900,7 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }//pointHInterpreter
 
-+(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary :(NSString *)time
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *text = [dictionary objectForKey:@"Human Readable"];
@@ -914,7 +910,7 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }//addressHInterpreter
 
-+(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary :(NSString *)time
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *text = [dictionary objectForKey:@"Human Readable"];
@@ -924,7 +920,7 @@ NSMutableDictionary *queriedDictionary;
     return result;
 }//monumentHInterpreter
 
-+(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time
++(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary :(NSString *)time
 {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     NSString *stopName = [[NSString alloc]init];

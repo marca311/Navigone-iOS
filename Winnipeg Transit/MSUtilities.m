@@ -13,7 +13,7 @@
 
 @implementation MSUtilities
 
-+(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary:(NSString *)fileName
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary :(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -21,7 +21,7 @@
     [savedDictionary writeToFile:filePath atomically:YES];
 }//saveMutableDictionaryToFile
 
-+(void)saveDictionaryToFile:(NSDictionary *)savedDictionary:(NSString *)fileName
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary :(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -29,7 +29,7 @@
     [savedDictionary writeToFile:filePath atomically:YES]; 
 }//saveDictionaryToFile
 
-+(void)saveMutableArrayToFile:(NSMutableArray *)savedArray:(NSString *)fileName
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray :(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -37,7 +37,7 @@
     [savedArray writeToFile:filePath atomically:YES];
 }//saveMutableArrayToFile
 
-+(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName
++(void)saveArrayToFile:(NSArray *)savedArray :(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -63,8 +63,7 @@
     return result;
 }
 
-+(NSDictionary *)loadDictionaryWithName:(NSString *)fileName
-{
++(NSDictionary *)loadDictionaryWithName:(NSString *)fileName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     fileName = [[NSString alloc]initWithFormat:@"%@.plist",fileName];
@@ -73,8 +72,7 @@
     return result;
 }
 
-+(NSArray *)loadArrayWithName:(NSString *)fileName
-{
++(NSArray *)loadArrayWithName:(NSString *)fileName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     fileName = [[NSString alloc]initWithFormat:@"%@.plist",fileName];
@@ -83,8 +81,7 @@
     return result;
 }
 
-+(void)generateCacheDB
-{
++(void)generateCacheDB {
     NSMutableArray *database = [[NSMutableArray alloc]init];
     NSFileManager *fileMan = [[NSFileManager alloc]init];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -112,8 +109,7 @@
     [database writeToFile:dbPath atomically:YES];
 }//generateCacheDB
 
-+(void)checkCacheAge
-{
++(void)checkCacheAge {
     NSFileManager *fileManager = [[NSFileManager alloc]init];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -182,6 +178,17 @@
     else {return YES;}
 }//firmwareIsHigherThanFour
 
++(void)presentViewController:(UIViewController *) theViewController withParent:(UIViewController *) parentViewController
+{
+    if ([MSUtilities firmwareIsHigherThanFour]) {
+        //iOS5 and higher only
+        [parentViewController presentViewController:theViewController animated:YES completion:NULL];
+    } else {
+        //All others
+        [parentViewController presentModalViewController:theViewController animated:YES];
+    }
+}
+
 /*
  Connectivity testing code pulled from Apple's Reachability Example: http://developer.apple.com/library/ios/#samplecode/Reachability
  */
@@ -249,11 +256,6 @@
 {
     ampString = [ampString stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
     return ampString;
-}
-
-+(NSString *)cleanString:(NSString *)theString
-{
-    
 }
 
 @end

@@ -26,7 +26,15 @@
 		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
-		6F27EA8E16B8B09700444EEB /* MSTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27EA8D16B8B09700444EEB /* MSTrip.m */; };
+		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
+		6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050E16DF100A00444E18 /* MSSuggestion.m */; };
+		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
+		6F24051616DF106700444E18 /* MSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051516DF106700444E18 /* MSAddress.m */; };
+		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
+		6F24051C16DF107F00444E18 /* MSMonument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051B16DF107F00444E18 /* MSMonument.m */; };
+		6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051E16DF18AE00444E18 /* MSVariation.m */; };
+		6F24052216DF18BF00444E18 /* MSSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24052116DF18BF00444E18 /* MSSegment.m */; };
+		6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27EA8D16B8B09700444EEB /* MSRoute.m */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
@@ -54,6 +62,25 @@
 		6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
+		6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7E616D6F51F00896532 /* MSTextField.m */; };
+		6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */; };
+		6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */; };
+		6FD5E7F116D6FEE600896532 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */; };
+		6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */; };
+		6FD5E7F516D6FFAB00896532 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F416D6FFAB00896532 /* AVFoundation.framework */; };
+		6FD5E7F716D6FFB400896532 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F616D6FFB400896532 /* CoreData.framework */; };
+		6FD5E7F916D6FFC000896532 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F816D6FFC000896532 /* CoreLocation.framework */; };
+		6FD5E7FB16D6FFCC00896532 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FA16D6FFCC00896532 /* CoreText.framework */; };
+		6FD5E7FD16D6FFD500896532 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FC16D6FFD500896532 /* GLKit.framework */; };
+		6FD5E7FF16D6FFDF00896532 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FE16D6FFDF00896532 /* ImageIO.framework */; };
+		6FD5E80116D6FFF400896532 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80016D6FFF400896532 /* libicucore.dylib */; };
+		6FD5E80316D7000100896532 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80216D7000100896532 /* libstdc++.dylib */; };
+		6FD5E80516D7000D00896532 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80416D7000D00896532 /* libz.dylib */; };
+		6FD5E80716D7001800896532 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80616D7001800896532 /* OpenGLES.framework */; };
+		6FD5E80916D7002700896532 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80816D7002700896532 /* QuartzCore.framework */; };
+		6FD5E80E16D70BD500896532 /* apiKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E80D16D70BD500896532 /* apiKeys.m */; };
+		6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E81016D71D1900896532 /* TripHistoryViewController.m */; };
+		6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
@@ -106,8 +133,24 @@
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
-		6F27EA8C16B8B09700444EEB /* MSTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTrip.h; sourceTree = "<group>"; };
-		6F27EA8D16B8B09700444EEB /* MSTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTrip.m; sourceTree = "<group>"; };
+		6F24050A16DEC9CE00444E18 /* MSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSQuery.h; sourceTree = "<group>"; };
+		6F24050B16DEC9CE00444E18 /* MSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSQuery.m; sourceTree = "<group>"; };
+		6F24050D16DF100A00444E18 /* MSSuggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSuggestion.h; sourceTree = "<group>"; };
+		6F24050E16DF100A00444E18 /* MSSuggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSuggestion.m; sourceTree = "<group>"; };
+		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
+		6F24051216DF105C00444E18 /* MSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocation.m; sourceTree = "<group>"; };
+		6F24051416DF106700444E18 /* MSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAddress.h; sourceTree = "<group>"; };
+		6F24051516DF106700444E18 /* MSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAddress.m; sourceTree = "<group>"; };
+		6F24051716DF107500444E18 /* MSStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStop.h; sourceTree = "<group>"; };
+		6F24051816DF107500444E18 /* MSStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStop.m; sourceTree = "<group>"; };
+		6F24051A16DF107F00444E18 /* MSMonument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMonument.h; sourceTree = "<group>"; };
+		6F24051B16DF107F00444E18 /* MSMonument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMonument.m; sourceTree = "<group>"; };
+		6F24051D16DF18AD00444E18 /* MSVariation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVariation.h; sourceTree = "<group>"; };
+		6F24051E16DF18AE00444E18 /* MSVariation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVariation.m; sourceTree = "<group>"; };
+		6F24052016DF18BF00444E18 /* MSSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSegment.h; sourceTree = "<group>"; };
+		6F24052116DF18BF00444E18 /* MSSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSegment.m; sourceTree = "<group>"; };
+		6F27EA8C16B8B09700444EEB /* MSRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRoute.h; sourceTree = "<group>"; };
+		6F27EA8D16B8B09700444EEB /* MSRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRoute.m; sourceTree = "<group>"; };
 		6F378F0A1526869B00FCA44D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6F415619150553D400A5DB67 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
@@ -148,6 +191,29 @@
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
 		6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationInstructionSheet.m; sourceTree = "<group>"; };
+		6FD5E7E516D6F51F00896532 /* MSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextField.h; sourceTree = "<group>"; };
+		6FD5E7E616D6F51F00896532 /* MSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTextField.m; sourceTree = "<group>"; };
+		6FD5E7EB16D6FC9D00896532 /* MSMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMapCell.h; sourceTree = "<group>"; };
+		6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMapCell.m; sourceTree = "<group>"; };
+		6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMapCell.xib; sourceTree = "<group>"; };
+		6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		6FD5E7F416D6FFAB00896532 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6FD5E7F616D6FFB400896532 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6FD5E7F816D6FFC000896532 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6FD5E7FA16D6FFCC00896532 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		6FD5E7FC16D6FFD500896532 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		6FD5E7FE16D6FFDF00896532 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6FD5E80016D6FFF400896532 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		6FD5E80216D7000100896532 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		6FD5E80416D7000D00896532 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6FD5E80616D7001800896532 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6FD5E80816D7002700896532 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6FD5E80C16D70BD500896532 /* apiKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
+		6FD5E80D16D70BD500896532 /* apiKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = apiKeys.m; sourceTree = "<group>"; };
+		6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripHistoryViewController.h; sourceTree = "<group>"; };
+		6FD5E81016D71D1900896532 /* TripHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripHistoryViewController.m; sourceTree = "<group>"; };
+		6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryViewController.xib; sourceTree = "<group>"; };
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
@@ -167,10 +233,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD5E80916D7002700896532 /* QuartzCore.framework in Frameworks */,
+				6FD5E80716D7001800896532 /* OpenGLES.framework in Frameworks */,
+				6FD5E80516D7000D00896532 /* libz.dylib in Frameworks */,
+				6FD5E80316D7000100896532 /* libstdc++.dylib in Frameworks */,
+				6FD5E80116D6FFF400896532 /* libicucore.dylib in Frameworks */,
+				6FD5E7FF16D6FFDF00896532 /* ImageIO.framework in Frameworks */,
+				6FD5E7FD16D6FFD500896532 /* GLKit.framework in Frameworks */,
+				6FD5E7FB16D6FFCC00896532 /* CoreText.framework in Frameworks */,
+				6FD5E7F916D6FFC000896532 /* CoreLocation.framework in Frameworks */,
+				6FD5E7F716D6FFB400896532 /* CoreData.framework in Frameworks */,
+				6FD5E7F516D6FFAB00896532 /* AVFoundation.framework in Frameworks */,
 				6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */,
 				4316805615013E4100A41785 /* UIKit.framework in Frameworks */,
 				4316805815013E4100A41785 /* Foundation.framework in Frameworks */,
 				4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */,
+				6FD5E7F116D6FEE600896532 /* GoogleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +268,17 @@
 		4316804615013E4100A41785 = {
 			isa = PBXGroup;
 			children = (
+				6FD5E80816D7002700896532 /* QuartzCore.framework */,
+				6FD5E80616D7001800896532 /* OpenGLES.framework */,
+				6FD5E80416D7000D00896532 /* libz.dylib */,
+				6FD5E80216D7000100896532 /* libstdc++.dylib */,
+				6FD5E80016D6FFF400896532 /* libicucore.dylib */,
+				6FD5E7FE16D6FFDF00896532 /* ImageIO.framework */,
+				6FD5E7FC16D6FFD500896532 /* GLKit.framework */,
+				6FD5E7FA16D6FFCC00896532 /* CoreText.framework */,
+				6FD5E7F816D6FFC000896532 /* CoreLocation.framework */,
+				6FD5E7F616D6FFB400896532 /* CoreData.framework */,
+				6FD5E7F416D6FFAB00896532 /* AVFoundation.framework */,
 				6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */,
 				6F3D82E7162B423600313642 /* SystemConfiguration.framework */,
 				6F60B86D1526ACD100FFCD99 /* Icons */,
@@ -212,6 +301,8 @@
 		4316805415013E4100A41785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */,
+				6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */,
 				4316805515013E4100A41785 /* UIKit.framework */,
 				4316805715013E4100A41785 /* Foundation.framework */,
 				4316805915013E4100A41785 /* CoreGraphics.framework */,
@@ -265,6 +356,8 @@
 				4316805E15013E4100A41785 /* InfoPlist.strings */,
 				4316806115013E4100A41785 /* main.m */,
 				4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */,
+				6FD5E80C16D70BD500896532 /* apiKeys.h */,
+				6FD5E80D16D70BD500896532 /* apiKeys.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -288,11 +381,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6F24051016DF104700444E18 /* Location Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6F24051416DF106700444E18 /* MSAddress.h */,
+				6F24051516DF106700444E18 /* MSAddress.m */,
+				6F24051116DF105C00444E18 /* MSLocation.h */,
+				6F24051216DF105C00444E18 /* MSLocation.m */,
+				6F24051A16DF107F00444E18 /* MSMonument.h */,
+				6F24051B16DF107F00444E18 /* MSMonument.m */,
+				6F24051716DF107500444E18 /* MSStop.h */,
+				6F24051816DF107500444E18 /* MSStop.m */,
+			);
+			name = "Location Classes";
+			sourceTree = "<group>";
+		};
 		6F27EA8A16B8AFEA00444EEB /* Structure Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6F27EA8C16B8B09700444EEB /* MSTrip.h */,
-				6F27EA8D16B8B09700444EEB /* MSTrip.m */,
+				6F24051016DF104700444E18 /* Location Classes */,
+				6F24050A16DEC9CE00444E18 /* MSQuery.h */,
+				6F24050B16DEC9CE00444E18 /* MSQuery.m */,
+				6F24052016DF18BF00444E18 /* MSSegment.h */,
+				6F24052116DF18BF00444E18 /* MSSegment.m */,
+				6F24050D16DF100A00444E18 /* MSSuggestion.h */,
+				6F24050E16DF100A00444E18 /* MSSuggestion.m */,
+				6F27EA8C16B8B09700444EEB /* MSRoute.h */,
+				6F27EA8D16B8B09700444EEB /* MSRoute.m */,
+				6F24051D16DF18AD00444E18 /* MSVariation.h */,
+				6F24051E16DF18AE00444E18 /* MSVariation.m */,
 			);
 			name = "Structure Classes";
 			sourceTree = "<group>";
@@ -338,6 +455,10 @@
 				6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */,
 				6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */,
 				6FF7AC9016B7327200567861 /* SavedRouteViewController.m */,
+				6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */,
+				6FD5E81016D71D1900896532 /* TripHistoryViewController.m */,
+				6FD5E7E516D6F51F00896532 /* MSTextField.h */,
+				6FD5E7E616D6F51F00896532 /* MSTextField.m */,
 			);
 			name = "Custom UI Features";
 			sourceTree = "<group>";
@@ -349,6 +470,7 @@
 				6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */,
 				6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */,
 				6FF7AC9116B7327200567861 /* SavedRouteView.xib */,
+				6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */,
 			);
 			name = "NIB Files";
 			sourceTree = "<group>";
@@ -356,6 +478,9 @@
 		6FF56FA6158BC49C00CC015C /* Tableview Cells */ = {
 			isa = PBXGroup;
 			children = (
+				6FD5E7EB16D6FC9D00896532 /* MSMapCell.h */,
+				6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */,
+				6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */,
 				4342D4521582611600A4A558 /* MSTableViewCell.h */,
 				4342D4531582611600A4A558 /* MSTableViewCell.m */,
 				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
@@ -473,6 +598,9 @@
 				6F580A97169925D700BAE14E /* stop.png in Resources */,
 				6F580A98169925D700BAE14E /* transfer.png in Resources */,
 				6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */,
+				6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */,
+				6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */,
+				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,7 +661,19 @@
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
 				6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */,
 				6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */,
-				6F27EA8E16B8B09700444EEB /* MSTrip.m in Sources */,
+				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
+				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,
+				6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */,
+				6FD5E80E16D70BD500896532 /* apiKeys.m in Sources */,
+				6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */,
+				6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */,
+				6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */,
+				6F24051316DF105C00444E18 /* MSLocation.m in Sources */,
+				6F24051616DF106700444E18 /* MSAddress.m in Sources */,
+				6F24051916DF107500444E18 /* MSStop.m in Sources */,
+				6F24051C16DF107F00444E18 /* MSMonument.m in Sources */,
+				6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */,
+				6F24052216DF18BF00444E18 /* MSSegment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -597,10 +737,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -608,7 +750,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -620,17 +762,24 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
 		4316809315013E4200A41785 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
@@ -644,6 +793,11 @@
 		4316809415013E4200A41785 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";

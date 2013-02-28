@@ -19,6 +19,7 @@
 #import "SubmitButton.h"
 #import "MSSuggestionBox.h"
 #import "PlaceViewController.h"
+#import "MSQuery.h"
 
 @interface navigoViewController : UniversalViewController <UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UIDatePicker *timePicker;
@@ -61,6 +62,8 @@
 //Tells the tableview delegate which field is currently selected so it can send the text to the correct one
 @property (nonatomic, retain) NSString *currentField;
 
+@property (nonatomic, retain) MSQuery *query;
+
 //Activiated when the submit button is clicked (duh)
 -(IBAction)submitButtonClick;
 //Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
@@ -77,6 +80,8 @@
 -(IBAction)testButton;
 
 -(IBAction)tripHistoryButton;
+
+-(void)resetDatePickers;
 
 //Actions for origin, destination and time/date labels/buttons
 -(IBAction)originLabelClick;

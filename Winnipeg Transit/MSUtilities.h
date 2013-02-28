@@ -10,13 +10,13 @@
 
 @interface MSUtilities : NSObject
 
-+(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary:(NSString *)fileName;
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary :(NSString *)fileName;
 
-+(void)saveDictionaryToFile:(NSDictionary *)savedDictionary:(NSString *)fileName;
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary :(NSString *)fileName;
 
-+(void)saveMutableArrayToFile:(NSMutableArray *)savedArray:(NSString *)fileName;
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray :(NSString *)fileName;
 
-+(void)saveArrayToFile:(NSArray *)savedArray:(NSString *)fileName;
++(void)saveArrayToFile:(NSArray *)savedArray :(NSString *)fileName;
 
 +(BOOL)fileExists:(NSString *)fileName;
 
@@ -36,12 +36,12 @@
 
 +(BOOL)firmwareIsHigherThanFour;
 
++(void)presentViewController:(UIViewController *) theViewController withParent:(UIViewController *) parentViewController;
+
 +(BOOL)hasInternet;
 
 +(BOOL)isQueryBlank:(NSString *)query;
 
 +(NSString *)fixAmpersand:(NSString *)ampString;
-
-+(NSString *)cleanString:(NSString *)theString;
 
 @end

@@ -104,6 +104,7 @@ NSDictionary *resultDictionary;
 
 - (void)viewDidUnload
 {
+    currentFile = NULL;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

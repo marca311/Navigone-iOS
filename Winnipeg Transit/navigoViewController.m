@@ -46,6 +46,7 @@
 @synthesize suggestionBox;
 @synthesize originResults, destinationResults, currentField;
 @synthesize history;
+@synthesize query;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,14 +74,19 @@
 }
 */
 
-- (UIToolbar *) accessoryView
+#warning  TODO: Make this into a separate class
+- (UIToolbar *) accessoryView:(NSString *)field
 {
 	pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 44.0f)];
 	pickerBar.tintColor = [UIColor darkGrayColor];
 	
 	NSMutableArray *items = [NSMutableArray array];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap)];
+    UIBarButtonItem *nowButton = [[UIBarButtonItem alloc]initWithTitle:@"Now" style:UIBarButtonItemStyleDone target:self action:@selector(resetTimePicker)];
+    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]initWithTitle:@"Today" style:UIBarButtonItemStyleDone target:self action:@selector(resetDatePicker)];
 	[items addObject:doneButton];
+    if ([field isEqualToString:@"time"]) [items addObject:nowButton];
+    if ([field isEqualToString:@"date"]) [items addObject:todayButton];
 	pickerBar.items = items;	
 	
 	return pickerBar;
@@ -92,14 +98,9 @@
     //timeField = [navigoViewLibrary timePickerInputFormat:self.view];
   
     //setting accessory views
-    timeField.inputAccessoryView = [self accessoryView];
-    dateField.inputAccessoryView = [self accessoryView];
-    mode.inputAccessoryView = [self accessoryView];
-    walkSpeed.inputAccessoryView = [self accessoryView];
-    minTransferWait.inputAccessoryView = [self accessoryView];
-    maxTransferWait.inputAccessoryView = [self accessoryView];
-    maxWalkTime.inputAccessoryView = [self accessoryView];
-    maxTransfers.inputAccessoryView = [self accessoryView];
+    timeField.inputAccessoryView = [self accessoryView:@"time"];
+    dateField.inputAccessoryView = [self accessoryView:@"date"];
+    mode.inputAccessoryView = [self accessoryView:@"mode"];
     
     
     //setting up the time picker
@@ -159,8 +160,9 @@
             NSString *message = [[NSString alloc]initWithFormat:@"You appear to have missed a field or two, go check whether you have all of the fields filled"];
             UIAlertView *emptyFieldAlert = [[UIAlertView alloc]initWithTitle:@"Uh oh" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [emptyFieldAlert show];
+        } else {
+            [AnimationInstructionSheet toNextStage:self];
         }
-        [AnimationInstructionSheet toNextStage:self];
     }
     else {
         DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
@@ -193,11 +195,7 @@
                     navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
                     [resultView setRoute:fileName];
                     [activityView animateRemove];
-                    if ([MSUtilities firmwareIsHigherThanFour]) {
-                        [self presentViewController:resultView animated:YES completion:NULL];
-                    } else {
-                        [self presentModalViewController:resultView animated:YES];
-                    }
+                    [MSUtilities presentViewController:resultView withParent:self];
                 }
 
             });
@@ -232,10 +230,7 @@
     destination.text = @"";
     [queriedDictionary removeAllObjects];
     [submitButton setTitle:@"Next" forState:UIControlStateNormal];
-    NSString *display = [navigoViewLibrary timeFromNSDate:[NSDate date]];
-    timeField.text = display;
-    display = [navigoViewLibrary dateFromNSDate:[NSDate date]];
-    dateField.text = display;
+    [self resetDatePickers];
     mode.text = @"Depart After";
     [originLabel setTitle:@"Origin" forState:UIControlStateNormal];
     [destinationLabel setTitle:@"Destination" forState:UIControlStateNormal];
@@ -246,11 +241,7 @@
 {
     navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
     [resultView setRoute:@"Route1"];
-    if ([MSUtilities firmwareIsHigherThanFour]) {
-        [self presentViewController:resultView animated:YES completion:NULL];
-    } else {
-        [self presentModalViewController:resultView animated:YES];
-    }
+    [MSUtilities presentViewController:resultView withParent:self];
 }
 
 //Actions for origin, destination and time/date labels/buttons
@@ -270,11 +261,22 @@
 -(IBAction)tripHistoryButton
 {
     SavedRouteViewController *tripHistoryController = [[SavedRouteViewController alloc]initSavedRouteViewController];
-    if ([MSUtilities firmwareIsHigherThanFour]) {
-        [self presentViewController:tripHistoryController animated:YES completion:NULL];
-    } else {
-        [self presentModalViewController:tripHistoryController animated:YES];
-    }
+    [MSUtilities presentViewController:tripHistoryController withParent:self];
+}
+
+-(void)resetDatePickers {
+    [self resetTimePicker];
+    [self resetDatePicker];
+}
+-(void)resetTimePicker {
+    [timePicker setDate:[NSDate date]];
+    NSString *display = [navigoViewLibrary timeFromNSDate:[NSDate date]];
+    timeField.text = display;
+}
+-(void)resetDatePicker {
+    [datePicker setDate:[NSDate date]];
+    NSString *display = [navigoViewLibrary dateFromNSDate:[NSDate date]];
+    dateField.text = display;
 }
 
 #pragma mark - Method to detect whether all fields are filled
@@ -339,13 +341,7 @@
 {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
-        if ([MSUtilities firmwareIsHigherThanFour]) {
-            //iOS5 and higher only
-            [self presentViewController:history animated:YES completion:NULL];
-        } else {
-            //All others
-            [self presentModalViewController:history animated:YES];
-        }
+        [MSUtilities presentViewController:history withParent:self];
     } else {
         NSArray *answerArray = [[NSArray alloc]init];
         answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
@@ -354,9 +350,11 @@
         [suggestionBox.tableView removeFromSuperview];
         suggestionBox = nil;
         if ([currentField isEqualToString:@"origin"]) {
+            [query setOrigin:answer];
             [queriedDictionary setObject:answerArray forKey:@"origin"];
             [originLabel setTitle:answer forState:UIControlStateNormal];
         } else if ([currentField isEqualToString:@"destination"]) {
+            [query setDestination:answer];
             [queriedDictionary setObject:answerArray forKey:@"destination"];
             [destinationLabel setTitle:answer forState:UIControlStateNormal];
         }

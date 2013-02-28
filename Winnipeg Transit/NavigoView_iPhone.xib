@@ -426,6 +426,7 @@
 						<string key="NSFrame">{{126, 404}, {109, 37}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -917,6 +918,7 @@
 				<string key="113.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="113.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="113.showNotes"/>
+				<string key="114.CustomClassName">MSTextField</string>
 				<string key="114.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="114.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="114.showNotes"/>
@@ -928,6 +930,7 @@
 				<string key="116.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="116.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="116.showNotes"/>
+				<string key="117.CustomClassName">MSTextField</string>
 				<string key="117.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="117.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="117.showNotes"/>
@@ -941,6 +944,7 @@
 				<string key="120.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="120.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="120.showNotes"/>
+				<string key="121.CustomClassName">MSTextField</string>
 				<string key="121.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="121.IBUserGuides" ref="0"/>
 				<boolean value="NO" key="121.showNotes"/>
@@ -971,6 +975,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">MSTextField</string>
+					<string key="superclassName">UITextField</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MSTextField.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">SubmitButton</string>
 					<string key="superclassName">UIButton</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -984,7 +996,6 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="dismissKeyboard:">id</string>
 						<string key="dismissView">id</string>
-						<string key="dismissView:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="dismissKeyboard:">
@@ -993,10 +1004,6 @@
 						</object>
 						<object class="IBActionInfo" key="dismissView">
 							<string key="name">dismissView</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="dismissView:">
-							<string key="name">dismissView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
