@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MSLocation.h"
 
-@interface MSAddress : MSLocation
+@interface MSAddress : MSLocation {
+    NSString *houseNumber;
+    NSString *streetName;
+}
+
+-(id)initWithElement:(TBXMLElement *)theElement;
 
 @end

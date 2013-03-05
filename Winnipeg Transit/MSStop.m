@@ -10,4 +10,10 @@
 
 @implementation MSStop
 
+-(id)initWithElement:(TBXMLElement *)theElement {
+    self = [super initWithElement:theElement];
+    //call class specific methods
+    return self;
+}
+
 @end

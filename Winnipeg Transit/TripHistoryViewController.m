@@ -8,11 +8,9 @@
 
 #import "TripHistoryViewController.h"
 
-@interface TripHistoryViewController ()
-
-@end
-
 @implementation TripHistoryViewController
+
+@synthesize theTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +31,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#warning I still need to put in other delegate/datasource methods for the tableview
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *uniqueIdentifier = @"PlanCellIdentifier";
+    TripHistoryCell *cell = nil;
+    cell = (TripHistoryCell *) [self.theTableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if (cell == nil)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"PlanTableViewCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (TripHistoryCell *)currentObject;
+                break;
+            }
+        }
+    }
+    //put in assignments for cell objects
+    return cell;
+
 }
 
 @end

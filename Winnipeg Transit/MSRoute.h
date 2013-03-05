@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
+#import "MSVariation.h"
 
 @interface MSRoute : NSObject
 {

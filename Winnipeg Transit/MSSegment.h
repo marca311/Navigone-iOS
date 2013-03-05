@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBXML.h"
+#import "XMLParser.h"
+#import "MSLocation.h"
 
-@interface MSSegment : NSObject
+@interface MSSegment : NSObject {
+    NSString *type;
+    NSDate *startTime;
+    NSDate *endTime;
+    NSString *totalTime;        //Usually only two of these time variables are used
+    NSString *walkingTime;
+    NSString *waitingTime;
+    NSString *ridingTime;
+    MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
+    MSLocation *toLocation;
+    
+    TBXMLElement *rootElement;
+}
+
+-(id)initWithElement:(TBXMLElement *)theElement;
 
 @end

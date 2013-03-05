@@ -58,6 +58,9 @@
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7646A8159E9E6D008AEE88 /* MSExitBar.m */; };
 		6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F91DBA515BD03D1005B9B7A /* SubmitButton.m */; };
+		6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */; };
+		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
+		6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387416E5C2EB00D7C076 /* cell_separator.png */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
 		6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
@@ -184,6 +187,10 @@
 		6F7646A8159E9E6D008AEE88 /* MSExitBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSExitBar.m; sourceTree = "<group>"; };
 		6F91DBA415BD03D1005B9B7A /* SubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitButton.h; sourceTree = "<group>"; };
 		6F91DBA515BD03D1005B9B7A /* SubmitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitButton.m; sourceTree = "<group>"; };
+		6F9A386F16E5C1AD00D7C076 /* TripHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripHistoryCell.h; sourceTree = "<group>"; };
+		6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripHistoryCell.m; sourceTree = "<group>"; };
+		6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCell.xib; sourceTree = "<group>"; };
+		6F9A387416E5C2EB00D7C076 /* cell_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_separator.png; sourceTree = "<group>"; };
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayTableViewController.m; sourceTree = "<group>"; };
@@ -342,6 +349,7 @@
 				430505A215177FAE00C08BC7 /* MSUtilities.m */,
 				6FDEA9741587955F00D363EC /* DejalActivityView.h */,
 				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
+				6F9A387416E5C2EB00D7C076 /* cell_separator.png */,
 				6F5802F21587F86A0031A17E /* separator.png */,
 				6F415616150553D400A5DB67 /* TBXML */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
@@ -490,6 +498,9 @@
 				6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */,
 				6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */,
 				6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */,
+				6F9A386F16E5C1AD00D7C076 /* TripHistoryCell.h */,
+				6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */,
+				6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -601,6 +612,8 @@
 				6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */,
 				6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */,
 				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
+				6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */,
+				6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +687,7 @@
 				6F24051C16DF107F00444E18 /* MSMonument.m in Sources */,
 				6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */,
 				6F24052216DF18BF00444E18 /* MSSegment.m in Sources */,
+				6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

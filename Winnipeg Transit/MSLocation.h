@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
+#import "MSRoute.h"
 
-@interface MSLocation : NSObject
-
-@property (nonatomic, retain) NSString *latitude;
-@property (nonatomic, retain) NSString *longitude;
-@property (nonatomic)         TBXMLElement *rootElement;
+@interface MSLocation : NSObject {
+    NSString *key;
+    NSString *latitude;
+    NSString *longitude;
+    TBXMLElement *rootElement;
+}
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 

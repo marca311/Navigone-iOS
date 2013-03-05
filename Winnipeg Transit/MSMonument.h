@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSLocation.h"
+#import "MSAddress.h"
 
-@interface MSMonument : MSLocation
+@interface MSMonument : MSAddress {
+    NSString *monumentName;
+}
+
+-(id)initWithElement:(TBXMLElement *)theElement;
 
 @end

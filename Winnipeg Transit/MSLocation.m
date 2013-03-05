@@ -10,8 +10,6 @@
 
 @implementation MSLocation
 
-@synthesize latitude, longitude, rootElement;
-
 -(id)initWithElement:(TBXMLElement *)theElement {
     rootElement = theElement;
     return self;

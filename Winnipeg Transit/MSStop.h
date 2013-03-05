@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MSLocation.h"
 
-@interface MSStop : MSLocation
+@interface MSStop : MSLocation {
+    NSString *stopNumber;
+    NSString *stopName;
+}
+
+-(id)initWithElement:(TBXMLElement *)theElement;
 
 @end

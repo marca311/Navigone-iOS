@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TripHistoryCell.h"
 
-@interface TripHistoryViewController : UIViewController
+@interface TripHistoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    UITableView *theTableView;
+}
 
+@property (nonatomic, retain) IBOutlet UITableView *theTableView;
 
 
 @end
