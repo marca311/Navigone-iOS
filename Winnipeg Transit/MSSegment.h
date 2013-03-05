@@ -19,8 +19,8 @@
     NSString *walkingTime;
     NSString *waitingTime;
     NSString *ridingTime;
-    MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
-    MSLocation *toLocation;
+    //MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
+    //MSLocation *toLocation;
     
     TBXMLElement *rootElement;
 }
