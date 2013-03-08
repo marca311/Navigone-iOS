@@ -134,6 +134,13 @@
     
     queriedDictionary = [[NSMutableDictionary alloc]init];
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        CGRect theFrame = dateField.frame;
+        theFrame.origin.x = 200;
+        theFrame.size.width = 20;
+        dateField.frame = theFrame;
+    }
+    
     NSLog(@"Main UI Loaded");
     
     if (![MSUtilities fileExists:@"SearchHistory.plist"]) {
