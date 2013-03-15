@@ -7,13 +7,20 @@
 //
 
 #import "MSStop.h"
+#import "XMLParser.h"
 
 @implementation MSStop
 
 -(id)initWithElement:(TBXMLElement *)theElement {
     self = [super initWithElement:theElement];
-    //call class specific methods
+    [self getKey];
     return self;
+}
+
+-(void)getKey {
+    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
+   key = [XMLParser getValueFromElement:keyElement];
+
 }
 
 @end

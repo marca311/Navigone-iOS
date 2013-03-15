@@ -59,7 +59,7 @@ NSMutableDictionary *queriedDictionary;
 
 +(NSString *)replaceInvalidCharacters:(NSString *)theString
 {
-    NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890- "];
+    NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@- "];
     theSet = [theSet invertedSet];
     theString = [[theString componentsSeparatedByCharactersInSet:theSet ]componentsJoinedByString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"*" withString:@""];
@@ -646,7 +646,7 @@ NSMutableDictionary *queriedDictionary;
         result = [self getAddressDetails:planLayer];
         [result setObject:@"Address" forKey:@"Type"];
     } else if ([locationType isEqualToString:@"intersection"]) {
-        result = [self getAddressDetails:planLayer];
+        result = [self getIntersectionDetails:planLayer];
         [result setObject:@"Intersection" forKey:@"Type"];
     } else if ([locationType isEqualToString:@"point"]) {
         result = [self getPointDetails:planLayer];
@@ -670,7 +670,7 @@ NSMutableDictionary *queriedDictionary;
         result = [self getAddressDetails:planLayer];
         [result setObject:@"Address" forKey:@"Type"];
     } else if ([locationType isEqualToString:@"intersection"]) {
-        result = [self getAddressDetails:planLayer];
+        result = [self getIntersectionDetails:planLayer];
         [result setObject:@"Intersection" forKey:@"Type"];
     }
     [result setObject:@"Destination" forKey:@"Static"];
@@ -865,6 +865,8 @@ NSMutableDictionary *queriedDictionary;
             [result addObject:[self addressHInterpreter:currentDictionary:currentTime]];
         } else if ([locationType isEqualToString:@"Stop"]) {
             [result addObject:[self stopHInterpreter:currentDictionary:currentTime]];
+        } else if ([locationType isEqualToString:@"Intersection"]) {
+            [result addObject:[self intersectionHInterpreter:currentDictionary:currentTime]];
         } else if ([locationType isEqualToString:@"Monument"]) {
             [result addObject:[self monumentHInterpreter:currentDictionary:currentTime]];
         } else if ([locationType isEqualToString:@"Point"]) {
@@ -909,6 +911,16 @@ NSMutableDictionary *queriedDictionary;
     [result addObject:time];
     return result;
 }//addressHInterpreter
+
++(NSMutableArray *)intersectionHInterpreter:(NSDictionary *)dictionary :(NSString *)time
+{
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    NSString *text = [dictionary objectForKey:@"Human Readable"];
+    [result addObject:@"intersection"];
+    [result addObject:text];
+    [result addObject:time];
+    return result;
+}//intersectionHInterpreter
 
 +(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary :(NSString *)time
 {

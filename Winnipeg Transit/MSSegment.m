@@ -15,15 +15,26 @@
     return self;
 }
 
--(void)setLocationTypes {
-    //Only called if segment type is not a ride
-    if (![type isEqualToString:@"ride"]) {
-        TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"from" :rootElement];
-        TBXMLElement *childElement = [XMLParser extractUnknownChildElement:theElement];
-        if ([[XMLParser getElementName:childElement] isEqualToString:@"origin"]) {
-            childElement = [XMLParser extractUnknownChildElement:childElement];
-        }
++(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement {
+    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"from" :rootElement];
+    TBXMLElement *childElement = [XMLParser extractUnknownChildElement:theElement];
+    //if the location is the route origin/destination, go down one more level
+    if ([[XMLParser getElementName:childElement] isEqualToString:@"origin"] || [[XMLParser getElementName:childElement] isEqualToString:@"destination"]) {
+        childElement = [XMLParser extractUnknownChildElement:childElement];
     }
+    NSString *locationType = [XMLParser getElementName:childElement];
+    if ([locationType isEqualToString:@"address"]) {
+        return [[MSAddress alloc]initWithElement:childElement];
+    } else if ([locationType isEqualToString:@"stop"]) {
+        return [[MSStop alloc]initWithElement:childElement];
+    } else if ([locationType isEqualToString:@"monument"]) {
+        return [[MSMonument alloc]initWithElement:childElement];
+    } else if ([locationType isEqualToString:@"point"]) {
+        return [[MSLocation alloc]initWithElement:childElement];
+    } else if ([locationType isEqualToString:@"intersection"]) {
+        return [[MSIntersection alloc]initWithElement:childElement];
+    }
+    return NULL;
 }
 
 @end

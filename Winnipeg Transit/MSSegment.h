@@ -10,6 +10,10 @@
 #import "TBXML.h"
 #import "XMLParser.h"
 #import "MSLocation.h"
+#import "MSAddress.h"
+#import "MSMonument.h"
+#import "MSStop.h"
+#import "MSIntersection.h"
 
 @interface MSSegment : NSObject {
     NSString *type;
@@ -19,12 +23,14 @@
     NSString *walkingTime;
     NSString *waitingTime;
     NSString *ridingTime;
-    //MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
-    //MSLocation *toLocation;
+    MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
+    MSLocation *toLocation;
     
     TBXMLElement *rootElement;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;
+
++(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement;
 
 @end

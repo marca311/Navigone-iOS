@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
-#import "MSRoute.h"
+
+@class MSLocation;
 
 @interface MSLocation : NSObject {
-    NSString *key;
     NSString *latitude;
     NSString *longitude;
     TBXMLElement *rootElement;
 }
+
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 

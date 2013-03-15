@@ -7,13 +7,20 @@
 //
 
 #import "MSAddress.h"
+#import "XMLParser.h"
 
 @implementation MSAddress
 
 -(id)initWithElement:(TBXMLElement *)theElement {
     self = [super initWithElement:theElement];
-    //call class specific methods
+    [self getKey];
     return self;
+}
+
+-(void)getKey {
+    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
+    NSString *keyNumber = [XMLParser getValueFromElement:keyElement];
+    key = [NSString stringWithFormat:@"addresses/%@",keyNumber];
 }
 
 @end

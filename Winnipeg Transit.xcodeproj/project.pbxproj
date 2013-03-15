@@ -51,6 +51,7 @@
 		6F580A98169925D700BAE14E /* transfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F580A93169925D700BAE14E /* transfer.png */; };
 		6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */; };
 		6F5BD0A9166B1DE40077B2EB /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */; };
+		6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
 		6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B86B1526AB6B00FFCD99 /* Icon-72.png */; };
@@ -176,6 +177,8 @@
 		6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
+		6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSIntersection.h; sourceTree = "<group>"; };
+		6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSIntersection.m; sourceTree = "<group>"; };
 		6F60B8671526AB0200FFCD99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6F60B8691526AB0C00FFCD99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6F60B86B1526AB6B00FFCD99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 			children = (
 				6F24051416DF106700444E18 /* MSAddress.h */,
 				6F24051516DF106700444E18 /* MSAddress.m */,
+				6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */,
+				6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */,
 				6F24051116DF105C00444E18 /* MSLocation.h */,
 				6F24051216DF105C00444E18 /* MSLocation.m */,
 				6F24051A16DF107F00444E18 /* MSMonument.h */,
@@ -688,6 +693,7 @@
 				6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */,
 				6F24052216DF18BF00444E18 /* MSSegment.m in Sources */,
 				6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */,
+				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
