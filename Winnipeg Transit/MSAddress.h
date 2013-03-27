@@ -13,6 +13,8 @@
     NSString *key;
     NSString *houseNumber;
     NSString *streetName;
+    NSString *streetType;
+    NSString *streetAbbr;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;

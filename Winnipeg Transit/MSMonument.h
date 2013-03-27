@@ -11,6 +11,7 @@
 
 @interface MSMonument : MSAddress {
     NSString *monumentName;
+    NSArray *monumentCatagories;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;

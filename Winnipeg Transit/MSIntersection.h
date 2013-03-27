@@ -10,6 +10,14 @@
 
 @interface MSIntersection : MSLocation {
     NSString *key;
+    NSString *streetKey;
+    NSString *streetName;
+    NSString *streetType;
+    NSString *streetAbbr;
+    NSString *crossStreetKey;
+    NSString *crossStreetName;
+    NSString *crossStreetType;
+    NSString *crossStreetAbbr;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;

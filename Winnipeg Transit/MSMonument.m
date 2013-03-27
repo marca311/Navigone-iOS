@@ -13,14 +13,19 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement {
     self = [super initWithElement:theElement];
-    [self getKey];
+    [self setKey];
     return self;
 }
 
--(void)getKey {
+-(void)setKey {
     TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
-    NSString *keyNumber = [XMLParser getValueFromElement:keyElement];
-    key = [NSString stringWithFormat:@"monuments/%@",keyNumber];
+    key = [XMLParser getValueFromElement:keyElement];
+}
+-(void)setMonumentName {
+    
+}
+-(void)setMonumentCatagories {
+    
 }
 
 @end

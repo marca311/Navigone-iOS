@@ -13,13 +13,13 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement {
     self = [super initWithElement:theElement];
-    [self getKey];
+    [self setKey];
     return self;
 }
 
--(void)getKey {
+-(void)setKey {
     TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
-   key = [XMLParser getValueFromElement:keyElement];
+    key = [XMLParser getValueFromElement:keyElement];
 
 }
 
