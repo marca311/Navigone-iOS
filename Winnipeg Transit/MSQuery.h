@@ -9,15 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "MSRoute.h"
 
-@interface MSQuery : NSObject
+@interface MSQuery : NSObject {
+    NSString *name;
+    NSString *origin;
+    NSString *originKey;
+    NSString *destination;
+    NSString *destinationKey;
+    //Pattern broken :(
+    NSDate *date;
+    NSString *mode;
+}
 //This class stores only querying data
 
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *origin;
-@property (nonatomic, retain) NSString *originKey;
-@property (nonatomic, retain) NSString *destination;
-@property (nonatomic, retain) NSString *destinationKey;
-@property (nonatomic, retain) NSDate *date;
-@property (nonatomic, retain) NSString *mode;
+-(void)setOrigin:(NSString *)input;
+-(void)setDestination:(NSString *)input;
 
 @end

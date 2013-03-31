@@ -10,6 +10,11 @@
 
 @implementation MSQuery
 
-@synthesize name, origin, originKey, destination, destinationKey, date, mode;
+-(void)setOrigin:(NSString *)input {
+    origin = input;
+}
+-(void)setDestination:(NSString *)input {
+    destination = input;
+}
 
 @end
