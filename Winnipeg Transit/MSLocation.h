@@ -14,6 +14,9 @@
 @interface MSLocation : NSObject {
     NSString *latitude;
     NSString *longitude;
+    NSString *utmZone;
+    NSString *utmX;
+    NSString *utmY;
     TBXMLElement *rootElement;
 }
 

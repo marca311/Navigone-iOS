@@ -29,12 +29,12 @@
 		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
 		6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050E16DF100A00444E18 /* MSSuggestion.m */; };
 		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
-		6F24051616DF106700444E18 /* MSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051516DF106700444E18 /* MSAddress.m */; };
 		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
 		6F24051C16DF107F00444E18 /* MSMonument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051B16DF107F00444E18 /* MSMonument.m */; };
 		6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051E16DF18AE00444E18 /* MSVariation.m */; };
 		6F24052216DF18BF00444E18 /* MSSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24052116DF18BF00444E18 /* MSSegment.m */; };
 		6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27EA8D16B8B09700444EEB /* MSRoute.m */; };
+		6F36798F1708C62B008FA13D /* MSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F36798E1708C62B008FA13D /* MSAddress.m */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F41561A150553D400A5DB67 /* TBXML+HTTP.m */; };
@@ -144,7 +144,6 @@
 		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
 		6F24051216DF105C00444E18 /* MSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocation.m; sourceTree = "<group>"; };
 		6F24051416DF106700444E18 /* MSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAddress.h; sourceTree = "<group>"; };
-		6F24051516DF106700444E18 /* MSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAddress.m; sourceTree = "<group>"; };
 		6F24051716DF107500444E18 /* MSStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStop.h; sourceTree = "<group>"; };
 		6F24051816DF107500444E18 /* MSStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStop.m; sourceTree = "<group>"; };
 		6F24051A16DF107F00444E18 /* MSMonument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMonument.h; sourceTree = "<group>"; };
@@ -155,6 +154,7 @@
 		6F24052116DF18BF00444E18 /* MSSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSegment.m; sourceTree = "<group>"; };
 		6F27EA8C16B8B09700444EEB /* MSRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRoute.h; sourceTree = "<group>"; };
 		6F27EA8D16B8B09700444EEB /* MSRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRoute.m; sourceTree = "<group>"; };
+		6F36798E1708C62B008FA13D /* MSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAddress.m; sourceTree = "<group>"; };
 		6F378F0A1526869B00FCA44D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6F415619150553D400A5DB67 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				6F24051416DF106700444E18 /* MSAddress.h */,
-				6F24051516DF106700444E18 /* MSAddress.m */,
+				6F36798E1708C62B008FA13D /* MSAddress.m */,
 				6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */,
 				6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */,
 				6F24051116DF105C00444E18 /* MSLocation.h */,
@@ -687,13 +687,13 @@
 				6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */,
 				6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */,
 				6F24051316DF105C00444E18 /* MSLocation.m in Sources */,
-				6F24051616DF106700444E18 /* MSAddress.m in Sources */,
 				6F24051916DF107500444E18 /* MSStop.m in Sources */,
 				6F24051C16DF107F00444E18 /* MSMonument.m in Sources */,
 				6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */,
 				6F24052216DF18BF00444E18 /* MSSegment.m in Sources */,
 				6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */,
 				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
+				6F36798F1708C62B008FA13D /* MSAddress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

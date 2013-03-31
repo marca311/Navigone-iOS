@@ -10,7 +10,6 @@
 #import "MSLocation.h"
 
 @interface MSStop : MSLocation {
-    NSString *key;
     NSString *stopNumber;
     NSString *stopName;
 }

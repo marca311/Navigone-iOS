@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MSAddress.h"
 
-@interface MSMonument : MSAddress {
+@interface MSMonument : MSLocation {
+    NSString *key;
     NSString *monumentName;
     NSArray *monumentCatagories;
+    MSAddress *monumentAddress;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;

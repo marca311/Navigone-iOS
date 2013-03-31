@@ -13,14 +13,18 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement {
     self = [super initWithElement:theElement];
-    [self setKey];
+    [self setStopNumber];
+    [self setStopName];
     return self;
 }
 
--(void)setKey {
+-(void)setStopNumber {
     TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
-    key = [XMLParser getValueFromElement:keyElement];
-
+    stopNumber = [XMLParser getValueFromElement:keyElement];
+}
+-(void)setStopName {
+    TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" :rootElement];
+    stopName = [XMLParser getValueFromElement:nameElement];
 }
 
 @end
