@@ -358,11 +358,9 @@
         suggestionBox = nil;
         if ([currentField isEqualToString:@"origin"]) {
             [query setOrigin:answer];
-            [queriedDictionary setObject:answerArray forKey:@"origin"];
             [originLabel setTitle:answer forState:UIControlStateNormal];
         } else if ([currentField isEqualToString:@"destination"]) {
             [query setDestination:answer];
-            [queriedDictionary setObject:answerArray forKey:@"destination"];
             [destinationLabel setTitle:answer forState:UIControlStateNormal];
         }
         [self fieldChecker];

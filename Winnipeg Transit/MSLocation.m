@@ -58,4 +58,22 @@
     utmY = [XMLParser getValueFromElement:childElement];
 }
 
+//Getter methods
+-(NSString *)getGeoHumanReadable {
+    NSString *result = [[NSString alloc]initWithFormat:@"Coordinates: %@, %@", latitude, longitude];
+    return result;
+}
+-(NSString *)getUtmHumanReadable {
+    NSString *result = [[NSString alloc]initWithFormat:@"UTM Coordinates: %@, %@", utmX, utmY];
+    return result;
+}
+-(NSString *)getGeoServerQueryable {
+    NSString *result = [[NSString alloc]initWithFormat:@"geo/%@,%@", latitude, longitude];
+    return result;
+}
+-(NSString *)getUtmServerQueryable {
+    NSString *result = [[NSString alloc]initWithFormat:@"utm/%@,%@", utmX, utmY];
+    return result;
+}
+
 @end

@@ -25,6 +25,10 @@
     NSString *ridingTime;
     MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
     MSLocation *toLocation;
+    NSString *busVariation;
+    NSString *busNumber;
+    NSString *routeName;
+    NSString *variationDestination;
     
     TBXMLElement *rootElement;
 }
@@ -32,5 +36,7 @@
 -(id)initWithElement:(TBXMLElement *)theElement;
 
 +(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement;
+
+-(NSArray *)getHumanReadable;
 
 @end

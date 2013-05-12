@@ -19,4 +19,7 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(NSString *)getHumanReadable;
+-(NSString *)getServerQueryable;
+
 @end

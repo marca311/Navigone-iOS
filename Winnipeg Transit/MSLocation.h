@@ -20,7 +20,11 @@
     TBXMLElement *rootElement;
 }
 
-
 -(id)initWithElement:(TBXMLElement *)theElement;
+
+-(NSString *)getGeoHumanReadable;
+-(NSString *)getUtmHumanReadable;
+-(NSString *)getGeoServerQueryable;
+-(NSString *)getUtmServerQueryable;
 
 @end

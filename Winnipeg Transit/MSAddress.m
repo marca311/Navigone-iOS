@@ -46,4 +46,14 @@
     streetAbbr = [XMLParser getKnownAttributeData:@"abbr" :theElement];
 }
 
+//Getter methods
+-(NSString *)getHumanReadable {
+    NSString *result = [[NSString alloc]initWithFormat:@"%@ %@ %@", houseNumber, streetName, streetAbbr];
+    return result;
+}
+-(NSString *)getServerQueryable {
+    NSString *result = [[NSString alloc]initWithFormat:@"addresses/%@", key];
+    return result;
+}
+
 @end

@@ -27,4 +27,12 @@
     stopName = [XMLParser getValueFromElement:nameElement];
 }
 
+//Getter methods
+-(NSString *)getHumanReadable {
+    return stopName;
+}
+-(NSString *)getServerQueryable {
+    return stopNumber;
+}
+
 @end

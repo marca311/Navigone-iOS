@@ -258,4 +258,13 @@
     return ampString;
 }
 
++(NSDate *)getDateFromServerString:(NSString *)input {
+    input = [input stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    NSDateFormatter *resultStringFormat = [[NSDateFormatter alloc]init];
+    [resultStringFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *result;
+    result = [resultStringFormat dateFromString:input];
+    return result;
+}
+
 @end

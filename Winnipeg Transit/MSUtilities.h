@@ -44,4 +44,6 @@
 
 +(NSString *)fixAmpersand:(NSString *)ampString;
 
++(NSDate *)getDateFromServerString:(NSString *)input;
+
 @end

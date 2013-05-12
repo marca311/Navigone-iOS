@@ -45,4 +45,15 @@
     monumentAddress = [[MSAddress alloc]initWithElement:addressElement];
 }
 
+//Getter methods
+-(NSString *)getHumanReadable {
+    NSString *address = [monumentAddress getHumanReadable];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@ (%@)", monumentName, address];
+    return result;
+}
+-(NSString *)getServerQueryable {
+    NSString *result = [[NSString alloc]initWithFormat:@"monuments/%@", key];
+    return result;
+}
+
 @end

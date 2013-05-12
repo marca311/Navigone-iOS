@@ -58,5 +58,16 @@
     crossStreetAbbr = [XMLParser getKnownAttributeData:@"abbr" :theElement];
 }
 
+//Getter methods
+-(NSString *)getHumanReadable {
+    NSString *fullStreet = [[NSString alloc]initWithFormat:@"%@ %@", streetName, streetAbbr];
+    NSString *fullCrossStreet = [[NSString alloc]initWithFormat:@"%@ %@", crossStreetName, crossStreetAbbr];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@ @ %@", fullStreet, fullCrossStreet];
+    return result;
+}
+-(NSString *)getServerQueryable {
+    NSString *result = [[NSString alloc]initWithFormat:@"intersections/%@", key];
+    return result;
+}
 
 @end
