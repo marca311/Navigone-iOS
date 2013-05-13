@@ -27,4 +27,6 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(NSArray *)getHumanReadable;
+
 @end

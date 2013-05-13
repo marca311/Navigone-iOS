@@ -46,4 +46,6 @@
 
 +(NSDate *)getDateFromServerString:(NSString *)input;
 
++(NSString *)getMinutePlural:(int)timeUnit;
+
 @end

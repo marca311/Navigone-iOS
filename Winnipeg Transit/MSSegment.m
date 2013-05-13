@@ -32,18 +32,18 @@
 -(void)setTimes {
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"times" :rootElement];
     TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" :workingElement];
-    totalTime = [XMLParser getValueFromElement:timeElement];
+    totalTime = [[XMLParser getValueFromElement:timeElement] intValue];
     if ([type isEqualToString:@"walk"]) {
         timeElement = [XMLParser extractKnownChildElement:@"walking" :workingElement];
-        walkingTime = [XMLParser getValueFromElement:timeElement];
+        walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"transfer"]) {
         timeElement = [XMLParser extractKnownChildElement:@"waiting" :workingElement];
-        waitingTime = [XMLParser getValueFromElement:timeElement];
+        waitingTime = [[XMLParser getValueFromElement:timeElement] intValue];
         timeElement = [XMLParser extractKnownChildElement:@"walking" :workingElement];
-        walkingTime = [XMLParser getValueFromElement:timeElement];
+        walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"ride"]) {
         timeElement = [XMLParser extractKnownChildElement:@"riding" :workingElement];
-        ridingTime = [XMLParser getValueFromElement:timeElement];
+        ridingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     }
     timeElement = [XMLParser extractKnownChildElement:@"start" :workingElement];
     startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:workingElement]];
@@ -107,7 +107,32 @@
 
 //Getter method
 -(NSArray *)getHumanReadable {
-    
+    NSMutableArray *result = [[NSMutableArray alloc]init];
+    if ([type isEqualToString:@"walk"]) {
+        [result addObject:[fromLocation getHumanReadable]];
+        NSString *middleString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
+        [result addObject:middleString];
+        [result addObject:[toLocation getHumanReadable]];
+    } else if ([type isEqualToString:@"transfer"]) {
+        if ((walkingTime > 0) && (waitingTime == 0)) {
+            [result addObject:[fromLocation getHumanReadable]];
+            NSString *middleString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
+            [result addObject:middleString];
+            [result addObject:[toLocation getHumanReadable]];
+        } else if ((waitingTime > 0) && (walkingTime == 0)) {
+            NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
+            [result addObject:waitString];
+        } else if ((waitingTime > 0) && (walkingTime > 0)) {
+            [result addObject:[fromLocation getHumanReadable]];
+            NSString *walkString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
+            [result addObject:walkString];
+            NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
+            [result addObject:waitString];
+        }
+    } else if ([type isEqualToString:@"ride"]) {
+        NSString *rideString = [NSString stringWithFormat:@"Ride %@ %@ (%@)",busNumber,routeName,variationDestination];
+        [result addObject:rideString];
+    }
+    return result;
 }
-
 @end

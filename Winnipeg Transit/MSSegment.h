@@ -19,10 +19,10 @@
     NSString *type;
     NSDate *startTime;
     NSDate *endTime;
-    NSString *totalTime;        //Usually only two of these time variables are used
-    NSString *walkingTime;
-    NSString *waitingTime;
-    NSString *ridingTime;
+    int totalTime;        //Usually only two of these time variables are used
+    int walkingTime;
+    int waitingTime;
+    int ridingTime;
     MSLocation *fromLocation;   //Neither MSLocation variables are used if segment is a "ride" segment
     MSLocation *toLocation;
     NSString *busVariation;

@@ -22,6 +22,7 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(NSString *)getHumanReadable;
 -(NSString *)getGeoHumanReadable;
 -(NSString *)getUtmHumanReadable;
 -(NSString *)getGeoServerQueryable;

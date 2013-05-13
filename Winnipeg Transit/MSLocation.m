@@ -59,6 +59,9 @@
 }
 
 //Getter methods
+-(NSString *)getHumanReadable {
+    return [self getGeoHumanReadable];
+}
 -(NSString *)getGeoHumanReadable {
     NSString *result = [[NSString alloc]initWithFormat:@"Coordinates: %@, %@", latitude, longitude];
     return result;

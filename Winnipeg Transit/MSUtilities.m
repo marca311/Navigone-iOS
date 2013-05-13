@@ -267,4 +267,9 @@
     return result;
 }
 
++(NSString *)getMinutePlural:(int)timeUnit {
+    if (timeUnit == 1) return @" minute";
+    else return @" minutes";
+}
+
 @end
