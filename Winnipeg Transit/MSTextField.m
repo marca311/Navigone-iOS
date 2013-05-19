@@ -24,6 +24,14 @@
     return CGRectZero;
 }
 
+-(void)setLocation:(MSLocation *)input {
+    location = input;
+}
+
+-(MSLocation *)getLocation {
+    return location;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

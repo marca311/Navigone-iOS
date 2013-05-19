@@ -63,6 +63,7 @@
 		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
 		6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387416E5C2EB00D7C076 /* cell_separator.png */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
+		6FA04C9517488D1C00049BE1 /* MSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA04C9417488D1C00049BE1 /* MSDate.m */; };
 		6FA470EE16150C2F00C0CAD6 /* PlanDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
@@ -195,6 +196,8 @@
 		6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCell.xib; sourceTree = "<group>"; };
 		6F9A387416E5C2EB00D7C076 /* cell_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_separator.png; sourceTree = "<group>"; };
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6FA04C9317488D1C00049BE1 /* MSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDate.h; sourceTree = "<group>"; };
+		6FA04C9417488D1C00049BE1 /* MSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDate.m; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* PlanDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* PlanDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayTableViewController.m; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 			isa = PBXGroup;
 			children = (
 				6F24051016DF104700444E18 /* Location Classes */,
+				6FA04C9317488D1C00049BE1 /* MSDate.h */,
+				6FA04C9417488D1C00049BE1 /* MSDate.m */,
 				6F24050A16DEC9CE00444E18 /* MSQuery.h */,
 				6F24050B16DEC9CE00444E18 /* MSQuery.m */,
 				6F24052016DF18BF00444E18 /* MSSegment.h */,
@@ -694,6 +699,7 @@
 				6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */,
 				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
 				6F36798F1708C62B008FA13D /* MSAddress.m in Sources */,
+				6FA04C9517488D1C00049BE1 /* MSDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

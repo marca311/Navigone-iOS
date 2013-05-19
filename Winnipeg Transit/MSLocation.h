@@ -12,6 +12,7 @@
 @class MSLocation;
 
 @interface MSLocation : NSObject {
+    NSString *name;
     NSString *latitude;
     NSString *longitude;
     NSString *utmZone;
@@ -22,6 +23,9 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(void)setName:(NSString *)input;
+
+-(NSString *)getName;
 -(NSString *)getHumanReadable;
 -(NSString *)getGeoHumanReadable;
 -(NSString *)getUtmHumanReadable;

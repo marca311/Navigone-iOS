@@ -11,10 +11,10 @@
 
 @implementation MSQuery
 
--(void)setOrigin:(NSString *)input {
+-(void)setOrigin:(MSLocation *)input {
     origin = input;
 }
--(void)setDestination:(NSString *)input {
+-(void)setDestination:(MSLocation *)input {
     destination = input;
 }
 -(void)setDate:(NSDate *)input {
@@ -42,9 +42,15 @@
     maxTransfers = input;
 }
 
+-(NSString *)getOriginString {
+    return [origin getHumanReadable];
+}
+-(NSString *)getDestinationString {
+    return [destination getHumanReadable];
+}
 -(MSRoute *)getRoute {
-    
-    
+    //Finish this method and 
+    //NSString *time = [date ]
     NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,transitAPIKey];
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     return NULL;

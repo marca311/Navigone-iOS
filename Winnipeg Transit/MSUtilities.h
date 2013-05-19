@@ -48,4 +48,6 @@
 
 +(NSString *)getMinutePlural:(int)timeUnit;
 
++(BOOL)queryIsError:(NSData *)dataFile;
+
 @end

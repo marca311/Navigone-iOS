@@ -10,6 +10,7 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import "XMLParser.h"
 
 @implementation MSUtilities
 
@@ -270,6 +271,20 @@
 +(NSString *)getMinutePlural:(int)timeUnit {
     if (timeUnit == 1) return @" minute";
     else return @" minutes";
+}
+
++(BOOL)queryIsError:(NSData *)dataFile
+{
+    if (dataFile == NULL) {
+        return YES;
+    }
+    TBXML *mainFile = [XMLParser loadXmlDocumentFromData:dataFile];
+    TBXMLElement *rootElement = [XMLParser getRootElement:mainFile];
+    if ((rootElement = rootElement->firstChild)) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end

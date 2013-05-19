@@ -95,7 +95,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:@"origin"];
+    NSString *title = [self getLabelLocationString:@"origin" ViewController:naviView];
     if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
      
     //Moves destination label, because the origin label never has to move
@@ -134,7 +134,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:@"origin"];
+    NSString *title = [self getLabelLocationString:@"origin" ViewController:naviView];
     if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
@@ -185,7 +185,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:@"destination"];
+    NSString *title = [self getLabelLocationString:@"destination" ViewController:naviView];
     if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
@@ -318,7 +318,7 @@
     }
     
     //Section to change label to location name
-    NSString *title = [self getLabelLocation:@"destination"];
+    NSString *title = [self getLabelLocationString:@"destination" ViewController:naviView];
     if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
     
     //Move all components up to proper positions
@@ -348,17 +348,20 @@
     naviView.destination.hidden = YES;
 }//stageTwoToStageOne
 
-+(BOOL)changeLabel:(NSString *)fieldText
++(BOOL)shouldChangeLabel:(NSString *)fieldText
 {
     if ([MSUtilities isQueryBlank:fieldText] || ![MSUtilities hasInternet]) return NO;
     else return YES;
 }//changeLabel
 
-+(NSString *)getLabelLocation:(NSString *)field
-{
-    NSArray *currentArray = [queriedDictionary objectForKey:field];
-    NSString *currentString = [currentArray objectAtIndex:0];
-    if ([self changeLabel:currentString])
++(NSString *)getLabelLocationString:(NSString *)field ViewController:(navigoViewController *)naviView {
+    NSString *currentString;
+    if ([field isEqualToString:@"origin"]) {
+        currentString = [[naviView query]getOriginString];
+    } else if ([field isEqualToString:@"destination"]) {
+        currentString = [[naviView query]getDestinationString];
+    }
+    if ([self shouldChangeLabel:currentString])
     {
         return currentString;
     }

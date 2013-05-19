@@ -11,8 +11,6 @@
 #import "MSUtilities.h"
 #include "apiKeys.h"
 
-NSMutableDictionary *queriedDictionary;
-
 @implementation navigoInterpreter
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query

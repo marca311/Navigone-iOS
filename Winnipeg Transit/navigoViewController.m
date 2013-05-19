@@ -163,15 +163,18 @@
     [self fieldChecker];
     int buttonLocation = [submitButton checkCurrentLocation];
     if ([submitButton.titleLabel.text isEqualToString:@"Next"]) {
-        if (buttonLocation == 3) {
+        if (buttonLocation == 1) {
+            [query setOrigin:[origin getLocation]];
+        } else if (buttonLocation == 2) {
+            [query setDestination:[destination getLocation]];
+        } else if (buttonLocation == 3) {
             NSString *message = [[NSString alloc]initWithFormat:@"You appear to have missed a field or two, go check whether you have all of the fields filled"];
             UIAlertView *emptyFieldAlert = [[UIAlertView alloc]initWithTitle:@"Uh oh" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [emptyFieldAlert show];
         } else {
             [AnimationInstructionSheet toNextStage:self];
         }
-    }
-    else {
+    } else {
         DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
         [activityView animateShow];
         dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -350,18 +353,16 @@
         history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
         [MSUtilities presentViewController:history withParent:self];
     } else {
-        NSArray *answerArray = [[NSArray alloc]init];
-        answerArray = [suggestionBox.tableArray objectAtIndex:indexPath.row];
-        NSString *answer = [[NSString alloc]init];
-        answer = [answerArray objectAtIndex:0];
+        MSLocation *answer;
+        answer = [suggestionBox.tableArray objectAtIndex:indexPath.row];
         [suggestionBox.tableView removeFromSuperview];
         suggestionBox = nil;
         if ([currentField isEqualToString:@"origin"]) {
             [query setOrigin:answer];
-            [originLabel setTitle:answer forState:UIControlStateNormal];
+            [originLabel setTitle:[answer getHumanReadable] forState:UIControlStateNormal];
         } else if ([currentField isEqualToString:@"destination"]) {
             [query setDestination:answer];
-            [destinationLabel setTitle:answer forState:UIControlStateNormal];
+            [destinationLabel setTitle:[answer getHumanReadable] forState:UIControlStateNormal];
         }
         [self fieldChecker];
         [AnimationInstructionSheet toNextStage:self];

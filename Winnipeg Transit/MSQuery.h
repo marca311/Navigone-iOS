@@ -11,9 +11,9 @@
 
 @interface MSQuery : NSObject {
     NSString *name;
-    NSString *origin;
+    MSLocation *origin;
     NSString *originKey;
-    NSString *destination;
+    MSLocation *destination;
     NSString *destinationKey;
     //Pattern broken :(
     NSDate *date;
@@ -27,8 +27,8 @@
 }
 //This class stores only querying data and queries the server when prompted, returning an MSRoute
 
--(void)setOrigin:(NSString *)input;
--(void)setDestination:(NSString *)input;
+-(void)setOrigin:(MSLocation *)input;
+-(void)setDestination:(MSLocation *)input;
 -(void)setDate:(NSDate *)input;
 -(void)setMode:(NSString *)input;
 -(void)setEasyAccess:(NSString *)input;
@@ -38,6 +38,8 @@
 -(void)setMaxTransferWaitTime:(NSString *)input;
 -(void)setMaxTransfers:(NSString *)input;
 
+-(NSString *)getOriginString;
+-(NSString *)getDestinationString;
 -(MSRoute *)getRoute;
 
 @end

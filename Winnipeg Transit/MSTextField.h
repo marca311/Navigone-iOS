@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSLocation.h"
 
-@interface MSTextField : UITextField
+@interface MSTextField : UITextField {
+    MSLocation *location;
+}
+
+-(void)setLocation:(MSLocation *)input;
+
+-(MSLocation *)getLocation;
 
 @end

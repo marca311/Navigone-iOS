@@ -15,11 +15,18 @@
     self = [super initWithElement:theElement];
     [self setKey];
     [self setHouseNumber];
-    [self setStreetName];
     [self setStreetType];
-    [self setStreetAbbr];
+    if (streetType != NULL) {
+        [self setStreetAbbr];
+    }
+    [self setStreetName];
     return self;
 }
+
+/*
+ Extra if statements represent when the street has no type/abbreviation element.
+ Examples are: WestGate, Kingsway, etc.
+*/
 
 -(void)setKey {
     TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
@@ -34,21 +41,33 @@
     TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
     theElement = [XMLParser extractKnownChildElement:@"name" :theElement];
     streetName = [XMLParser getValueFromElement:theElement];
+    //Get rid of street type on the end of the name
+    if (streetType != NULL) {
+        streetName = [streetName stringByReplacingOccurrencesOfString:streetType withString:@""];
+    }
 }
 -(void)setStreetType {
     TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
     theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
-    streetType = [XMLParser getValueFromElement:theElement];
+    if (theElement != NULL) {
+        streetType = [XMLParser getValueFromElement:theElement];
+    }
 }
 -(void)setStreetAbbr {
     TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
     theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
-    streetAbbr = [XMLParser getKnownAttributeData:@"abbr" :theElement];
+    streetAbbr = [XMLParser getKnownAttributeData:@"abbr" Element:theElement];
 }
 
 //Getter methods
 -(NSString *)getHumanReadable {
-    NSString *result = [[NSString alloc]initWithFormat:@"%@ %@ %@", houseNumber, streetName, streetAbbr];
+    NSString *result;
+    if (streetType == NULL) {
+        result = [[NSString alloc]initWithFormat:@"%@ %@", houseNumber, streetName];
+    } else {
+        result = [[NSString alloc]initWithFormat:@"%@ %@%@", houseNumber, streetName, streetAbbr];
+    }
+    
     return result;
 }
 -(NSString *)getServerQueryable {

@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSLocation.h"
 
-@interface MSSuggestion : NSObject
+@interface MSSuggestion : NSObject {
+    MSLocation *location;
+}
 
 @end

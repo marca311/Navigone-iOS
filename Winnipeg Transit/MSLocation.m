@@ -18,6 +18,9 @@
     return self;
 }
 
+-(void)setName:(NSString *)input {
+    name = input;
+}
 -(void)setCoordinates {
     [self setLatitude];
     [self setLongitude];
@@ -43,7 +46,7 @@
 -(void)setUtmZone {
     TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
     centreElement = [XMLParser extractKnownChildElement:@"utm" :centreElement];
-    utmZone = [XMLParser getKnownAttributeData:@"zone" :centreElement];
+    utmZone = [XMLParser getKnownAttributeData:@"zone" Element:centreElement];
 }
 -(void)setUtmX {
     TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
@@ -53,12 +56,15 @@
 }
 -(void)setUtmY {
     TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"geographic" :centreElement];
+    centreElement = [XMLParser extractKnownChildElement:@"utm" :centreElement];
     TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"y" :centreElement];
     utmY = [XMLParser getValueFromElement:childElement];
 }
 
 //Getter methods
+-(NSString *)getName {
+    return name;
+}
 -(NSString *)getHumanReadable {
     return [self getGeoHumanReadable];
 }

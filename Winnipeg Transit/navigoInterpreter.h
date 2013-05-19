@@ -10,8 +10,6 @@
 #import "XMLParser.h"
 #import "MSUtilities.h"
 
-extern NSMutableDictionary *queriedDictionary;
-
 @interface navigoInterpreter : NSObject
 
 +(NSData *)getXMLFileForSearchedItem:(NSString *)query;

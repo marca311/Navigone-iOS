@@ -12,7 +12,8 @@
 @implementation MSMonument
 
 -(id)initWithElement:(TBXMLElement *)theElement {
-    self = [super initWithElement:theElement];
+    // Has no location constructor due to the MSAddress handling geographic vars
+    rootElement = theElement;
     [self setKey];
     [self setMonumentName];
     [self setMonumentCatagories];
@@ -30,8 +31,8 @@
 }
 -(void)setMonumentCatagories {
     NSMutableArray *catagories = [[NSMutableArray alloc]init];
-    TBXMLElement *catagoryElement = [XMLParser extractKnownChildElement:@"catagories" :rootElement];
-    catagoryElement = [XMLParser extractKnownChildElement:@"catagory" :catagoryElement];
+    TBXMLElement *catagoryElement = [XMLParser extractKnownChildElement:@"categories" :rootElement];
+    catagoryElement = [XMLParser extractKnownChildElement:@"category" :catagoryElement];
     //Get first catagory
     [catagories addObject:[XMLParser getValueFromElement:catagoryElement]];
     //Get catagories til there are no more

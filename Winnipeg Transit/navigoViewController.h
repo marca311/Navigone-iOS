@@ -20,6 +20,7 @@
 #import "MSSuggestionBox.h"
 #import "PlaceViewController.h"
 #import "MSQuery.h"
+#import "MSTextField.h"
 
 @interface navigoViewController : UniversalViewController <UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     UIDatePicker *timePicker;
@@ -28,8 +29,8 @@
     MSSuggestionBox *suggestionBox;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *origin;
-@property (nonatomic, retain) IBOutlet UITextField *destination;
+@property (nonatomic, retain) IBOutlet MSTextField *origin;
+@property (nonatomic, retain) IBOutlet MSTextField *destination;
 @property (nonatomic, retain) IBOutlet UITextField *timeField;
 @property (nonatomic, retain) IBOutlet UITextField *dateField;
 @property (nonatomic, retain) IBOutlet UITextField *mode;

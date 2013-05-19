@@ -26,7 +26,7 @@
     //else setlocations
 }
 -(void)setType {
-    type = [XMLParser getKnownAttributeData:@"type" :rootElement];
+    type = [XMLParser getKnownAttributeData:@"type" Element:rootElement];
 }
 
 -(void)setTimes {
@@ -60,8 +60,7 @@
 
 //This method is accessed in other classes
 +(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement {
-    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"from" :rootElement];
-    TBXMLElement *childElement = [XMLParser extractUnknownChildElement:theElement];
+    TBXMLElement *childElement = rootElement;
     //if the location is the route origin/destination, go down one more level
     if ([[XMLParser getElementName:childElement] isEqualToString:@"origin"] || [[XMLParser getElementName:childElement] isEqualToString:@"destination"]) {
         childElement = [XMLParser extractUnknownChildElement:childElement];
