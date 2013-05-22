@@ -30,7 +30,14 @@
         [self setCrossStreetAbbr];
     }
     [self setCrossStreetName];
+    [self setHumanReadable];
     return self;
+}
+
+-(void)setKey:(NSString *)input {
+    NSArray *inputArray = [input componentsSeparatedByString:@"/"];
+    key = [inputArray objectAtIndex:1];
+    converted = FALSE;
 }
 
 -(void)setKey {
@@ -84,12 +91,10 @@
     theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
     crossStreetAbbr = [XMLParser getKnownAttributeData:@"abbr" Element:theElement];
 }
-
-//Getter methods
--(NSString *)getHumanReadable {
+-(void)setHumanReadable {
     NSString *fullStreet;
     if (streetType == NULL) {
-       fullStreet = [[NSString alloc]initWithFormat:@"%@", streetName];
+        fullStreet = [[NSString alloc]initWithFormat:@"%@", streetName];
     } else {
         fullStreet = [[NSString alloc]initWithFormat:@"%@%@", streetName, streetAbbr];
     }
@@ -100,7 +105,13 @@
         fullCrossStreet = [[NSString alloc]initWithFormat:@"%@%@", crossStreetName, crossStreetAbbr];
     }
     NSString *result = [[NSString alloc]initWithFormat:@"%@ @ %@", fullStreet, fullCrossStreet];
-    return result;
+    name = result;
+}
+
+
+//Getter methods
+-(NSString *)getHumanReadable {
+    return name;
 }
 -(NSString *)getServerQueryable {
     NSString *result = [[NSString alloc]initWithFormat:@"intersections/%@", key];

@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "68"
          endingLineNumber = "68"
-         landmarkName = "+replaceInvalidCharacters:"
+         landmarkName = "+getAddressInfoFromQuery:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -26,8 +26,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "69"
          endingLineNumber = "69"
-         landmarkName = "@implementation navigoInterpreter"
-         landmarkType = "3">
+         landmarkName = "+getAddressInfoFromQuery:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -52,8 +52,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "748"
          endingLineNumber = "748"
-         landmarkName = "+getIntersectionDetails:"
-         landmarkType = "5">
+         landmarkName = "@implementation navigoInterpreter"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -66,6 +66,58 @@
          startingLineNumber = "74"
          endingLineNumber = "74"
          landmarkName = "-getQuerySuggestions:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/MSLocation.h"
+         timestampString = "390682537.486664"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "@interface MSLocation"
+         landmarkType = "2">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/MSUtilities.m"
+         timestampString = "390888013.983709"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "326"
+         endingLineNumber = "326"
+         landmarkName = "+convertSearchHistory"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/MSUtilities.m"
+         timestampString = "390888131.245567"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "+saveMutableDictionaryToFile:FileName:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Winnipeg Transit/MSUtilities.m"
+         timestampString = "390888134.370512"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "27"
+         endingLineNumber = "27"
+         landmarkName = "+saveMutableDictionaryToFile:FileName:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

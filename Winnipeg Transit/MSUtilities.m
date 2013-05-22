@@ -11,18 +11,23 @@
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "XMLParser.h"
+#import "MSLocation.h"
+#import "MSAddress.h"
+#import "MSIntersection.h"
+#import "MSMonument.h"
 
 @implementation MSUtilities
 
-+(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary :(NSString *)fileName
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary FileName:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedDictionary writeToFile:filePath atomically:YES];
+    NSLog(filePath);
 }//saveMutableDictionaryToFile
 
-+(void)saveDictionaryToFile:(NSDictionary *)savedDictionary :(NSString *)fileName
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary FileName:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -30,7 +35,7 @@
     [savedDictionary writeToFile:filePath atomically:YES]; 
 }//saveDictionaryToFile
 
-+(void)saveMutableArrayToFile:(NSMutableArray *)savedArray :(NSString *)fileName
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray FileName:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -38,7 +43,7 @@
     [savedArray writeToFile:filePath atomically:YES];
 }//saveMutableArrayToFile
 
-+(void)saveArrayToFile:(NSArray *)savedArray :(NSString *)fileName
++(void)saveArrayToFile:(NSArray *)savedArray FileName:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -285,6 +290,50 @@
     } else {
         return YES;
     }
+}
+
++(void)convertSearchHistory {
+    if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
+        NSDictionary *theDictionary = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
+        NSArray *previousLocations = [theDictionary objectForKey:@"PreviousLocations"];
+        //If object 0 is of NSArray type
+        if ([[previousLocations objectAtIndex:0]isKindOfClass:[NSArray class]]) {
+            NSMutableDictionary *newDictionary = [[NSMutableDictionary alloc]init];
+            NSMutableArray *newPreviousLocations = [[NSMutableArray alloc]init];
+            NSMutableArray *newSavedLocations = [[NSMutableArray alloc]init];
+            //Convert Previous Locations
+            for (NSArray *locationArray in previousLocations) {
+                MSLocation *newLocation = [MSUtilities getLocationTypeFromKey:[locationArray objectAtIndex:1]];
+                //Set new location name
+                [newLocation setName:[locationArray objectAtIndex:0]];
+                //Set new location key
+                [newLocation setKey:[locationArray objectAtIndex:1]];
+                [newPreviousLocations addObject:newLocation];
+                NSLog([newLocation getHumanReadable]);
+            }
+            [newDictionary setObject:newPreviousLocations forKey:@"PreviousLocations"];
+            //Convert Saved Locations
+            NSArray *savedLocations = [theDictionary objectForKey:@"SavedLocations"];
+            for (NSArray *locationArray in savedLocations) {
+                MSLocation *newLocation = [MSUtilities getLocationTypeFromKey:[locationArray objectAtIndex:1]];
+                [newLocation setName:[locationArray objectAtIndex:0]];
+                [newLocation setKey:[locationArray objectAtIndex:1]];
+                [newSavedLocations addObject:newLocation];
+                NSLog([newLocation getHumanReadable]);
+            }
+            [newDictionary setObject:newSavedLocations forKey:@"SavedLocations"];
+            [MSUtilities saveMutableDictionaryToFile:newDictionary FileName:@"SearchHistory"];
+        }
+    }
+}
+//Private method to determine what type of location the object is
++(MSLocation *)getLocationTypeFromKey:(NSString *)key {
+    NSArray *keyArray = [key componentsSeparatedByString:@"/"];
+    NSString *type = [keyArray objectAtIndex:0];
+    if ([type isEqualToString:@"addresses"]) return [[MSAddress alloc]init];
+    else if ([type isEqualToString:@"monuments"]) return [[MSMonument alloc]init];
+    else if ([type isEqualToString:@"intersections"]) return [[MSIntersection alloc]init];
+    else return [[MSLocation alloc]init];
 }
 
 @end

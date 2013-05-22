@@ -19,11 +19,14 @@
     NSString *utmX;
     NSString *utmY;
     TBXMLElement *rootElement;
+    //Indicates whether instance uses new format of location storing
+    Boolean converted;
 }
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
 -(void)setName:(NSString *)input;
+-(void)setKey:(NSString *)input; //Is blank for MSLocation, but not for all subclasses
 
 -(NSString *)getName;
 -(NSString *)getHumanReadable;

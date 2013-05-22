@@ -144,10 +144,12 @@
     }
     int stage = [theParentViewController.submitButton checkCurrentLocation];
     if (stage == 1) {
-        [queriedDictionary setObject:chosenArray forKey:@"origin"];
+        //Part of old structure, needs to be replaced
+        //[queriedDictionary setObject:chosenArray forKey:@"origin"];
         [theParentViewController.originLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
     } else if (stage == 2) {
-        [queriedDictionary setObject:chosenArray forKey:@"destination"];
+        //Part of old structure, needs to be replaced
+        //[queriedDictionary setObject:chosenArray forKey:@"destination"];
         [theParentViewController.destinationLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
@@ -176,7 +178,7 @@
     NSMutableDictionary *theDictionary = [[NSMutableDictionary alloc]init];
     [theDictionary setObject:savedLocations forKey:@"SavedLocations"];
     [theDictionary setObject:previousLocations forKey:@"PreviousLocations"];
-    [MSUtilities saveDictionaryToFile:theDictionary :@"SearchHistory"];
+    [MSUtilities saveDictionaryToFile:theDictionary FileName:@"SearchHistory"];
 }
 -(void)addLocation:(NSString *)locationName :(NSString *)locationKey {
     
@@ -207,7 +209,7 @@
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     [saver setObject:savedLocationsList forKey:@"SavedLocations"];
     [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
-    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
+    [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
 
 }
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex {
@@ -299,7 +301,7 @@
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     [saver setObject:savedLocationsList forKey:@"SavedLocations"];
     [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
-    [MSUtilities saveDictionaryToFile:saver :@"SearchHistory"];
+    [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
 }
 +(NSMutableArray *)checkNumberOfEntries:(NSMutableArray *)theArray {
     if ([theArray count] > 20) {

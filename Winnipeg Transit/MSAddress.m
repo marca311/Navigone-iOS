@@ -23,6 +23,12 @@
     return self;
 }
 
+-(void)setKey:(NSString *)input {
+    NSArray *inputArray = [input componentsSeparatedByString:@"/"];
+    key = [inputArray objectAtIndex:1];
+    converted = FALSE;
+}
+
 /*
  Extra if statements represent when the street has no type/abbreviation element.
  Examples are: WestGate, Kingsway, etc.
@@ -58,9 +64,7 @@
     theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
     streetAbbr = [XMLParser getKnownAttributeData:@"abbr" Element:theElement];
 }
-
-//Getter methods
--(NSString *)getHumanReadable {
+-(void)setHumanReadable {
     NSString *result;
     if (streetType == NULL) {
         result = [[NSString alloc]initWithFormat:@"%@ %@", houseNumber, streetName];
@@ -68,7 +72,12 @@
         result = [[NSString alloc]initWithFormat:@"%@ %@%@", houseNumber, streetName, streetAbbr];
     }
     
-    return result;
+    name = result;
+}
+
+//Getter methods
+-(NSString *)getHumanReadable {
+    return name;
 }
 -(NSString *)getServerQueryable {
     NSString *result = [[NSString alloc]initWithFormat:@"addresses/%@", key];

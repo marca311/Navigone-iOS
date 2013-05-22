@@ -132,14 +132,15 @@
     dateField.text = display;
     mode.text = @"Depart After";
     
-    queriedDictionary = [[NSMutableDictionary alloc]init];
-    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         CGRect theFrame = dateField.frame;
         theFrame.origin.x = 200;
         theFrame.size.width = 20;
         dateField.frame = theFrame;
     }
+    
+    //Check whether the search history has been updated to the new protocol
+    [MSUtilities convertSearchHistory];
     
     NSLog(@"Main UI Loaded");
     
@@ -180,10 +181,11 @@
         dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self resignFirstResponder];
             NSMutableArray *searchArray = [[NSMutableArray alloc]init];
-            [searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
-            [searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
-            [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
-            [PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
+            //Part of old framework, might need to be replaced
+            //[searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
+            //[searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
+            //[PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
+            //[PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
             [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
             [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
             [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
@@ -238,7 +240,8 @@
 {
     origin.text = @"";
     destination.text = @"";
-    [queriedDictionary removeAllObjects];
+    //Part of old structure, might need to be replaced
+    //[queriedDictionary removeAllObjects];
     [submitButton setTitle:@"Next" forState:UIControlStateNormal];
     [self resetDatePickers];
     mode.text = @"Depart After";
@@ -297,8 +300,9 @@
     BOOL timeBOOL = NO;
     BOOL dateBOOL = NO;
     BOOL modeBOOL = NO;
-    if ([self containsSomething:origin] || !([queriedDictionary objectForKey:@"origin"] == NULL)) originBOOL = YES;
-    if ([self containsSomething:destination] || !([queriedDictionary objectForKey:@"destination"] == NULL)) destinationBOOL = YES;
+    //Still part of old structure, needs to be replaced
+    //if ([self containsSomething:origin] || !([queriedDictionary objectForKey:@"origin"] == NULL)) originBOOL = YES;
+    //if ([self containsSomething:destination] || !([queriedDictionary objectForKey:@"destination"] == NULL)) destinationBOOL = YES;
     if ([self containsSomething:timeField]) timeBOOL = YES;
     if ([self containsSomething:dateField]) dateBOOL = YES;
     if ([self containsSomething:mode]) modeBOOL = YES;

@@ -15,12 +15,19 @@
     rootElement = theElement;
     [self setCoordinates];
     [self setUTM];
+    [self setHumanReadable];
+    converted = TRUE;
     return self;
 }
 
 -(void)setName:(NSString *)input {
     name = input;
 }
+-(void)setKey:(NSString *)input {
+    //This is supposed to be blank, and MSLocation doesn't have a key variable, but all its subclasses do.
+    //(Except MSStop)
+}
+
 -(void)setCoordinates {
     [self setLatitude];
     [self setLongitude];
@@ -61,12 +68,18 @@
     utmY = [XMLParser getValueFromElement:childElement];
 }
 
+-(void)setHumanReadable {
+    NSString *result = [self getGeoHumanReadable];
+    name = result;
+}
+
+
 //Getter methods
 -(NSString *)getName {
     return name;
 }
 -(NSString *)getHumanReadable {
-    return [self getGeoHumanReadable];
+    return name;
 }
 -(NSString *)getGeoHumanReadable {
     NSString *result = [[NSString alloc]initWithFormat:@"Coordinates: %@, %@", latitude, longitude];

@@ -18,7 +18,14 @@
     [self setMonumentName];
     [self setMonumentCatagories];
     [self setMonumentAddress];
+    [self setHumanReadable];
     return self;
+}
+
+-(void)setKey:(NSString *)input {
+    NSArray *inputArray = [input componentsSeparatedByString:@"/"];
+    key = [inputArray objectAtIndex:1];
+    converted = FALSE;
 }
 
 -(void)setKey {
@@ -45,12 +52,15 @@
     TBXMLElement *addressElement = [XMLParser extractKnownChildElement:@"address" :rootElement];
     monumentAddress = [[MSAddress alloc]initWithElement:addressElement];
 }
+-(void)setHumanReadable {
+    NSString *address = [monumentAddress getHumanReadable];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@ (%@)", monumentName, address];
+    name = result;
+}
 
 //Getter methods
 -(NSString *)getHumanReadable {
-    NSString *address = [monumentAddress getHumanReadable];
-    NSString *result = [[NSString alloc]initWithFormat:@"%@ (%@)", monumentName, address];
-    return result;
+    return name;
 }
 -(NSString *)getServerQueryable {
     NSString *result = [[NSString alloc]initWithFormat:@"monuments/%@", key];

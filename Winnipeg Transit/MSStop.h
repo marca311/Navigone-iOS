@@ -16,6 +16,8 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+//This method doesn't have a key
+
 -(NSString *)getHumanReadable;
 -(NSString *)getServerQueryable;
 

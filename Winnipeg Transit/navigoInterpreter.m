@@ -298,7 +298,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
     NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
-    [MSUtilities saveDictionaryToFile:dictionary :entryTime];
+    [MSUtilities saveDictionaryToFile:dictionary FileName:entryTime];
     [MSUtilities checkCacheAge];
     [MSUtilities generateCacheDB];
     return entryTime;

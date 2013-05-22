@@ -18,6 +18,9 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+//Method for converting old location format to new
+-(void)setKey:(NSString *)input;
+
 -(NSString *)getHumanReadable;
 -(NSString *)getServerQueryable;
 

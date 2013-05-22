@@ -10,13 +10,13 @@
 
 @interface MSUtilities : NSObject
 
-+(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary :(NSString *)fileName;
++(void)saveMutableDictionaryToFile:(NSMutableDictionary *)savedDictionary FileName:(NSString *)fileName;
 
-+(void)saveDictionaryToFile:(NSDictionary *)savedDictionary :(NSString *)fileName;
++(void)saveDictionaryToFile:(NSDictionary *)savedDictionary FileName:(NSString *)fileName;
 
-+(void)saveMutableArrayToFile:(NSMutableArray *)savedArray :(NSString *)fileName;
++(void)saveMutableArrayToFile:(NSMutableArray *)savedArray FileName:(NSString *)fileName;
 
-+(void)saveArrayToFile:(NSArray *)savedArray :(NSString *)fileName;
++(void)saveArrayToFile:(NSArray *)savedArray FileName:(NSString *)fileName;
 
 +(BOOL)fileExists:(NSString *)fileName;
 
@@ -49,5 +49,7 @@
 +(NSString *)getMinutePlural:(int)timeUnit;
 
 +(BOOL)queryIsError:(NSData *)dataFile;
+
++(void)convertSearchHistory;
 
 @end
