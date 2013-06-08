@@ -11,7 +11,7 @@
 
 @class MSLocation;
 
-@interface MSLocation : NSObject {
+@interface MSLocation : NSObject <NSCoding> {
     NSString *name;
     NSString *latitude;
     NSString *longitude;

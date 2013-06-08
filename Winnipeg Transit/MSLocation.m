@@ -98,4 +98,29 @@
     return result;
 }
 
+#pragma mark - NSCoding section
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    name = [aDecoder decodeObjectForKey:@"name"];
+    latitude = [aDecoder decodeObjectForKey:@"latitude"];
+    longitude = [aDecoder decodeObjectForKey:@"longitude"];
+    utmZone = [aDecoder decodeObjectForKey:@"utmZone"];
+    utmX = [aDecoder decodeObjectForKey:@"utmX"];
+    utmY = [aDecoder decodeObjectForKey:@"utmY"];
+    rootElement = (__bridge TBXMLElement *)[aDecoder decodeObjectForKey:@"rootElement"];
+    converted = [aDecoder decodeBoolForKey:@"converted"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:latitude forKey:@"latitude"];
+    [aCoder encodeObject:longitude forKey:@"longitude"];
+    [aCoder encodeObject:utmZone forKey:@"utmZone"];
+    [aCoder encodeObject:utmX forKey:@"utmX"];
+    [aCoder encodeObject:utmY forKey:@"utmY"];
+    [aCoder encodeObject:(__bridge id)rootElement forKey:@"rootElement"];
+    [aCoder encodeBool:converted forKey:@"converted"];
+}
+
 @end

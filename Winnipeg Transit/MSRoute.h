@@ -10,7 +10,7 @@
 #import "TBXML.h"
 #import "MSVariation.h"
 
-@interface MSRoute : NSObject
+@interface MSRoute : NSObject <NSCoding>
 {
     NSString *origin;
     NSString *destination;

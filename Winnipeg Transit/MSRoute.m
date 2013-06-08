@@ -16,6 +16,27 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        origin = [aDecoder decodeObjectForKey:@"origin"];
+        destination = [aDecoder decodeObjectForKey:@"destination"];
+        date = [aDecoder decodeObjectForKey:@"date"];
+        numberOfVariations = [aDecoder decodeIntegerForKey:@"numberOfVariations"];
+        variationArray = [aDecoder decodeObjectForKey:@"variationArray"];
+        rootElement = (__bridge TBXMLElement *)([aDecoder decodeObjectForKey:@"rootElement"]);
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:origin forKey:@"origin"];
+    [aCoder encodeObject:destination forKey:@"destination"];
+    [aCoder encodeObject:date forKey:@"date"];
+    [aCoder encodeInteger:numberOfVariations forKey:@"numberOfVariations"];
+    [aCoder encodeObject:variationArray forKey:@"variationArray"];
+    [aCoder encodeObject:(__bridge id)(rootElement) forKey:@"variationArray"];
+}
+
 -(void)setOrigin {
     //code to set origin
 }

@@ -67,4 +67,24 @@
     return result;
 }
 
+#pragma mark - NSCoding section
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    key = [aDecoder decodeObjectForKey:@"key"];
+    monumentName = [aDecoder decodeObjectForKey:@"monumentName"];
+    monumentCatagories = [aDecoder decodeObjectForKey:@"monumentCatagories"];
+    monumentAddress = [aDecoder decodeObjectForKey:@"monumentAddress"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:key forKey:@"key"];
+    [aCoder encodeObject:monumentName forKey:@"monumentName"];
+    [aCoder encodeObject:monumentCatagories forKey:@"monumentCatagories"];
+    [aCoder encodeObject:monumentAddress forKey:@"monumentAddress"];
+}
+
+
 @end

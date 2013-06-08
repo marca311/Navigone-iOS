@@ -11,13 +11,11 @@
 
 @interface PlaceViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
     UITableView *theTableView;
+    UIBarButtonItem *editButton;
+    NSMutableArray *savedLocations;
+    NSMutableArray *previousLocations;
+    BOOL fileExists;
 }
-
-@property (nonatomic, retain) IBOutlet UITableView *theTableView;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *editButton;
-@property (nonatomic, retain) NSMutableArray *savedLocations;
-@property (nonatomic, retain) NSMutableArray *previousLocations;
-@property (nonatomic) BOOL fileExists;
 
 -(IBAction)editTable;
 

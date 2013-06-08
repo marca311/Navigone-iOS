@@ -84,4 +84,25 @@
     return result;
 }
 
+#pragma mark - NSCoding section
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    key = [aDecoder decodeObjectForKey:@"key"];
+    houseNumber = [aDecoder decodeObjectForKey:@"houseNumber"];
+    streetName = [aDecoder decodeObjectForKey:@"streetName"];
+    streetType = [aDecoder decodeObjectForKey:@"streetType"];
+    streetAbbr = [aDecoder decodeObjectForKey:@"streetAbbr"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:key forKey:@"key"];
+    [aCoder encodeObject:houseNumber forKey:@"houseNumber"];
+    [aCoder encodeObject:streetName forKey:@"streetName"];
+    [aCoder encodeObject:streetType forKey:@"streetType"];
+    [aCoder encodeObject:streetAbbr forKey:@"streetAbbr"];
+}
+
 @end

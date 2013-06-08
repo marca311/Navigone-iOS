@@ -297,7 +297,7 @@
         NSDictionary *theDictionary = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
         NSArray *previousLocations = [theDictionary objectForKey:@"PreviousLocations"];
         //If object 0 is of NSArray type
-        if ([[previousLocations objectAtIndex:0]isKindOfClass:[NSArray class]]) {
+        if ([previousLocations isKindOfClass:[NSArray class]]) {
             NSMutableDictionary *newDictionary = [[NSMutableDictionary alloc]init];
             NSMutableArray *newPreviousLocations = [[NSMutableArray alloc]init];
             NSMutableArray *newSavedLocations = [[NSMutableArray alloc]init];
@@ -311,7 +311,9 @@
                 [newPreviousLocations addObject:newLocation];
                 NSLog([newLocation getHumanReadable]);
             }
-            [newDictionary setObject:newPreviousLocations forKey:@"PreviousLocations"];
+            //Convert MSLocation arrays into NSData files to be stored in the file
+            NSData *previous = [NSKeyedArchiver archivedDataWithRootObject:newPreviousLocations];
+            [newDictionary setObject:previous forKey:@"PreviousLocations"];
             //Convert Saved Locations
             NSArray *savedLocations = [theDictionary objectForKey:@"SavedLocations"];
             for (NSArray *locationArray in savedLocations) {
@@ -321,7 +323,9 @@
                 [newSavedLocations addObject:newLocation];
                 NSLog([newLocation getHumanReadable]);
             }
-            [newDictionary setObject:newSavedLocations forKey:@"SavedLocations"];
+            //Same as above, converting MSLocations into NSData for storage
+            NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:newSavedLocations];
+            [newDictionary setObject:saved forKey:@"SavedLocations"];
             [MSUtilities saveMutableDictionaryToFile:newDictionary FileName:@"SearchHistory"];
         }
     }

@@ -118,4 +118,33 @@
     return result;
 }
 
+#pragma mark - NSCoding section
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    key = [aDecoder decodeObjectForKey:@"key"];
+    streetKey = [aDecoder decodeObjectForKey:@"streetKey"];
+    streetName = [aDecoder decodeObjectForKey:@"streetName"];
+    streetType = [aDecoder decodeObjectForKey:@"streetType"];
+    streetAbbr = [aDecoder decodeObjectForKey:@"streetAbbr"];
+    crossStreetKey = [aDecoder decodeObjectForKey:@"crossStreetKey"];
+    crossStreetName = [aDecoder decodeObjectForKey:@"crossStreetName"];
+    crossStreetType = [aDecoder decodeObjectForKey:@"crossStreetType"];
+    crossStreetAbbr = [aDecoder decodeObjectForKey:@"crossStreetAbbr"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:key forKey:@"key"];
+    [aCoder encodeObject:streetKey forKey:@"streetKey"];
+    [aCoder encodeObject:streetName forKey:@"streetName"];
+    [aCoder encodeObject:streetType forKey:@"streetType"];
+    [aCoder encodeObject:streetAbbr forKey:@"streetAbbr"];
+    [aCoder encodeObject:crossStreetKey forKey:@"crossStreetKey"];
+    [aCoder encodeObject:crossStreetName forKey:@"crossStreetName"];
+    [aCoder encodeObject:crossStreetType forKey:@"crossStreetType"];
+    [aCoder encodeObject:crossStreetAbbr forKey:@"crossStreetAbbr"];
+}
+
 @end

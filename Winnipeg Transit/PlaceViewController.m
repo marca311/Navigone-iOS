@@ -17,10 +17,6 @@
 
 @implementation PlaceViewController
 
-@synthesize theTableView, editButton;
-@synthesize savedLocations, previousLocations;
-@synthesize fileExists;
-
 - (void)loadPlaceDictionary:(UIView *)superView {
     
 }
@@ -39,9 +35,14 @@
     [super viewDidLoad];
     fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
     if (fileExists) {
+        //Load Dictionary
         NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
-        savedLocations = [theFile objectForKey:@"SavedLocations"];
-        previousLocations = [theFile objectForKey:@"PreviousLocations"];
+        //Convert NSData in dictionary into the NSArray filled with MSLocations
+        NSData *savedData = [theFile objectForKey:@"SavedLocations"];
+        savedLocations = [NSKeyedUnarchiver unarchiveObjectWithData:savedData];
+        //Ditto
+        NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
+        previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
         previousLocations = [PlaceViewController checkNumberOfEntries:previousLocations];
         [self saveFile];
     }
@@ -105,11 +106,11 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 0) {
-        NSArray *cellData = [savedLocations objectAtIndex:row];
-        cell.textLabel.text = [cellData objectAtIndex:0];
+        MSLocation *currentLocation = [savedLocations objectAtIndex:row];
+        cell.textLabel.text = [currentLocation getHumanReadable];
     } else if (section == 1) {
-        NSArray *cellData = [previousLocations objectAtIndex:row];
-        cell.textLabel.text = [cellData objectAtIndex:0];
+        MSLocation *currentLocation = [previousLocations objectAtIndex:row];
+        cell.textLabel.text = [currentLocation getHumanReadable];
     }
     return cell;
 }
@@ -136,21 +137,21 @@
         theParentViewController = ((navigoViewController *)self.parentViewController);
     }
     //Get info from correct array
-    NSArray *chosenArray;
+    MSLocation *currentLocation;
     if (indexPath.section == 0) {
-        chosenArray = [savedLocations objectAtIndex:indexPath.row];
+        currentLocation = [savedLocations objectAtIndex:indexPath.row];
     } else if (indexPath.section == 1) {
-        chosenArray = [previousLocations objectAtIndex:indexPath.row];
+        currentLocation = [previousLocations objectAtIndex:indexPath.row];
     }
     int stage = [theParentViewController.submitButton checkCurrentLocation];
     if (stage == 1) {
         //Part of old structure, needs to be replaced
         //[queriedDictionary setObject:chosenArray forKey:@"origin"];
-        [theParentViewController.originLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
+        [theParentViewController.originLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
     } else if (stage == 2) {
         //Part of old structure, needs to be replaced
         //[queriedDictionary setObject:chosenArray forKey:@"destination"];
-        [theParentViewController.destinationLabel setTitle:[chosenArray objectAtIndex:0] forState:UIControlStateNormal];
+        [theParentViewController.destinationLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
         //[theParentViewController fieldChecker];
@@ -176,8 +177,10 @@
 
 -(void)saveFile {
     NSMutableDictionary *theDictionary = [[NSMutableDictionary alloc]init];
-    [theDictionary setObject:savedLocations forKey:@"SavedLocations"];
-    [theDictionary setObject:previousLocations forKey:@"PreviousLocations"];
+    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocations];
+    [theDictionary setObject:saved forKey:@"SavedLocations"];
+    NSData *previous = [NSKeyedArchiver archivedDataWithRootObject:previousLocations];
+    [theDictionary setObject:previous forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:theDictionary FileName:@"SearchHistory"];
 }
 -(void)addLocation:(NSString *)locationName :(NSString *)locationKey {
