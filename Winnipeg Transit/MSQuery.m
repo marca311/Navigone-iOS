@@ -8,6 +8,7 @@
 
 #import "MSQuery.h"
 #import "apiKeys.h"
+#import "PlaceViewController.h"
 
 @implementation MSQuery
 
@@ -48,6 +49,13 @@
 -(NSString *)getDestinationString {
     return [destination getHumanReadable];
 }
+
+//Adds origin and destination entries to Search History
+-(void)addEntriesToHistory {
+    [PlaceViewController addEntryToFile: origin];
+    [PlaceViewController addEntryToFile: destination];
+}
+
 -(MSRoute *)getRoute {
     //Finish this method and 
     //NSString *time = [date ]

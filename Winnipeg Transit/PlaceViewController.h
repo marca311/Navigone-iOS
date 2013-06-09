@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UniversalViewController.h"
+#import "MSLocation.h"
 
 @interface PlaceViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
     UITableView *theTableView;
@@ -28,7 +29,7 @@
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex;
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
-+(void)addEntryToFile:(NSArray *)item;
++(void)addEntryToFile:(MSLocation *)item;
 +(NSMutableArray *)checkNumberOfEntries:(NSArray *)theArray;
 
 @end

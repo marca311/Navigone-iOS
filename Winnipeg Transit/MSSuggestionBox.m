@@ -89,10 +89,6 @@
             tries = tries + 1;
             query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
             NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, transitAPIKey];
-#if TARGET_IPHONE_SIMULATOR
-            NSLog(query);
-            NSLog(queryURL);
-#endif
             NSURL *checkURL = [[NSURL alloc]initWithString:queryURL];
             resultXMLFile = [NSData dataWithContentsOfURL:checkURL];
         }

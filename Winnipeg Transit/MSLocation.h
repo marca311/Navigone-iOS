@@ -28,6 +28,7 @@
 -(void)setName:(NSString *)input;
 -(void)setKey:(NSString *)input; //Is blank for MSLocation, but not for all subclasses
 
+-(NSString *)getKey; //Is blank for MSLocation, but not for all subclasses
 -(NSString *)getName;
 -(NSString *)getHumanReadable;
 -(NSString *)getGeoHumanReadable;

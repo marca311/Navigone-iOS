@@ -193,15 +193,13 @@
         case 0:
             [savedLocations removeObjectAtIndex:row];
             break;
-            
         case 1:
             [previousLocations removeObjectAtIndex:row];
             break;
     }
 }
 
-+(void)clearLocations
-{
++(void)clearLocations {
     NSArray *savedLocationsList = [[NSArray alloc]init];
     NSArray *previousLocationsList = [[NSArray alloc]init];
     if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
@@ -213,7 +211,6 @@
     [saver setObject:savedLocationsList forKey:@"SavedLocations"];
     [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
-
 }
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex {
     NSInteger firstSection = currentIndex.section;
@@ -255,8 +252,10 @@
 -(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {
     
 }
+
+#pragma mark - Static methods
 //Static method for adding entries
-+(void)addEntryToFile:(NSArray *)item {
++(void)addEntryToFile:(MSLocation *)item {
     NSArray *savedLocationsList = [[NSArray alloc]init];
     NSMutableArray *previousLocationsList = [[NSMutableArray alloc]init];
     if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
@@ -268,23 +267,27 @@
     
     //Checks for duplicate entries
     BOOL placed = NO;
-    NSString *key = [item objectAtIndex:1];
-    for (int i=0; i<[savedLocationsList count]; i++) {
-        NSString *checkKey = [[savedLocationsList objectAtIndex:i]objectAtIndex:1];
+    NSString *key = [item getKey];
+    for (MSLocation * location in savedLocationsList) {
+        //This system uses keys to check for dupes
+        NSString *checkKey = [location getKey];
+        //Check if location is currently saved locations list
         if ([key isEqualToString:checkKey]) {
-            NSArray *currentItem = [savedLocationsList objectAtIndex:i];
+            //If it is, remove all occurances from previous locations (if any)
             [previousLocationsList removeObject:item];
-            [previousLocationsList removeObject:currentItem];
+            [previousLocationsList removeObject:location];
+            //If previous locations list is empty, make it and add the item as the first entry
             if ([previousLocationsList count] == 0) {
                 previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
             } else {
+                //If previous locations list exists, just put the entry at the top of the previous locations list
                 [previousLocationsList insertObject:item atIndex:0];
             }
             placed = YES;
         }
     }
-    for (int i=0; i<[previousLocationsList count]; i++) {
-        NSString *checkKey = [[previousLocationsList objectAtIndex:i]objectAtIndex:1];
+    for (MSLocation * location  in previousLocationsList) {
+        NSString *checkKey = [location getKey];
         if ([key isEqualToString:checkKey]) {
             [previousLocationsList removeObject:item];
             [previousLocationsList insertObject:item atIndex:0];
@@ -292,20 +295,29 @@
         }
     }
     
+    //If the location was not in location history at all (placed == NO), then add it to the list
     if (!placed) {
         if ([previousLocationsList count] == 0) {
+            //Make previous locations list if it does not exist
             previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
         } else {
+            //Just add it if the list does exist
             [previousLocationsList insertObject:item atIndex:0];
         }
     }
     
+    //Makes sure there are 20 or fewer entries in the previous locations list
     previousLocationsList = [PlaceViewController checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
-    [saver setObject:savedLocationsList forKey:@"SavedLocations"];
-    [saver setObject:previousLocationsList forKey:@"PreviousLocations"];
+    //Converts array of MSLocations to data file
+    NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocationsList];
+    [saver setObject:saved forKey:@"SavedLocations"];
+    //Ditto
+    NSData *previous = [NSKeyedArchiver archivedDataWithRootObject:previousLocationsList];
+    [saver setObject:previous forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
 }
+//Checks to see if there are over 20 entries in search history, if there are, it removes extras.
 +(NSMutableArray *)checkNumberOfEntries:(NSMutableArray *)theArray {
     if ([theArray count] > 20) {
         for (int i = ([theArray count]-1); i > 19; i--) {

@@ -132,6 +132,7 @@
     dateField.text = display;
     mode.text = @"Depart After";
     
+    //Moves around time and date fields if the device is an iPad
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         CGRect theFrame = dateField.frame;
         theFrame.origin.x = 200;
@@ -144,10 +145,6 @@
     
     NSLog(@"Main UI Loaded");
     
-    if (![MSUtilities fileExists:@"SearchHistory.plist"]) {
-        //insert method to make file here
-    }
-    
     [super viewDidLoad];
     
 }
@@ -159,11 +156,15 @@
     dateField.text = display;
 }
 
+#pragma mark - Submit button
 -(IBAction)submitButtonClick
 {
     [self fieldChecker];
+    //Gets the current button location as a integer
     int buttonLocation = [submitButton checkCurrentLocation];
+    //If the submit button has "Next" as the text, go to the next field available or change to 
     if ([submitButton.titleLabel.text isEqualToString:@"Next"]) {
+        //
         if (buttonLocation == 1) {
             [query setOrigin:[origin getLocation]];
         } else if (buttonLocation == 2) {
@@ -214,13 +215,13 @@
         });
     }
 }
-
 //Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
 -(void)fieldChecker
 {
     if ([self fieldsFilled]) [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     else [submitButton setTitle:@"Next" forState:UIControlStateNormal];
 }
+#pragma mark -
 
 -(IBAction)backgroundTap
 {
