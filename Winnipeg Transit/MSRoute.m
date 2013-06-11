@@ -46,7 +46,7 @@
 }
 
 -(void)setDate {
-    
+    date = [NSDate date];
 }
 
 -(void)setNumberOfVariations {
@@ -68,5 +68,16 @@
     }
     variationArray = variations;
 }
+
++(NSString *)saveToFile:(NSDictionary *)dictionary
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
+    NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
+    [MSUtilities saveDictionaryToFile:dictionary FileName:entryTime];
+    [MSUtilities checkCacheAge];
+    [MSUtilities generateCacheDB];
+    return entryTime;
+}//saveToFile
 
 @end

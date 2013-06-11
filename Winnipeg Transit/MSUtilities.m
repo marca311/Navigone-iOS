@@ -24,7 +24,6 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist",fileName]];
     [savedDictionary writeToFile:filePath atomically:YES];
-    NSLog(filePath);
 }//saveMutableDictionaryToFile
 
 +(void)saveDictionaryToFile:(NSDictionary *)savedDictionary FileName:(NSString *)fileName
@@ -309,7 +308,6 @@
                 //Set new location key
                 [newLocation setKey:[locationArray objectAtIndex:1]];
                 [newPreviousLocations addObject:newLocation];
-                NSLog([newLocation getHumanReadable]);
             }
             //Convert MSLocation arrays into NSData files to be stored in the file
             NSData *previous = [NSKeyedArchiver archivedDataWithRootObject:newPreviousLocations];
@@ -321,7 +319,6 @@
                 [newLocation setName:[locationArray objectAtIndex:0]];
                 [newLocation setKey:[locationArray objectAtIndex:1]];
                 [newSavedLocations addObject:newLocation];
-                NSLog([newLocation getHumanReadable]);
             }
             //Same as above, converting MSLocations into NSData for storage
             NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:newSavedLocations];

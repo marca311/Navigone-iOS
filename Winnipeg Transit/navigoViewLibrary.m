@@ -48,7 +48,6 @@
 +(UIDatePicker *)openTimePicker
 {
     if ([MSUtilities firmwareIsHigherThanFour] == YES) {
-        NSLog(@"Good firmware");
         UIDatePicker *timePicker = [[UIDatePicker alloc]init];
         timePicker.datePickerMode = UIDatePickerModeTime;
         [timePicker setDate:[NSDate date]];
@@ -56,6 +55,7 @@
         [timePicker addTarget:self action:nil forControlEvents:UIControlEventValueChanged];
         return timePicker;
     }
+    return NULL;
 }//openTimePicker
 
 +(UIDatePicker *)openDatePicker
@@ -67,6 +67,7 @@
         [datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
         return datePicker;
     }
+    return NULL;
 }//openDatePicker
 
 +(NSString *)timeFromNSDate:(NSDate *)date
@@ -109,8 +110,6 @@
     
     CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
     
-    
-    
     CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);
     
     CGContextSetRGBFillColor(context, 0.0, 0.0, 1.0, 1);
@@ -122,8 +121,6 @@
     CGContextSetTextDrawingMode(context, kCGTextFill);
     
     CGContextSetRGBFillColor(context, 255, 255, 255, 1);
-    
-    
     
     //rotate text
     

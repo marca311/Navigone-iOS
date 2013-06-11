@@ -11,6 +11,11 @@
 #import "SubmitButton.h"
 #import "navigoViewController.h"
 
+/*
+ This class is responsible for doing the transitions between query sections (origin, destination, etc)
+ along with changing the title text for the sections.
+*/
+
 @interface AnimationInstructionSheet : NSObject
 
 //Relative Animation Methods

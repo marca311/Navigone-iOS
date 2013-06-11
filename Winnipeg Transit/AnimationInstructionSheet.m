@@ -361,8 +361,7 @@
     } else if ([field isEqualToString:@"destination"]) {
         currentString = [[naviView query]getDestinationString];
     }
-    if ([self shouldChangeLabel:currentString])
-    {
+    if ([self shouldChangeLabel:currentString]) {
         return currentString;
     }
     return nil;
