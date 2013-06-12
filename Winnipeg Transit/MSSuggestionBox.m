@@ -17,8 +17,6 @@
 
 @implementation MSSuggestionBox
 
-@synthesize tableArray;
-
 -(id)initWithFrameFromField:(UITextField *)textField
 {
     CGRect theFrame;
@@ -42,14 +40,17 @@
     return self;
 }
 
-- (void)getSuggestions:(NSString *)query {
+- (void)generateSuggestions:(NSString *)query {
     //Gets query suggestions on a separate thread
     //Make this have some kind of time stamp so that previous queries don't override newer ones when showing results on a slow connection.
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray *locationArray = [self getQuerySuggestions:query];
+        MSSuggestions *newSuggestions = [[MSSuggestions alloc]initWithQuery:query];
         
         dispatch_async( dispatch_get_main_queue(), ^{
-            tableArray = locationArray;
+            //Check if the recently searched suggestions is 
+            if ([newSuggestions isYounger:suggestions]) {
+                suggestions = newSuggestions;
+            }
             [self.tableView reloadData];
         });
     });
@@ -126,7 +127,7 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([tableArray count]+1); }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([suggestions getNumberOfEntries]+1); }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,15 +149,19 @@
         }
 
     }
-    if (indexPath.row == tableArray.count) {
+    if (indexPath.row == [suggestions getNumberOfEntries]) {
         cell.textBox.text = @"Search History";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {
-        MSLocation *location = [tableArray objectAtIndex:indexPath.row];
+        MSLocation *location = [suggestions getLocationAtIndex:indexPath.row];
         cell.textBox.text = [location getHumanReadable];
     }
     
     return cell;
+}
+
+-(MSSuggestions *)getSuggestions {
+    return suggestions;
 }
 
 @end

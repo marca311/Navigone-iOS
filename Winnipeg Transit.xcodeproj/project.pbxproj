@@ -27,7 +27,6 @@
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
 		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
-		6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050E16DF100A00444E18 /* MSSuggestion.m */; };
 		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
 		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
 		6F24051C16DF107F00444E18 /* MSMonument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051B16DF107F00444E18 /* MSMonument.m */; };
@@ -94,6 +93,7 @@
 		6FF56FAF158C237A00CC015C /* PlanSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* PlanSelectorTableVew.m */; };
 		6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* SavedRouteViewController.m */; };
 		6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9116B7327200567861 /* SavedRouteView.xib */; };
+		6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,8 +140,6 @@
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
 		6F24050A16DEC9CE00444E18 /* MSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSQuery.h; sourceTree = "<group>"; };
 		6F24050B16DEC9CE00444E18 /* MSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSQuery.m; sourceTree = "<group>"; };
-		6F24050D16DF100A00444E18 /* MSSuggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSuggestion.h; sourceTree = "<group>"; };
-		6F24050E16DF100A00444E18 /* MSSuggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSuggestion.m; sourceTree = "<group>"; };
 		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
 		6F24051216DF105C00444E18 /* MSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocation.m; sourceTree = "<group>"; };
 		6F24051416DF106700444E18 /* MSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAddress.h; sourceTree = "<group>"; };
@@ -239,6 +237,8 @@
 		6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRouteViewController.h; sourceTree = "<group>"; };
 		6FF7AC9016B7327200567861 /* SavedRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRouteViewController.m; sourceTree = "<group>"; };
 		6FF7AC9116B7327200567861 /* SavedRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedRouteView.xib; sourceTree = "<group>"; };
+		6FFF1BCB17681A9F00BF892F /* MSSuggestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSuggestions.h; sourceTree = "<group>"; };
+		6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSuggestions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,12 +422,12 @@
 				6F24050B16DEC9CE00444E18 /* MSQuery.m */,
 				6F24052016DF18BF00444E18 /* MSSegment.h */,
 				6F24052116DF18BF00444E18 /* MSSegment.m */,
-				6F24050D16DF100A00444E18 /* MSSuggestion.h */,
-				6F24050E16DF100A00444E18 /* MSSuggestion.m */,
 				6F27EA8C16B8B09700444EEB /* MSRoute.h */,
 				6F27EA8D16B8B09700444EEB /* MSRoute.m */,
 				6F24051D16DF18AD00444E18 /* MSVariation.h */,
 				6F24051E16DF18AE00444E18 /* MSVariation.m */,
+				6FFF1BCB17681A9F00BF892F /* MSSuggestions.h */,
+				6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */,
 			);
 			name = "Structure Classes";
 			sourceTree = "<group>";
@@ -690,7 +690,6 @@
 				6FD5E80E16D70BD500896532 /* apiKeys.m in Sources */,
 				6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */,
 				6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */,
-				6F24050F16DF100A00444E18 /* MSSuggestion.m in Sources */,
 				6F24051316DF105C00444E18 /* MSLocation.m in Sources */,
 				6F24051916DF107500444E18 /* MSStop.m in Sources */,
 				6F24051C16DF107F00444E18 /* MSMonument.m in Sources */,
@@ -700,6 +699,7 @@
 				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
 				6F36798F1708C62B008FA13D /* MSAddress.m in Sources */,
 				6FA04C9517488D1C00049BE1 /* MSDate.m in Sources */,
+				6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

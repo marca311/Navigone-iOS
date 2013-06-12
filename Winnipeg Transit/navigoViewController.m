@@ -328,7 +328,7 @@
 }
 -(IBAction)originBoxChanged
 {
-    [suggestionBox getSuggestions:origin.text];
+    [suggestionBox generateSuggestions:origin.text];
 }
 -(IBAction)originBoxFinished
 {
@@ -344,7 +344,7 @@
 }
 -(IBAction)destinationBoxChanged
 {
-    [suggestionBox getSuggestions:destination.text];
+    [suggestionBox generateSuggestions:destination.text];
 }
 -(IBAction)destinationBoxFinished
 {
@@ -359,7 +359,7 @@
         [MSUtilities presentViewController:history withParent:self];
     } else {
         MSLocation *answer;
-        answer = [suggestionBox.tableArray objectAtIndex:indexPath.row];
+        answer = [[suggestionBox getSuggestions]getLocationAtIndex:indexPath.row];
         [suggestionBox.tableView removeFromSuperview];
         suggestionBox = nil;
         if ([currentField isEqualToString:@"origin"]) {

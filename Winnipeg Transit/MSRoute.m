@@ -69,15 +69,14 @@
     variationArray = variations;
 }
 
-+(NSString *)saveToFile:(NSDictionary *)dictionary
+-(void)saveToFile
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
-    NSString *entryTime = [dateFormat stringFromDate:[dictionary objectForKey:@"Entry time"]];
-    [MSUtilities saveDictionaryToFile:dictionary FileName:entryTime];
-    [MSUtilities checkCacheAge];
-    [MSUtilities generateCacheDB];
-    return entryTime;
+    NSString *entryTime = [dateFormat stringFromDate:date];
+    NSString *fileName = [NSString stringWithFormat:@"%@.route",entryTime];
+    NSData *route = [NSKeyedArchiver archivedDataWithRootObject:self];
+    [route writeToFile:fileName atomically:NO];
 }//saveToFile
 
 @end

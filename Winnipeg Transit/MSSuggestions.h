@@ -7,7 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSLocation.h"
 
-@interface MSSuggestions : NSObject
+@interface MSSuggestions : NSObject {
+    NSArray *locationArray;
+    NSDate *timeStamp;
+}
+
+//Data querying method
+-(id)initWithQuery:(NSString *)query;
+
+//Timestamping methods
+-(NSDate *)getDate;
+-(BOOL)isYounger:(MSSuggestions *)otherSuggestions;
+
+//Retrieving Data
+-(MSLocation *)getLocationAtIndex:(NSUInteger)index;
+-(NSUInteger)getNumberOfEntries;
 
 @end

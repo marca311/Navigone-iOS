@@ -58,9 +58,9 @@
 
 -(MSRoute *)getRoute {
     //Finish this method
-    NSString *time = [date]
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,transitAPIKey];
-    NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
+    //NSString *time = [date]
+    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,transitAPIKey];
+    //NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     return NULL;
 }
 

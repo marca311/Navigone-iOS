@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSSuggestions.h"
 
 @interface MSSuggestionBox : UITableViewController <UITableViewDataSource> {
-    
+    MSSuggestions *suggestions;
 }
-
-@property (nonatomic, retain) NSArray *tableArray;
 
 -(id)initWithFrameFromField:(UITextField *)textField;
 
--(void)getSuggestions:(NSString *)query;
+-(void)generateSuggestions:(NSString *)query;
 
 -(void)dismissSuggestionBox;
+
+-(MSSuggestions *)getSuggestions;
 
 @end

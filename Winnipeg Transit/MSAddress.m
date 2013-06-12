@@ -20,6 +20,7 @@
         [self setStreetAbbr];
     }
     [self setStreetName];
+    [self setHumanReadable];
     return self;
 }
 
