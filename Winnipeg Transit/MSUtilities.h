@@ -52,4 +52,8 @@
 
 +(void)convertSearchHistory;
 
++ (NSString *)getTimeFormatForServer:(NSDate *)timeObject;
+
++ (NSString *)getDateFormatForServer:(NSDate *)timeObject;
+
 @end

@@ -9,6 +9,7 @@
 #import "MSQuery.h"
 #import "apiKeys.h"
 #import "PlaceViewController.h"
+#import "MSUtilities.h"
 
 @implementation MSQuery
 
@@ -57,11 +58,19 @@
 }
 
 -(MSRoute *)getRoute {
-    //Finish this method
-    //NSString *time = [date]
-    //NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&api-key=%@",origin,destination,time,date,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,transitAPIKey];
-    //NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
-    return NULL;
+    NSString *serverOrigin = [origin getKey];
+    NSString *serverDestination = [destination getKey];
+    NSString *serverTime = [MSUtilities getTimeFormatForServer:date];
+    NSString *serverDate = [MSUtilities getDateFormatForServer:date];
+    
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",
+                           serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey];
+    NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
+    NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
+    TBXML *xmlFile = [XMLParser loadXmlDocumentFromData:xmlData];
+    TBXMLElement *rootElement = [xmlFile rootXMLElement];
+    MSRoute *result = [[MSRoute alloc]initWithElement:rootElement];
+    return result;
 }
 
 

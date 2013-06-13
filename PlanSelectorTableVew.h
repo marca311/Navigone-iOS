@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PlanTableViewCell.h"
-#import "navigoInterpreter.h"
+#import "MSRoute.h"
 
 @interface PlanSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -18,10 +18,10 @@
 
 - (id)initWithFrameFromButton:(UIButton *)button;
 
-- (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary;
+- (void)showAndAnimate:(UIView *)theView Route:(MSRoute *)route;
 
 - (void)closeAndAnimate;
 
-- (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary;
+- (CGRect)getFrameSizeFromMSRoute:(MSRoute *)route;
 
 @end

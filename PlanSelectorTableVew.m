@@ -9,7 +9,6 @@
 #import "PlanSelectorTableVew.h"
 #import "PlanTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "navigoInterpreter.h"
 
 @implementation PlanSelectorTableVew
 
@@ -45,12 +44,11 @@
 }
 */
 
-- (void)showAndAnimate:(UIView *)theView :(NSDictionary *)dictionary
-{
+- (void)showAndAnimate:(UIView *)theView Route:(MSRoute *)route {
     [theView addSubview:self.tableView];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.tableView.frame = [self getFrameSizeFromArray:dictionary];
+    self.tableView.frame = [self getFrameSizeFromArray:route];
     [UIView commitAnimations];
 }
 
@@ -64,12 +62,10 @@
     [self.tableView removeFromSuperview];
 }
 
-- (CGRect)getFrameSizeFromArray:(NSDictionary *)dictionary
-{
+- (CGRect)getFrameSizeFromArray:(MSRoute *)route {
     //Adjusts frame size based on how many entries are in the table to a max of 3
-    primaryResults = [navigoInterpreter planListMaker:dictionary];
     int frameHeight;
-    int numberOfPlans = [[primaryResults objectAtIndex:0]intValue];
+    int numberOfPlans = [route getNumberOfVariations];
     if (numberOfPlans <= 3) {
         frameHeight = numberOfPlans * 44;
         //frameHeight = frameHeight + 15;
@@ -85,8 +81,7 @@
 //The -1 is because the first entry in primaryResults is the number of plans
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([primaryResults count] - 1); }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"PlanCellIdentifier";
     PlanTableViewCell *cell = nil;
@@ -112,11 +107,5 @@
     return cell;
 
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 
 @end

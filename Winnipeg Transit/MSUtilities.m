@@ -337,4 +337,20 @@
     else return [[MSLocation alloc]init];
 }
 
++ (NSString *)getTimeFormatForServer:(NSDate *)timeObject
+{
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"HH:mm"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
+    return result;
+}
+
++ (NSString *)getDateFormatForServer:(NSDate *)timeObject
+{
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"y-MM-dd"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
+    return result;
+}
+
 @end

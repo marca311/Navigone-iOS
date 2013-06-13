@@ -25,7 +25,7 @@
 		4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4342D4531582611600A4A558 /* MSTableViewCell.m */; };
 		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
-		43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m */; };
+		43F019D31507D92E003BAFBC /* navigoInterpreter.m.oldstructure in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m.oldstructure */; };
 		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
 		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
 		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
@@ -136,8 +136,8 @@
 		4342D4561582627E00A4A558 /* MSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTableViewCell.xib; path = ../MSTableViewCell.xib; sourceTree = "<group>"; };
 		435617DD151266050022F903 /* UniversalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalViewController.h; sourceTree = "<group>"; };
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
-		43F019D11507D92E003BAFBC /* navigoInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoInterpreter.h; sourceTree = "<group>"; };
-		43F019D21507D92E003BAFBC /* navigoInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoInterpreter.m; sourceTree = "<group>"; };
+		43F019D11507D92E003BAFBC /* navigoInterpreter.h.oldstructure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = navigoInterpreter.h.oldstructure; sourceTree = "<group>"; };
+		43F019D21507D92E003BAFBC /* navigoInterpreter.m.oldstructure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = navigoInterpreter.m.oldstructure; sourceTree = "<group>"; };
 		6F24050A16DEC9CE00444E18 /* MSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSQuery.h; sourceTree = "<group>"; };
 		6F24050B16DEC9CE00444E18 /* MSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSQuery.m; sourceTree = "<group>"; };
 		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 				4316805C15013E4100A41785 /* Supporting Files */,
 				6F519A081502F84200395F84 /* XMLParser.h */,
 				6F519A091502F84200395F84 /* XMLParser.m */,
-				43F019D11507D92E003BAFBC /* navigoInterpreter.h */,
-				43F019D21507D92E003BAFBC /* navigoInterpreter.m */,
+				43F019D11507D92E003BAFBC /* navigoInterpreter.h.oldstructure */,
+				43F019D21507D92E003BAFBC /* navigoInterpreter.m.oldstructure */,
 				6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */,
 				6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */,
 				430505A115177FAE00C08BC7 /* MSUtilities.h */,
@@ -574,7 +574,7 @@
 		4316804815013E4100A41785 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = marca311;
 			};
 			buildConfigurationList = 4316804B15013E4100A41785 /* Build configuration list for PBXProject "Winnipeg Transit" */;
@@ -666,7 +666,7 @@
 				6F519A0A1502F84200395F84 /* XMLParser.m in Sources */,
 				6F41561E150553D400A5DB67 /* TBXML+HTTP.m in Sources */,
 				6F41561F150553D400A5DB67 /* TBXML.m in Sources */,
-				43F019D31507D92E003BAFBC /* navigoInterpreter.m in Sources */,
+				43F019D31507D92E003BAFBC /* navigoInterpreter.m.oldstructure in Sources */,
 				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
@@ -747,6 +747,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -761,6 +765,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
@@ -778,6 +783,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -785,6 +794,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -876,6 +886,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -883,6 +897,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

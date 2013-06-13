@@ -8,7 +8,6 @@
 
 #import "MSSuggestionBox.h"
 #import <QuartzCore/QuartzCore.h>
-#import "navigoInterpreter.h"
 #import "SuggestionBoxCell.h"
 #import "MSUtilities.h"
 #import "apiKeys.h"

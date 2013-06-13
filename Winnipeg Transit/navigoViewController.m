@@ -9,7 +9,6 @@
 #import "navigoViewController.h"
 #import "TBXML.h"
 #import "XMLParser.h"
-#import "navigoInterpreter.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"
 #import "navigoResultViewController.h"
@@ -181,12 +180,9 @@
         [activityView animateShow];
         dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self resignFirstResponder];
-            NSMutableArray *searchArray = [[NSMutableArray alloc]init];
-            //Part of old framework, might need to be replaced
-            //[searchArray addObject:[[queriedDictionary objectForKey:@"origin"] objectAtIndex:1]];
-            //[searchArray addObject:[[queriedDictionary objectForKey:@"destination"] objectAtIndex:1]];
-            //[PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"destination"]];
-            //[PlaceViewController addEntryToFile:[queriedDictionary objectForKey:@"origin"]];
+            [query setOrigin:[origin getLocation]];
+            [query setDestination:[destination getLocation]];
+            [query setDate:[]
             [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
             [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
             [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
@@ -294,16 +290,14 @@
 }
 
 #pragma mark - Method to detect whether all fields are filled
--(BOOL)fieldsFilled
-{
+-(BOOL)fieldsFilled {
     BOOL originBOOL = NO;
     BOOL destinationBOOL = NO;
     BOOL timeBOOL = NO;
     BOOL dateBOOL = NO;
     BOOL modeBOOL = NO;
-    //Still part of old structure, needs to be replaced
-    //if ([self containsSomething:origin] || !([queriedDictionary objectForKey:@"origin"] == NULL)) originBOOL = YES;
-    //if ([self containsSomething:destination] || !([queriedDictionary objectForKey:@"destination"] == NULL)) destinationBOOL = YES;
+    if ([self containsSomething:origin] || !([query getOriginString] == NULL)) originBOOL = YES;
+    if ([self containsSomething:destination] || !([query getDestinationString] == NULL)) destinationBOOL = YES;
     if ([self containsSomething:timeField]) timeBOOL = YES;
     if ([self containsSomething:dateField]) dateBOOL = YES;
     if ([self containsSomething:mode]) modeBOOL = YES;
@@ -311,49 +305,41 @@
     else return NO;
 }
 //Small method to cut down on clutter on above method
--(BOOL)containsSomething:(UITextField *)theTextField
-{
+-(BOOL)containsSomething:(UITextField *)theTextField {
     if ([theTextField.text isEqualToString:@""]) return NO;
     else return YES;
 }
 
 #pragma mark - Actions for origin and destination suggestion boxes
 
--(IBAction)originBoxEdit
-{
+-(IBAction)originBoxEdit {
     currentField = @"origin";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
     suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
--(IBAction)originBoxChanged
-{
+-(IBAction)originBoxChanged {
     [suggestionBox generateSuggestions:origin.text];
 }
--(IBAction)originBoxFinished
-{
+-(IBAction)originBoxFinished {
     [suggestionBox.tableView removeFromSuperview];
     suggestionBox = nil;
 }
--(IBAction)destinationBoxEdit
-{
+-(IBAction)destinationBoxEdit {
     currentField = @"destination";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
     suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
--(IBAction)destinationBoxChanged
-{
+-(IBAction)destinationBoxChanged {
     [suggestionBox generateSuggestions:destination.text];
 }
--(IBAction)destinationBoxFinished
-{
+-(IBAction)destinationBoxFinished {
     [suggestionBox.tableView removeFromSuperview];
     suggestionBox = nil;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
         [MSUtilities presentViewController:history withParent:self];
@@ -376,15 +362,13 @@
 
 #pragma mark -
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     /*
     if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationPortrait)

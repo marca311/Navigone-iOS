@@ -22,4 +22,10 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(NSUInteger)getNumberOfVariations;
+
+-(NSArray *)getVariations;
+
+-(NSArray *)getVariationDataFromIndex:(NSUInteger)index;
+
 @end

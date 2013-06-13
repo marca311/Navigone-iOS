@@ -19,7 +19,7 @@
 +(TBXMLElement *)getRootElement:(TBXML *)tbxmlName;
 
 //Navigation Methods
-+(TBXMLElement *)extractKnownChildElement:(NSString *)elementName:(TBXMLElement *)rootElement;
++(TBXMLElement *)extractKnownChildElement:(NSString *)elementName RootElement:(TBXMLElement *)rootElement;
 +(TBXMLElement *)extractUnknownChildElement:(TBXMLElement *)element;
 +(TBXMLAttribute *)extractAttribute:(TBXMLElement *)element;
 

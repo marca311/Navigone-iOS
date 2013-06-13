@@ -11,8 +11,6 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
-#import "navigoInterpreter.h"
-
 
 NSDictionary *resultDictionary;
 
@@ -25,17 +23,14 @@ NSDictionary *resultDictionary;
 @synthesize planSelectorTable,planTable;
 @synthesize planList, currentPlan, planTitleArray;
 
--(void)setRoute:(NSString *)theRoute {
-    currentFile = theRoute;
+-(id)initWithMSRoute:(MSRoute *)route {
+    routeData = route;
+    self = [super initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
+    return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+-(void)setRoute:(MSRoute *)theRoute {
+    routeData = theRoute;
 }
 
 - (void)viewDidLoad
@@ -78,7 +73,7 @@ NSDictionary *resultDictionary;
         planSelectorTable.primaryResults = planList;
         planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
         planSelectorTable.tableView.delegate = self;
-        [planSelectorTable showAndAnimate:self.view:resultDictionary];
+        [planSelectorTable showAndAnimate:self.view Route:routeData];
     } else {
         [planSelectorTable closeAndAnimate];
         planSelectorTable = nil;

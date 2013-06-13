@@ -79,4 +79,8 @@
     [route writeToFile:fileName atomically:NO];
 }//saveToFile
 
+-(NSUInteger)getNumberOfVariations {
+    return numberOfVariations;
+}
+
 @end

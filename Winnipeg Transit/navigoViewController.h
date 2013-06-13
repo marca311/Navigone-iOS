@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TBXML.h"
 #import "XMLParser.h"
-#import "navigoInterpreter.h"
 #import "UniversalViewController.h"
 #import "MSUtilities.h"
 #import "navigoViewLibrary.h"

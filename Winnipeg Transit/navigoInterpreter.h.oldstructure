@@ -125,13 +125,13 @@
 
 +(NSMutableArray *)toFromInterpreter:(NSDictionary *)dictionary;
 
-+(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)pointHInterpreter:(NSDictionary *)dictionary Time:(NSString *)time;
 
-+(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)addressHInterpreter:(NSDictionary *)dictionary Time:(NSString *)time;
 
-+(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)monumentHInterpreter:(NSDictionary *)dictionary Time:(NSString *)time;
 
-+(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary:(NSString *)time;
++(NSMutableArray *)stopHInterpreter:(NSDictionary *)dictionary Time:(NSString *)time;
 
 +(NSMutableArray *)planListMaker:(NSDictionary *)dictionary;
 

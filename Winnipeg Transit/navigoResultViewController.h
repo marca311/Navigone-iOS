@@ -12,14 +12,15 @@
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
 #import "PlanSelectorTableVew.h"
-#import "navigoInterpreter.h"
 #import "PlanDisplayTableViewController.h"
+#import "MSRoute.h"
 
 extern NSDictionary *resultDictionary;
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDelegate, UITextFieldDelegate> {
     PlanSelectorTableVew *planSelectorTable;
     UITextField *planField;
+    MSRoute *routeData;
 }
 
 @property (nonatomic, retain) NSString *currentFile;
@@ -37,7 +38,9 @@ extern NSDictionary *resultDictionary;
 @property (nonatomic, retain) IBOutlet UILabel *endTime;
 @property (nonatomic, retain) IBOutlet UILabel *buses;
 
--(void)setRoute:(NSString *)theRoute;
+-(id)initWithMSRoute:(MSRoute *)route;
+
+-(void)setRoute:(MSRoute *)theRoute;
 
 -(IBAction)reloadTable;
 
