@@ -10,7 +10,7 @@
 #import "MSUtilities.h"
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
-#import "PlanSelectorTableVew.h"
+#import "VariationSelectorTableVew.h"
 
 NSDictionary *resultDictionary;
 
@@ -19,9 +19,6 @@ NSDictionary *resultDictionary;
 @synthesize currentFile;
 @synthesize resultsTable;
 @synthesize planButton;
-@synthesize resultsArray, planArray;
-@synthesize planSelectorTable,planTable;
-@synthesize planList, currentPlan, planTitleArray;
 
 -(id)initWithMSRoute:(MSRoute *)route {
     routeData = route;
@@ -36,42 +33,23 @@ NSDictionary *resultDictionary;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    resultDictionary = [MSUtilities loadDictionaryWithName:currentFile];
-    planArray = [navigoInterpreter makeHumanReadableResults:resultDictionary];
-    currentPlan = 0;
-    resultsArray = [planArray objectAtIndex:currentPlan];
-    planList = [navigoInterpreter planListMaker:resultDictionary];
-    planTitleArray = [planList objectAtIndex:(currentPlan+1)];
-    self.buses.text = [planTitleArray objectAtIndex:2];
-    self.startTime.text = [planTitleArray objectAtIndex:0];
-    self.endTime.text = [planTitleArray objectAtIndex:1];
+    currentVariation = 0;
+    variationData = [routeData getVariationFromIndex:currentVariation];
+    //planList = [navigoInterpreter planListMaker:resultDictionary];
+    self.buses.text = [variationData getBuses];
+    self.startTime.text = [variationData getStartTime];
+    self.endTime.text = [variationData getEndTime];
     
     //Add plan table to view
-    planTable = [[PlanDisplayTableViewController alloc]initWithCorrectFrame:resultsArray];
-    [planTable showTable:self.view];
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    //textField = planField;
-    if (![planField.text isEqual:@""]) {
-        resultsArray = [planArray objectAtIndex:([planField.text intValue] - 1)];
-        [resultsTable reloadData];
-    }
-}
-
--(IBAction)reloadTable
-{
-    [self resignFirstResponder];
-    resultsArray = [planArray objectAtIndex:[planField.text intValue]];
-    [resultsTable reloadData];
+    variationTable = [[VariationDisplayTableViewController alloc]initWithCorrectFrame:variationData];
+    [variationTable showTable:self.view];
 }
 
 -(IBAction)planButtonPress
 {
     if ([planSelectorTable.tableView isUserInteractionEnabled] == NO) {
         planSelectorTable.primaryResults = planList;
-        planSelectorTable = [[PlanSelectorTableVew alloc]initWithFrameFromButton:planButton];
+        planSelectorTable = [[VariationSelectorTableVew alloc]initWithFrameFromButton:planButton];
         planSelectorTable.tableView.delegate = self;
         [planSelectorTable showAndAnimate:self.view Route:routeData];
     } else {

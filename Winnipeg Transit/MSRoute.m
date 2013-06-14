@@ -83,4 +83,8 @@
     return numberOfVariations;
 }
 
+-(MSVariation *)getVariationFromIndex:(NSUInteger)index {
+    return [variationArray objectAtIndex:index];
+}
+
 @end

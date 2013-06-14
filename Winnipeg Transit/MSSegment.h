@@ -37,6 +37,8 @@
 
 +(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement;
 
+-(NSString *)getType;
+-(NSString *)getBusNumber;
 -(NSArray *)getHumanReadable;
 
 @end

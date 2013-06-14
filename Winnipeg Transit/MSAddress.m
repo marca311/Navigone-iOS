@@ -36,17 +36,17 @@
 */
 
 -(void)setKey {
-    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
+    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" RootElement:rootElement];
     key = [XMLParser getValueFromElement:keyElement];
 }
 
 -(void)setHouseNumber {
-    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street-number" :rootElement];
+    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street-number" RootElement:rootElement];
     houseNumber = [XMLParser getValueFromElement:theElement];
 }
 -(void)setStreetName {
-    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
-    theElement = [XMLParser extractKnownChildElement:@"name" :theElement];
+    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" RootElement:rootElement];
+    theElement = [XMLParser extractKnownChildElement:@"name" RootElement:theElement];
     streetName = [XMLParser getValueFromElement:theElement];
     //Get rid of street type on the end of the name
     if (streetType != NULL) {
@@ -54,15 +54,15 @@
     }
 }
 -(void)setStreetType {
-    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
-    theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
+    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" RootElement:rootElement];
+    theElement = [XMLParser extractKnownChildElement:@"type" RootElement:theElement];
     if (theElement != NULL) {
         streetType = [XMLParser getValueFromElement:theElement];
     }
 }
 -(void)setStreetAbbr {
-    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" :rootElement];
-    theElement = [XMLParser extractKnownChildElement:@"type" :theElement];
+    TBXMLElement *theElement = [XMLParser extractKnownChildElement:@"street" RootElement:rootElement];
+    theElement = [XMLParser extractKnownChildElement:@"type" RootElement:theElement];
     streetAbbr = [XMLParser getKnownAttributeData:@"abbr" Element:theElement];
 }
 -(void)setHumanReadable {

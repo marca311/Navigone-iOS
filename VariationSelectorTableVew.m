@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "PlanSelectorTableVew.h"
-#import "PlanTableViewCell.h"
+#import "VariationSelectorTableVew.h"
+#import "VariationTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation PlanSelectorTableVew
+@implementation VariationSelectorTableVew
 
 @synthesize tableRect, primaryResults, resultsArray;
 
@@ -84,8 +84,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"PlanCellIdentifier";
-    PlanTableViewCell *cell = nil;
-    cell = (PlanTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    VariationTableViewCell *cell = nil;
+    cell = (VariationTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil)
     {
         NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"PlanTableViewCell" owner:nil options:nil];
@@ -93,7 +93,7 @@
         {
             if([currentObject isKindOfClass:[UITableViewCell class]])
             {
-                cell = (PlanTableViewCell *)currentObject;
+                cell = (VariationTableViewCell *)currentObject;
                 break;
             }
         }

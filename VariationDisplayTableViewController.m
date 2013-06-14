@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "PlanDisplayTableViewController.h"
+#import "VariationDisplayTableViewController.h"
 
-@interface PlanDisplayTableViewController ()
+@interface VariationDisplayTableViewController ()
 
 @end
 
-@implementation PlanDisplayTableViewController
+@implementation VariationDisplayTableViewController
 
 @synthesize currentArray;
 
@@ -25,9 +25,9 @@
     return self;
 }
 
--(id)initWithCorrectFrame:(NSArray *)theArray
+-(id)initWithCorrectFrame:(MSVariation *)theVariation
 {
-    self = [[PlanDisplayTableViewController alloc]init];
+    self = [[VariationDisplayTableViewController alloc]init];
     CGRect theFrame;
     theFrame.origin.x = 20;
     theFrame.origin.y = 104;
@@ -40,7 +40,7 @@
     self.tableView.opaque = NO;
     self.tableView.backgroundView = nil;
 
-    currentArray = theArray;
+    variationData = theVariation;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     return self;
@@ -51,9 +51,9 @@
     [theView addSubview:self.tableView];
 }//showTable
 
--(void)changeTablePlan:(NSArray *)theArray
+-(void)changeTablePlan:(MSVariation *)theVariation
 {
-    currentArray = theArray;
+    variationData = theVariation;
     [self.tableView reloadData];
 }//changeTablePlan
 
@@ -118,17 +118,14 @@
 {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
+    MSSegment *segmentData = [variationData getSegmentAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
     MSTableViewCell *cell = nil;
     cell = (MSTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
-    if(cell == nil)
-    {
+    if(cell == nil) {
         NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"MSTableViewCell" owner:nil options:nil];
-        for(id currentObject in topLevelObjects)
-        {
-            if([currentObject isKindOfClass:[UITableViewCell class]])
-            {
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
                 cell = (MSTableViewCell *)currentObject;
                 break;
             }
@@ -138,8 +135,8 @@
     cell.textView.backgroundColor = [UIColor clearColor];
     cell.textView.opaque = NO;
     
-    cell.textView.text = [contentForThisRow objectAtIndex:1];
-    cell.time.text = [navigoViewLibrary sendTime:contentForThisRow];
+    cell.textView.text = [segmentData getHumanReadable];
+    cell.time.text = [segmentData get];
     cell.image.image = [self useCorrectImage:contentForThisRow];
     
     return cell;

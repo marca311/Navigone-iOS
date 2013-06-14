@@ -11,27 +11,25 @@
 #import "MSUtilities.h"
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
-#import "PlanSelectorTableVew.h"
-#import "PlanDisplayTableViewController.h"
+#import "VariationSelectorTableVew.h"
+#import "VariationDisplayTableViewController.h"
 #import "MSRoute.h"
 
 extern NSDictionary *resultDictionary;
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDelegate, UITextFieldDelegate> {
-    PlanSelectorTableVew *planSelectorTable;
-    UITextField *planField;
+    VariationSelectorTableVew *planSelectorTable;
+    NSUInteger currentVariation;
     MSRoute *routeData;
+    MSVariation *variationData;
+    VariationDisplayTableViewController *variationTable;
 }
 
 @property (nonatomic, retain) NSString *currentFile;
 @property (nonatomic, retain) NSArray *planArray;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTable;
 @property (nonatomic, retain) IBOutlet UIButton *planButton;
-@property (nonatomic, retain) NSArray *resultsArray;
-@property (nonatomic, retain) IBOutlet PlanDisplayTableViewController *planTable;
-@property (nonatomic, retain) PlanSelectorTableVew *planSelectorTable;
 @property (nonatomic, retain) NSArray *planList;
-@property (nonatomic) int currentPlan;
 @property (nonatomic, retain) NSArray *planTitleArray;
 //Plan selector button text boxes
 @property (nonatomic, retain) IBOutlet UILabel *startTime;

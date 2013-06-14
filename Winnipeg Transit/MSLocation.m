@@ -33,16 +33,16 @@
     [self setLongitude];
 }
 -(void)setLatitude {
-    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"geographic" :centreElement];
-    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"latitude" :centreElement];
+    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
+    centreElement = [XMLParser extractKnownChildElement:@"geographic" RootElement:centreElement];
+    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"latitude" RootElement:centreElement];
     latitude = [XMLParser getValueFromElement:childElement];
 
 }
 -(void)setLongitude {
-    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"geographic" :centreElement];
-    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"longitude" :centreElement];
+    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
+    centreElement = [XMLParser extractKnownChildElement:@"geographic" RootElement:centreElement];
+    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"longitude" RootElement:centreElement];
     longitude = [XMLParser getValueFromElement:childElement];
 }
 -(void)setUTM {
@@ -51,20 +51,20 @@
     [self setUtmY];
 }
 -(void)setUtmZone {
-    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"utm" :centreElement];
+    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
+    centreElement = [XMLParser extractKnownChildElement:@"utm" RootElement:centreElement];
     utmZone = [XMLParser getKnownAttributeData:@"zone" Element:centreElement];
 }
 -(void)setUtmX {
-    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"utm" :centreElement];
-    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"x" :centreElement];
+    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
+    centreElement = [XMLParser extractKnownChildElement:@"utm" RootElement:centreElement];
+    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"x" RootElement:centreElement];
     utmX = [XMLParser getValueFromElement:childElement];
 }
 -(void)setUtmY {
-    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" :rootElement];
-    centreElement = [XMLParser extractKnownChildElement:@"utm" :centreElement];
-    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"y" :centreElement];
+    TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
+    centreElement = [XMLParser extractKnownChildElement:@"utm" RootElement:centreElement];
+    TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"y" RootElement:centreElement];
     utmY = [XMLParser getValueFromElement:childElement];
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "PlanTableViewCell.h"
+#import "VariationTableViewCell.h"
 
-@implementation PlanTableViewCell
+@implementation VariationTableViewCell
 
 @synthesize startTime, endTime, buses;
 

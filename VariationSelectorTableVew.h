@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlanTableViewCell.h"
+#import "VariationTableViewCell.h"
 #import "MSRoute.h"
 
-@interface PlanSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface VariationSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) CGRect tableRect;
 @property (nonatomic, retain) NSArray *primaryResults;

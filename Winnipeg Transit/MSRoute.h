@@ -26,6 +26,6 @@
 
 -(NSArray *)getVariations;
 
--(NSArray *)getVariationDataFromIndex:(NSUInteger)index;
+-(MSVariation *)getVariationFromIndex:(NSUInteger)index;
 
 @end

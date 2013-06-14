@@ -19,11 +19,11 @@
 }
 
 -(void)setStopNumber {
-    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
+    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" RootElement:rootElement];
     stopNumber = [XMLParser getValueFromElement:keyElement];
 }
 -(void)setStopName {
-    TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" :rootElement];
+    TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" RootElement:rootElement];
     stopName = [XMLParser getValueFromElement:nameElement];
 }
 

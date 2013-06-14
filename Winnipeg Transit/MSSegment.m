@@ -30,31 +30,31 @@
 }
 
 -(void)setTimes {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"times" :rootElement];
-    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" :workingElement];
+    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
+    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:workingElement];
     totalTime = [[XMLParser getValueFromElement:timeElement] intValue];
     if ([type isEqualToString:@"walk"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"walking" :workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
         walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"transfer"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"waiting" :workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:workingElement];
         waitingTime = [[XMLParser getValueFromElement:timeElement] intValue];
-        timeElement = [XMLParser extractKnownChildElement:@"walking" :workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
         walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"ride"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"riding" :workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:workingElement];
         ridingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     }
-    timeElement = [XMLParser extractKnownChildElement:@"start" :workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:workingElement];
     startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:workingElement]];
-    timeElement = [XMLParser extractKnownChildElement:@"stop" :workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:workingElement];
     endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
 }
 
 -(void)setLocations {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"from" :rootElement];
+    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"from" RootElement:rootElement];
     fromLocation = [MSSegment setLocationTypesFromElement:workingElement];
-    workingElement = [XMLParser extractKnownChildElement:@"to" :rootElement];
+    workingElement = [XMLParser extractKnownChildElement:@"to" RootElement:rootElement];
     toLocation = [MSSegment setLocationTypesFromElement:workingElement];
 }
 
@@ -81,8 +81,8 @@
 }
 
 -(void)setBusVariation {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" :rootElement];
-    workingElement = [XMLParser extractKnownChildElement:@"key" :workingElement];
+    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
+    workingElement = [XMLParser extractKnownChildElement:@"key" RootElement:workingElement];
     busVariation = [XMLParser getValueFromElement:workingElement];
 }
 -(void)setBusNumber {
@@ -90,21 +90,27 @@
     busNumber = [stringArray objectAtIndex:0];
 }
 -(void)setRouteName {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" :rootElement];
-    workingElement = [XMLParser extractKnownChildElement:@"name" :workingElement];
+    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
+    workingElement = [XMLParser extractKnownChildElement:@"name" RootElement:workingElement];
     NSString *fullString = [XMLParser getValueFromElement:workingElement];
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
     routeName = [stringArray objectAtIndex:0];
 }
 -(void)setVariationDestination {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" :rootElement];
-    workingElement = [XMLParser extractKnownChildElement:@"name" :workingElement];
+    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
+    workingElement = [XMLParser extractKnownChildElement:@"name" RootElement:workingElement];
     NSString *fullString = [XMLParser getValueFromElement:workingElement];
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
     variationDestination = [stringArray objectAtIndex:1];
 }
 
 //Getter method
+-(NSString *)getType {
+    return type;
+}
+-(NSString *)getBusNumber {
+    return busNumber;
+}
 -(NSArray *)getHumanReadable {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     if ([type isEqualToString:@"walk"]) {

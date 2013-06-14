@@ -15,7 +15,7 @@
 
 +(TBXML *)loadXmlDocumentFromFile:(NSString *)fileName {
     NSError *error;
-    TBXML * tbxmlFile = [TBXML tbxmlWithXMLFile:fileName error:&error];
+    TBXML * tbxmlFile = [TBXML newTBXMLWithXMLFile:fileName error:&error];
 #if TARGET_IPHONE_SIMULATOR
     if (error) {
         NSLog(@"%@ %@", [error localizedDescription], [error userInfo]);
@@ -28,7 +28,7 @@
 
 +(TBXML *)loadXmlDocumentFromData:(NSData *)dataName {
     NSError *error;
-    TBXML * tbxml = [TBXML tbxmlWithXMLData:dataName error:&error];
+    TBXML * tbxml = [TBXML newTBXMLWithXMLData:dataName error:&error];
 #if TARGET_IPHONE_SIMULATOR
     if (error) {
         NSLog(@"%@ %@", [error localizedDescription], [error userInfo]);
@@ -48,7 +48,7 @@
 
 #pragma mark - Navigation Methods
 
-+(TBXMLElement *)extractKnownChildElement:(NSString *)elementName :(TBXMLElement *)rootElement {
++(TBXMLElement *)extractKnownChildElement:(NSString *)elementName RootElement:(TBXMLElement *)rootElement {
     TBXMLElement *theElement = [TBXML childElementNamed:elementName parentElement:rootElement];
     return theElement;
 }//extractElementFromParent

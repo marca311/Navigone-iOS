@@ -33,8 +33,9 @@
     [appDefaults setObject:@"4" forKey:@"walk_speed"];
     [appDefaults setObject:@"20" forKey:@"max_walk_time"];
     [appDefaults setObject:@"0" forKey:@"min_transfer_wait_time"];
-    [appDefaults setObject:@"20" forKey:@"max_transfer_time"];
+    [appDefaults setObject:@"20" forKey:@"max_transfer_wait_time"];
     [appDefaults setObject:@"0" forKey:@"max_transfers"];
+    [appDefaults setObject:NO forKey:@"easy_access"];
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
     

@@ -23,7 +23,9 @@
     date = input;
 }
 -(void)setMode:(NSString *)input {
-    mode = input;
+    NSString *result = [input stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    result = [result lowercaseString];
+    mode = result;
 }
 -(void)setEasyAccess:(NSString *)input {
     easyAccess = input;
@@ -67,6 +69,8 @@
                            serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey];
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
+    //If there is a problem with the results, send back null.
+    if (![MSUtilities queryIsError:xmlData]) return NULL;
     TBXML *xmlFile = [XMLParser loadXmlDocumentFromData:xmlData];
     TBXMLElement *rootElement = [xmlFile rootXMLElement];
     MSRoute *result = [[MSRoute alloc]initWithElement:rootElement];

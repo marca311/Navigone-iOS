@@ -182,27 +182,24 @@
             [self resignFirstResponder];
             [query setOrigin:[origin getLocation]];
             [query setDestination:[destination getLocation]];
-            [query setDate:[]
-            [searchArray addObject:[navigoInterpreter timeFormatForServer:timePicker.date]];
-            [searchArray addObject:[navigoInterpreter dateFormatForServer:datePicker.date]];
-            [searchArray addObject:[navigoInterpreter serverModeString:mode.text]];
-            [searchArray addObject:[navigoInterpreter stringForBool:easyAccessSwitch.on]];
-            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
-            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
-            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
-            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
-            [searchArray addObject:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
-            NSData *resultXMLFile = [navigoInterpreter getXMLFileFromResults:searchArray];
+            [query setDate:[self combineTimeAndDatePickers]];
+            [query setMode:[mode text]];
+            //[query setEasyAccess:[easyAccessSwitch isOn]]; This method will have significance once the switch is visible in view
+            [query setWalkSpeed:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
+            [query setMaxWalkTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
+            [query setMinTransferWaitTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
+            [query setMaxTransferWaitTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
+            [query setMaxTransfers:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
             
             dispatch_async( dispatch_get_main_queue(), ^{
-                if ([navigoInterpreter queryIsError:resultXMLFile]) {
+                MSRoute *route = [query getRoute];
+                if (route == NULL) {
                     UIAlertView *failQuery = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is no available route for the query you just entered. Please try a different query" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
                     [activityView animateRemove];
                     [failQuery show];
                 } else {
-                    NSString *fileName = [navigoInterpreter getRouteData:resultXMLFile];
-                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
-                    [resultView setRoute:fileName];
+                    
+                    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithMSRoute:route];
                     [activityView animateRemove];
                     [MSUtilities presentViewController:resultView withParent:self];
                 }
@@ -216,6 +213,22 @@
 {
     if ([self fieldsFilled]) [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     else [submitButton setTitle:@"Next" forState:UIControlStateNormal];
+}
+//Method to combine date and time pickers together
+-(NSDate *)combineTimeAndDatePickers {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:self.datePicker.date];
+    NSDateComponents *timeComponents = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:self.timePicker.date];
+    
+    NSDateComponents *newComponents = [[NSDateComponents alloc]init];
+    [newComponents setDay:[dateComponents day]];
+    [newComponents setMonth:[dateComponents month]];
+    [newComponents setYear:[dateComponents year]];
+    [newComponents setHour:[timeComponents hour]];
+    [newComponents setMinute:[timeComponents minute]];
+    
+    NSDate *result = [calendar dateFromComponents:newComponents];
+    return result;
 }
 #pragma mark -
 

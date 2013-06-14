@@ -8,7 +8,6 @@
 
 #import "PlaceViewController.h"
 #import "MSUtilities.h"
-#import "navigoInterpreter.h"
 #import "AnimationInstructionSheet.h"
 
 @interface PlaceViewController ()

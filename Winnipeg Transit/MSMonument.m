@@ -29,17 +29,17 @@
 }
 
 -(void)setKey {
-    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" :rootElement];
+    TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" RootElement:rootElement];
     key = [XMLParser getValueFromElement:keyElement];
 }
 -(void)setMonumentName {
-    TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" :rootElement];
+    TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" RootElement:rootElement];
     monumentName = [XMLParser getValueFromElement:nameElement];
 }
 -(void)setMonumentCatagories {
     NSMutableArray *catagories = [[NSMutableArray alloc]init];
-    TBXMLElement *catagoryElement = [XMLParser extractKnownChildElement:@"categories" :rootElement];
-    catagoryElement = [XMLParser extractKnownChildElement:@"category" :catagoryElement];
+    TBXMLElement *catagoryElement = [XMLParser extractKnownChildElement:@"categories" RootElement:rootElement];
+    catagoryElement = [XMLParser extractKnownChildElement:@"category" RootElement:catagoryElement];
     //Get first catagory
     [catagories addObject:[XMLParser getValueFromElement:catagoryElement]];
     //Get catagories til there are no more
@@ -49,7 +49,7 @@
     monumentCatagories = catagories;
 }
 -(void)setMonumentAddress {
-    TBXMLElement *addressElement = [XMLParser extractKnownChildElement:@"address" :rootElement];
+    TBXMLElement *addressElement = [XMLParser extractKnownChildElement:@"address" RootElement:rootElement];
     monumentAddress = [[MSAddress alloc]initWithElement:addressElement];
 }
 -(void)setHumanReadable {

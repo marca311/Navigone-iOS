@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MSTableViewCell.h"
 #import "navigoViewLibrary.h"
+#import "MSVariation.h"
 
-@interface PlanDisplayTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface VariationDisplayTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+    MSVariation *variationData;
+}
 
 @property (nonatomic, retain) NSArray *currentArray;
 @property (nonatomic, retain) UIImage *locationImage;
@@ -20,11 +23,11 @@
 @property (nonatomic, retain) UIImage *walkImage;
 @property (nonatomic, retain) UIImage *transferImage;
 
--(id)initWithCorrectFrame:(NSArray *)theArray;
+-(id)initWithCorrectFrame:(MSVariation *)theVariation;
 
 -(void)showTable:(UIView *)theView;
 
--(void)changeTablePlan:(NSArray *)theArray;
+-(void)changeTableVariation:(MSVariation *)theVariation;
 
 -(UIImage *)useCorrectImage:(NSArray *)theArray;
 

@@ -78,7 +78,7 @@
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 			<key>Key</key>
-			<string>max_transfer_time</string>
+			<string>max_transfer_wait_time</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -95,6 +95,22 @@
 			<string>NumberPad</string>
 			<key>DefaultValue</key>
 			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Easy Access</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>Key</key>
+			<string>easy_access</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 	</array>
 	<key>StringsTable</key>

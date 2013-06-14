@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlanTableViewCell : UITableViewCell
+@interface VariationTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel *startTime;
 @property (nonatomic, retain) IBOutlet UILabel *endTime;

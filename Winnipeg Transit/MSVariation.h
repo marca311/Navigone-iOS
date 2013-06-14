@@ -27,6 +27,11 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(NSString *)getStartTime;
+-(NSString *)getEndTime;
+-(NSString *)getBuses;
+
+-(MSSegment *)getSegmentAtIndex:(NSUInteger)index;
 -(NSArray *)getHumanReadable;
 
 @end
