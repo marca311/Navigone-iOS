@@ -67,6 +67,7 @@
     
     NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",
                            serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey];
+    NSLog(urlString);
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
     //If there is a problem with the results, send back null.

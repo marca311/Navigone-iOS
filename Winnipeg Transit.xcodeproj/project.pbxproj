@@ -76,7 +76,6 @@
 		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
 		6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387416E5C2EB00D7C076 /* cell_separator.png */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
-		6FA40714176A72D0006CBAA0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6FA406FD176A72D0006CBAA0 /* .gitignore */; };
 		6FA40715176A72D0006CBAA0 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 6FA406FE176A72D0006CBAA0 /* README.markdown */; };
 		6FA40716176A72D0006CBAA0 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40700176A72D0006CBAA0 /* TBXML+Compression.m */; };
 		6FA40717176A72D0006CBAA0 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */; };
@@ -256,7 +255,6 @@
 		6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCell.xib; sourceTree = "<group>"; };
 		6F9A387416E5C2EB00D7C076 /* cell_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_separator.png; sourceTree = "<group>"; };
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6FA406FD176A72D0006CBAA0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6FA406FE176A72D0006CBAA0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		6FA40700176A72D0006CBAA0 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
 		6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
@@ -580,7 +578,6 @@
 		6FA406FC176A72D0006CBAA0 /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
-				6FA406FD176A72D0006CBAA0 /* .gitignore */,
 				6FA406FE176A72D0006CBAA0 /* README.markdown */,
 				6FA406FF176A72D0006CBAA0 /* TBXML-Code */,
 				6FA40703176A72D0006CBAA0 /* TBXML-Headers */,
@@ -810,7 +807,6 @@
 				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
 				6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */,
 				6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */,
-				6FA40714176A72D0006CBAA0 /* .gitignore in Resources */,
 				6FA40715176A72D0006CBAA0 /* README.markdown in Resources */,
 				6F1AA6441776A41000713207 /* agency.txt in Resources */,
 				6F1AA6451776A41000713207 /* calendar.txt in Resources */,

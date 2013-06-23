@@ -35,7 +35,7 @@
     [appDefaults setObject:@"0" forKey:@"min_transfer_wait_time"];
     [appDefaults setObject:@"20" forKey:@"max_transfer_wait_time"];
     [appDefaults setObject:@"0" forKey:@"max_transfers"];
-    [appDefaults setObject:NO forKey:@"easy_access"];
+    //[appDefaults setObject:FALSE forKey:@"easy_access"];
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
     

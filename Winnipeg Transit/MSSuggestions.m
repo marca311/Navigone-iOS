@@ -43,7 +43,7 @@
 
 -(NSString *)replaceInvalidCharacters:(NSString *)theString
 {
-    NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@-"];
+    NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@- "];
     theSet = [theSet invertedSet];
     theString = [[theString componentsSeparatedByCharactersInSet:theSet ]componentsJoinedByString:@""];
     theString = [theString stringByReplacingOccurrencesOfString:@"*" withString:@""];

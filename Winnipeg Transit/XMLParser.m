@@ -90,18 +90,12 @@
 +(NSString *)getValueFromElement:(TBXMLElement *)element {
     NSString *result;
     result = [TBXML textForElement:element];
-#if TARGET_IPHONE_SIMULATOR
-    if (result == @"") NSLog(@"No Data");
-#endif
     return result;
 }//getElementFromElement
 
 +(NSString *)getAttributeValue:(TBXMLAttribute *)attribute {
     NSString *result;
     result = [TBXML attributeValue:attribute];
-#if TARGET_IPHONE_SIMULATOR
-    NSLog(result);
-#endif
     return result;
 }
 

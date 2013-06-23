@@ -230,6 +230,29 @@
     NSDate *result = [calendar dateFromComponents:newComponents];
     return result;
 }
+
+
+#pragma mark - Method to detect whether all fields are filled
+-(BOOL)fieldsFilled {
+    BOOL originBOOL = NO;
+    BOOL destinationBOOL = NO;
+    BOOL timeBOOL = NO;
+    BOOL dateBOOL = NO;
+    BOOL modeBOOL = NO;
+    if ([self containsSomething:origin] || [query getOriginString] != NULL) originBOOL = YES;
+    if ([self containsSomething:destination] || !([query getDestinationString] == NULL)) destinationBOOL = YES;
+    if ([self containsSomething:timeField]) timeBOOL = YES;
+    if ([self containsSomething:dateField]) dateBOOL = YES;
+    if ([self containsSomething:mode]) modeBOOL = YES;
+    if (originBOOL && destinationBOOL && timeBOOL && dateBOOL && modeBOOL) return YES;
+    else return NO;
+}
+//Small method to cut down on clutter on above method
+-(BOOL)containsSomething:(UITextField *)theTextField {
+    if ([theTextField.text isEqualToString:@""]) return NO;
+    else return YES;
+}
+
 #pragma mark -
 
 -(IBAction)backgroundTap
@@ -302,27 +325,6 @@
     dateField.text = display;
 }
 
-#pragma mark - Method to detect whether all fields are filled
--(BOOL)fieldsFilled {
-    BOOL originBOOL = NO;
-    BOOL destinationBOOL = NO;
-    BOOL timeBOOL = NO;
-    BOOL dateBOOL = NO;
-    BOOL modeBOOL = NO;
-    if ([self containsSomething:origin] || !([query getOriginString] == NULL)) originBOOL = YES;
-    if ([self containsSomething:destination] || !([query getDestinationString] == NULL)) destinationBOOL = YES;
-    if ([self containsSomething:timeField]) timeBOOL = YES;
-    if ([self containsSomething:dateField]) dateBOOL = YES;
-    if ([self containsSomething:mode]) modeBOOL = YES;
-    if (originBOOL && destinationBOOL && timeBOOL && dateBOOL && modeBOOL) return YES;
-    else return NO;
-}
-//Small method to cut down on clutter on above method
--(BOOL)containsSomething:(UITextField *)theTextField {
-    if ([theTextField.text isEqualToString:@""]) return NO;
-    else return YES;
-}
-
 #pragma mark - Actions for origin and destination suggestion boxes
 
 -(IBAction)originBoxEdit {
@@ -354,6 +356,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
+        //If the user clicks the last row in the table, go to search history
         history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
         [MSUtilities presentViewController:history withParent:self];
     } else {
