@@ -47,32 +47,30 @@ NSDictionary *resultDictionary;
 
 -(IBAction)planButtonPress
 {
-    if ([planSelectorTable.tableView isUserInteractionEnabled] == NO) {
-        planSelectorTable.primaryResults = planList;
-        planSelectorTable = [[VariationSelectorTableVew alloc]initWithFrameFromButton:planButton];
-        planSelectorTable.tableView.delegate = self;
-        [planSelectorTable showAndAnimate:self.view Route:routeData];
+    if ([variationSelectorTable.tableView isUserInteractionEnabled] == NO) {
+        variationSelectorTable = [[VariationSelectorTableVew alloc]initWithFrameFromButton:planButton];
+        variationSelectorTable.tableView.delegate = self;
+        [variationSelectorTable showAndAnimate:self.view Route:routeData];
     } else {
-        [planSelectorTable closeAndAnimate];
-        planSelectorTable = nil;
+        [variationSelectorTable closeAndAnimate];
+        variationSelectorTable = nil;
     }
 }
 
 -(IBAction)closePlans
 {
-    if (planSelectorTable != nil) {
-        [planSelectorTable closeAndAnimate];
-        planSelectorTable = nil;
+    if (variationSelectorTable != nil) {
+        [variationSelectorTable closeAndAnimate];
+        variationSelectorTable = nil;
     }
 }
 
 -(void)changePlanSelectorArray:(int)arrayNumber
 {
-    planTitleArray = [planList objectAtIndex:(currentPlan+1)];
-    self.buses.text = [planTitleArray objectAtIndex:2];
-    self.startTime.text = [planTitleArray objectAtIndex:0];
-    self.endTime.text = [planTitleArray objectAtIndex:1];
-    resultsArray = [planArray objectAtIndex:arrayNumber];
+    variationData = [routeData getVariationFromIndex:currentVariation];
+    self.buses.text = [variationData getBuses];
+    self.startTime.text = [variationData getStartTime];
+    self.endTime.text = [variationData getEndTime];
 }//changePlanSelectorArray
 
 - (void)viewDidUnload
@@ -84,13 +82,13 @@ NSDictionary *resultDictionary;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    currentPlan = indexPath.row;
-    [self changePlanSelectorArray:currentPlan];
-    [planTable changeTablePlan:resultsArray];
-    [planSelectorTable.tableView removeFromSuperview];
-    planSelectorTable = nil;
+    currentVariation = indexPath.row;
+    [self changePlanSelectorArray:currentVariation];
+    [variationTable changeTableVariation:variationData];
+    [variationSelectorTable.tableView removeFromSuperview];
+    variationSelectorTable = nil;
     NSIndexPath *topIndex = [NSIndexPath indexPathForRow:0 inSection:0];
-    [planTable.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [variationTable.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

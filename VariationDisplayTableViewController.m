@@ -7,10 +7,7 @@
 //
 
 #import "VariationDisplayTableViewController.h"
-
-@interface VariationDisplayTableViewController ()
-
-@end
+#import "MSStep.h"
 
 @implementation VariationDisplayTableViewController
 
@@ -54,11 +51,12 @@
 -(void)changeTablePlan:(MSVariation *)theVariation
 {
     variationData = theVariation;
+    stepArray = [variationData getHumanReadable];
     [self.tableView reloadData];
 }//changeTablePlan
 
--(UIImage *)useCorrectImage:(NSArray *)theArray {
-    NSString *segmentType = [theArray objectAtIndex:0];
+-(UIImage *)useCorrectImage:(MSStep *)step {
+    NSString *segmentType = [step getType];
     if ([segmentType isEqualToString:@"ride"]) {
         UIImage *result = [[UIImage alloc]initWithContentsOfFile:@"ride.png"];
         return result;
@@ -79,19 +77,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -100,19 +90,8 @@
 }
 
 #pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-} */
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [currentArray count];
-}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [currentArray count]; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -135,9 +114,10 @@
     cell.textView.backgroundColor = [UIColor clearColor];
     cell.textView.opaque = NO;
     
-    cell.textView.text = [segmentData getHumanReadable];
-    cell.time.text = [segmentData get];
-    cell.image.image = [self useCorrectImage:contentForThisRow];
+    MSStep *currentStep = [stepArray objectAtIndex:[indexPath row]];
+    cell.textView.text = [currentStep getHumanReadable];
+    cell.time.text = [currentStep getTime];
+    cell.image.image = [self useCorrectImage:currentStep];
     
     return cell;
 }

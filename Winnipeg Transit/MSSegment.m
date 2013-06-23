@@ -8,6 +8,8 @@
 
 #import "MSSegment.h"
 #import "MSUtilities.h"
+#import "MSLocationStep.h"
+#import "MSMovingStep.h"
 
 @implementation MSSegment
 
@@ -104,7 +106,7 @@
     variationDestination = [stringArray objectAtIndex:1];
 }
 
-//Getter method
+//Getter methods
 -(NSString *)getType {
     return type;
 }
@@ -114,30 +116,31 @@
 -(NSArray *)getHumanReadable {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     if ([type isEqualToString:@"walk"]) {
-        [result addObject:[fromLocation getHumanReadable]];
+        [result addObject:[[MSLocationStep alloc]initWithLocation:fromLocation Time:[MSUtilities getTimeFormatForServer:startTime]]];
         NSString *middleString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
-        [result addObject:middleString];
-        [result addObject:[toLocation getHumanReadable]];
+        [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:middleString]];
+        [result addObject:[[MSLocationStep alloc]initWithLocation:toLocation Time:[MSUtilities getTimeFormatForServer:endTime]]];
     } else if ([type isEqualToString:@"transfer"]) {
         if ((walkingTime > 0) && (waitingTime == 0)) {
-            [result addObject:[fromLocation getHumanReadable]];
+            [result addObject:[[MSLocationStep alloc]initWithLocation:fromLocation Time:[MSUtilities getTimeFormatForServer:startTime]]];
             NSString *middleString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
-            [result addObject:middleString];
-            [result addObject:[toLocation getHumanReadable]];
+            [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:middleString]];
+            [result addObject:[[MSLocationStep alloc]initWithLocation:toLocation Time:[MSUtilities getTimeFormatForServer:endTime]]];
         } else if ((waitingTime > 0) && (walkingTime == 0)) {
             NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
-            [result addObject:waitString];
+            [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:waitString]];
         } else if ((waitingTime > 0) && (walkingTime > 0)) {
             [result addObject:[fromLocation getHumanReadable]];
             NSString *walkString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
-            [result addObject:walkString];
+            [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:walkString]];
             NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
-            [result addObject:waitString];
+            [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:waitString]];
         }
     } else if ([type isEqualToString:@"ride"]) {
         NSString *rideString = [NSString stringWithFormat:@"Ride %@ %@ (%@)",busNumber,routeName,variationDestination];
-        [result addObject:rideString];
+        [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:rideString]];
     }
+    //Returns an array with MSStep subclass intstance(s)
     return result;
 }
 @end

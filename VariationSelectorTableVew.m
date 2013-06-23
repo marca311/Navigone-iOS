@@ -12,7 +12,7 @@
 
 @implementation VariationSelectorTableVew
 
-@synthesize tableRect, primaryResults, resultsArray;
+@synthesize tableRect, resultsArray;
 
 - (id)initWithFrameFromButton:(UIButton *)button
 {
@@ -45,10 +45,12 @@
 */
 
 - (void)showAndAnimate:(UIView *)theView Route:(MSRoute *)route {
+    routeData = route;
+    variationsArray = [routeData getVariations];
     [theView addSubview:self.tableView];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.tableView.frame = [self getFrameSizeFromArray:route];
+    self.tableView.frame = [self getFrameSize];
     [UIView commitAnimations];
 }
 
@@ -62,10 +64,10 @@
     [self.tableView removeFromSuperview];
 }
 
-- (CGRect)getFrameSizeFromArray:(MSRoute *)route {
+- (CGRect)getFrameSize {
     //Adjusts frame size based on how many entries are in the table to a max of 3
     int frameHeight;
-    int numberOfPlans = [route getNumberOfVariations];
+    int numberOfPlans = [routeData getNumberOfVariations];
     if (numberOfPlans <= 3) {
         frameHeight = numberOfPlans * 44;
         //frameHeight = frameHeight + 15;
@@ -78,11 +80,9 @@
     return theFrame;
 }//getFrameSizeFromArray
 
-//The -1 is because the first entry in primaryResults is the number of plans
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([primaryResults count] - 1); }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [routeData getNumberOfVariations]; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //NSArray *contentForThisRow = [[self resultsArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"PlanCellIdentifier";
     VariationTableViewCell *cell = nil;
     cell = (VariationTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
@@ -98,11 +98,10 @@
             }
         }
     }
-    //The +1 is because the first entry in primaryResults is the number of plans
-    NSArray *secondaryArray = [primaryResults objectAtIndex:([indexPath row]+1)];
-    cell.buses.text = [secondaryArray objectAtIndex:2];
-    cell.startTime.text = [secondaryArray objectAtIndex:0];
-    cell.endTime.text = [secondaryArray objectAtIndex:1];
+    MSVariation *currentVariation = [variationsArray objectAtIndex:[indexPath row]];
+    cell.buses.text = [currentVariation getBuses];
+    cell.startTime.text = [currentVariation getStartTime];
+    cell.endTime.text = [currentVariation getEndTime];
     
     return cell;
 

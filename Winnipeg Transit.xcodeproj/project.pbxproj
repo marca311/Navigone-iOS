@@ -26,6 +26,22 @@
 		4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4342D4561582627E00A4A558 /* MSTableViewCell.xib */; };
 		435617DF151266050022F903 /* UniversalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435617DE151266050022F903 /* UniversalViewController.m */; };
 		43F019D31507D92E003BAFBC /* navigoInterpreter.m.oldstructure in Sources */ = {isa = PBXBuildFile; fileRef = 43F019D21507D92E003BAFBC /* navigoInterpreter.m.oldstructure */; };
+		6F1AA6441776A41000713207 /* agency.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6391776A41000713207 /* agency.txt */; };
+		6F1AA6451776A41000713207 /* calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63A1776A41000713207 /* calendar.txt */; };
+		6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63B1776A41000713207 /* calendar_dates.txt */; };
+		6F1AA6471776A41000713207 /* fare_attributes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63C1776A41000713207 /* fare_attributes.txt */; };
+		6F1AA6481776A41000713207 /* fare_rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63D1776A41000713207 /* fare_rules.txt */; };
+		6F1AA6491776A41000713207 /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63E1776A41000713207 /* LICENCE */; };
+		6F1AA64A1776A41000713207 /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63F1776A41000713207 /* routes.txt */; };
+		6F1AA64B1776A41000713207 /* shapes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6401776A41000713207 /* shapes.txt */; };
+		6F1AA64C1776A41000713207 /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6411776A41000713207 /* stop_times.txt */; };
+		6F1AA64D1776A41000713207 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6421776A41000713207 /* stops.txt */; };
+		6F1AA64E1776A41000713207 /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6431776A41000713207 /* trips.txt */; };
+		6F1AA6571776A4D000713207 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6541776A4D000713207 /* LICENSE */; };
+		6F1AA6581776A4D000713207 /* parseCSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA6561776A4D000713207 /* parseCSV.m */; };
+		6F1AA65B1776AB6600713207 /* MSStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65A1776AB6600713207 /* MSStep.m */; };
+		6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65D1776AB7700713207 /* MSMovingStep.m */; };
+		6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA6601776AB9700713207 /* MSLocationStep.m */; };
 		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
 		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
 		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
@@ -168,6 +184,26 @@
 		435617DE151266050022F903 /* UniversalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalViewController.m; sourceTree = "<group>"; };
 		43F019D11507D92E003BAFBC /* navigoInterpreter.h.oldstructure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = navigoInterpreter.h.oldstructure; sourceTree = "<group>"; };
 		43F019D21507D92E003BAFBC /* navigoInterpreter.m.oldstructure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = navigoInterpreter.m.oldstructure; sourceTree = "<group>"; };
+		6F1AA6391776A41000713207 /* agency.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = agency.txt; sourceTree = "<group>"; };
+		6F1AA63A1776A41000713207 /* calendar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar.txt; sourceTree = "<group>"; };
+		6F1AA63B1776A41000713207 /* calendar_dates.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar_dates.txt; sourceTree = "<group>"; };
+		6F1AA63C1776A41000713207 /* fare_attributes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fare_attributes.txt; sourceTree = "<group>"; };
+		6F1AA63D1776A41000713207 /* fare_rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fare_rules.txt; sourceTree = "<group>"; };
+		6F1AA63E1776A41000713207 /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
+		6F1AA63F1776A41000713207 /* routes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = routes.txt; sourceTree = "<group>"; };
+		6F1AA6401776A41000713207 /* shapes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shapes.txt; sourceTree = "<group>"; };
+		6F1AA6411776A41000713207 /* stop_times.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stop_times.txt; sourceTree = "<group>"; };
+		6F1AA6421776A41000713207 /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
+		6F1AA6431776A41000713207 /* trips.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trips.txt; sourceTree = "<group>"; };
+		6F1AA6541776A4D000713207 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6F1AA6551776A4D000713207 /* parseCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parseCSV.h; sourceTree = "<group>"; };
+		6F1AA6561776A4D000713207 /* parseCSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parseCSV.m; sourceTree = "<group>"; };
+		6F1AA6591776AB6600713207 /* MSStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStep.h; sourceTree = "<group>"; };
+		6F1AA65A1776AB6600713207 /* MSStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStep.m; sourceTree = "<group>"; };
+		6F1AA65C1776AB7700713207 /* MSMovingStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMovingStep.h; sourceTree = "<group>"; };
+		6F1AA65D1776AB7700713207 /* MSMovingStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMovingStep.m; sourceTree = "<group>"; };
+		6F1AA65F1776AB9700713207 /* MSLocationStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocationStep.h; sourceTree = "<group>"; };
+		6F1AA6601776AB9700713207 /* MSLocationStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocationStep.m; sourceTree = "<group>"; };
 		6F24050A16DEC9CE00444E18 /* MSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSQuery.h; sourceTree = "<group>"; };
 		6F24050B16DEC9CE00444E18 /* MSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSQuery.m; sourceTree = "<group>"; };
 		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
@@ -393,6 +429,8 @@
 				6F9A387416E5C2EB00D7C076 /* cell_separator.png */,
 				6F5802F21587F86A0031A17E /* separator.png */,
 				6FA406FC176A72D0006CBAA0 /* TBXML */,
+				6F1AA6531776A4D000713207 /* cCSVParse */,
+				6F1AA6381776A41000713207 /* google_transit */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
 			);
 			path = "Winnipeg Transit";
@@ -430,6 +468,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6F1AA6381776A41000713207 /* google_transit */ = {
+			isa = PBXGroup;
+			children = (
+				6F1AA6391776A41000713207 /* agency.txt */,
+				6F1AA63A1776A41000713207 /* calendar.txt */,
+				6F1AA63B1776A41000713207 /* calendar_dates.txt */,
+				6F1AA63C1776A41000713207 /* fare_attributes.txt */,
+				6F1AA63D1776A41000713207 /* fare_rules.txt */,
+				6F1AA63E1776A41000713207 /* LICENCE */,
+				6F1AA63F1776A41000713207 /* routes.txt */,
+				6F1AA6401776A41000713207 /* shapes.txt */,
+				6F1AA6411776A41000713207 /* stop_times.txt */,
+				6F1AA6421776A41000713207 /* stops.txt */,
+				6F1AA6431776A41000713207 /* trips.txt */,
+			);
+			name = google_transit;
+			path = ../google_transit;
+			sourceTree = "<group>";
+		};
+		6F1AA6531776A4D000713207 /* cCSVParse */ = {
+			isa = PBXGroup;
+			children = (
+				6F1AA6541776A4D000713207 /* LICENSE */,
+				6F1AA6551776A4D000713207 /* parseCSV.h */,
+				6F1AA6561776A4D000713207 /* parseCSV.m */,
+			);
+			name = cCSVParse;
+			path = ../cCSVParse;
+			sourceTree = "<group>";
+		};
 		6F24051016DF104700444E18 /* Location Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +529,12 @@
 				6F24051E16DF18AE00444E18 /* MSVariation.m */,
 				6FFF1BCB17681A9F00BF892F /* MSSuggestions.h */,
 				6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */,
+				6F1AA6591776AB6600713207 /* MSStep.h */,
+				6F1AA65A1776AB6600713207 /* MSStep.m */,
+				6F1AA65F1776AB9700713207 /* MSLocationStep.h */,
+				6F1AA6601776AB9700713207 /* MSLocationStep.m */,
+				6F1AA65C1776AB7700713207 /* MSMovingStep.h */,
+				6F1AA65D1776AB7700713207 /* MSMovingStep.m */,
 			);
 			name = "Structure Classes";
 			sourceTree = "<group>";
@@ -738,6 +812,18 @@
 				6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */,
 				6FA40714176A72D0006CBAA0 /* .gitignore in Resources */,
 				6FA40715176A72D0006CBAA0 /* README.markdown in Resources */,
+				6F1AA6441776A41000713207 /* agency.txt in Resources */,
+				6F1AA6451776A41000713207 /* calendar.txt in Resources */,
+				6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */,
+				6F1AA6471776A41000713207 /* fare_attributes.txt in Resources */,
+				6F1AA6481776A41000713207 /* fare_rules.txt in Resources */,
+				6F1AA6491776A41000713207 /* LICENCE in Resources */,
+				6F1AA64A1776A41000713207 /* routes.txt in Resources */,
+				6F1AA64B1776A41000713207 /* shapes.txt in Resources */,
+				6F1AA64C1776A41000713207 /* stop_times.txt in Resources */,
+				6F1AA64D1776A41000713207 /* stops.txt in Resources */,
+				6F1AA64E1776A41000713207 /* trips.txt in Resources */,
+				6F1AA6571776A4D000713207 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +900,10 @@
 				6FA40716176A72D0006CBAA0 /* TBXML+Compression.m in Sources */,
 				6FA40717176A72D0006CBAA0 /* TBXML+HTTP.m in Sources */,
 				6FA40718176A72D0006CBAA0 /* TBXML.m in Sources */,
+				6F1AA6581776A4D000713207 /* parseCSV.m in Sources */,
+				6F1AA65B1776AB6600713207 /* MSStep.m in Sources */,
+				6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */,
+				6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

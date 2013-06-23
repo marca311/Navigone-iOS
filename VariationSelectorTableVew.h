@@ -10,10 +10,12 @@
 #import "VariationTableViewCell.h"
 #import "MSRoute.h"
 
-@interface VariationSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface VariationSelectorTableVew : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+    MSRoute *routeData;
+    NSArray *variationsArray;
+}
 
 @property (nonatomic) CGRect tableRect;
-@property (nonatomic, retain) NSArray *primaryResults;
 @property (nonatomic, retain) NSArray *resultsArray;
 
 - (id)initWithFrameFromButton:(UIButton *)button;
@@ -21,7 +23,5 @@
 - (void)showAndAnimate:(UIView *)theView Route:(MSRoute *)route;
 
 - (void)closeAndAnimate;
-
-- (CGRect)getFrameSizeFromMSRoute:(MSRoute *)route;
 
 @end

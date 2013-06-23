@@ -1,0 +1,2 @@
+agency_phone,agency_url,agency_id,agency_name,agency_timezone,agency_lang
+1-877-311-4974,http://www.winnipegtransit.com,,Winnipeg Transit,America/Winnipeg,en

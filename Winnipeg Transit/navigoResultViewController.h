@@ -18,7 +18,7 @@
 extern NSDictionary *resultDictionary;
 
 @interface navigoResultViewController : UniversalViewController <UITableViewDelegate, UITextFieldDelegate> {
-    VariationSelectorTableVew *planSelectorTable;
+    VariationSelectorTableVew *variationSelectorTable;
     NSUInteger currentVariation;
     MSRoute *routeData;
     MSVariation *variationData;

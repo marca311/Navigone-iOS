@@ -13,6 +13,7 @@
 
 @interface VariationDisplayTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     MSVariation *variationData;
+    NSArray *stepArray;
 }
 
 @property (nonatomic, retain) NSArray *currentArray;
@@ -28,7 +29,5 @@
 -(void)showTable:(UIView *)theView;
 
 -(void)changeTableVariation:(MSVariation *)theVariation;
-
--(UIImage *)useCorrectImage:(NSArray *)theArray;
 
 @end
