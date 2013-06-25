@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MSRoute.h"
 
-@interface MSQuery : NSObject {
+@interface MSQuery : NSObject <NSCoding> {
     NSString *name;
     MSLocation *origin;
     NSString *originKey;

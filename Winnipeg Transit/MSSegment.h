@@ -15,7 +15,7 @@
 #import "MSStop.h"
 #import "MSIntersection.h"
 
-@interface MSSegment : NSObject {
+@interface MSSegment : NSObject <NSCoding> {
     NSString *type;
     NSDate *startTime;
     NSDate *endTime;

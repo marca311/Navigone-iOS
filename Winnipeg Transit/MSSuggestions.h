@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MSLocation.h"
 
-@interface MSSuggestions : NSObject {
+@interface MSSuggestions : NSObject <NSCoding> {
     NSArray *locationArray;
     NSDate *timeStamp;
 }

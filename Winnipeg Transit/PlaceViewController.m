@@ -144,12 +144,10 @@
     }
     int stage = [theParentViewController.submitButton checkCurrentLocation];
     if (stage == 1) {
-        //Part of old structure, needs to be replaced
-        //[queriedDictionary setObject:chosenArray forKey:@"origin"];
+        [theParentViewController.query setOrigin:currentLocation];
         [theParentViewController.originLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
     } else if (stage == 2) {
-        //Part of old structure, needs to be replaced
-        //[queriedDictionary setObject:chosenArray forKey:@"destination"];
+        [theParentViewController.query setDestination:currentLocation];
         [theParentViewController.destinationLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
@@ -260,16 +258,19 @@
     if ([MSUtilities fileExists:@"SearchHistory.plist"]) {
         NSDictionary *file = [[NSDictionary alloc]init];
         file = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
-        savedLocationsList = [file objectForKey:@"SavedLocations"];
-        previousLocationsList = [file objectForKey:@"PreviousLocations"];
-    }
+        //Convert NSData in dictionary into the NSArray filled with MSLocations
+        NSData *savedData = [file objectForKey:@"SavedLocations"];
+        savedLocationsList = [NSKeyedUnarchiver unarchiveObjectWithData:savedData];
+        //Ditto
+        NSData *previousData = [file objectForKey:@"PreviousLocations"];
+        previousLocationsList = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];    }
     
     //Checks for duplicate entries
     BOOL placed = NO;
-    NSString *key = [item getKey];
+    NSString *key = [item getServerQueryable];
     for (MSLocation * location in savedLocationsList) {
         //This system uses keys to check for dupes
-        NSString *checkKey = [location getKey];
+        NSString *checkKey = [location getServerQueryable];
         //Check if location is currently saved locations list
         if ([key isEqualToString:checkKey]) {
             //If it is, remove all occurances from previous locations (if any)
@@ -286,7 +287,7 @@
         }
     }
     for (MSLocation * location  in previousLocationsList) {
-        NSString *checkKey = [location getKey];
+        NSString *checkKey = [location getServerQueryable];
         if ([key isEqualToString:checkKey]) {
             [previousLocationsList removeObject:item];
             [previousLocationsList insertObject:item atIndex:0];

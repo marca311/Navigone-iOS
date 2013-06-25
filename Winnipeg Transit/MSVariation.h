@@ -11,7 +11,7 @@
 #import "XMLParser.h"
 #import "MSSegment.h"
 
-@interface MSVariation : NSObject {
+@interface MSVariation : NSObject <NSCoding> {
     Boolean easyAccess;
     NSDate *startTime;
     NSDate *endTime;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MSStep : NSObject {
+@interface MSStep : NSObject <NSCoding> {
     NSString *text;
     NSString *type;
     NSString *time;

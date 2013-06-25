@@ -60,21 +60,24 @@
 }
 
 -(MSRoute *)getRoute {
-    NSString *serverOrigin = [origin getKey];
-    NSString *serverDestination = [destination getKey];
+    NSString *serverOrigin = [origin getServerQueryable];
+    NSString *serverDestination = [destination getServerQueryable];
     NSString *serverTime = [MSUtilities getTimeFormatForServer:date];
     NSString *serverDate = [MSUtilities getDateFormatForServer:date];
     
-    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",
-                           serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey];
+    /*NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&easy-access=%@&walk-speed=%@&max-walk-time=%@&min-transfer-wait=%@&max-transfer-wait=%@&max-transfers=%@&api-key=%@",
+                           serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey]; */
+    NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&api-key=%@",
+                           serverOrigin,serverDestination,serverTime,serverDate,mode,transitAPIKey];
     NSLog(urlString);
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
     //If there is a problem with the results, send back null.
-    if (![MSUtilities queryIsError:xmlData]) return NULL;
-    TBXML *xmlFile = [XMLParser loadXmlDocumentFromData:xmlData];
-    TBXMLElement *rootElement = [xmlFile rootXMLElement];
-    MSRoute *result = [[MSRoute alloc]initWithElement:rootElement];
+    if ([MSUtilities queryIsError:xmlData]) {
+        return NULL;
+    }
+    [self addEntriesToHistory];
+    MSRoute *result = [[MSRoute alloc]initWithData:xmlData];
     return result;
 }
 

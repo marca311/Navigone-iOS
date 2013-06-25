@@ -94,7 +94,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    //timeField = [navigoViewLibrary timePickerInputFormat:self.view];
+    query = [[MSQuery alloc]init];
   
     //setting accessory views
     timeField.inputAccessoryView = [self accessoryView:@"time"];
@@ -178,10 +178,11 @@
     } else {
         DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
         [activityView animateShow];
+        
         dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [self resignFirstResponder];
-            [query setOrigin:[origin getLocation]];
-            [query setDestination:[destination getLocation]];
+            if ([query getOriginString] == NULL) [query setOrigin:[origin getLocation]];
+            if ([query getDestinationString] == NULL) [query setDestination:[destination getLocation]];
             [query setDate:[self combineTimeAndDatePickers]];
             [query setMode:[mode text]];
             //[query setEasyAccess:[easyAccessSwitch isOn]]; This method will have significance once the switch is visible in view
@@ -198,7 +199,6 @@
                     [activityView animateRemove];
                     [failQuery show];
                 } else {
-                    
                     navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithMSRoute:route];
                     [activityView animateRemove];
                     [MSUtilities presentViewController:resultView withParent:self];

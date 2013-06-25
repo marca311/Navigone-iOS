@@ -7,12 +7,18 @@
 //
 
 #import "MSRoute.h"
+#import "XMLParser.h"
 
 @implementation MSRoute
 
--(id)initWithElement:(TBXMLElement *)theElement {
-    rootElement = theElement;
+-(id)initWithData:(NSData *)theData {
+    rootData = theData;
+    TBXML *xmlFile = [XMLParser loadXmlDocumentFromData:rootData];
+    rootElement = [xmlFile rootXMLElement];
+    [self setDate];
     [self setNumberOfVariations];
+    [self setVariationArray];
+    //[self saveToFile];
     return self;
 }
 
@@ -23,7 +29,7 @@
         date = [aDecoder decodeObjectForKey:@"date"];
         numberOfVariations = [aDecoder decodeIntegerForKey:@"numberOfVariations"];
         variationArray = [aDecoder decodeObjectForKey:@"variationArray"];
-        rootElement = (__bridge TBXMLElement *)([aDecoder decodeObjectForKey:@"rootElement"]);
+        rootData = [aDecoder decodeObjectForKey:@"rootElement"];
     }
     return self;
 }
@@ -34,7 +40,7 @@
     [aCoder encodeObject:date forKey:@"date"];
     [aCoder encodeInteger:numberOfVariations forKey:@"numberOfVariations"];
     [aCoder encodeObject:variationArray forKey:@"variationArray"];
-    [aCoder encodeObject:(__bridge id)(rootElement) forKey:@"variationArray"];
+    [aCoder encodeObject:rootData forKey:@"variationArray"];
 }
 
 -(void)setOrigin {
@@ -51,6 +57,7 @@
 
 -(void)setNumberOfVariations {
     TBXMLElement *theElement = rootElement;
+    theElement = [XMLParser extractUnknownChildElement:theElement];
     NSUInteger variations = 1;
     while ((theElement = theElement->nextSibling)) {
         variations++;
@@ -61,10 +68,12 @@
 
 -(void)setVariationArray {
     TBXMLElement *theElement = rootElement;
+    theElement = [XMLParser extractUnknownChildElement:theElement];
     NSMutableArray *variations = [[NSMutableArray alloc]init];
     for (int i=0; i < numberOfVariations; i++) {
         MSVariation *variation = [[MSVariation alloc]initWithElement:theElement];
         [variations addObject:variation];
+        if (i < numberOfVariations) theElement = theElement->nextSibling;
     }
     variationArray = variations;
 }

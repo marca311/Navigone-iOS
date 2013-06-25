@@ -31,21 +31,22 @@
 }
 
 -(void)setTimes {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
-    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:workingElement];
+    TBXMLElement *timesElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
+    TBXMLElement *durationsElement = [XMLParser extractKnownChildElement:@"durations" RootElement:timesElement];
+    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:durationsElement];
     totalTime = [XMLParser getValueFromElement:timeElement];
-    timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
     walkingTime = [XMLParser getValueFromElement:timeElement];
-    timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:durationsElement];
     waitingTime = [XMLParser getValueFromElement:timeElement];
-    timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
     walkingTime = [XMLParser getValueFromElement:timeElement];
-    timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:workingElement];
+    timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:durationsElement];
     ridingTime = [XMLParser getValueFromElement:timeElement];
-    timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:workingElement];
-    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:workingElement]];
-    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:workingElement];
-    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:timesElement];
+    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:timesElement];
+    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
 }
 
 -(void)setSegmentArray {

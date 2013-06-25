@@ -17,10 +17,11 @@
     NSDate *date;
     NSUInteger numberOfVariations;
     NSArray *variationArray;
+    NSData *rootData;
     TBXMLElement *rootElement;
 }
 
--(id)initWithElement:(TBXMLElement *)theElement;
+-(id)initWithData:(NSData *)theData;
 
 -(NSUInteger)getNumberOfVariations;
 
