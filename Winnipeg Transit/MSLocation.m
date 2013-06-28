@@ -107,7 +107,6 @@
     utmZone = [aDecoder decodeObjectForKey:@"utmZone"];
     utmX = [aDecoder decodeObjectForKey:@"utmX"];
     utmY = [aDecoder decodeObjectForKey:@"utmY"];
-    rootElement = (__bridge TBXMLElement *)[aDecoder decodeObjectForKey:@"rootElement"];
     converted = [aDecoder decodeBoolForKey:@"converted"];
     return self;
 }
@@ -119,7 +118,6 @@
     [aCoder encodeObject:utmZone forKey:@"utmZone"];
     [aCoder encodeObject:utmX forKey:@"utmX"];
     [aCoder encodeObject:utmY forKey:@"utmY"];
-    [aCoder encodeObject:(__bridge id)rootElement forKey:@"rootElement"];
     [aCoder encodeBool:converted forKey:@"converted"];
 }
 

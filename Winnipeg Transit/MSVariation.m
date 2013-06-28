@@ -77,7 +77,8 @@
     NSString *result;
     NSMutableArray *busList = [[NSMutableArray alloc]init];
     //Goes through list of segments and gets ride segments
-    for (MSSegment *segment in segmentArray) {
+    for (int i = 0; i < [segmentArray count]; i++) {
+        MSSegment *segment = [segmentArray objectAtIndex:i];
         if ([[segment getType] isEqualToString:@"ride"]) {
             //Add bus number to array
             [busList addObject:[segment getBusNumber]];

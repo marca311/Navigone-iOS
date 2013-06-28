@@ -20,37 +20,42 @@
 }
 
 -(void)setSegment {
-    //settype
-    //settimes
+    [self setType];
+    [self setTimes];
     if ([type isEqualToString:@"ride"]) {
-        
+        [self setBusVariant];
+        [self setBusNumber];
+        [self setRouteName];
+        [self setVariantDestination];
+    } else {
+        [self setLocations];
     }
-    //else setlocations
 }
 -(void)setType {
     type = [XMLParser getKnownAttributeData:@"type" Element:rootElement];
 }
 
 -(void)setTimes {
-    TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
-    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:workingElement];
+    TBXMLElement *timesElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
+    TBXMLElement *durationsElement = [XMLParser extractKnownChildElement:@"durations" RootElement:timesElement];
+    TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:durationsElement];
     totalTime = [[XMLParser getValueFromElement:timeElement] intValue];
     if ([type isEqualToString:@"walk"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
         walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"transfer"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:durationsElement];
         waitingTime = [[XMLParser getValueFromElement:timeElement] intValue];
-        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
         walkingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     } else if ([type isEqualToString:@"ride"]) {
-        timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:workingElement];
+        timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:durationsElement];
         ridingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     }
-    timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:workingElement];
-    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:workingElement]];
-    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:workingElement];
-    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:timesElement];
+    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:timesElement];
+    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
 }
 
 -(void)setLocations {
@@ -82,13 +87,13 @@
     return NULL;
 }
 
--(void)setBusVariation {
+-(void)setBusVariant {
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
     workingElement = [XMLParser extractKnownChildElement:@"key" RootElement:workingElement];
-    busVariation = [XMLParser getValueFromElement:workingElement];
+    busVariant = [XMLParser getValueFromElement:workingElement];
 }
 -(void)setBusNumber {
-    NSArray *stringArray = [busVariation componentsSeparatedByString:@"-"];
+    NSArray *stringArray = [busVariant componentsSeparatedByString:@"-"];
     busNumber = [stringArray objectAtIndex:0];
 }
 -(void)setRouteName {
@@ -98,12 +103,12 @@
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
     routeName = [stringArray objectAtIndex:0];
 }
--(void)setVariationDestination {
+-(void)setVariantDestination {
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
     workingElement = [XMLParser extractKnownChildElement:@"name" RootElement:workingElement];
     NSString *fullString = [XMLParser getValueFromElement:workingElement];
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
-    variationDestination = [stringArray objectAtIndex:1];
+    variantDestination = [stringArray objectAtIndex:1];
 }
 
 //Getter methods
@@ -137,7 +142,7 @@
             [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:waitString]];
         }
     } else if ([type isEqualToString:@"ride"]) {
-        NSString *rideString = [NSString stringWithFormat:@"Ride %@ %@ (%@)",busNumber,routeName,variationDestination];
+        NSString *rideString = [NSString stringWithFormat:@"Ride %@ %@ (%@)",busNumber,routeName,variantDestination];
         [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:rideString]];
     }
     //Returns an array with MSStep subclass intstance(s)

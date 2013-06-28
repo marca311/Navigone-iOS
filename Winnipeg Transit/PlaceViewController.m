@@ -268,7 +268,8 @@
     //Checks for duplicate entries
     BOOL placed = NO;
     NSString *key = [item getServerQueryable];
-    for (MSLocation * location in savedLocationsList) {
+    for (int i = 0; i < [savedLocationsList count]; i++) {
+        MSLocation *location = [savedLocationsList objectAtIndex:i];
         //This system uses keys to check for dupes
         NSString *checkKey = [location getServerQueryable];
         //Check if location is currently saved locations list
@@ -286,7 +287,8 @@
             placed = YES;
         }
     }
-    for (MSLocation * location  in previousLocationsList) {
+    for (int i = 0; i < [previousLocationsList count]; i++) {
+        MSLocation *location = [previousLocationsList objectAtIndex:i];
         NSString *checkKey = [location getServerQueryable];
         if ([key isEqualToString:checkKey]) {
             [previousLocationsList removeObject:item];
