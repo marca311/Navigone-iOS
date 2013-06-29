@@ -22,6 +22,7 @@
     return self;
 }
 
+#pragma mark - NSCoding section
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         origin = [aDecoder decodeObjectForKey:@"origin"];
@@ -42,6 +43,7 @@
     [aCoder encodeObject:variationArray forKey:@"variationArray"];
     [aCoder encodeObject:rootData forKey:@"variationArray"];
 }
+#pragma mark -
 
 -(void)setOrigin {
     //code to set origin
@@ -90,6 +92,10 @@
 
 -(NSUInteger)getNumberOfVariations {
     return numberOfVariations;
+}
+
+-(NSArray *)getVariations {
+    return variationArray;
 }
 
 -(MSVariation *)getVariationFromIndex:(NSUInteger)index {

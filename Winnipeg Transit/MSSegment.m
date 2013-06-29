@@ -19,6 +19,43 @@
     return self;
 }
 
+#pragma mark - NSCoding section
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        type = [aDecoder decodeObjectForKey:@"type"];
+        startTime = [aDecoder decodeObjectForKey:@"startTime"];
+        endTime = [aDecoder decodeObjectForKey:@"endTime"];
+        totalTime = [aDecoder decodeIntegerForKey:@"totalTime"];
+        walkingTime = [aDecoder decodeIntegerForKey:@"walkingTime"];
+        waitingTime = [aDecoder decodeIntegerForKey:@"waitingTime"];
+        ridingTime = [aDecoder decodeIntegerForKey:@"ridingTime"];
+        fromLocation = [aDecoder decodeObjectForKey:@"fromLocation"];
+        toLocation = [aDecoder decodeObjectForKey:@"toLocation"];
+        busVariant = [aDecoder decodeObjectForKey:@"busVariant"];
+        busNumber = [aDecoder decodeObjectForKey:@"busNumber"];
+        routeName = [aDecoder decodeObjectForKey:@"routeName"];
+        variantDestination = [aDecoder decodeObjectForKey:@"variantDestination"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:type forKey:@"type"];
+    [aCoder encodeObject:startTime forKey:@"startTime"];
+    [aCoder encodeObject:endTime forKey:@"endTime"];
+    [aCoder encodeInteger:totalTime forKey:@"totalTime"];
+    [aCoder encodeInteger:walkingTime forKey:@"walkingTime"];
+    [aCoder encodeInteger:waitingTime forKey:@"waitingTime"];
+    [aCoder encodeInteger:ridingTime forKey:@"ridingTime"];
+    [aCoder encodeObject:fromLocation forKey:@"fromLocation"];
+    [aCoder encodeObject:toLocation forKey:@"toLocation"];
+    [aCoder encodeObject:busVariant forKey:@"busVariant"];
+    [aCoder encodeObject:busNumber forKey:@"busNumber"];
+    [aCoder encodeObject:routeName forKey:@"routeName"];
+    [aCoder encodeObject:variantDestination forKey:@"variantDestination"];
+}
+#pragma mark -
+
 -(void)setSegment {
     [self setType];
     [self setTimes];
@@ -52,20 +89,26 @@
         timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:durationsElement];
         ridingTime = [[XMLParser getValueFromElement:timeElement] intValue];
     }
+    
     timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:timesElement];
-    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
-    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:timesElement];
-    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
+    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"end" RootElement:timesElement];
+    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
 }
 
 -(void)setLocations {
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"from" RootElement:rootElement];
+    workingElement = [XMLParser extractUnknownChildElement:workingElement];
     fromLocation = [MSSegment setLocationTypesFromElement:workingElement];
     workingElement = [XMLParser extractKnownChildElement:@"to" RootElement:rootElement];
+    workingElement = [XMLParser extractUnknownChildElement:workingElement];
     toLocation = [MSSegment setLocationTypesFromElement:workingElement];
 }
 
-//This method is accessed in other classes
+/*
+ This method is accessed in other classes.
+ The rootElement variable is expected to the the first element of the location (e.g. "stop", "monument"...)
+*/
 +(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement {
     TBXMLElement *childElement = rootElement;
     //if the location is the route origin/destination, go down one more level
@@ -107,8 +150,17 @@
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
     workingElement = [XMLParser extractKnownChildElement:@"name" RootElement:workingElement];
     NSString *fullString = [XMLParser getValueFromElement:workingElement];
+    fullString = [fullString stringByReplacingOccurrencesOfString:@" via " withString:@" to "];
+    //For strange cases (to Windermere & Pembina)
+    fullString = [fullString stringByReplacingOccurrencesOfString:@"to " withString:@" to "];
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
-    variantDestination = [stringArray objectAtIndex:1];
+    //Checks for strange cases that don't have a "to" or "via" (Downtown-UM)
+    if ([stringArray count] == 1) {
+        variantDestination = [stringArray objectAtIndex:0];
+    } else {
+        variantDestination = [stringArray objectAtIndex:1];
+    }
+    variantDestination = [MSUtilities fixAmpersand:variantDestination];
 }
 
 //Getter methods
@@ -132,12 +184,14 @@
             [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:middleString]];
             [result addObject:[[MSLocationStep alloc]initWithLocation:toLocation Time:[MSUtilities getTimeFormatForServer:endTime]]];
         } else if ((waitingTime > 0) && (walkingTime == 0)) {
+            [result addObject:[[MSLocationStep alloc]initWithLocation:fromLocation Time:[MSUtilities getTimeFormatForServer:startTime]]];
             NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
             [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:waitString]];
         } else if ((waitingTime > 0) && (walkingTime > 0)) {
-            [result addObject:[fromLocation getHumanReadable]];
+            [result addObject:[[MSLocationStep alloc]initWithLocation:fromLocation Time:[MSUtilities getTimeFormatForServer:startTime]]];
             NSString *walkString = [NSString stringWithFormat:@"Walk %i%@",walkingTime,[MSUtilities getMinutePlural:walkingTime]];
             [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:walkString]];
+            [result addObject:[[MSLocationStep alloc]initWithLocation:toLocation Time:[MSUtilities getTimeFormatForServer:endTime]]];
             NSString *waitString = [NSString stringWithFormat:@"Wait %i%@ at %@",waitingTime,[MSUtilities getMinutePlural:waitingTime],[toLocation getHumanReadable]];
             [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:waitString]];
         }

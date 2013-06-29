@@ -8,6 +8,7 @@
 
 #import "MSStop.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation MSStop
 
@@ -25,6 +26,7 @@
 -(void)setStopName {
     TBXMLElement *nameElement = [XMLParser extractKnownChildElement:@"name" RootElement:rootElement];
     stopName = [XMLParser getValueFromElement:nameElement];
+    stopName = [MSUtilities fixAmpersand:stopName];
 }
 
 //Getter methods

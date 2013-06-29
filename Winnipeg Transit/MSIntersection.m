@@ -8,6 +8,7 @@
 
 #import "MSIntersection.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation MSIntersection
 
@@ -105,6 +106,7 @@
         fullCrossStreet = [[NSString alloc]initWithFormat:@"%@%@", crossStreetName, crossStreetAbbr];
     }
     NSString *result = [[NSString alloc]initWithFormat:@"%@ @ %@", fullStreet, fullCrossStreet];
+    result = [MSUtilities fixAmpersand:result];
     name = result;
 }
 

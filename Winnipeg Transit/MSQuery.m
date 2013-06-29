@@ -69,8 +69,8 @@
                            serverOrigin,serverDestination,serverTime,serverDate,mode,easyAccess,walkSpeed,maxWalkTime,minTransferWaitTime,maxTransferWaitTime,maxTransfers,transitAPIKey]; */
     NSString *urlString = [[NSString alloc]initWithFormat:@"http://api.winnipegtransit.com/trip-planner?origin=%@&destination=%@&time=%@&date=%@&mode=%@&api-key=%@",
                            serverOrigin,serverDestination,serverTime,serverDate,mode,transitAPIKey];
-    NSLog(urlString);
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
+    NSLog(urlString);
     NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
     //If there is a problem with the results, send back null.
     if ([MSUtilities queryIsError:xmlData]) {

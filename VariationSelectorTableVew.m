@@ -88,7 +88,7 @@
     cell = (VariationTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil)
     {
-        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"PlanTableViewCell" owner:nil options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"VariationTableViewCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects)
         {
             if([currentObject isKindOfClass:[UITableViewCell class]])

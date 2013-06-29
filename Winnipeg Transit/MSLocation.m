@@ -8,6 +8,7 @@
 
 #import "MSLocation.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation MSLocation
 

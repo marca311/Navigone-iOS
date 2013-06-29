@@ -13,15 +13,6 @@
 
 @synthesize currentArray;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 -(id)initWithCorrectFrame:(MSVariation *)theVariation
 {
     self = [[VariationDisplayTableViewController alloc]init];
@@ -38,6 +29,7 @@
     self.tableView.backgroundView = nil;
 
     variationData = theVariation;
+    stepArray = [variationData getHumanReadable];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     return self;
@@ -48,7 +40,7 @@
     [theView addSubview:self.tableView];
 }//showTable
 
--(void)changeTablePlan:(MSVariation *)theVariation
+-(void)changeTableVariation:(MSVariation *)theVariation
 {
     variationData = theVariation;
     stepArray = [variationData getHumanReadable];
@@ -91,13 +83,12 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [currentArray count]; }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [stepArray count]; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    MSSegment *segmentData = [variationData getSegmentAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
     MSTableViewCell *cell = nil;
     cell = (MSTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];

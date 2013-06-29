@@ -23,7 +23,7 @@
     TBXMLElement *theElement = rootElement;
     theElement = [XMLParser extractKnownChildElement:@"segments" RootElement:theElement];
     theElement = [XMLParser extractKnownChildElement:@"segment" RootElement:theElement];
-    NSUInteger segments = 0;
+    NSUInteger segments = 1;
     while ((theElement = theElement->nextSibling)) {
         segments++;
     }
@@ -44,9 +44,9 @@
     timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:durationsElement];
     ridingTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:timesElement];
-    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
-    timeElement = [XMLParser extractKnownChildElement:@"stop" RootElement:timesElement];
-    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timesElement]];
+    startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
+    timeElement = [XMLParser extractKnownChildElement:@"end" RootElement:timesElement];
+    endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
 }
 
 -(void)setSegmentArray {
@@ -57,6 +57,7 @@
     for (int i=0; i<numberOfSegments; i++) {
         MSSegment *segment = [[MSSegment alloc]initWithElement:theElement];
         [segments addObject:segment];
+        if (i < numberOfSegments) theElement = theElement->nextSibling;
     }
     segmentArray = segments;
 }
@@ -101,7 +102,7 @@
 -(NSArray *)getHumanReadable {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     for (int i = 0; i < numberOfSegments; i++) {
-        NSArray *currentSegement = [segmentArray objectAtIndex:i];
+        NSArray *currentSegement = [[segmentArray objectAtIndex:i]getHumanReadable];
         for (int x = 0; x < [currentSegement count]; x++) {
             [result addObject:[currentSegement objectAtIndex:x]];
         }

@@ -8,6 +8,7 @@
 
 #import "MSAddress.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation MSAddress
 
@@ -72,7 +73,7 @@
     } else {
         result = [[NSString alloc]initWithFormat:@"%@ %@%@", houseNumber, streetName, streetAbbr];
     }
-    
+    result = [MSUtilities fixAmpersand:result];
     name = result;
 }
 

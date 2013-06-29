@@ -275,8 +275,7 @@
         //Check if location is currently saved locations list
         if ([key isEqualToString:checkKey]) {
             //If it is, remove all occurances from previous locations (if any)
-            [previousLocationsList removeObject:item];
-            [previousLocationsList removeObject:location];
+            [self removeInstancesOfLocation:location fromArray:previousLocationsList];
             //If previous locations list is empty, make it and add the item as the first entry
             if ([previousLocationsList count] == 0) {
                 previousLocationsList = [[NSMutableArray alloc]initWithObjects:item, nil];
@@ -327,6 +326,18 @@
         }
     }
     return theArray;
+}
++(NSMutableArray *)removeInstancesOfLocation:(MSLocation *)location fromArray:(NSMutableArray *)array {
+    NSString *locationKey = [location getServerQueryable];
+    for (int i = 0; i < [array count]; i++) {
+        NSString *currentKey = [[array objectAtIndex:i]getServerQueryable];
+        if ([locationKey isEqualToString:currentKey]) {
+            [array removeObjectAtIndex:i];
+            //This is to make sure that the script goes and checks the same index again for another duplicate
+            i-=1;
+        }
+    }
+    return array;
 }
 
 @end

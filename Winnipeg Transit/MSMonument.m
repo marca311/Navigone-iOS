@@ -8,6 +8,7 @@
 
 #import "MSMonument.h"
 #import "XMLParser.h"
+#import "MSUtilities.h"
 
 @implementation MSMonument
 
@@ -55,6 +56,7 @@
 -(void)setHumanReadable {
     NSString *address = [monumentAddress getHumanReadable];
     NSString *result = [[NSString alloc]initWithFormat:@"%@ (%@)", monumentName, address];
+    result = [MSUtilities fixAmpersand:result];
     name = result;
 }
 

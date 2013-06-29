@@ -32,6 +32,7 @@
             query = [self replaceInvalidCharacters:query];
             query = [query stringByReplacingOccurrencesOfString:@" " withString:@"+"];
             NSString *queryURL = [NSString stringWithFormat: @"http://api.winnipegtransit.com/locations:%@?api-key=%@", query, transitAPIKey];
+            NSLog(queryURL);
             NSURL *checkURL = [[NSURL alloc]initWithString:queryURL];
             resultXMLFile = [NSData dataWithContentsOfURL:checkURL];
         }
