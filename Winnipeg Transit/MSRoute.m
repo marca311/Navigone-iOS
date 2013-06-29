@@ -80,15 +80,14 @@
     variationArray = variations;
 }
 
--(void)saveToFile
-{
+-(void)saveToFile {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
     NSString *entryTime = [dateFormat stringFromDate:date];
-    NSString *fileName = [NSString stringWithFormat:@"%@.route",entryTime];
+    NSString *fileName = [NSString stringWithFormat:@"ROUTE_%@.route",entryTime];
     NSData *route = [NSKeyedArchiver archivedDataWithRootObject:self];
     [route writeToFile:fileName atomically:NO];
-}//saveToFile
+}
 
 -(NSUInteger)getNumberOfVariations {
     return numberOfVariations;

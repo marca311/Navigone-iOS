@@ -13,6 +13,42 @@
 
 @implementation MSQuery
 
+#pragma mark - NSCoding section
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    name = [aDecoder decodeObjectForKey:@"name"];
+    origin = [aDecoder decodeObjectForKey:@"origin"];
+    originKey = [aDecoder decodeObjectForKey:@"originKey"];
+    destination = [aDecoder decodeObjectForKey:@"destination"];
+    destinationKey = [aDecoder decodeObjectForKey:@"destinationKey"];
+    date = [aDecoder decodeObjectForKey:@"date"];
+    mode = [aDecoder decodeObjectForKey:@"mode"];
+    easyAccess = [aDecoder decodeObjectForKey:@"easyAccess"];
+    walkSpeed = [aDecoder decodeObjectForKey:@"walkSpeed"];
+    maxWalkTime = [aDecoder decodeObjectForKey:@"maxWalkTime"];
+    minTransferWaitTime = [aDecoder decodeObjectForKey:@"minTransferWaitTime"];
+    maxTransferWaitTime = [aDecoder decodeObjectForKey:@"maxTransferWaitTime"];
+    maxTransfers = [aDecoder decodeObjectForKey:@"maxTransfers"];
+    return self;
+}
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeObject:origin forKey:@"origin"];
+    [aCoder encodeObject:originKey forKey:@"originKey"];
+    [aCoder encodeObject:destination forKey:@"destination"];
+    [aCoder encodeObject:destinationKey forKey:@"destinationKey"];
+    [aCoder encodeObject:date forKey:@"date"];
+    [aCoder encodeObject:mode forKey:@"mode"];
+    [aCoder encodeObject:easyAccess forKey:@"easyAccess"];
+    [aCoder encodeObject:walkSpeed forKey:@"walkSpeed"];
+    [aCoder encodeObject:maxWalkTime forKey:@"maxWalkTime"];
+    [aCoder encodeObject:minTransferWaitTime forKey:@"minTransferWaitTime"];
+    [aCoder encodeObject:maxTransferWaitTime forKey:@"maxTransferWaitTime"];
+    [aCoder encodeObject:maxTransfers forKey:@"maxTransfers"];
+}
+
+-(void)setNameFromString:(NSString *)input {
+    name = input;
+}
 -(void)setOrigin:(MSLocation *)input {
     origin = input;
 }
@@ -52,6 +88,10 @@
 -(NSString *)getDestinationString {
     return [destination getHumanReadable];
 }
+-(void)setName {
+    NSString *nameString = [NSString stringWithFormat:@"%@ to %@ at %@",[origin getHumanReadable], [destination getHumanReadable], [MSUtilities getTimeFormatForServer:date]];
+    name = nameString;
+}
 
 //Adds origin and destination entries to Search History
 -(void)addEntriesToHistory {
@@ -79,6 +119,30 @@
     [self addEntriesToHistory];
     MSRoute *result = [[MSRoute alloc]initWithData:xmlData];
     return result;
+}
+-(MSRoute *)getRouteFromSavedQuery {
+    //Puts together route time and current date
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *timeComponents = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
+    
+    NSDateComponents *newComponents = [[NSDateComponents alloc]init];
+    [newComponents setDay:[dateComponents day]];
+    [newComponents setMonth:[dateComponents month]];
+    [newComponents setYear:[dateComponents year]];
+    [newComponents setHour:[timeComponents hour]];
+    [newComponents setMinute:[timeComponents minute]];
+    date = [calendar dateFromComponents:newComponents];
+    
+}
+
+-(void)saveToFile {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"y-MM-dd-hh:mm:ss"];
+    NSString *entryTime = [dateFormat stringFromDate:date];
+    NSString *fileName = [NSString stringWithFormat:@"QUERY_%@.route",entryTime];
+    NSData *route = [NSKeyedArchiver archivedDataWithRootObject:self];
+    [route writeToFile:fileName atomically:NO];
 }
 
 

@@ -27,6 +27,7 @@
 }
 //This class stores only querying data and queries the server when prompted, returning an MSRoute
 
+-(void)setNameFromString:(NSString *)input;
 -(void)setOrigin:(MSLocation *)input;
 -(void)setDestination:(MSLocation *)input;
 -(void)setDate:(NSDate *)input;
@@ -41,5 +42,6 @@
 -(NSString *)getOriginString;
 -(NSString *)getDestinationString;
 -(MSRoute *)getRoute;
+-(MSRoute *)getRouteFromSavedQuery;
 
 @end
