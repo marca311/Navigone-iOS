@@ -94,9 +94,7 @@
         [naviView.destination becomeFirstResponder];
     }
     
-    //Section to change label to location name
-    NSString *title = [self getLabelLocationString:@"origin" ViewController:naviView];
-    if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
+    [naviView updateFields];
      
     //Moves destination label, because the origin label never has to move
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
@@ -133,9 +131,7 @@
         [naviView.timeField becomeFirstResponder];
     }
     
-    //Section to change label to location name
-    NSString *title = [self getLabelLocationString:@"origin" ViewController:naviView];
-    if (title != nil) [naviView.originLabel setTitle:title forState:UIControlStateNormal];
+    [naviView updateFields];
     
     //Move all components up to proper positions
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
@@ -184,9 +180,7 @@
         [naviView.timeField becomeFirstResponder];
     }
     
-    //Section to change label to location name
-    NSString *title = [self getLabelLocationString:@"destination" ViewController:naviView];
-    if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
+    [naviView updateFields];
     
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
@@ -229,6 +223,8 @@
         [naviView.destination becomeFirstResponder];
     }
     
+    [naviView updateFields];
+    
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
     destinationSep.origin.y = 123;
@@ -269,6 +265,8 @@
     if ([naviView.timeField isFirstResponder] || [naviView.dateField isFirstResponder] || [naviView.mode isFirstResponder]) {
         [naviView.origin becomeFirstResponder];
     }
+    
+    [naviView updateFields];
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
@@ -317,9 +315,7 @@
         [naviView.origin becomeFirstResponder];
     }
     
-    //Section to change label to location name
-    NSString *title = [self getLabelLocationString:@"destination" ViewController:naviView];
-    if (title != nil) [naviView.destinationLabel setTitle:title forState:UIControlStateNormal];
+    [naviView updateFields];
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
@@ -347,24 +343,5 @@
     [UIView commitAnimations];
     naviView.destination.hidden = YES;
 }//stageTwoToStageOne
-
-+(BOOL)shouldChangeLabel:(NSString *)fieldText
-{
-    if ([MSUtilities isQueryBlank:fieldText] || ![MSUtilities hasInternet]) return NO;
-    else return YES;
-}//changeLabel
-
-+(NSString *)getLabelLocationString:(NSString *)field ViewController:(navigoViewController *)naviView {
-    NSString *currentString;
-    if ([field isEqualToString:@"origin"]) {
-        currentString = [[naviView query]getOriginString];
-    } else if ([field isEqualToString:@"destination"]) {
-        currentString = [[naviView query]getDestinationString];
-    }
-    if ([self shouldChangeLabel:currentString]) {
-        return currentString;
-    }
-    return nil;
-}//getLabelLocation
 
 @end

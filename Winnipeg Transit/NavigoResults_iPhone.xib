@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1072</int>
 		<string key="IBDocument.SystemVersion">11G63</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1138.51</string>
 		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1930</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -336,11 +336,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">dismissView:</string>
+						<string key="label">dismissView</string>
 						<reference key="source" ref="42708383"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">43</int>
+					<int key="connectionID">44</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -486,32 +486,24 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">43</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">PlanDisplayTableViewController</string>
-					<string key="superclassName">UITableViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PlanDisplayTableViewController.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UniversalViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="dismissKeyboard:">id</string>
-						<string key="dismissView:">id</string>
+						<string key="dismissView">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="dismissKeyboard:">
 							<string key="name">dismissKeyboard:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="dismissView:">
-							<string key="name">dismissView:</string>
+						<object class="IBActionInfo" key="dismissView">
+							<string key="name">dismissView</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
@@ -546,7 +538,6 @@
 						<string key="buses">UILabel</string>
 						<string key="endTime">UILabel</string>
 						<string key="planButton">UIButton</string>
-						<string key="planTable">PlanDisplayTableViewController</string>
 						<string key="resultsTable">UITableView</string>
 						<string key="startTime">UILabel</string>
 					</dictionary>
@@ -562,10 +553,6 @@
 						<object class="IBToOneOutletInfo" key="planButton">
 							<string key="name">planButton</string>
 							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="planTable">
-							<string key="name">planTable</string>
-							<string key="candidateClassName">PlanDisplayTableViewController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="resultsTable">
 							<string key="name">resultsTable</string>
@@ -591,6 +578,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1930</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

@@ -39,9 +39,16 @@
 -(void)setMaxTransferWaitTime:(NSString *)input;
 -(void)setMaxTransfers:(NSString *)input;
 
+-(MSLocation *)getOrigin;
+-(NSString *)getOriginKey;
+-(MSLocation *)getDestination;
+-(NSString *)getDestinationKey;
 -(NSString *)getOriginString;
 -(NSString *)getDestinationString;
 -(MSRoute *)getRoute;
--(MSRoute *)getRouteFromSavedQuery;
+-(NSString *)getHumanReadable;
+
+//Compares this query with another one to see if the origin and destination are the same
+-(BOOL)isEqualToQuery:(MSQuery *)query;
 
 @end

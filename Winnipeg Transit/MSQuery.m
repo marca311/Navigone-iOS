@@ -1,5 +1,5 @@
 //
-//  MSSavedTrip.m
+//  MSQuery.m
 //  Winnipeg Transit
 //
 //  Created by Marcus Dyck on 13-02-27.
@@ -8,8 +8,9 @@
 
 #import "MSQuery.h"
 #import "apiKeys.h"
-#import "PlaceViewController.h"
+#import "SearchHistoryViewController.h"
 #import "MSUtilities.h"
+#import "QueryHistoryViewController.h"
 
 @implementation MSQuery
 
@@ -51,9 +52,11 @@
 }
 -(void)setOrigin:(MSLocation *)input {
     origin = input;
+    originKey = [origin getServerQueryable];
 }
 -(void)setDestination:(MSLocation *)input {
     destination = input;
+    destinationKey = [destination getServerQueryable];
 }
 -(void)setDate:(NSDate *)input {
     date = input;
@@ -81,25 +84,40 @@
 -(void)setMaxTransfers:(NSString *)input {
     maxTransfers = input;
 }
+-(void)setName {
+    NSString *nameString = [NSString stringWithFormat:@"%@ to %@",[origin getHumanReadable], [destination getHumanReadable]];
+    name = nameString;
+}
 
+#pragma mark - Getter Methods
+-(MSLocation *)getOrigin {
+    return origin;
+}
+-(NSString *)getOriginKey {
+    return originKey;
+}
+-(MSLocation *)getDestination {
+    return destination;
+}
+-(NSString *)getDestinationKey {
+    return destinationKey;
+}
 -(NSString *)getOriginString {
     return [origin getHumanReadable];
 }
 -(NSString *)getDestinationString {
     return [destination getHumanReadable];
 }
--(void)setName {
-    NSString *nameString = [NSString stringWithFormat:@"%@ to %@ at %@",[origin getHumanReadable], [destination getHumanReadable], [MSUtilities getTimeFormatForServer:date]];
-    name = nameString;
-}
 
-//Adds origin and destination entries to Search History
+//Adds origin and destination entries to Search History and Query History
 -(void)addEntriesToHistory {
-    [PlaceViewController addEntryToFile: origin];
-    [PlaceViewController addEntryToFile: destination];
+    [SearchHistoryViewController addEntryToFile: origin];
+    [SearchHistoryViewController addEntryToFile: destination];
+    [QueryHistoryViewController addEntryToFile:self];
 }
 
 -(MSRoute *)getRoute {
+    [self setName];
     NSString *serverOrigin = [origin getServerQueryable];
     NSString *serverDestination = [destination getServerQueryable];
     NSString *serverTime = [MSUtilities getTimeFormatForServer:date];
@@ -120,21 +138,12 @@
     MSRoute *result = [[MSRoute alloc]initWithData:xmlData];
     return result;
 }
--(MSRoute *)getRouteFromSavedQuery {
-    //Puts together route time and current date
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComponents = [calendar components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:[NSDate date]];
-    NSDateComponents *timeComponents = [calendar components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
-    
-    NSDateComponents *newComponents = [[NSDateComponents alloc]init];
-    [newComponents setDay:[dateComponents day]];
-    [newComponents setMonth:[dateComponents month]];
-    [newComponents setYear:[dateComponents year]];
-    [newComponents setHour:[timeComponents hour]];
-    [newComponents setMinute:[timeComponents minute]];
-    date = [calendar dateFromComponents:newComponents];
-    
+
+-(NSString *)getHumanReadable {
+    return name;
 }
+
+#pragma mark - Other Methods
 
 -(void)saveToFile {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
@@ -145,5 +154,14 @@
     [route writeToFile:fileName atomically:NO];
 }
 
+-(BOOL)isEqualToQuery:(MSQuery *)query {
+    NSString *otherOrigin = [query getOriginKey];
+    NSString *otherDestination = [query getDestinationKey];
+    if ([originKey isEqualToString:otherOrigin] && [destinationKey isEqualToString:otherDestination]) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
 
 @end

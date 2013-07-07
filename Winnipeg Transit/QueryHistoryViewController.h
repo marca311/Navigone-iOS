@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UniversalViewController.h"
-#import "MSLocation.h"
+#import "MSQuery.h"
 
-@interface PlaceViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
-    UITableView *theTableView;
-    UIBarButtonItem *editButton;
-    NSMutableArray *savedLocations;
-    NSMutableArray *previousLocations;
+@interface QueryHistoryViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
+    IBOutlet UITableView *theTableView;
+    IBOutlet UIBarButtonItem *editButton;
+    NSMutableArray *savedQueries;
+    NSMutableArray *previousQueries;
     BOOL fileExists;
 }
 
@@ -23,13 +23,12 @@
 #pragma mark - File Handling methods
 
 -(void)saveFile;
--(void)addLocation:(NSString *)locationName :(NSString *)locationKey;
--(void)removeLocation:(NSIndexPath *)index;
-+(void)clearLocations;
+-(void)removeQuery:(NSIndexPath *)index;
++(void)clearQueries;
 -(void)moveEntry:(NSIndexPath *)currentIndex :(NSIndexPath *)proposedIndex;
 -(void)changeSavedName:(NSString *)index :(NSString *)newName;
 //Static method for adding entries
-+(void)addEntryToFile:(MSLocation *)item;
++(void)addEntryToFile:(MSQuery *)item;
 +(NSMutableArray *)checkNumberOfEntries:(NSArray *)theArray;
 
 @end

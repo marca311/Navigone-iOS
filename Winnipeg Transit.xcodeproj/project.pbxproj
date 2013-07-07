@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 430505A215177FAE00C08BC7 /* MSUtilities.m */; };
-		4316805615013E4100A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
+		4316805615013E4100A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		4316805815013E4100A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
 		4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805915013E4100A41785 /* CoreGraphics.framework */; };
 		4316806015013E4100A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316805E15013E4100A41785 /* InfoPlist.strings */; };
@@ -62,8 +62,8 @@
 		6F580A96169925D700BAE14E /* ride.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F580A91169925D700BAE14E /* ride.png */; };
 		6F580A97169925D700BAE14E /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F580A92169925D700BAE14E /* stop.png */; };
 		6F580A98169925D700BAE14E /* transfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F580A93169925D700BAE14E /* transfer.png */; };
-		6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */; };
-		6F5BD0A9166B1DE40077B2EB /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */; };
+		6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */; };
+		6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */; };
 		6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
@@ -81,6 +81,9 @@
 		6FA40717176A72D0006CBAA0 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */; };
 		6FA40718176A72D0006CBAA0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40702176A72D0006CBAA0 /* TBXML.m */; };
 		6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */; };
+		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
+		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
+		6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7C01788A8F000D7598B /* TextBoxCell.xib */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7E616D6F51F00896532 /* MSTextField.m */; };
@@ -92,7 +95,7 @@
 		6FD5E7F716D6FFB400896532 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F616D6FFB400896532 /* CoreData.framework */; };
 		6FD5E7F916D6FFC000896532 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F816D6FFC000896532 /* CoreLocation.framework */; };
 		6FD5E7FB16D6FFCC00896532 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FA16D6FFCC00896532 /* CoreText.framework */; };
-		6FD5E7FD16D6FFD500896532 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FC16D6FFD500896532 /* GLKit.framework */; };
+		6FD5E7FD16D6FFD500896532 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FC16D6FFD500896532 /* GLKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6FD5E7FF16D6FFDF00896532 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7FE16D6FFDF00896532 /* ImageIO.framework */; };
 		6FD5E80116D6FFF400896532 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80016D6FFF400896532 /* libicucore.dylib */; };
 		6FD5E80316D7000100896532 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80216D7000100896532 /* libstdc++.dylib */; };
@@ -108,7 +111,7 @@
 		6FF56FA4158BC49000CC015C /* VariationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */; };
 		6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* VariationSelectorTableVew.m */; };
-		6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* SavedRouteViewController.m */; };
+		6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */; };
 		6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9116B7327200567861 /* SavedRouteView.xib */; };
 		6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */; };
 /* End PBXBuildFile section */
@@ -234,9 +237,9 @@
 		6F580A91169925D700BAE14E /* ride.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ride.png; path = "Winnipeg Transit/ride.png"; sourceTree = "<group>"; };
 		6F580A92169925D700BAE14E /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = "Winnipeg Transit/stop.png"; sourceTree = "<group>"; };
 		6F580A93169925D700BAE14E /* transfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transfer.png; path = "Winnipeg Transit/transfer.png"; sourceTree = "<group>"; };
-		6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
-		6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
-		6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
+		6F5BD0A4166B190F0077B2EB /* SearchHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryViewController.h; sourceTree = "<group>"; };
+		6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryViewController.m; sourceTree = "<group>"; };
+		6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchHistoryView.xib; sourceTree = "<group>"; };
 		6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSIntersection.h; sourceTree = "<group>"; };
 		6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSIntersection.m; sourceTree = "<group>"; };
 		6F60B8671526AB0200FFCD99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -267,6 +270,10 @@
 		6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TBXML.xcodeproj; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* VariationDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationDisplayTableViewController.m; sourceTree = "<group>"; };
+		6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryHistoryViewController.xib; sourceTree = "<group>"; };
+		6FACB7BD1788A8D900D7598B /* TextBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBoxCell.h; sourceTree = "<group>"; };
+		6FACB7BE1788A8D900D7598B /* TextBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBoxCell.m; sourceTree = "<group>"; };
+		6FACB7C01788A8F000D7598B /* TextBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
@@ -303,8 +310,8 @@
 		6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationTableViewCell.xib; sourceTree = "<group>"; };
 		6FF56FAD158C237A00CC015C /* VariationSelectorTableVew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationSelectorTableVew.h; sourceTree = "<group>"; };
 		6FF56FAE158C237A00CC015C /* VariationSelectorTableVew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationSelectorTableVew.m; sourceTree = "<group>"; };
-		6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRouteViewController.h; sourceTree = "<group>"; };
-		6FF7AC9016B7327200567861 /* SavedRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRouteViewController.m; sourceTree = "<group>"; };
+		6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryHistoryViewController.h; sourceTree = "<group>"; };
+		6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryHistoryViewController.m; sourceTree = "<group>"; };
 		6FF7AC9116B7327200567861 /* SavedRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedRouteView.xib; sourceTree = "<group>"; };
 		6FFF1BCB17681A9F00BF892F /* MSSuggestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSuggestions.h; sourceTree = "<group>"; };
 		6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSuggestions.m; sourceTree = "<group>"; };
@@ -563,10 +570,10 @@
 				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */,
 				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
-				6F5BD0A4166B190F0077B2EB /* PlaceViewController.h */,
-				6F5BD0A5166B190F0077B2EB /* PlaceViewController.m */,
-				6FF7AC8F16B7327200567861 /* SavedRouteViewController.h */,
-				6FF7AC9016B7327200567861 /* SavedRouteViewController.m */,
+				6F5BD0A4166B190F0077B2EB /* SearchHistoryViewController.h */,
+				6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */,
+				6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */,
+				6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */,
 				6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */,
 				6FD5E81016D71D1900896532 /* TripHistoryViewController.m */,
 				6FD5E7E516D6F51F00896532 /* MSTextField.h */,
@@ -632,7 +639,8 @@
 			children = (
 				6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */,
 				6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */,
-				6F5BD0A8166B1DE40077B2EB /* PlaceView.xib */,
+				6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */,
+				6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */,
 				6FF7AC9116B7327200567861 /* SavedRouteView.xib */,
 				6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */,
 			);
@@ -654,6 +662,9 @@
 				6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */,
 				6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */,
 				6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */,
+				6FACB7BD1788A8D900D7598B /* TextBoxCell.h */,
+				6FACB7BE1788A8D900D7598B /* TextBoxCell.m */,
+				6FACB7C01788A8F000D7598B /* TextBoxCell.xib */,
 				6F9A386F16E5C1AD00D7C076 /* TripHistoryCell.h */,
 				6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */,
 				6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */,
@@ -795,7 +806,7 @@
 				6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */,
 				6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */,
 				6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */,
-				6F5BD0A9166B1DE40077B2EB /* PlaceView.xib in Resources */,
+				6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */,
 				6F580A94169925D700BAE14E /* address.gif in Resources */,
 				6F580A95169925D700BAE14E /* monument.gif in Resources */,
 				6F580A96169925D700BAE14E /* ride.png in Resources */,
@@ -820,6 +831,8 @@
 				6F1AA64D1776A41000713207 /* stops.txt in Resources */,
 				6F1AA64E1776A41000713207 /* trips.txt in Resources */,
 				6F1AA6571776A4D000713207 /* LICENSE in Resources */,
+				6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */,
+				6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,8 +889,8 @@
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
-				6F5BD0A6166B190F0077B2EB /* PlaceViewController.m in Sources */,
-				6FF7AC9216B7327200567861 /* SavedRouteViewController.m in Sources */,
+				6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */,
+				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
 				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
 				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,
 				6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */,
@@ -900,6 +913,7 @@
 				6F1AA65B1776AB6600713207 /* MSStep.m in Sources */,
 				6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */,
 				6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */,
+				6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,7 +985,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
 			};
@@ -1002,7 +1016,7 @@
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 				VALID_ARCHS = armv7;
@@ -1020,7 +1034,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "Winnipeg Transit";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1038,7 +1052,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "Winnipeg Transit";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
@@ -1105,7 +1119,7 @@
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 				VALID_ARCHS = armv7;
@@ -1123,7 +1137,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg Transit/Winnipeg Transit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "Winnipeg Transit";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

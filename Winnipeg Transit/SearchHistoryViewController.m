@@ -6,19 +6,12 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "PlaceViewController.h"
+#import "SearchHistoryViewController.h"
 #import "MSUtilities.h"
+#import "TextBoxCell.h"
 #import "AnimationInstructionSheet.h"
 
-@interface PlaceViewController ()
-
-@end
-
-@implementation PlaceViewController
-
-- (void)loadPlaceDictionary:(UIView *)superView {
-    
-}
+@implementation SearchHistoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +35,7 @@
         //Ditto
         NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
         previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
-        previousLocations = [PlaceViewController checkNumberOfEntries:previousLocations];
+        previousLocations = [SearchHistoryViewController checkNumberOfEntries:previousLocations];
         [self saveFile];
     }
 }
@@ -90,26 +83,36 @@
         } else if (section == 1) {
             return [previousLocations count];
         }
-    } else return 1;
-    return 1;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *SimpleTableIdentifier = @"SimpleTableIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier];
-        cell.showsReorderControl = true;
+    NSString *uniqueIdentifier = @"LocationCellIdentifier";
+    TextBoxCell *cell = nil;
+    cell = (TextBoxCell *) [tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
+    if (cell == nil)
+    {
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"TextBoxCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects)
+        {
+            if([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (TextBoxCell *)currentObject;
+                break;
+            }
+        }
     }
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 0) {
         MSLocation *currentLocation = [savedLocations objectAtIndex:row];
-        cell.textLabel.text = [currentLocation getHumanReadable];
+        [cell.text setText:[currentLocation getHumanReadable]];
     } else if (section == 1) {
         MSLocation *currentLocation = [previousLocations objectAtIndex:row];
-        cell.textLabel.text = [currentLocation getHumanReadable];
+        [cell.text setText:[currentLocation getHumanReadable]];
     }
     return cell;
 }
@@ -118,7 +121,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self removeLocation:indexPath];
         
-        if ([tableView numberOfRowsInSection:indexPath.section] == 1) {
+        if ([tableView numberOfRowsInSection:indexPath.section] == 0) {
             [tableView reloadData];
             [tableView setEditing:false animated:true];
             [editButton setTitle:@"Edit"];
@@ -128,13 +131,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Load the parent view controller with compatability
+    //Load the parent view controller
     navigoViewController *theParentViewController;
-    if ([MSUtilities firmwareIsHigherThanFour]) {
-        theParentViewController = ((navigoViewController *)self.presentingViewController);
-    } else {
-        theParentViewController = ((navigoViewController *)self.parentViewController);
-    }
+    theParentViewController = ((navigoViewController *)self.presentingViewController);
+    
     //Get info from correct array
     MSLocation *currentLocation;
     if (indexPath.section == 0) {
@@ -290,7 +290,7 @@
         MSLocation *location = [previousLocationsList objectAtIndex:i];
         NSString *checkKey = [location getServerQueryable];
         if ([key isEqualToString:checkKey]) {
-            [previousLocationsList removeObject:item];
+            [self removeInstancesOfLocation:location fromArray:previousLocationsList];
             [previousLocationsList insertObject:item atIndex:0];
             placed = YES;
         }
@@ -308,7 +308,7 @@
     }
     
     //Makes sure there are 20 or fewer entries in the previous locations list
-    previousLocationsList = [PlaceViewController checkNumberOfEntries:previousLocationsList];
+    previousLocationsList = [SearchHistoryViewController checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     //Converts array of MSLocations to data file
     NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocationsList];

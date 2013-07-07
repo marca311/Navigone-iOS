@@ -16,8 +16,7 @@
 #import "MSSeparator.h"
 #import "SubmitButton.h"
 #import "AnimationInstructionSheet.h"
-#import "PlaceViewController.h"
-#import "SavedRouteViewController.h"
+#import "QueryHistoryViewController.h"
 
 @implementation navigoViewController
 
@@ -44,7 +43,7 @@
 @synthesize submitButton;
 @synthesize suggestionBox;
 @synthesize originResults, destinationResults, currentField;
-@synthesize history;
+@synthesize searchHistory;
 @synthesize query;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -255,6 +254,21 @@
 
 #pragma mark -
 
+-(void)updateFields {
+    MSLocation *originLocation = [query getOrigin];
+    MSLocation *destinationLocation = [query getDestination];
+    if (originLocation != NULL) {
+        [originLabel setTitle:[originLocation getHumanReadable] forState:UIControlStateNormal];
+    } else {
+        [originLabel setTitle:@"Origin" forState:UIControlStateNormal];
+    }
+    if (destinationLocation != NULL) {
+        [destinationLabel setTitle:[destinationLocation getHumanReadable] forState:UIControlStateNormal];
+    } else {
+        [destinationLabel setTitle:@"Destination" forState:UIControlStateNormal];
+    }
+}
+
 -(IBAction)backgroundTap
 {
     [origin resignFirstResponder];
@@ -278,16 +292,15 @@
     [submitButton setTitle:@"Next" forState:UIControlStateNormal];
     [self resetDatePickers];
     mode.text = @"Depart After";
-    [originLabel setTitle:@"Origin" forState:UIControlStateNormal];
-    [destinationLabel setTitle:@"Destination" forState:UIControlStateNormal];
+    [query setOrigin:NULL];
+    [query setDestination:NULL];
+    [self updateFields];
     [AnimationInstructionSheet toStageOne:self];
 }
 
 -(IBAction)testButton
 {
-    navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithNibName:@"NavigoResults_iPhone" bundle:[NSBundle mainBundle]];
-    [resultView setRoute:@"Route1"];
-    [MSUtilities presentViewController:resultView withParent:self];
+    //Nothing here right now
 }
 
 //Actions for origin, destination and time/date labels/buttons
@@ -304,15 +317,21 @@
     [AnimationInstructionSheet toStageThree:self];
 }
 
+-(IBAction)queryHistoryButton {
+    QueryHistoryViewController *queryHistoryController = [[QueryHistoryViewController alloc]initWithNibName:@"QueryHistoryViewController" bundle:[NSBundle mainBundle]];
+    [MSUtilities presentViewController:queryHistoryController withParent:self];
+}
+
 -(IBAction)tripHistoryButton
 {
-    SavedRouteViewController *tripHistoryController = [[SavedRouteViewController alloc]initSavedRouteViewController];
-    [MSUtilities presentViewController:tripHistoryController withParent:self];
+    //RouteHistoryViewController *tripHistoryController = [[RouteHistoryViewController alloc]initSavedRouteViewController];
+    //[MSUtilities presentViewController:tripHistoryController withParent:self];
 }
 
 -(void)resetDatePickers {
     [self resetTimePicker];
     [self resetDatePicker];
+    [query setDate:[NSDate date]];
 }
 -(void)resetTimePicker {
     [timePicker setDate:[NSDate date]];
@@ -357,8 +376,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         //If the user clicks the last row in the table, go to search history
-        history = [[PlaceViewController alloc]initWithNibName:@"PlaceView" bundle:[NSBundle mainBundle]];
-        [MSUtilities presentViewController:history withParent:self];
+        searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
+        [MSUtilities presentViewController:searchHistory withParent:self];
     } else {
         MSLocation *answer;
         answer = [[suggestionBox getSuggestions]getLocationAtIndex:indexPath.row];

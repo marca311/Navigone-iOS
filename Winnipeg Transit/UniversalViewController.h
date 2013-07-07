@@ -11,7 +11,7 @@
 
 @interface UniversalViewController : UIViewController
 
--(IBAction)dismissKeyboard:(id)sender;
+-(IBAction)dismissKeyboard;
 
 -(IBAction)dismissView;
 

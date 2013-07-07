@@ -17,7 +17,7 @@
 #import "MSSeparator.h"
 #import "SubmitButton.h"
 #import "MSSuggestionBox.h"
-#import "PlaceViewController.h"
+#import "SearchHistoryViewController.h"
 #import "MSQuery.h"
 #import "MSTextField.h"
 
@@ -55,7 +55,7 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
-@property (nonatomic, retain) PlaceViewController *history;
+@property (nonatomic, retain) SearchHistoryViewController *searchHistory;
 //These store the query results (location name and key) for the entered origin and destination
 @property (nonatomic, retain) NSArray *originResults;
 @property (nonatomic, retain) NSArray *destinationResults;
@@ -79,6 +79,8 @@
 
 -(IBAction)testButton;
 
+-(IBAction)queryHistoryButton;
+
 -(IBAction)tripHistoryButton;
 
 -(void)resetDatePickers;
@@ -90,6 +92,8 @@
 
 //Method to detect whether all fields are filled
 -(BOOL)fieldsFilled;
+//Method to update all field values
+-(void)updateFields;
 
 //Actions for origin and destination suggestion boxes
 -(IBAction)originBoxEdit;

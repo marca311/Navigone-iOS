@@ -24,7 +24,7 @@
     [self resignFirstResponder];
 }
 
--(IBAction)dismissView:(id)sender
+-(IBAction)dismissView
 {
     [self dismissModalViewControllerAnimated:YES];
 }
