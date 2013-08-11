@@ -112,6 +112,7 @@
 		6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
+		6FE5988B17B8119600928D3B /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5988A17B8119600928D3B /* Changelog */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
 		6FF56FA4158BC49000CC015C /* VariationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */; };
@@ -340,6 +341,7 @@
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
+		6FE5988A17B8119600928D3B /* Changelog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog; sourceTree = "<group>"; };
 		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
 		6FF56FA2158BC49000CC015C /* VariationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationTableViewCell.h; sourceTree = "<group>"; };
 		6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationTableViewCell.m; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				6F0FEA8B1789C77F001965A3 /* appirater */,
 				6F1AA6381776A41000713207 /* google_transit */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
+				6FE5988A17B8119600928D3B /* Changelog */,
 			);
 			path = "Winnipeg Transit";
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				6F0FEAAD1789C77F001965A3 /* Appirater.podspec in Resources */,
 				6F0FEAAE1789C77F001965A3 /* AppiraterLocalizable.strings in Resources */,
 				6F0FEAAF1789C77F001965A3 /* README.md in Resources */,
+				6FE5988B17B8119600928D3B /* Changelog in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

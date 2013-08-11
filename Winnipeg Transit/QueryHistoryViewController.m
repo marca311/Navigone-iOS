@@ -155,6 +155,7 @@
         [theParentViewController.destinationLabel setTitle:[currentQuery getHumanReadable] forState:UIControlStateNormal];
          */
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+            [theParentViewController updateFields];
             [AnimationInstructionSheet toStageThree:theParentViewController];
         });
         [self dismissModalViewControllerAnimated:YES];

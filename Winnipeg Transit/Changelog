@@ -1,0 +1,13 @@
+1.0:
+- Initial release
+
+1.0.1:
+- Fixed problem with queries containing intersections not working
+
+2.0:
+- Reworked transit xml interpretation structure to be class based for easier extendability and code streamlining.
+- Added query history function.
+- Moved around structure for handling UI events so that they are more modular.
+
+Current:
+- Fixed bug with Query history sometimes not updating origin and destination fields.
