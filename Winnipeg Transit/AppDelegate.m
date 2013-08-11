@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "navigoViewController.h"
 #import "timetableViewController.h"
+#import "Appirater.h"
 
 @implementation AppDelegate
 
@@ -27,6 +28,10 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+    [Appirater setAppId:@"616346594"];
+    [Appirater setDaysUntilPrompt:5];
+    [Appirater setUsesUntilPrompt:5];
+    
     // Set the application defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc]init];
@@ -39,11 +44,8 @@
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
     
+    [Appirater appLaunched:TRUE];
     return YES;
-}
-
--(void)getAPIKeys {
-    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -67,6 +69,7 @@
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
