@@ -130,6 +130,7 @@
     NSURL *queryURL = [[NSURL alloc]initWithString:urlString];
     NSData *xmlData = [[NSData alloc]initWithContentsOfURL:queryURL];
     //If there is a problem with the results, send back null.
+    NSLog(urlString);
     if ([MSUtilities queryIsError:xmlData]) {
         return NULL;
     }
