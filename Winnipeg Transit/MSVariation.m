@@ -36,13 +36,13 @@
     TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:durationsElement];
     totalTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
-    walkingTime = [XMLParser getValueFromElement:timeElement];
+    if (timeElement != NULL) walkingTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"waiting" RootElement:durationsElement];
-    waitingTime = [XMLParser getValueFromElement:timeElement];
+    if (timeElement != NULL) waitingTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"walking" RootElement:durationsElement];
-    walkingTime = [XMLParser getValueFromElement:timeElement];
+    if (timeElement != NULL) walkingTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"riding" RootElement:durationsElement];
-    ridingTime = [XMLParser getValueFromElement:timeElement];
+    if (timeElement != NULL) ridingTime = [XMLParser getValueFromElement:timeElement];
     timeElement = [XMLParser extractKnownChildElement:@"start" RootElement:timesElement];
     startTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
     timeElement = [XMLParser extractKnownChildElement:@"end" RootElement:timesElement];
