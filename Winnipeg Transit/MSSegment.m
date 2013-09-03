@@ -54,8 +54,8 @@
     [aCoder encodeObject:routeName forKey:@"routeName"];
     [aCoder encodeObject:variantDestination forKey:@"variantDestination"];
 }
-#pragma mark -
 
+#pragma mark - Setter methods
 -(void)setSegment {
     [self setType];
     [self setTimes];
@@ -103,6 +103,13 @@
     workingElement = [XMLParser extractKnownChildElement:@"to" RootElement:rootElement];
     workingElement = [XMLParser extractUnknownChildElement:workingElement];
     toLocation = [MSSegment setLocationTypesFromElement:workingElement];
+}
+
+-(void)setFromLocation:(MSLocation *)input {
+    fromLocation = input;
+}
+-(void)setToLocation:(MSLocation *)input {
+    toLocation = input;
 }
 
 /*
@@ -163,7 +170,7 @@
     variantDestination = [MSUtilities fixAmpersand:variantDestination];
 }
 
-//Getter methods
+#pragma mark - Getter methods
 -(NSString *)getType {
     return type;
 }

@@ -193,7 +193,7 @@
 						<reference key="NSNextResponder" ref="983771249"/>
 						<int key="NSvFlags">-2147482330</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{10, 170}, {101, 31}}</string>
+						<string key="NSFrame">{{10, 170}, {104, 31}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="157378996"/>
@@ -253,7 +253,7 @@
 						<reference key="NSNextResponder" ref="983771249"/>
 						<int key="NSvFlags">-2147482334</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{94, 131}, {125, 31}}</string>
+						<string key="NSFrame">{{94, 131}, {139, 31}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="737971640"/>
@@ -459,6 +459,7 @@
 						<string key="NSFrame">{{222, 404}, {84, 37}}</string>
 						<reference key="NSSuperview" ref="983771249"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

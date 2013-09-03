@@ -27,11 +27,15 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(void)setSegmentArray:(NSArray *)input;
+
+-(MSSegment *)getSegmentAtIndex:(NSUInteger)index;
+-(NSArray *)getSegmentArray;
+-(NSString *)getTotalTime;
+-(NSString *)getWalkingTime;
 -(NSString *)getStartTime;
 -(NSString *)getEndTime;
 -(NSString *)getBuses;
-
--(MSSegment *)getSegmentAtIndex:(NSUInteger)index;
 -(NSArray *)getHumanReadable;
 
 @end

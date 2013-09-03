@@ -35,6 +35,9 @@
 
 -(id)initWithElement:(TBXMLElement *)theElement;
 
+-(void)setFromLocation:(MSLocation *)input;
+-(void)setToLocation:(MSLocation *)input;
+
 +(MSLocation *)setLocationTypesFromElement:(TBXMLElement *)rootElement;
 
 -(NSString *)getType;

@@ -19,6 +19,8 @@
     return self;
 }
 
+#pragma mark - Setter methods
+
 -(void)setNumberOfSegments {
     TBXMLElement *theElement = rootElement;
     theElement = [XMLParser extractKnownChildElement:@"segments" RootElement:theElement];
@@ -62,6 +64,21 @@
     segmentArray = segments;
 }
 
+-(void)setSegmentArray:(NSArray *)input {
+    segmentArray = input;
+}
+
+#pragma mark - Getter methods
+
+-(NSArray *)getSegmentArray {
+    return segmentArray;
+}
+-(NSString *)getTotalTime {
+    return totalTime;
+}
+-(NSString *)getWalkingTime {
+    return walkingTime;
+}
 -(NSString *)getStartTime {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"HH:mm"];
@@ -85,6 +102,8 @@
             [busList addObject:[segment getBusNumber]];
         }
     }
+    //Checks to see if there are buses in the variation, if there aren't then it returns "Walking Route"
+    if (busList.count == 0) return @"Walking Route";
     //Turn array into string
     result = [busList description];
     //Improve readability of results
@@ -95,7 +114,6 @@
     return result;
 }
 
-#pragma mark - Getter methods
 -(MSSegment *)getSegmentAtIndex:(NSUInteger)index {
     return [segmentArray objectAtIndex:index];
 }

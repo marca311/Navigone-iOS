@@ -11,8 +11,10 @@
 
 @implementation MSRoute
 
--(id)initWithData:(NSData *)theData {
+-(id)initWithData:(NSData *)theData andOrigin:(MSLocation *)theOrigin andDestination:(MSLocation *)theDestination {
     rootData = theData;
+    origin = theOrigin;
+    destination = theDestination;
     TBXML *xmlFile = [XMLParser loadXmlDocumentFromData:rootData];
     rootElement = [xmlFile rootXMLElement];
     [self setDate];
@@ -45,14 +47,6 @@
 }
 #pragma mark -
 
--(void)setOrigin {
-    //code to set origin
-}
-
--(void)setDestination {
-    //code to set destination
-}
-
 -(void)setDate {
     date = [NSDate date];
 }
@@ -74,10 +68,27 @@
     NSMutableArray *variations = [[NSMutableArray alloc]init];
     for (int i=0; i < numberOfVariations; i++) {
         MSVariation *variation = [[MSVariation alloc]initWithElement:theElement];
+        variation = [self checkIfWalkRoute:variation];
         [variations addObject:variation];
         if (i < numberOfVariations) theElement = theElement->nextSibling;
     }
     variationArray = variations;
+}
+
+-(MSVariation *)checkIfWalkRoute:(MSVariation *)variation {
+    int totalTime = [[variation getTotalTime]intValue];
+    int walkingTime = [[variation getWalkingTime]intValue];
+    if (totalTime == walkingTime) {
+        //Get the single segment in the walking route
+        NSMutableArray *segmentArray = (NSMutableArray *)[variation getSegmentArray];
+        MSSegment *segment = [segmentArray objectAtIndex:0];
+        [segment setFromLocation:origin];
+        [segment setToLocation:destination];
+        [segmentArray setObject:segment atIndexedSubscript:0];
+        [variation setSegmentArray:segmentArray];
+        return variation;
+    }
+    return variation;
 }
 
 -(void)saveToFile {

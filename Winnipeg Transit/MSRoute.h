@@ -12,8 +12,8 @@
 
 @interface MSRoute : NSObject <NSCoding>
 {
-    NSString *origin;
-    NSString *destination;
+    MSLocation *origin;
+    MSLocation *destination;
     NSDate *date;
     NSUInteger numberOfVariations;
     NSArray *variationArray;
@@ -21,7 +21,7 @@
     TBXMLElement *rootElement;
 }
 
--(id)initWithData:(NSData *)theData;
+-(id)initWithData:(NSData *)theData andOrigin:(MSLocation *)theOrigin andDestination:(MSLocation *)theDestination;
 
 -(NSUInteger)getNumberOfVariations;
 

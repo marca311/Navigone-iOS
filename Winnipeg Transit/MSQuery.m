@@ -135,7 +135,7 @@
         return NULL;
     }
     [self addEntriesToHistory];
-    MSRoute *result = [[MSRoute alloc]initWithData:xmlData];
+    MSRoute *result = [[MSRoute alloc]initWithData:xmlData andOrigin:origin andDestination:destination];
     return result;
 }
 

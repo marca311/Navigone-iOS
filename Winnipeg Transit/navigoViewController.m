@@ -122,6 +122,7 @@
     modePicker.delegate = self;
     modePicker.dataSource = self;
     mode.inputView = modePicker;
+    [modePicker selectRow:1 inComponent:0 animated:NO];
     
     //Small script to load current time into time and date pickers
     NSString *display = [navigoViewLibrary timeFromNSDate:timePicker.date];
@@ -175,7 +176,6 @@
             [AnimationInstructionSheet toNextStage:self];
         }
     } else {
-        /*
         DejalBezelActivityView *activityView = [[DejalBezelActivityView alloc]initForView:self.view withLabel:@"Loading..." width:5];
         [activityView animateShow];
         
@@ -206,28 +206,6 @@
 
             });
         });
-         */
-        
-        [self resignFirstResponder];
-        if ([query getOriginString] == NULL) [query setOrigin:[origin getLocation]];
-        if ([query getDestinationString] == NULL) [query setDestination:[destination getLocation]];
-        [query setDate:[self combineTimeAndDatePickers]];
-        [query setMode:[mode text]];
-        //[query setEasyAccess:[easyAccessSwitch isOn]]; This method will have significance once the switch is visible in view
-        [query setWalkSpeed:[[NSUserDefaults standardUserDefaults]objectForKey:@"walk_speed"]];
-        [query setMaxWalkTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_walk_time"]];
-        [query setMinTransferWaitTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"min_transfer_wait_time"]];
-        [query setMaxTransferWaitTime:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfer_time"]];
-        [query setMaxTransfers:[[NSUserDefaults standardUserDefaults]objectForKey:@"max_transfers"]];
-        
-        MSRoute *route = [query getRoute];
-        if (route == NULL) {
-            UIAlertView *failQuery = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There is no available route for the query you just entered. Please try a different query" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-            [failQuery show];
-        } else {
-            navigoResultViewController *resultView = [[navigoResultViewController alloc]initWithMSRoute:route];
-            [MSUtilities presentViewController:resultView withParent:self];
-        }
     }
 }
 //Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
