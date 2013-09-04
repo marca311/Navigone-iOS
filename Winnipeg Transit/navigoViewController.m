@@ -241,8 +241,8 @@
     BOOL timeBOOL = NO;
     BOOL dateBOOL = NO;
     BOOL modeBOOL = NO;
-    if ([self containsSomething:origin] || [query getOriginString] != NULL) originBOOL = YES;
-    if ([self containsSomething:destination] || !([query getDestinationString] == NULL)) destinationBOOL = YES;
+    if ([query getOriginString] != NULL) originBOOL = YES;
+    if ([query getDestinationString] != NULL) destinationBOOL = YES;
     if ([self containsSomething:timeField]) timeBOOL = YES;
     if ([self containsSomething:dateField]) dateBOOL = YES;
     if ([self containsSomething:mode]) modeBOOL = YES;
