@@ -17,4 +17,6 @@
 
 -(MSLocation *)getLocation;
 
+-(MSLocation *)getFirstAvailableLocation;
+
 @end

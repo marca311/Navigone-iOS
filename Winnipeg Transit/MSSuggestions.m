@@ -18,12 +18,12 @@
 #pragma mark Querying methods
 -(id)initWithQuery:(NSString *)query {
     timeStamp = [NSDate date];
-    NSData *xmlData = [self getXMLFileForSearchedItem:query];
-    locationArray = [self processLocationsFromData:xmlData];
+    NSData *xmlData = [MSSuggestions getXMLFileForSearchedItem:query];
+    locationArray = [MSSuggestions processLocationsFromData:xmlData];
     return self;
 }
 
--(NSData *)getXMLFileForSearchedItem:(NSString *)query
++(NSData *)getXMLFileForSearchedItem:(NSString *)query
 {
     NSData *resultXMLFile = [[NSData alloc]init];
     do {
@@ -41,7 +41,7 @@
     
 }//getXMLFileForSearchedItem
 
--(NSString *)replaceInvalidCharacters:(NSString *)theString
++(NSString *)replaceInvalidCharacters:(NSString *)theString
 {
     NSCharacterSet *theSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@- "];
     theSet = [theSet invertedSet];
@@ -51,7 +51,7 @@
     return theString;
 }
 
--(NSArray *)processLocationsFromData:(NSData *)theData {
++(NSArray *)processLocationsFromData:(NSData *)theData {
     if ([MSUtilities queryIsError:theData] == YES) {
         NSArray *result = [[NSArray alloc]initWithObjects: nil];
         return result;
@@ -83,6 +83,13 @@
 }
 -(NSUInteger)getNumberOfEntries {
     return [locationArray count];
+}
+
+#pragma mark - Class methods for the next button and other uses
++(NSArray *)getResultsFromQuery:(NSString *)query {
+    NSData *data = [self getXMLFileForSearchedItem:query];
+    NSArray *result = [self processLocationsFromData:data];
+    return result;
 }
 
 @end

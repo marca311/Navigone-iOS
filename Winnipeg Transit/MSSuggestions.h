@@ -25,4 +25,7 @@
 -(MSLocation *)getLocationAtIndex:(NSUInteger)index;
 -(NSUInteger)getNumberOfEntries;
 
+//Class methods for the next button and other uses
++(NSArray *)getResultsFromQuery:(NSString *)query;
+
 @end

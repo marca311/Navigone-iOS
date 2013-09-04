@@ -7,6 +7,7 @@
 //
 
 #import "MSTextField.h"
+#import "MSSuggestions.h"
 
 @implementation MSTextField
 
@@ -30,6 +31,12 @@
 
 -(MSLocation *)getLocation {
     return location;
+}
+
+//Queries the server with the text in the field and gets the first entry in the returned xml
+-(MSLocation *)getFirstAvailableLocation {
+    NSArray *locationArray = [MSSuggestions getResultsFromQuery:[self text]];
+    return [locationArray objectAtIndex:0];
 }
 
 /*

@@ -165,9 +165,11 @@
     if ([submitButton.titleLabel.text isEqualToString:@"Next"]) {
         //
         if (buttonLocation == 1) {
-            [query setOrigin:[origin getLocation]];
+            [query setOrigin:[origin getFirstAvailableLocation]];
+            [AnimationInstructionSheet toNextStage:self];
         } else if (buttonLocation == 2) {
-            [query setDestination:[destination getLocation]];
+            [query setDestination:[destination getFirstAvailableLocation]];
+            [AnimationInstructionSheet toNextStage:self];
         } else if (buttonLocation == 3) {
             NSString *message = [[NSString alloc]initWithFormat:@"You appear to have missed a field or two, go check whether you have all of the fields filled"];
             UIAlertView *emptyFieldAlert = [[UIAlertView alloc]initWithTitle:@"Uh oh" message:message delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];

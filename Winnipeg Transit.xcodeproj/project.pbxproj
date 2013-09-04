@@ -81,15 +81,14 @@
 		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
 		6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387416E5C2EB00D7C076 /* cell_separator.png */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
-		6FA40715176A72D0006CBAA0 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 6FA406FE176A72D0006CBAA0 /* README.markdown */; };
-		6FA40716176A72D0006CBAA0 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40700176A72D0006CBAA0 /* TBXML+Compression.m */; };
-		6FA40717176A72D0006CBAA0 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */; };
-		6FA40718176A72D0006CBAA0 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA40702176A72D0006CBAA0 /* TBXML.m */; };
 		6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */; };
 		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
 		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
 		6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7C01788A8F000D7598B /* TextBoxCell.xib */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
+		6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */; };
+		6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD917D50C9100C05C1F /* TBXML+HTTP.m */; };
+		6FBFCFDD17D50C9100C05C1F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFDA17D50C9100C05C1F /* TBXML.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7E616D6F51F00896532 /* MSTextField.m */; };
 		6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */; };
@@ -129,34 +128,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4316805015013E4100A41785;
 			remoteInfo = "Winnipeg Transit";
-		};
-		6FA40721176A72D1006CBAA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 829FA09C14D5B52A00D18697;
-			remoteInfo = TBXML;
-		};
-		6FA40723176A72D1006CBAA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 829FA0B014D5B52A00D18697;
-			remoteInfo = TBXMLTests;
-		};
-		6FA40725176A72D1006CBAA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8290352514D9F5B200ACF7E4;
-			remoteInfo = "TBXML-iOS";
-		};
-		6FA40727176A72D1006CBAA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8290353314D9F5B200ACF7E4;
-			remoteInfo = "TBXML-iOSTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -295,16 +266,6 @@
 		6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCell.xib; sourceTree = "<group>"; };
 		6F9A387416E5C2EB00D7C076 /* cell_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_separator.png; sourceTree = "<group>"; };
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6FA406FE176A72D0006CBAA0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		6FA40700176A72D0006CBAA0 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
-		6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
-		6FA40702176A72D0006CBAA0 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
-		6FA40704176A72D0006CBAA0 /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
-		6FA40705176A72D0006CBAA0 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
-		6FA40706176A72D0006CBAA0 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
-		6FA40708176A72D0006CBAA0 /* TBXML-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		6FA40709176A72D0006CBAA0 /* TBXML-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML-Prefix.pch"; sourceTree = "<group>"; };
-		6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TBXML.xcodeproj; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* VariationDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationDisplayTableViewController.m; sourceTree = "<group>"; };
 		6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryHistoryViewController.xib; sourceTree = "<group>"; };
@@ -313,6 +274,12 @@
 		6FACB7C01788A8F000D7598B /* TextBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
+		6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
+		6FBFCFD917D50C9100C05C1F /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
+		6FBFCFDA17D50C9100C05C1F /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		6FBFCFE517D50CEC00C05C1F /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		6FBFCFE617D50CEC00C05C1F /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
+		6FBFCFE717D50CEC00C05C1F /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
 		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
 		6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationInstructionSheet.m; sourceTree = "<group>"; };
 		6FD5E7E516D6F51F00896532 /* MSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextField.h; sourceTree = "<group>"; };
@@ -414,6 +381,7 @@
 				6F3D82E7162B423600313642 /* SystemConfiguration.framework */,
 				6F60B86D1526ACD100FFCD99 /* Icons */,
 				4316805B15013E4100A41785 /* Winnipeg Transit */,
+				6FBFCFD717D50C9100C05C1F /* TBXML */,
 				4316808715013E4200A41785 /* Winnipeg TransitTests */,
 				4316805415013E4100A41785 /* Frameworks */,
 				4316805215013E4100A41785 /* Products */,
@@ -473,7 +441,6 @@
 				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
 				6F9A387416E5C2EB00D7C076 /* cell_separator.png */,
 				6F5802F21587F86A0031A17E /* separator.png */,
-				6FA406FC176A72D0006CBAA0 /* TBXML */,
 				6F1AA6531776A4D000713207 /* cCSVParse */,
 				6F0FEA8B1789C77F001965A3 /* appirater */,
 				6F1AA6381776A41000713207 /* google_transit */,
@@ -638,56 +605,17 @@
 			name = "Custom UI Features";
 			sourceTree = "<group>";
 		};
-		6FA406FC176A72D0006CBAA0 /* TBXML */ = {
+		6FBFCFD717D50C9100C05C1F /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
-				6FA406FE176A72D0006CBAA0 /* README.markdown */,
-				6FA406FF176A72D0006CBAA0 /* TBXML-Code */,
-				6FA40703176A72D0006CBAA0 /* TBXML-Headers */,
-				6FA40707176A72D0006CBAA0 /* TBXML-Support */,
-				6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */,
+				6FBFCFE517D50CEC00C05C1F /* TBXML.h */,
+				6FBFCFE617D50CEC00C05C1F /* TBXML+Compression.h */,
+				6FBFCFE717D50CEC00C05C1F /* TBXML+HTTP.h */,
+				6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */,
+				6FBFCFD917D50C9100C05C1F /* TBXML+HTTP.m */,
+				6FBFCFDA17D50C9100C05C1F /* TBXML.m */,
 			);
 			path = TBXML;
-			sourceTree = SOURCE_ROOT;
-		};
-		6FA406FF176A72D0006CBAA0 /* TBXML-Code */ = {
-			isa = PBXGroup;
-			children = (
-				6FA40700176A72D0006CBAA0 /* TBXML+Compression.m */,
-				6FA40701176A72D0006CBAA0 /* TBXML+HTTP.m */,
-				6FA40702176A72D0006CBAA0 /* TBXML.m */,
-			);
-			path = "TBXML-Code";
-			sourceTree = "<group>";
-		};
-		6FA40703176A72D0006CBAA0 /* TBXML-Headers */ = {
-			isa = PBXGroup;
-			children = (
-				6FA40704176A72D0006CBAA0 /* TBXML+Compression.h */,
-				6FA40705176A72D0006CBAA0 /* TBXML+HTTP.h */,
-				6FA40706176A72D0006CBAA0 /* TBXML.h */,
-			);
-			path = "TBXML-Headers";
-			sourceTree = "<group>";
-		};
-		6FA40707176A72D0006CBAA0 /* TBXML-Support */ = {
-			isa = PBXGroup;
-			children = (
-				6FA40708176A72D0006CBAA0 /* TBXML-iOS-Prefix.pch */,
-				6FA40709176A72D0006CBAA0 /* TBXML-Prefix.pch */,
-			);
-			path = "TBXML-Support";
-			sourceTree = "<group>";
-		};
-		6FA40712176A72D0006CBAA0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6FA40722176A72D1006CBAA0 /* libTBXML.a */,
-				6FA40724176A72D1006CBAA0 /* TBXMLTests.octest */,
-				6FA40726176A72D1006CBAA0 /* libTBXML-iOS.a */,
-				6FA40728176A72D1006CBAA0 /* TBXML-iOSTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		6FEA7B9A152D53750026469A /* NIB Files */ = {
@@ -825,12 +753,6 @@
 			mainGroup = 4316804615013E4100A41785;
 			productRefGroup = 4316805215013E4100A41785 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6FA40712176A72D0006CBAA0 /* Products */;
-					ProjectRef = 6FA40711176A72D0006CBAA0 /* TBXML.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				4316805015013E4100A41785 /* Winnipeg Transit */,
@@ -838,37 +760,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6FA40722176A72D1006CBAA0 /* libTBXML.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libTBXML.a;
-			remoteRef = 6FA40721176A72D1006CBAA0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6FA40724176A72D1006CBAA0 /* TBXMLTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TBXMLTests.octest;
-			remoteRef = 6FA40723176A72D1006CBAA0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6FA40726176A72D1006CBAA0 /* libTBXML-iOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libTBXML-iOS.a";
-			remoteRef = 6FA40725176A72D1006CBAA0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6FA40728176A72D1006CBAA0 /* TBXML-iOSTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TBXML-iOSTests.octest";
-			remoteRef = 6FA40727176A72D1006CBAA0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4316804F15013E4100A41785 /* Resources */ = {
@@ -899,7 +790,6 @@
 				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
 				6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */,
 				6F9A387516E5C2EB00D7C076 /* cell_separator.png in Resources */,
-				6FA40715176A72D0006CBAA0 /* README.markdown in Resources */,
 				6F1AA6441776A41000713207 /* agency.txt in Resources */,
 				6F1AA6451776A41000713207 /* calendar.txt in Resources */,
 				6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */,
@@ -990,15 +880,15 @@
 				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
 				6F36798F1708C62B008FA13D /* MSAddress.m in Sources */,
 				6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */,
-				6FA40716176A72D0006CBAA0 /* TBXML+Compression.m in Sources */,
-				6FA40717176A72D0006CBAA0 /* TBXML+HTTP.m in Sources */,
-				6FA40718176A72D0006CBAA0 /* TBXML.m in Sources */,
 				6F1AA6581776A4D000713207 /* parseCSV.m in Sources */,
 				6F1AA65B1776AB6600713207 /* MSStep.m in Sources */,
 				6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */,
 				6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */,
 				6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */,
 				6F0FEAAC1789C77F001965A3 /* Appirater.m in Sources */,
+				6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */,
+				6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */,
+				6FBFCFDD17D50C9100C05C1F /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
