@@ -11,10 +11,6 @@
 
 @implementation navigoViewLibrary
 
-
-//DEPREACIATED FOR NOW WHILE I FIGURE OUT WHY IT ISN'T WORKING
-
-
 +(UIToolbar *)accessoryView:(UIView *)view
 {
 	UIToolbar *pickerBar;
@@ -147,19 +143,6 @@
         return [array objectAtIndex:2];
     }
 }//sendTime
-
-/*
-+(UITableView *)planTableView:(NSDictionary *)dictionary senderButton:(UIButton *)button
-{
-    CGRect tableRect;
-    tableRect.origin.x = button.frame.origin.x;
-    tableRect.origin.y = (button.frame.origin.y + button.frame.size.height);
-    tableRect.size.width = (button.frame.origin.x + button.frame.size.width);
-    tableRect.size.height = 200;
-    UITableView *result = [[UITableView alloc]initWithFrame:tableRect];
-    //result.dataSource = 
-}//planTableView */
-
 
 
 

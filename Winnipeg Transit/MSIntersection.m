@@ -41,6 +41,10 @@
     converted = FALSE;
 }
 
+-(void)setName:(NSString *)input {
+    name = input;
+}
+
 -(void)setKey {
     TBXMLElement *keyElement = [XMLParser extractKnownChildElement:@"key" RootElement:rootElement];
     key = [XMLParser getValueFromElement:keyElement];

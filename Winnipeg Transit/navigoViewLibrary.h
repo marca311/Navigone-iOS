@@ -21,15 +21,9 @@
 
 +(UIDatePicker *)openDatePicker;
 
--(void)dismissTimePicker;
-
--(void)dismissDatePicker;
-
 +(NSString *)timeFromNSDate:(NSDate *)date;
 
 +(NSString *)dateFromNSDate:(NSDate *)date;
-
--(IBAction)timePickerChanged:(id)sender;
 
 +(UIAlertView *)dataMissing;
 
@@ -37,10 +31,6 @@
 
 -(UIImage *)addText:(UIImage *)img text:(NSString *)text1;
 
-+(NSString *)sendPicture:(NSArray *)array;
-
 +(NSString *)sendTime:(NSArray *)array;
-
-+(UITableView *)planTableView:(NSDictionary *)dictionary senderButton:(UIButton *)button;
 
 @end
