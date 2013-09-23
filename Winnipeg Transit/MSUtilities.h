@@ -36,6 +36,8 @@
 
 +(BOOL)firmwareIsHigherThanFour;
 
++(BOOL)firmwareIsSevenOrHigher;
+
 +(void)presentViewController:(UIViewController *) theViewController withParent:(UIViewController *) parentViewController;
 
 +(BOOL)hasInternet;

@@ -19,13 +19,11 @@
     return self;
 }
 
-- (IBAction)dismissKeyboard;
-{
+- (IBAction)dismissKeyboard {
     [self resignFirstResponder];
 }
 
--(IBAction)dismissView
-{
+-(IBAction)dismissView {
     [self dismissModalViewControllerAnimated:YES];
 }
 

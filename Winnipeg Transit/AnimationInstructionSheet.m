@@ -98,11 +98,11 @@
      
     //Moves destination label, because the origin label never has to move
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
-    destinationLabelRect.origin.y = 55;
+    destinationLabelRect.origin.y = 67;
     CGRect originSep = naviView.originSeparator.frame;
-    originSep.origin.y = 37;
+    originSep.origin.y = 49;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 84;
+    submitButtonRect.origin.y = 96;
     //Start animation blocks
     //Destination Label and Origin Separator animation block
     [UIView beginAnimations:nil context:nil];
@@ -135,15 +135,15 @@
     
     //Move all components up to proper positions
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
-    destinationLabelRect.origin.y = 55;
+    destinationLabelRect.origin.y = 67;
     CGRect originSep = naviView.originSeparator.frame;
-    originSep.origin.y = 37;
+    originSep.origin.y = 49;
     CGRect destinationSep = naviView.destinationSeparator.frame;
-    destinationSep.origin.y = 84;
+    destinationSep.origin.y = 96;
     CGRect timeDateLabel = naviView.timeDateLabel.frame;
-    timeDateLabel.origin.y = 102;
+    timeDateLabel.origin.y = 114;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 170;
+    submitButtonRect.origin.y = 182;
     //Start animation blocks
     //Component moving animation block
     [UIView beginAnimations:nil context:nil];
@@ -184,11 +184,11 @@
     
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
-    destinationSep.origin.y = 84;
+    destinationSep.origin.y = 96;
     CGRect timeDateLabel = naviView.timeDateLabel.frame;
-    timeDateLabel.origin.y = 102;
+    timeDateLabel.origin.y = 114;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 170;
+    submitButtonRect.origin.y = 182;
     //Start animation blocks
     //Component moving animation block
     [UIView beginAnimations:nil context:nil];
@@ -227,11 +227,11 @@
     
     //Move all components up to proper positions
     CGRect destinationSep = naviView.destinationSeparator.frame;
-    destinationSep.origin.y = 123;
+    destinationSep.origin.y = 135;
     CGRect timeDateLabel = naviView.timeDateLabel.frame;
-    timeDateLabel.origin.y = 141;
+    timeDateLabel.origin.y = 153;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 84;
+    submitButtonRect.origin.y = 96;
     //Start animation blocks
     //Component moving animation block
     [UIView beginAnimations:nil context:nil];
@@ -270,15 +270,15 @@
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
-    originSep.origin.y = 76;
+    originSep.origin.y = 88;
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
-    destinationLabelRect.origin.y = 94;
+    destinationLabelRect.origin.y = 106;
     CGRect destinationSep = naviView.destinationSeparator.frame;
-    destinationSep.origin.y = 123;
+    destinationSep.origin.y = 135;
     CGRect timeDateLabel = naviView.timeDateLabel.frame;
-    timeDateLabel.origin.y = 141;
+    timeDateLabel.origin.y = 153;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 37;
+    submitButtonRect.origin.y = 49;
     //Start animation blocks
     //Component moving animation block
     [UIView beginAnimations:nil context:nil];
@@ -319,11 +319,11 @@
     
     //Move all components up to proper positions
     CGRect originSep = naviView.originSeparator.frame;
-    originSep.origin.y = 76;
+    originSep.origin.y = 88;
     CGRect destinationLabelRect = naviView.destinationLabel.frame;
-    destinationLabelRect.origin.y = 94;
+    destinationLabelRect.origin.y = 106;
     CGRect submitButtonRect = naviView.submitButton.frame;
-    submitButtonRect.origin.y = 37;
+    submitButtonRect.origin.y = 49;
     //Start animation blocks
     //Component moving animation block
     [UIView beginAnimations:nil context:nil];

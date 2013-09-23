@@ -94,6 +94,11 @@
 - (void)viewDidLoad
 {
     query = [[MSQuery alloc]init];
+    
+    //Determine whether iOS version is 7 or higher and set up accordingly
+    if ([MSUtilities firmwareIsSevenOrHigher]) {
+        [self setAppForIosSeven];
+    }
   
     //setting accessory views
     timeField.inputAccessoryView = [self accessoryView:@"time"];
@@ -142,10 +147,16 @@
     //Check whether the search history has been updated to the new protocol
     [MSUtilities convertSearchHistory];
     
-    NSLog(@"Main UI Loaded");
+    NSLog(@"Navigone main UI Loaded");
     
     [super viewDidLoad];
     
+}
+
+-(void)setAppForIosSeven {
+    [originSeparator setAlpha:0.25];
+    [destinationSeparator setAlpha:0.25];
+    [timeSeparator setAlpha:0.25];
 }
 
 -(IBAction)datePickerValueChanged {

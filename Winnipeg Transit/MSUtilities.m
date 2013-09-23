@@ -183,6 +183,12 @@
     else {return YES;}
 }//firmwareIsHigherThanFour
 
++(BOOL)firmwareIsSevenOrHigher {
+    NSString *firmwareVersion = [self getFirmwareVersion];
+    if ([firmwareVersion floatValue] >= 7.0) return YES;
+    else return NO;
+}
+
 +(void)presentViewController:(UIViewController *) theViewController withParent:(UIViewController *) parentViewController
 {
     if ([MSUtilities firmwareIsHigherThanFour]) {
