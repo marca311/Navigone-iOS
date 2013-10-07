@@ -40,8 +40,6 @@ extern NSDictionary *resultDictionary;
 
 -(void)setRoute:(MSRoute *)theRoute;
 
--(IBAction)reloadTable;
-
 -(IBAction)planButtonPress;
 
 -(IBAction)closePlans;

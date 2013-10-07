@@ -314,7 +314,7 @@
 
 -(IBAction)testButton
 {
-    //Nothing here right now
+    //Nothing requires this button right now
 }
 
 //Actions for origin, destination and time/date labels/buttons
@@ -387,6 +387,28 @@
     suggestionBox = nil;
 }
 
+#pragma mark -
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    /*
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationPortrait)
+        return YES;
+    else return NO; */
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - Search History method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         //If the user clicks the last row in the table, go to search history
@@ -407,27 +429,6 @@
         [self fieldChecker];
         [AnimationInstructionSheet toNextStage:self];
     }
-}
-
-#pragma mark -
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    /*
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight || interfaceOrientation == UIInterfaceOrientationPortrait)
-        return YES;
-    else return NO; */
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - Picker Delegate protocols

@@ -16,8 +16,7 @@
 
 @implementation MSSuggestionBox
 
--(id)initWithFrameFromField:(UITextField *)textField
-{
+-(id)initWithFrameFromField:(UITextField *)textField {
     CGRect theFrame;
     theFrame.origin.x = textField.frame.origin.x;
     theFrame.origin.y = (textField.frame.origin.y + textField.frame.size.height);
@@ -33,7 +32,7 @@
     layer.borderWidth = 2;
     layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 10;
-    layer.masksToBounds = YES;    
+    layer.masksToBounds = YES;
     
     self.tableView.dataSource = self;
     return self;
@@ -128,9 +127,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([suggestions getNumberOfEntries]+1); }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
     SuggestionBoxCell *cell = nil;

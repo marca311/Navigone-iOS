@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7554DAD8-6FA4-4024-87E5-FDFB21DE71D5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Winnipeg Transit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39D6D1DA-0130-4CA4-A3E3-0BCD73EB8E75</key>
+		<string>https://github.com/marca311/Winnipeg-Transit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Winnipeg Transit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39D6D1DA-0130-4CA4-A3E3-0BCD73EB8E75</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/marca311/Winnipeg-Transit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39D6D1DA-0130-4CA4-A3E3-0BCD73EB8E75</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39D6D1DA-0130-4CA4-A3E3-0BCD73EB8E75</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Winnipeg-Transit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

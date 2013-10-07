@@ -21,7 +21,7 @@
 #import "MSQuery.h"
 #import "MSTextField.h"
 
-@interface navigoViewController : UniversalViewController <UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface navigoViewController : UniversalViewController <UITableViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource> {
     UIDatePicker *timePicker;
     UIDatePicker *datePicker;
     UIPickerView *modePicker;
@@ -68,8 +68,6 @@
 -(IBAction)submitButtonClick;
 //Small helper method for submit button. Check whether all fields are filled in, and changes button to "submit" when applicable
 -(void)fieldChecker;
-
--(IBAction)openDatePicker;
 
 -(IBAction)datePickerValueChanged;
 
