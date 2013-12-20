@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "MSSuggestions.h"
 
-@interface MSSuggestionBox : UITableViewController <UITableViewDataSource> {
+@protocol SuggestionBoxDelegate
+
+-(void)tableItemClicked:(MSLocation *)resultLocation;
+
+@end
+
+@interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
     MSSuggestions *suggestions;
+    UITextField *textField;
+    
+    id <SuggestionBoxDelegate> suggestionDelegate;
 }
 
 -(id)initWithFrameFromField:(UITextField *)textField;
@@ -18,7 +27,5 @@
 -(void)generateSuggestions:(NSString *)query;
 
 -(void)dismissSuggestionBox;
-
--(MSSuggestions *)getSuggestions;
 
 @end

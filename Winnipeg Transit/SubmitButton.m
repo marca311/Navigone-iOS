@@ -11,56 +11,37 @@
 
 @implementation SubmitButton
 
-- (id)initWithFrame:(CGRect)frame
-{
+-(id)init {
+    self = [super init];
+    currentLocation = 1;
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        currentLocation = 1;
     }
     return self;
 }
 
--(void)checkIfIosSeven {
-    if ([MSUtilities firmwareIsSevenOrHigher]) {
-        firstLocation = 49;
-        secondLocation = 96;
-        thirdLocation = 182;
-    } else {
-        firstLocation = 37;
-        secondLocation = 84;
-        thirdLocation = 170;
-    }
-}
-
 //Checks the current field that the submit button is on
--(int)checkCurrentLocation
-{
-    int result;
-    [self checkIfIosSeven];
-    CGRect location = self.frame;
-    int y = location.origin.y;
-    if (y == firstLocation) result = 1;
-    else if (y == secondLocation) result = 2;
-    else if (y == thirdLocation) result = 3;
-    else {
-        result = 5;
-        NSLog(@"Button is in a non standard location");
-    }
-    return result;
+-(int)checkCurrentLocation {
+    return currentLocation;
 }
 
--(void)nextButtonLocation
-{
-    [self checkIfIosSeven];
+-(void)nextButtonLocation {
     int currentField = [self checkCurrentLocation];
     CGRect resultLocation;
     resultLocation = self.frame;
     switch (currentField) {
         case 1:
-            resultLocation.origin.y = secondLocation;
+            resultLocation.origin.y += 50;
+            currentLocation = 2;
             break;
         case 2:
-            resultLocation.origin.y = thirdLocation;
+            resultLocation.origin.y = 50;
+            currentLocation = 3;
             break;
         case 3:
             break;

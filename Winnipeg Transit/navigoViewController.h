@@ -21,11 +21,15 @@
 #import "MSQuery.h"
 #import "MSTextField.h"
 
-@interface navigoViewController : UniversalViewController <UITableViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface navigoViewController : UniversalViewController <UIPickerViewDelegate, UIPickerViewDataSource, SuggestionBoxDelegate> {
     UIDatePicker *timePicker;
     UIDatePicker *datePicker;
     UIPickerView *modePicker;
     MSSuggestionBox *suggestionBox;
+    
+    MSTextField *origin;
+    MSTextField *destination;
+    NSString *currentField; //Tells the suggestion box delegate which field is currently selected so it can send the text to the correct one
 }
 
 @property (nonatomic, retain) IBOutlet MSTextField *origin;
@@ -54,13 +58,11 @@
 @property (nonatomic, retain) IBOutlet MSSeparator *timeSeparator;
 @property (nonatomic, retain) IBOutlet MSSeparator *otherSeparator;
 @property (nonatomic, retain) IBOutlet SubmitButton *submitButton;
-@property (nonatomic, retain) MSSuggestionBox *suggestionBox;
 @property (nonatomic, retain) SearchHistoryViewController *searchHistory;
 //These store the query results (location name and key) for the entered origin and destination
 @property (nonatomic, retain) NSArray *originResults;
 @property (nonatomic, retain) NSArray *destinationResults;
-//Tells the tableview delegate which field is currently selected so it can send the text to the correct one
-@property (nonatomic, retain) NSString *currentField;
+
 
 @property (nonatomic, retain) MSQuery *query;
 

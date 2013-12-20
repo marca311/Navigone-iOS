@@ -41,8 +41,7 @@
 @synthesize modeString;
 @synthesize originSeparator, destinationSeparator, timeSeparator, otherSeparator;
 @synthesize submitButton;
-@synthesize suggestionBox;
-@synthesize originResults, destinationResults, currentField;
+@synthesize originResults, destinationResults;
 @synthesize searchHistory;
 @synthesize query;
 
@@ -72,7 +71,6 @@
 }
 */
 
-#warning  TODO: Make this into a separate class
 - (UIToolbar *) accessoryView:(NSString *)field
 {
 	pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 44.0f)];
@@ -143,6 +141,8 @@
         theFrame.size.width = 20;
         dateField.frame = theFrame;
     }
+    
+    submitButton = [[SubmitButton alloc]init];
     
     //Check whether the search history has been updated to the new protocol
     [MSUtilities convertSearchHistory];
@@ -363,7 +363,6 @@
 -(IBAction)originBoxEdit {
     currentField = @"origin";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
-    suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)originBoxChanged {
@@ -376,7 +375,6 @@
 -(IBAction)destinationBoxEdit {
     currentField = @"destination";
     suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
-    suggestionBox.tableView.delegate = self;
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)destinationBoxChanged {
@@ -408,27 +406,18 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-#pragma mark - Search History method
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
-        //If the user clicks the last row in the table, go to search history
-        searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
-        [MSUtilities presentViewController:searchHistory withParent:self];
-    } else {
-        MSLocation *answer;
-        answer = [[suggestionBox getSuggestions]getLocationAtIndex:indexPath.row];
-        [suggestionBox.tableView removeFromSuperview];
-        suggestionBox = nil;
-        if ([currentField isEqualToString:@"origin"]) {
-            [query setOrigin:answer];
-            [originLabel setTitle:[answer getHumanReadable] forState:UIControlStateNormal];
-        } else if ([currentField isEqualToString:@"destination"]) {
-            [query setDestination:answer];
-            [destinationLabel setTitle:[answer getHumanReadable] forState:UIControlStateNormal];
-        }
-        [self fieldChecker];
-        [AnimationInstructionSheet toNextStage:self];
+#pragma mark - Delegate for suggestion box
+
+-(void)tableItemClicked:(MSLocation *)resultLocation {
+    if ([currentField isEqualToString:@"origin"]) {
+        [query setOrigin:resultLocation];
+        [originLabel setTitle:[resultLocation getHumanReadable] forState:UIControlStateNormal];
+    } else if ([currentField isEqualToString:@"destination"]) {
+        [query setDestination:resultLocation];
+        [destinationLabel setTitle:[resultLocation getHumanReadable] forState:UIControlStateNormal];
     }
+    [self fieldChecker];
+    [AnimationInstructionSheet toNextStage:self];
 }
 
 #pragma mark - Picker Delegate protocols

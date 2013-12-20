@@ -9,6 +9,7 @@
 #import "MSSuggestionBox.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SuggestionBoxCell.h"
+#import "SearchHistoryViewController.h"
 #import "MSUtilities.h"
 #import "apiKeys.h"
 #import "MSLocation.h"
@@ -16,26 +17,33 @@
 
 @implementation MSSuggestionBox
 
--(id)initWithFrameFromField:(UITextField *)textField {
-    CGRect theFrame;
-    theFrame.origin.x = textField.frame.origin.x;
-    theFrame.origin.y = (textField.frame.origin.y + textField.frame.size.height);
-    
-    theFrame.size.width = textField.frame.size.width;
-    theFrame.size.height = 100;
+- (id)initWithFrameFromField:(UITextField *)textField {
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        CGRect theFrame;
+        theFrame.origin.x = textField.frame.origin.x;
+        theFrame.origin.y = (textField.frame.origin.y + textField.frame.size.height);
         
-    self.tableView = [self.tableView init];
-    self.tableView.frame = theFrame;
-    
-    //Border
+        theFrame.size.width = textField.frame.size.width;
+        theFrame.size.height = 100;
+        
+        self.tableView = [self.tableView init];
+        self.tableView.frame = theFrame;
+        
+        self.tableView.userInteractionEnabled = YES;
+        
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+    }
+    return self;
+}
+
+-(void)viewDidLoad {
     CALayer *layer = self.tableView.layer;
     layer.borderWidth = 2;
     layer.borderColor = [[UIColor blackColor] CGColor];
     layer.cornerRadius = 10;
     layer.masksToBounds = YES;
-    
-    self.tableView.dataSource = self;
-    return self;
 }
 
 - (void)generateSuggestions:(NSString *)query {
@@ -125,6 +133,10 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void)setTextField:(UITextField *)textFieldInput {
+    self.textField = textFieldInput;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([suggestions getNumberOfEntries]+1); }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -152,12 +164,21 @@
         MSLocation *location = [suggestions getLocationAtIndex:indexPath.row];
         cell.textBox.text = [location getHumanReadable];
     }
-    
     return cell;
 }
 
--(MSSuggestions *)getSuggestions {
-    return suggestions;
+#pragma mark - Search History method
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
+        //If the user clicks the last row in the table, go to search history
+        SearchHistoryViewController *searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
+        [MSUtilities presentViewController:searchHistory withParent:self];
+    } else {
+        MSLocation *answer;
+        answer = [suggestions getLocationAtIndex:indexPath.row];
+        [suggestionDelegate tableItemClicked:answer];
+        [tableView removeFromSuperview];
+    }
 }
 
 @end

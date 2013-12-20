@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SubmitButton : UIButton {
-    int firstLocation;
-    int secondLocation;
-    int thirdLocation;
+    int currentLocation;
 }
+
+-(id)init;
 
 -(int)checkCurrentLocation;
 
