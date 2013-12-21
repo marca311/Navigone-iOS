@@ -111,6 +111,9 @@
 		6FF56FA4158BC49000CC015C /* VariationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */; };
 		6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* VariationSelectorTableVew.m */; };
+		6FF72BC21864EE440037A65D /* NavigoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC11864EE440037A65D /* NavigoneViewController.m */; };
+		6FF72BC61865006A0037A65D /* MSTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC51865006A0037A65D /* MSTopBar.m */; };
+		6FF72BCA186509AA0037A65D /* MSInfoBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC9186509AA0037A65D /* MSInfoBlock.m */; };
 		6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */; };
 		6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9116B7327200567861 /* SavedRouteView.xib */; };
 		6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */; };
@@ -305,6 +308,12 @@
 		6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariationTableViewCell.xib; sourceTree = "<group>"; };
 		6FF56FAD158C237A00CC015C /* VariationSelectorTableVew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationSelectorTableVew.h; sourceTree = "<group>"; };
 		6FF56FAE158C237A00CC015C /* VariationSelectorTableVew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationSelectorTableVew.m; sourceTree = "<group>"; };
+		6FF72BC01864EE440037A65D /* NavigoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigoneViewController.h; path = ViewControllers/NavigoneViewController.h; sourceTree = "<group>"; };
+		6FF72BC11864EE440037A65D /* NavigoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigoneViewController.m; path = ViewControllers/NavigoneViewController.m; sourceTree = "<group>"; };
+		6FF72BC41865006A0037A65D /* MSTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTopBar.h; path = UIElements/MSTopBar.h; sourceTree = "<group>"; };
+		6FF72BC51865006A0037A65D /* MSTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTopBar.m; path = UIElements/MSTopBar.m; sourceTree = "<group>"; };
+		6FF72BC8186509AA0037A65D /* MSInfoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSInfoBlock.h; path = UIElements/MSInfoBlock.h; sourceTree = "<group>"; };
+		6FF72BC9186509AA0037A65D /* MSInfoBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSInfoBlock.m; path = UIElements/MSInfoBlock.m; sourceTree = "<group>"; };
 		6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryHistoryViewController.h; sourceTree = "<group>"; };
 		6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryHistoryViewController.m; sourceTree = "<group>"; };
 		6FF7AC9116B7327200567861 /* SavedRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedRouteView.xib; sourceTree = "<group>"; };
@@ -403,6 +412,7 @@
 		4316805B15013E4100A41785 /* Winnipeg Transit */ = {
 			isa = PBXGroup;
 			children = (
+				6FF72BC7186500770037A65D /* UIElements */,
 				6F27EA8A16B8AFEA00444EEB /* Structure Classes */,
 				6F7646A5159E9D7D008AEE88 /* Custom UI Features */,
 				6FF56FB0158C237F00CC015C /* Tableviews */,
@@ -410,6 +420,7 @@
 				6FEA7B9A152D53750026469A /* NIB Files */,
 				4316806415013E4100A41785 /* AppDelegate.h */,
 				4316806515013E4100A41785 /* AppDelegate.m */,
+				6FF72BC31864EE4B0037A65D /* ViewControllers */,
 				4316809815013F6900A41785 /* navigoViewController.h */,
 				4316809915013F6900A41785 /* navigoViewController.m */,
 				6F60B86E1526B0AE00FFCD99 /* navigoResultViewController.h */,
@@ -662,6 +673,26 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		6FF72BC31864EE4B0037A65D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6FF72BC01864EE440037A65D /* NavigoneViewController.h */,
+				6FF72BC11864EE440037A65D /* NavigoneViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6FF72BC7186500770037A65D /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				6FF72BC8186509AA0037A65D /* MSInfoBlock.h */,
+				6FF72BC9186509AA0037A65D /* MSInfoBlock.m */,
+				6FF72BC41865006A0037A65D /* MSTopBar.h */,
+				6FF72BC51865006A0037A65D /* MSTopBar.m */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -844,10 +875,12 @@
 				4316809A15013F6900A41785 /* navigoViewController.m in Sources */,
 				4316809D15013F8300A41785 /* timetableViewController.m in Sources */,
 				431680A015013FA400A41785 /* stopscheduleViewController.m in Sources */,
+				6FF72BC61865006A0037A65D /* MSTopBar.m in Sources */,
 				6F519A0A1502F84200395F84 /* XMLParser.m in Sources */,
 				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
+				6FF72BC21864EE440037A65D /* NavigoneViewController.m in Sources */,
 				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
 				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
 				6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */,
@@ -856,6 +889,7 @@
 				6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */,
 				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
+				6FF72BCA186509AA0037A65D /* MSInfoBlock.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,

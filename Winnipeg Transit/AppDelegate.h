@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "navigoViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "NavigoneViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) navigoViewController *viewController;
+@property (strong, nonatomic) NavigoneViewController *viewController;
 
 @end

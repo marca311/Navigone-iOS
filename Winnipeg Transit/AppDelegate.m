@@ -11,19 +11,21 @@
 #import "AppDelegate.h"
 #import "navigoViewController.h"
 #import "timetableViewController.h"
+#import "apiKeys.h"
 #import "Appirater.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [GMSServices provideAPIKey:googleAPIKey];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
+        self.viewController = [[NavigoneViewController alloc] init];
     } else {
-        self.viewController = [[navigoViewController alloc] initWithNibName:@"NavigoView_iPhone" bundle:nil];
+        self.viewController = [[NavigoneViewController alloc] init];
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
@@ -43,6 +45,7 @@
     //[appDefaults setObject:FALSE forKey:@"easy_access"];
     [defaults registerDefaults:appDefaults];
     [defaults synchronize];
+    
     
     [Appirater appLaunched:TRUE];
     return YES;
