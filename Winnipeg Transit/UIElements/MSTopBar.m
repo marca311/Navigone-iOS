@@ -10,12 +10,30 @@
 
 @implementation MSTopBar
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        //float height = self.frame.size.height;
+        float width = self.frame.size.width;
+        
+        CGRect labelFrame = CGRectMake(5, 3, width / 2, 20);
+        label = [[UILabel alloc]initWithFrame:labelFrame];
+        label.font = [label.font fontWithSize:11];
+        label.text = @"Origin";
+        [self addSubview:label];
+        
+        CGRect textFieldFrame = CGRectMake(5, 20, ((width / 4) * 3), 25);
+        textField = [[UITextField alloc]initWithFrame:textFieldFrame];
+        [textField setBorderStyle:UITextBorderStyleRoundedRect];
+        [self addSubview:textField];
+        
+        submitButton = [[UIButton alloc]initWithFrame:CGRectMake(((width/4)*3)+6, 20, (width/4)-12, 25)];
+        [submitButton setTitle:@"Next" forState:UIControlStateNormal];
+        [self addSubview:submitButton];
+        
         //Sets a black border (with rounded corners) around the view
         CALayer *layer = self.layer;
+        layer.backgroundColor = [[UIColor whiteColor] CGColor];
         layer.borderWidth = 2;
         layer.borderColor = [[UIColor blackColor] CGColor];
         layer.cornerRadius = 10;
@@ -23,14 +41,5 @@
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

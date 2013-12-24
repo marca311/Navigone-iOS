@@ -1,90 +1,90 @@
-route_long_name,route_type,route_text_color,route_color,agency_id,route_id,route_url,route_short_name
-Richmond Super Express,3,FFFFFF,0072B9,,137,http://www.winnipegtransit.com/routes/137,137
-Ness Express,3,000000,FFFF00,,24,http://www.winnipegtransit.com/routes/24,24
-Ness Super Express,3,000000,FFFF00,,25,http://www.winnipegtransit.com/routes/25,25
-Logan - Berry,3,000000,FFFFFF,,26,http://www.winnipegtransit.com/routes/26,26
-Academy-Watt,3,000000,FFFFFF,,20,http://www.winnipegtransit.com/routes/20,20
-Portage Express,3,000000,FFFF00,,21,http://www.winnipegtransit.com/routes/21,21
-Assiniboia Express,3,000000,FFFF00,,22,http://www.winnipegtransit.com/routes/22,22
-Downtown - University of Manitoba,3,FFFFFF,0072B9,,160,http://www.winnipegtransit.com/routes/160,160
-Brookside Express,3,000000,FFFF00,,28,http://www.winnipegtransit.com/routes/28,28
-Sherbrook,3,000000,FFFFFF,,29,http://www.winnipegtransit.com/routes/29,29
-Kenaston - Fort Garry,3,000000,FFFFFF,,94,http://www.winnipegtransit.com/routes/94,94
-Inkster Industrial Park - Point Douglas,3,000000,FFFFFF,,97,http://www.winnipegtransit.com/routes/97,97
-Waverley Heights Express,3,FFFFFF,0072B9,,163,http://www.winnipegtransit.com/routes/163,163
-South St. Anne's Express,3,000000,FFFF00,,59,http://www.winnipegtransit.com/routes/59,59
-Dakota Express,3,000000,FFFF00,,58,http://www.winnipegtransit.com/routes/58,58
-St. Anne's,3,000000,FFFFFF,,55,http://www.winnipegtransit.com/routes/55,55
-St. Mary's Express,3,000000,FFFF00,,54,http://www.winnipegtransit.com/routes/54,54
-Southdale Express,3,000000,FFFF00,,57,http://www.winnipegtransit.com/routes/57,57
-St. Boniface,3,000000,FFFFFF,,56,http://www.winnipegtransit.com/routes/56,56
-St. Vital Centre - University of Manitoba,3,000000,FFFFFF,,51,http://www.winnipegtransit.com/routes/51,51
-Archibald,3,000000,FFFFFF,,50,http://www.winnipegtransit.com/routes/50,50
-Norwood,3,000000,FFFFFF,,53,http://www.winnipegtransit.com/routes/53,53
-Inkster Industrial Park - Scotia,3,000000,FFFFFF,,88,http://www.winnipegtransit.com/routes/88,88
-North Transcona - Kildonan Place,3,000000,FFFFFF,,89,http://www.winnipegtransit.com/routes/89,89
-Grace Hospital - Unicity,3,000000,FFFFFF,,82,http://www.winnipegtransit.com/routes/82,82
-Unicity - Strauss Dr - Murray Industrial Park,3,000000,FFFFFF,,83,http://www.winnipegtransit.com/routes/83,83
-Whyte Ridge,3,000000,FFFFFF,,86,http://www.winnipegtransit.com/routes/86,86
-South Transcona - Crossroads Station,3,000000,FFFFFF,,87,http://www.winnipegtransit.com/routes/87,87
-Whyte Ridge,3,000000,FFFFFF,,84,http://www.winnipegtransit.com/routes/84,84
-Kildonan Place - North Kildonan,3,000000,FFFFFF,,85,http://www.winnipegtransit.com/routes/85,85
-Downtown Spirit,3,FFFFFF,008000,,3,http://www.winnipegtransit.com/routes/3,3
-Whyte Ridge Express,3,FFFFFF,0072B9,,181,http://www.winnipegtransit.com/routes/181,181
-Taylor Park & Ride Express,3,000000,FFFF00,,39,http://www.winnipegtransit.com/routes/39,39
-Salter,3,000000,FFFFFF,,38,http://www.winnipegtransit.com/routes/38,38
-Maples,3,000000,FFFFFF,,33,http://www.winnipegtransit.com/routes/33,33
-North Main Express,3,000000,FFFF00,,32,http://www.winnipegtransit.com/routes/32,32
-Keewatin Express,3,000000,FFFF00,,31,http://www.winnipegtransit.com/routes/31,31
-Inkster Park Express,3,000000,FFFF00,,30,http://www.winnipegtransit.com/routes/30,30
-Northwest Super Express,3,000000,FFFF00,,36,http://www.winnipegtransit.com/routes/36,36
-Maples Super Express,3,000000,FFFF00,,35,http://www.winnipegtransit.com/routes/35,35
-McPhillips Super Express,3,000000,FFFF00,,34,http://www.winnipegtransit.com/routes/34,34
-Pembina,3,000000,FFFFFF,,60,http://www.winnipegtransit.com/routes/60,60
-Lindenwoods Express,3,000000,FFFF00,,64,http://www.winnipegtransit.com/routes/64,64
-Grant Express,3,000000,FFFF00,,65,http://www.winnipegtransit.com/routes/65,65
-Grant,3,000000,FFFFFF,,66,http://www.winnipegtransit.com/routes/66,66
-Charleswood Express,3,000000,FFFF00,,67,http://www.winnipegtransit.com/routes/67,67
-Crescent,3,000000,FFFFFF,,68,http://www.winnipegtransit.com/routes/68,68
-Downtown - Ft Richmond - U of M - St Norbert,3,FFFFFF,0072B9,,170,http://www.winnipegtransit.com/routes/170,170
-Richmond West Express,3,FFFFFF,0072B9,,183,http://www.winnipegtransit.com/routes/183,183
-Industrial Express,3,FFFFFF,0072B9,,180,http://www.winnipegtransit.com/routes/180,180
-Downtown Spirit (Counter-Clockwise),3,FFFFFF,008000,,2,http://www.winnipegtransit.com/routes/2,2
-Osborne Village Express,3,FFFFFF,0072B9,,185,http://www.winnipegtransit.com/routes/185,185
-Downtown - Misericordia Health Centre - Windermere & Pembina,3,000000,FFFFFF,,99,http://www.winnipegtransit.com/routes/99,99
-Westdale - Grace Hospital,3,000000,FFFFFF,,98,http://www.winnipegtransit.com/routes/98,98
-St. Norbert,3,000000,FFFFFF,,91,http://www.winnipegtransit.com/routes/91,91
-Kildonan Place - Whellams Lane,3,000000,FFFFFF,,90,http://www.winnipegtransit.com/routes/90,90
-South St. Vital - St. Vital Centre,3,000000,FFFFFF,,93,http://www.winnipegtransit.com/routes/93,93
-Crossroads Station - Lakeside Meadows,3,000000,FFFFFF,,92,http://www.winnipegtransit.com/routes/92,92
-Tuxedo - Riverview,3,000000,FFFFFF,,95,http://www.winnipegtransit.com/routes/95,95
-University Super Express,3,FFFFFF,0072B9,,161,http://www.winnipegtransit.com/routes/161,161
-Downtown - Ft Richmond - U of M - St Norbert Express,3,FFFFFF,0072B9,,162,http://www.winnipegtransit.com/routes/162,162
-St. Vital Centre - Windsor Park,3,000000,FFFFFF,,96,http://www.winnipegtransit.com/routes/96,96
-Portage-Kildonan,3,000000,FFFFFF,,11,http://www.winnipegtransit.com/routes/11,11
-St. Boniface-Wolseley,3,000000,FFFFFF,,10,http://www.winnipegtransit.com/routes/10,10
-William,3,000000,FFFFFF,,12,http://www.winnipegtransit.com/routes/12,12
-Sargent-Mountain,3,000000,FFFFFF,,15,http://www.winnipegtransit.com/routes/15,15
-Ellice-St. Mary's,3,000000,FFFFFF,,14,http://www.winnipegtransit.com/routes/14,14
-McGregor,3,000000,FFFFFF,,17,http://www.winnipegtransit.com/routes/17,17
-Selkirk-Osborne,3,000000,FFFFFF,,16,http://www.winnipegtransit.com/routes/16,16
-Marion-Logan-Notre Dame,3,000000,FFFFFF,,19,http://www.winnipegtransit.com/routes/19,19
-North Main-Corydon,3,000000,FFFFFF,,18,http://www.winnipegtransit.com/routes/18,18
-McMeans Express,3,000000,FFFF00,,48,http://www.winnipegtransit.com/routes/48,48
-Dugald,3,000000,FFFFFF,,49,http://www.winnipegtransit.com/routes/49,49
-Transcona Express,3,000000,FFFF00,,46,http://www.winnipegtransit.com/routes/46,46
-Transcona,3,000000,FFFFFF,,47,http://www.winnipegtransit.com/routes/47,47
-Grey,3,000000,FFFFFF,,44,http://www.winnipegtransit.com/routes/44,44
-Talbot,3,000000,FFFFFF,,45,http://www.winnipegtransit.com/routes/45,45
-Plessis Express,3,000000,FFFF00,,42,http://www.winnipegtransit.com/routes/42,42
-Munroe,3,000000,FFFFFF,,43,http://www.winnipegtransit.com/routes/43,43
-All Seasons Express,3,000000,FFFF00,,40,http://www.winnipegtransit.com/routes/40,40
-Henderson Express,3,000000,FFFF00,,41,http://www.winnipegtransit.com/routes/41,41
-Downtown Spirit (Clockwise),3,FFFFFF,008000,,1,http://www.winnipegtransit.com/routes/1,1
-Crosstown North,3,000000,FFFFFF,,77,http://www.winnipegtransit.com/routes/77,77
-,3,000000,FFFFFF,,76,http://www.winnipegtransit.com/routes/76,76
-Crosstown East,3,000000,FFFFFF,,75,http://www.winnipegtransit.com/routes/75,75
-,3,000000,FFFFFF,,72,http://www.winnipegtransit.com/routes/72,72
-Arlington,3,000000,FFFFFF,,71,http://www.winnipegtransit.com/routes/71,71
-Charleswood,3,000000,FFFFFF,,79,http://www.winnipegtransit.com/routes/79,79
-Crosstown West,3,000000,FFFFFF,,78,http://www.winnipegtransit.com/routes/78,78
+route_id,route_short_name,route_long_name,route_type,route_url,route_color,route_text_color
+1,1,Downtown Spirit (Clockwise),3,http://www.winnipegtransit.com/routes/1,008000,FFFFFF
+10,10,St. Boniface-Wolseley,3,http://www.winnipegtransit.com/routes/10,FFFFFF,000000
+11,11,Portage-Kildonan,3,http://www.winnipegtransit.com/routes/11,FFFFFF,000000
+12,12,William,3,http://www.winnipegtransit.com/routes/12,FFFFFF,000000
+137,137,Richmond Super Express,3,http://www.winnipegtransit.com/routes/137,0072B9,FFFFFF
+14,14,Ellice-St. Mary's,3,http://www.winnipegtransit.com/routes/14,FFFFFF,000000
+15,15,Sargent-Mountain,3,http://www.winnipegtransit.com/routes/15,FFFFFF,000000
+16,16,Selkirk-Osborne,3,http://www.winnipegtransit.com/routes/16,FFFFFF,000000
+160,160,Downtown - University of Manitoba,3,http://www.winnipegtransit.com/routes/160,0072B9,FFFFFF
+161,161,University Super Express,3,http://www.winnipegtransit.com/routes/161,0072B9,FFFFFF
+162,162,Downtown - Ft Richmond - U of M - St Norbert Express,3,http://www.winnipegtransit.com/routes/162,0072B9,FFFFFF
+163,163,Waverley Heights Express,3,http://www.winnipegtransit.com/routes/163,0072B9,FFFFFF
+17,17,McGregor,3,http://www.winnipegtransit.com/routes/17,FFFFFF,000000
+170,170,Downtown - Ft Richmond - U of M - St Norbert,3,http://www.winnipegtransit.com/routes/170,0072B9,FFFFFF
+18,18,North Main-Corydon,3,http://www.winnipegtransit.com/routes/18,FFFFFF,000000
+180,180,Industrial Express,3,http://www.winnipegtransit.com/routes/180,0072B9,FFFFFF
+181,181,Whyte Ridge Express,3,http://www.winnipegtransit.com/routes/181,0072B9,FFFFFF
+183,183,Richmond West Express,3,http://www.winnipegtransit.com/routes/183,0072B9,FFFFFF
+185,185,Osborne Village Express,3,http://www.winnipegtransit.com/routes/185,0072B9,FFFFFF
+19,19,Marion-Logan-Notre Dame,3,http://www.winnipegtransit.com/routes/19,FFFFFF,000000
+2,2,Downtown Spirit (Counter-Clockwise),3,http://www.winnipegtransit.com/routes/2,008000,FFFFFF
+20,20,Academy-Watt,3,http://www.winnipegtransit.com/routes/20,FFFFFF,000000
+21,21,Portage Express,3,http://www.winnipegtransit.com/routes/21,FFFF00,000000
+22,22,Assiniboia Express,3,http://www.winnipegtransit.com/routes/22,FFFF00,000000
+24,24,Ness Express,3,http://www.winnipegtransit.com/routes/24,FFFF00,000000
+25,25,Ness Super Express,3,http://www.winnipegtransit.com/routes/25,FFFF00,000000
+26,26,Logan - Berry,3,http://www.winnipegtransit.com/routes/26,FFFFFF,000000
+28,28,Brookside Express,3,http://www.winnipegtransit.com/routes/28,FFFF00,000000
+29,29,Sherbrook,3,http://www.winnipegtransit.com/routes/29,FFFFFF,000000
+3,3,Downtown Spirit,3,http://www.winnipegtransit.com/routes/3,008000,FFFFFF
+30,30,Inkster Park Express,3,http://www.winnipegtransit.com/routes/30,FFFF00,000000
+31,31,Keewatin Express,3,http://www.winnipegtransit.com/routes/31,FFFF00,000000
+32,32,North Main Express,3,http://www.winnipegtransit.com/routes/32,FFFF00,000000
+33,33,Maples,3,http://www.winnipegtransit.com/routes/33,FFFFFF,000000
+34,34,McPhillips Super Express,3,http://www.winnipegtransit.com/routes/34,FFFF00,000000
+35,35,Maples Super Express,3,http://www.winnipegtransit.com/routes/35,FFFF00,000000
+36,36,Northwest Super Express,3,http://www.winnipegtransit.com/routes/36,FFFF00,000000
+38,38,Salter,3,http://www.winnipegtransit.com/routes/38,FFFFFF,000000
+39,39,Taylor Park & Ride Express,3,http://www.winnipegtransit.com/routes/39,FFFF00,000000
+40,40,All Seasons Express,3,http://www.winnipegtransit.com/routes/40,FFFF00,000000
+41,41,Henderson Express,3,http://www.winnipegtransit.com/routes/41,FFFF00,000000
+42,42,Plessis Express,3,http://www.winnipegtransit.com/routes/42,FFFF00,000000
+43,43,Munroe,3,http://www.winnipegtransit.com/routes/43,FFFFFF,000000
+44,44,Grey,3,http://www.winnipegtransit.com/routes/44,FFFFFF,000000
+45,45,Talbot,3,http://www.winnipegtransit.com/routes/45,FFFFFF,000000
+46,46,Transcona Express,3,http://www.winnipegtransit.com/routes/46,FFFF00,000000
+47,47,Transcona,3,http://www.winnipegtransit.com/routes/47,FFFFFF,000000
+48,48,McMeans Express,3,http://www.winnipegtransit.com/routes/48,FFFF00,000000
+49,49,Dugald,3,http://www.winnipegtransit.com/routes/49,FFFFFF,000000
+50,50,Archibald,3,http://www.winnipegtransit.com/routes/50,FFFFFF,000000
+51,51,St. Vital Centre - University of Manitoba,3,http://www.winnipegtransit.com/routes/51,FFFFFF,000000
+53,53,Norwood,3,http://www.winnipegtransit.com/routes/53,FFFFFF,000000
+54,54,St. Mary's Express,3,http://www.winnipegtransit.com/routes/54,FFFF00,000000
+55,55,St. Anne's,3,http://www.winnipegtransit.com/routes/55,FFFFFF,000000
+56,56,St. Boniface,3,http://www.winnipegtransit.com/routes/56,FFFFFF,000000
+57,57,Southdale Express,3,http://www.winnipegtransit.com/routes/57,FFFF00,000000
+58,58,Dakota Express,3,http://www.winnipegtransit.com/routes/58,FFFF00,000000
+59,59,South St. Anne's Express,3,http://www.winnipegtransit.com/routes/59,FFFF00,000000
+60,60,Pembina,3,http://www.winnipegtransit.com/routes/60,FFFFFF,000000
+64,64,Lindenwoods Express,3,http://www.winnipegtransit.com/routes/64,FFFF00,000000
+65,65,Grant Express,3,http://www.winnipegtransit.com/routes/65,FFFF00,000000
+66,66,Grant,3,http://www.winnipegtransit.com/routes/66,FFFFFF,000000
+67,67,Charleswood Express,3,http://www.winnipegtransit.com/routes/67,FFFF00,000000
+68,68,Crescent,3,http://www.winnipegtransit.com/routes/68,FFFFFF,000000
+71,71,Arlington,3,http://www.winnipegtransit.com/routes/71,FFFFFF,000000
+72,72,"",3,http://www.winnipegtransit.com/routes/72,FFFFFF,000000
+75,75,Crosstown East,3,http://www.winnipegtransit.com/routes/75,FFFFFF,000000
+76,76,"",3,http://www.winnipegtransit.com/routes/76,FFFFFF,000000
+77,77,Crosstown North,3,http://www.winnipegtransit.com/routes/77,FFFFFF,000000
+78,78,Crosstown West,3,http://www.winnipegtransit.com/routes/78,FFFFFF,000000
+79,79,Charleswood,3,http://www.winnipegtransit.com/routes/79,FFFFFF,000000
+82,82,Grace Hospital - Unicity,3,http://www.winnipegtransit.com/routes/82,FFFFFF,000000
+83,83,Unicity - Strauss Dr - Murray Industrial Park,3,http://www.winnipegtransit.com/routes/83,FFFFFF,000000
+84,84,Whyte Ridge,3,http://www.winnipegtransit.com/routes/84,FFFFFF,000000
+85,85,Kildonan Place - North Kildonan,3,http://www.winnipegtransit.com/routes/85,FFFFFF,000000
+86,86,Whyte Ridge,3,http://www.winnipegtransit.com/routes/86,FFFFFF,000000
+87,87,South Transcona - Crossroads Station,3,http://www.winnipegtransit.com/routes/87,FFFFFF,000000
+88,88,Inkster Industrial Park - Scotia,3,http://www.winnipegtransit.com/routes/88,FFFFFF,000000
+89,89,North Transcona - Kildonan Place,3,http://www.winnipegtransit.com/routes/89,FFFFFF,000000
+90,90,Kildonan Place - Whellams Lane,3,http://www.winnipegtransit.com/routes/90,FFFFFF,000000
+91,91,St. Norbert,3,http://www.winnipegtransit.com/routes/91,FFFFFF,000000
+92,92,Crossroads Station - Lakeside Meadows,3,http://www.winnipegtransit.com/routes/92,FFFFFF,000000
+93,93,South St. Vital - St. Vital Centre,3,http://www.winnipegtransit.com/routes/93,FFFFFF,000000
+94,94,Kenaston - Fort Garry,3,http://www.winnipegtransit.com/routes/94,FFFFFF,000000
+95,95,Tuxedo - Riverview,3,http://www.winnipegtransit.com/routes/95,FFFFFF,000000
+96,96,St. Vital Centre - Windsor Park,3,http://www.winnipegtransit.com/routes/96,FFFFFF,000000
+97,97,Inkster Industrial Park - Point Douglas,3,http://www.winnipegtransit.com/routes/97,FFFFFF,000000
+98,98,Westdale - Grace Hospital,3,http://www.winnipegtransit.com/routes/98,FFFFFF,000000
+99,99,Downtown - Misericordia Health Centre - Windermere & Pembina,3,http://www.winnipegtransit.com/routes/99,FFFFFF,000000
