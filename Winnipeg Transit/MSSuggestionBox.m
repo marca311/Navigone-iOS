@@ -30,8 +30,6 @@
         self.tableView = [self.tableView init];
         self.tableView.frame = theFrame;
         
-        self.tableView.userInteractionEnabled = YES;
-        
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
     }
@@ -142,33 +140,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
-    SuggestionBoxCell *cell = nil;
+    UITableViewCell *cell = nil;
     cell = (SuggestionBoxCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
-    if(cell == nil)
-    {
-        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"SuggestionBoxCell" owner:nil options:nil];
-        for(id currentObject in topLevelObjects)
-        {
-            if([currentObject isKindOfClass:[UITableViewCell class]])
-            {
+    if(cell == nil) {
+        /*NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"SuggestionBoxCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
                 cell = (SuggestionBoxCell *)currentObject;
                 break;
             }
-        }
-
-    }
+        } */
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
+    }/*
     if (indexPath.row == [suggestions getNumberOfEntries]) {
         cell.textBox.text = @"Search History";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {
         MSLocation *location = [suggestions getLocationAtIndex:indexPath.row];
         cell.textBox.text = [location getHumanReadable];
-    }
+    }*/
+    cell.textLabel.text = @"Cheese";
+    [cell setExclusiveTouch:YES];
     return cell;
 }
 
 #pragma mark - Search History method
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Section Clicked!");
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         //If the user clicks the last row in the table, go to search history
         SearchHistoryViewController *searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
@@ -179,6 +177,10 @@
         [suggestionDelegate tableItemClicked:answer];
         [tableView removeFromSuperview];
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Will display cell");
 }
 
 @end

@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSLocation.h"
 
 @protocol TopBarDelegate <NSObject>
 
-//Something
+-(void)setOrigin:(MSLocation *)location;
+-(void)setDestination:(MSLocation *)location;
+-(void)setDateAndTime:(NSDate *)dateAndTime;
 
 @end
 
-@interface MSTopBar : UIView {
+@interface MSTopBar : UIView <UITextFieldDelegate> {
     UILabel *label;
     UITextField *textField;
     UIButton *submitButton;
 }
-
-
 
 @end

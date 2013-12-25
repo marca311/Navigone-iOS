@@ -74,6 +74,8 @@
 		6F9A387116E5C1AD00D7C076 /* TripHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */; };
 		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
+		6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E37E3186A30FF00F17A24 /* apiKeys.m */; };
+		6F9E37E8186A333800F17A24 /* MSTopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9E37E7186A333800F17A24 /* MSTopBar.xib */; };
 		6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */; };
 		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
 		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
@@ -99,7 +101,6 @@
 		6FD5E80516D7000D00896532 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80416D7000D00896532 /* libz.dylib */; };
 		6FD5E80716D7001800896532 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80616D7001800896532 /* OpenGLES.framework */; };
 		6FD5E80916D7002700896532 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E80816D7002700896532 /* QuartzCore.framework */; };
-		6FD5E80E16D70BD500896532 /* apiKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E80D16D70BD500896532 /* apiKeys.m */; };
 		6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E81016D71D1900896532 /* TripHistoryViewController.m */; };
 		6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
@@ -257,6 +258,9 @@
 		6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripHistoryCell.m; sourceTree = "<group>"; };
 		6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryCell.xib; sourceTree = "<group>"; };
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6F9E37E2186A30FF00F17A24 /* apiKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
+		6F9E37E3186A30FF00F17A24 /* apiKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = apiKeys.m; sourceTree = "<group>"; };
+		6F9E37E7186A333800F17A24 /* MSTopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTopBar.xib; path = UIElements/MSTopBar.xib; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* VariationDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationDisplayTableViewController.m; sourceTree = "<group>"; };
 		6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryHistoryViewController.xib; sourceTree = "<group>"; };
@@ -291,8 +295,6 @@
 		6FD5E80416D7000D00896532 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6FD5E80616D7001800896532 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6FD5E80816D7002700896532 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6FD5E80C16D70BD500896532 /* apiKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
-		6FD5E80D16D70BD500896532 /* apiKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = apiKeys.m; sourceTree = "<group>"; };
 		6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripHistoryViewController.h; sourceTree = "<group>"; };
 		6FD5E81016D71D1900896532 /* TripHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripHistoryViewController.m; sourceTree = "<group>"; };
 		6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryViewController.xib; sourceTree = "<group>"; };
@@ -457,8 +459,8 @@
 				4316805E15013E4100A41785 /* InfoPlist.strings */,
 				4316806115013E4100A41785 /* main.m */,
 				4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */,
-				6FD5E80C16D70BD500896532 /* apiKeys.h */,
-				6FD5E80D16D70BD500896532 /* apiKeys.m */,
+				6F9E37E2186A30FF00F17A24 /* apiKeys.h */,
+				6F9E37E3186A30FF00F17A24 /* apiKeys.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -689,6 +691,7 @@
 				6FF72BC9186509AA0037A65D /* MSInfoBlock.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
 				6FF72BC51865006A0037A65D /* MSTopBar.m */,
+				6F9E37E7186A333800F17A24 /* MSTopBar.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				6F0A256717EF770100D9F0A6 /* AppiraterLocalizable.strings in Resources */,
 				6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */,
 				6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */,
+				6F9E37E8186A333800F17A24 /* MSTopBar.xib in Resources */,
 				6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */,
 				6F0A256817EF770100D9F0A6 /* README.md in Resources */,
 				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
@@ -894,12 +898,12 @@
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
 				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
+				6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */,
 				6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */,
 				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
 				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
 				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,
 				6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */,
-				6FD5E80E16D70BD500896532 /* apiKeys.m in Sources */,
 				6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */,
 				6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */,
 				6F24051316DF105C00444E18 /* MSLocation.m in Sources */,

@@ -17,7 +17,6 @@
 
 @interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
     MSSuggestions *suggestions;
-    UITextField *textField;
     
     id <SuggestionBoxDelegate> suggestionDelegate;
 }

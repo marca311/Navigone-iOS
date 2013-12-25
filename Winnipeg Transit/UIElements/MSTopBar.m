@@ -7,6 +7,7 @@
 //
 
 #import "MSTopBar.h"
+#import "MSSuggestionBox.h"
 
 @implementation MSTopBar
 
@@ -24,11 +25,13 @@
         
         CGRect textFieldFrame = CGRectMake(5, 20, ((width / 4) * 3), 25);
         textField = [[UITextField alloc]initWithFrame:textFieldFrame];
+        textField.delegate = self;
         [textField setBorderStyle:UITextBorderStyleRoundedRect];
         [self addSubview:textField];
         
         submitButton = [[UIButton alloc]initWithFrame:CGRectMake(((width/4)*3)+6, 20, (width/4)-12, 25)];
         [submitButton setTitle:@"Next" forState:UIControlStateNormal];
+        //submitButton addTarget:NULL action:@selector(<#selector#>) forControlEvents:<#(UIControlEvents)#>] This needs to do something
         [self addSubview:submitButton];
         
         //Sets a black border (with rounded corners) around the view
@@ -41,5 +44,13 @@
     }
     return self;
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    MSSuggestionBox *suggestionBox = [[MSSuggestionBox alloc]initWithFrameFromField:textField];
+    [self addSubview:suggestionBox.view];
+    [suggestionBox generateSuggestions:textField.text];
+}
+
+
 
 @end

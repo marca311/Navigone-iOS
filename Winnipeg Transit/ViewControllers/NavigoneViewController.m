@@ -11,14 +11,9 @@
 
 #import "MSUtilities.h"
 
-@interface NavigoneViewController ()
-
-@end
-
 @implementation NavigoneViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -41,7 +36,7 @@
     
     [self.view addSubview:mainMap];
     
-    CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 50);
+    CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 300);
     
     topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
     [self.view addSubview:topBar];
