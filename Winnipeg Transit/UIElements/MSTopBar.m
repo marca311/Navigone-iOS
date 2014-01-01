@@ -6,51 +6,73 @@
 //  Copyright (c) 2013 marca311. All rights reserved.
 //
 
+#import "apiKeys.h"
 #import "MSTopBar.h"
-#import "MSSuggestionBox.h"
+#import "MSSegment.h"
+#import "MSSuggestions.h"
+#import "MSTextFieldCell.h"
+#import "MSUtilities.h"
+#import "XMLParser.h"
+
+@interface MSTopBar ()
+
+@property (nonatomic)     id <TopBarDelegate> topBarDelegate;
+
+@property (nonatomic, retain) MSSuggestions *suggestions;
+@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) UIButton *submitButton;
+
+@property (nonatomic, retain) MSSuggestionBox *suggestionBox;
+
+@end
 
 @implementation MSTopBar
 
-- (id)initWithFrame:(CGRect)frame {
+@synthesize topBarDelegate, suggestions, label, textField, submitButton, suggestionBox;
+
+-(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        //float height = self.frame.size.height;
-        float width = self.frame.size.width;
-        
-        CGRect labelFrame = CGRectMake(5, 3, width / 2, 20);
+        //Set up the label frame and settings
+        CGRect labelFrame = CGRectMake(5, 0, 280, 20);
         label = [[UILabel alloc]initWithFrame:labelFrame];
-        label.font = [label.font fontWithSize:11];
-        label.text = @"Origin";
+        [label setFont:[UIFont fontWithName:@"System" size:14]]; //Set to the system font size 14
+        [label setText:@"Origin"];
         [self addSubview:label];
         
-        CGRect textFieldFrame = CGRectMake(5, 20, ((width / 4) * 3), 25);
+        //Set up the text field frame and settings
+        CGRect textFieldFrame = CGRectMake(5, 25, 220, 30);
         textField = [[UITextField alloc]initWithFrame:textFieldFrame];
+        [textField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
+        [textField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
         textField.delegate = self;
-        [textField setBorderStyle:UITextBorderStyleRoundedRect];
         [self addSubview:textField];
         
-        submitButton = [[UIButton alloc]initWithFrame:CGRectMake(((width/4)*3)+6, 20, (width/4)-12, 25)];
+        //Set up the submit button frame and settings
+        CGRect submitButtonFrame = CGRectMake(233, 25, 52, 30);
+        submitButton = [[UIButton alloc]initWithFrame:submitButtonFrame];
         [submitButton setTitle:@"Next" forState:UIControlStateNormal];
-        //submitButton addTarget:NULL action:@selector(<#selector#>) forControlEvents:<#(UIControlEvents)#>] This needs to do something
+        [submitButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
         [self addSubview:submitButton];
         
-        //Sets a black border (with rounded corners) around the view
+        //Create the frame for the text input section
+        //Frame gets modified based on how many suggestions there are for the entered destination
+        
+        //Creates frame with rounded corners around the view
         CALayer *layer = self.layer;
-        layer.backgroundColor = [[UIColor whiteColor] CGColor];
+        layer.backgroundColor = [[UIColor whiteColor]CGColor];
         layer.borderWidth = 2;
-        layer.borderColor = [[UIColor blackColor] CGColor];
+        layer.borderColor = [[UIColor whiteColor] CGColor];
         layer.cornerRadius = 10;
+        layer.opacity = 0.9;
         layer.masksToBounds = YES;
     }
     return self;
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    MSSuggestionBox *suggestionBox = [[MSSuggestionBox alloc]initWithFrameFromField:textField];
-    [self addSubview:suggestionBox.view];
-    [suggestionBox generateSuggestions:textField.text];
+    //suggestionBox = [[MSSuggestionBox alloc]init]
 }
-
-
 
 @end

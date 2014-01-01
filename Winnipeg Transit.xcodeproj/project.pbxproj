@@ -42,8 +42,6 @@
 		6F1AA64C1776A41000713207 /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6411776A41000713207 /* stop_times.txt */; };
 		6F1AA64D1776A41000713207 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6421776A41000713207 /* stops.txt */; };
 		6F1AA64E1776A41000713207 /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6431776A41000713207 /* trips.txt */; };
-		6F1AA6571776A4D000713207 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6541776A4D000713207 /* LICENSE */; };
-		6F1AA6581776A4D000713207 /* parseCSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA6561776A4D000713207 /* parseCSV.m */; };
 		6F1AA65B1776AB6600713207 /* MSStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65A1776AB6600713207 /* MSStep.m */; };
 		6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65D1776AB7700713207 /* MSMovingStep.m */; };
 		6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA6601776AB9700713207 /* MSLocationStep.m */; };
@@ -80,15 +78,18 @@
 		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
 		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
 		6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7C01788A8F000D7598B /* TextBoxCell.xib */; };
+		6FBD3C61186F858C001BF0FE /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */; };
+		6FBD3C63186F863C001BF0FE /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C62186F863C001BF0FE /* libc++.dylib */; };
+		6FBD3C66186F8AF0001BF0FE /* MSTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */; };
+		6FBD3C68186F8B1D001BF0FE /* MSTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */; };
 		6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD917D50C9100C05C1F /* TBXML+HTTP.m */; };
 		6FBFCFDD17D50C9100C05C1F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFDA17D50C9100C05C1F /* TBXML.m */; };
+		6FC73FF0186D45CE002BA1B1 /* GTFSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC73FEF186D45CE002BA1B1 /* GTFSParser.m */; };
+		6FC73FF5186D4A9E002BA1B1 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC73FF4186D4A9E002BA1B1 /* CSVParser.m */; };
 		6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */; };
 		6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7E616D6F51F00896532 /* MSTextField.m */; };
-		6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */; };
-		6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */; };
-		6FD5E7F116D6FEE600896532 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */; };
 		6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */; };
 		6FD5E7F516D6FFAB00896532 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F416D6FFAB00896532 /* AVFoundation.framework */; };
 		6FD5E7F716D6FFB400896532 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5E7F616D6FFB400896532 /* CoreData.framework */; };
@@ -204,9 +205,6 @@
 		6F1AA6411776A41000713207 /* stop_times.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stop_times.txt; sourceTree = "<group>"; };
 		6F1AA6421776A41000713207 /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
 		6F1AA6431776A41000713207 /* trips.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = trips.txt; sourceTree = "<group>"; };
-		6F1AA6541776A4D000713207 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		6F1AA6551776A4D000713207 /* parseCSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parseCSV.h; sourceTree = "<group>"; };
-		6F1AA6561776A4D000713207 /* parseCSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parseCSV.m; sourceTree = "<group>"; };
 		6F1AA6591776AB6600713207 /* MSStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSStep.h; sourceTree = "<group>"; };
 		6F1AA65A1776AB6600713207 /* MSStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSStep.m; sourceTree = "<group>"; };
 		6F1AA65C1776AB7700713207 /* MSMovingStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMovingStep.h; sourceTree = "<group>"; };
@@ -267,6 +265,11 @@
 		6FACB7BD1788A8D900D7598B /* TextBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBoxCell.h; sourceTree = "<group>"; };
 		6FACB7BE1788A8D900D7598B /* TextBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBoxCell.m; sourceTree = "<group>"; };
 		6FACB7C01788A8F000D7598B /* TextBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
+		6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		6FBD3C62186F863C001BF0FE /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		6FBD3C64186F8AF0001BF0FE /* MSTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextFieldCell.h; path = TableViewCells/MSTextFieldCell.h; sourceTree = "<group>"; };
+		6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTextFieldCell.m; path = TableViewCells/MSTextFieldCell.m; sourceTree = "<group>"; };
+		6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTextFieldCell.xib; path = TableViewCells/MSTextFieldCell.xib; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
@@ -275,13 +278,14 @@
 		6FBFCFE517D50CEC00C05C1F /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		6FBFCFE617D50CEC00C05C1F /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
 		6FBFCFE717D50CEC00C05C1F /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
+		6FC73FEE186D45CE002BA1B1 /* GTFSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTFSParser.h; path = Parsers/GTFSParser.h; sourceTree = "<group>"; };
+		6FC73FEF186D45CE002BA1B1 /* GTFSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTFSParser.m; path = Parsers/GTFSParser.m; sourceTree = "<group>"; };
+		6FC73FF3186D4A9E002BA1B1 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = CSVParser/CSVParser.h; sourceTree = SOURCE_ROOT; };
+		6FC73FF4186D4A9E002BA1B1 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = CSVParser/CSVParser.m; sourceTree = SOURCE_ROOT; };
 		6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationInstructionSheet.h; sourceTree = "<group>"; };
 		6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationInstructionSheet.m; sourceTree = "<group>"; };
 		6FD5E7E516D6F51F00896532 /* MSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSTextField.h; sourceTree = "<group>"; };
 		6FD5E7E616D6F51F00896532 /* MSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSTextField.m; sourceTree = "<group>"; };
-		6FD5E7EB16D6FC9D00896532 /* MSMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMapCell.h; sourceTree = "<group>"; };
-		6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMapCell.m; sourceTree = "<group>"; };
-		6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMapCell.xib; sourceTree = "<group>"; };
 		6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		6FD5E7F416D6FFAB00896532 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -328,6 +332,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD5E7FF16D6FFDF00896532 /* ImageIO.framework in Frameworks */,
+				6FBD3C63186F863C001BF0FE /* libc++.dylib in Frameworks */,
+				6FBD3C61186F858C001BF0FE /* GoogleMaps.framework in Frameworks */,
 				6F0A256A17EF77A100D9F0A6 /* StoreKit.framework in Frameworks */,
 				6F0FEAB51789CC30001965A3 /* CFNetwork.framework in Frameworks */,
 				6FD5E80916D7002700896532 /* QuartzCore.framework in Frameworks */,
@@ -335,7 +342,6 @@
 				6FD5E80516D7000D00896532 /* libz.dylib in Frameworks */,
 				6FD5E80316D7000100896532 /* libstdc++.dylib in Frameworks */,
 				6FD5E80116D6FFF400896532 /* libicucore.dylib in Frameworks */,
-				6FD5E7FF16D6FFDF00896532 /* ImageIO.framework in Frameworks */,
 				6FD5E7FD16D6FFD500896532 /* GLKit.framework in Frameworks */,
 				6FD5E7FB16D6FFCC00896532 /* CoreText.framework in Frameworks */,
 				6FD5E7F916D6FFC000896532 /* CoreLocation.framework in Frameworks */,
@@ -345,7 +351,6 @@
 				4316805615013E4100A41785 /* UIKit.framework in Frameworks */,
 				4316805815013E4100A41785 /* Foundation.framework in Frameworks */,
 				4316805A15013E4100A41785 /* CoreGraphics.framework in Frameworks */,
-				6FD5E7F116D6FEE600896532 /* GoogleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +391,7 @@
 		4316805415013E4100A41785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FBD3C62186F863C001BF0FE /* libc++.dylib */,
 				6F0A256917EF77A100D9F0A6 /* StoreKit.framework */,
 				6F0FEAB41789CC30001965A3 /* CFNetwork.framework */,
 				6FD5E80816D7002700896532 /* QuartzCore.framework */,
@@ -402,6 +408,7 @@
 				6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */,
 				6F3D82E7162B423600313642 /* SystemConfiguration.framework */,
 				6FD5E7F016D6FEE600896532 /* GoogleMaps.framework */,
+				6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */,
 				6FD5E7F216D6FF5500896532 /* GoogleMaps.bundle */,
 				4316805515013E4100A41785 /* UIKit.framework */,
 				4316805715013E4100A41785 /* Foundation.framework */,
@@ -433,9 +440,8 @@
 				4316809F15013FA400A41785 /* stopscheduleViewController.m */,
 				435617DD151266050022F903 /* UniversalViewController.h */,
 				435617DE151266050022F903 /* UniversalViewController.m */,
+				6FC73FF1186D45D7002BA1B1 /* Parsers */,
 				4316805C15013E4100A41785 /* Supporting Files */,
-				6F519A081502F84200395F84 /* XMLParser.h */,
-				6F519A091502F84200395F84 /* XMLParser.m */,
 				6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */,
 				6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */,
 				430505A115177FAE00C08BC7 /* MSUtilities.h */,
@@ -443,7 +449,7 @@
 				6FDEA9741587955F00D363EC /* DejalActivityView.h */,
 				6FDEA9751587955F00D363EC /* DejalActivityView.m */,
 				6FE6D00817EFB21D006B3ADF /* Images */,
-				6F1AA6531776A4D000713207 /* cCSVParse */,
+				6FC73FF2186D4A72002BA1B1 /* CSVParser */,
 				6F0A254217EF770100D9F0A6 /* appirater */,
 				6F1AA6381776A41000713207 /* google_transit */,
 				6F378F0A1526869B00FCA44D /* Settings.bundle */,
@@ -514,17 +520,6 @@
 			);
 			name = google_transit;
 			path = ../google_transit;
-			sourceTree = "<group>";
-		};
-		6F1AA6531776A4D000713207 /* cCSVParse */ = {
-			isa = PBXGroup;
-			children = (
-				6F1AA6541776A4D000713207 /* LICENSE */,
-				6F1AA6551776A4D000713207 /* parseCSV.h */,
-				6F1AA6561776A4D000713207 /* parseCSV.m */,
-			);
-			name = cCSVParse;
-			path = ../cCSVParse;
 			sourceTree = "<group>";
 		};
 		6F24051016DF104700444E18 /* Location Classes */ = {
@@ -614,6 +609,27 @@
 			path = TBXML;
 			sourceTree = "<group>";
 		};
+		6FC73FF1186D45D7002BA1B1 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				6FC73FEE186D45CE002BA1B1 /* GTFSParser.h */,
+				6FC73FEF186D45CE002BA1B1 /* GTFSParser.m */,
+				6F519A081502F84200395F84 /* XMLParser.h */,
+				6F519A091502F84200395F84 /* XMLParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		6FC73FF2186D4A72002BA1B1 /* CSVParser */ = {
+			isa = PBXGroup;
+			children = (
+				6FC73FF3186D4A9E002BA1B1 /* CSVParser.h */,
+				6FC73FF4186D4A9E002BA1B1 /* CSVParser.m */,
+			);
+			name = CSVParser;
+			path = ../appirater;
+			sourceTree = "<group>";
+		};
 		6FE6D00817EFB21D006B3ADF /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,12 +655,12 @@
 		6FF56FA6158BC49C00CC015C /* Tableview Cells */ = {
 			isa = PBXGroup;
 			children = (
-				6FD5E7EB16D6FC9D00896532 /* MSMapCell.h */,
-				6FD5E7EC16D6FC9D00896532 /* MSMapCell.m */,
-				6FD5E7EE16D6FCCC00896532 /* MSMapCell.xib */,
 				4342D4521582611600A4A558 /* MSTableViewCell.h */,
 				4342D4531582611600A4A558 /* MSTableViewCell.m */,
 				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
+				6FBD3C64186F8AF0001BF0FE /* MSTextFieldCell.h */,
+				6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */,
+				6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */,
 				6FF56FA2158BC49000CC015C /* VariationTableViewCell.h */,
 				6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */,
 				6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */,
@@ -741,7 +757,7 @@
 		4316804815013E4100A41785 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = marca311;
 				TargetAttributes = {
 					4316805015013E4100A41785 = {
@@ -816,7 +832,6 @@
 				6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */,
 				6F0A256717EF770100D9F0A6 /* AppiraterLocalizable.strings in Resources */,
 				6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */,
-				6FD5E7EF16D6FCCC00896532 /* MSMapCell.xib in Resources */,
 				6F9E37E8186A333800F17A24 /* MSTopBar.xib in Resources */,
 				6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */,
 				6F0A256817EF770100D9F0A6 /* README.md in Resources */,
@@ -827,6 +842,7 @@
 				6FE6D00517EFB200006B3ADF /* cell_separator.png in Resources */,
 				6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */,
 				6F1AA6471776A41000713207 /* fare_attributes.txt in Resources */,
+				6FBD3C68186F8B1D001BF0FE /* MSTextFieldCell.xib in Resources */,
 				6F0A256617EF770100D9F0A6 /* Appirater.podspec in Resources */,
 				6F1AA6481776A41000713207 /* fare_rules.txt in Resources */,
 				6FE6D00717EFB210006B3ADF /* separator.png in Resources */,
@@ -836,7 +852,6 @@
 				6F1AA64C1776A41000713207 /* stop_times.txt in Resources */,
 				6F1AA64D1776A41000713207 /* stops.txt in Resources */,
 				6F1AA64E1776A41000713207 /* trips.txt in Resources */,
-				6F1AA6571776A4D000713207 /* LICENSE in Resources */,
 				6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */,
 				6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */,
 				6FE5988B17B8119600928D3B /* Changelog in Resources */,
@@ -884,7 +899,9 @@
 				435617DF151266050022F903 /* UniversalViewController.m in Sources */,
 				6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */,
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
+				6FC73FF5186D4A9E002BA1B1 /* CSVParser.m in Sources */,
 				6FF72BC21864EE440037A65D /* NavigoneViewController.m in Sources */,
+				6FBD3C66186F8AF0001BF0FE /* MSTextFieldCell.m in Sources */,
 				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
 				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
 				6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */,
@@ -903,8 +920,8 @@
 				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
 				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
 				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,
-				6FD5E7ED16D6FC9D00896532 /* MSMapCell.m in Sources */,
 				6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */,
+				6FC73FF0186D45CE002BA1B1 /* GTFSParser.m in Sources */,
 				6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */,
 				6F24051316DF105C00444E18 /* MSLocation.m in Sources */,
 				6F24051916DF107500444E18 /* MSStop.m in Sources */,
@@ -915,7 +932,6 @@
 				6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */,
 				6F36798F1708C62B008FA13D /* MSAddress.m in Sources */,
 				6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */,
-				6F1AA6581776A4D000713207 /* parseCSV.m in Sources */,
 				6F1AA65B1776AB6600713207 /* MSStep.m in Sources */,
 				6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */,
 				6F0A256517EF770100D9F0A6 /* Appirater.m in Sources */,
@@ -1002,9 +1018,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1020,11 +1037,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
@@ -1038,9 +1059,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1049,9 +1071,12 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1069,12 +1094,12 @@
 		4316809315013E4200A41785 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"/Users/marcusdyck/Documents/Xcode\\ Projects/Winnipeg-Transit",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
@@ -1090,12 +1115,12 @@
 		4316809415013E4200A41785 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"/Users/marcusdyck/Documents/Xcode\\ Projects/Winnipeg-Transit",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
@@ -1147,9 +1172,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1158,9 +1184,12 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1178,12 +1207,12 @@
 		6FF4C79B16E96987007FEF7D /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"/Users/marcusdyck/Documents/Xcode\\ Projects/Winnipeg-Transit",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";

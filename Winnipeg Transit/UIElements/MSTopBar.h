@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MSLocation.h"
+#import "MSSuggestionBox.h"
 
 @protocol TopBarDelegate <NSObject>
 
@@ -17,10 +18,8 @@
 
 @end
 
-@interface MSTopBar : UIView <UITextFieldDelegate> {
-    UILabel *label;
-    UITextField *textField;
-    UIButton *submitButton;
+@interface MSTopBar : UIView <SuggestionBoxDelegate, UITextFieldDelegate> {
+    IBOutlet UITextField *textField;
 }
 
 @end

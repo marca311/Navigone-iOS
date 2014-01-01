@@ -54,8 +54,10 @@
 
 +(void)convertSearchHistory;
 
-+ (NSString *)getTimeFormatForServer:(NSDate *)timeObject;
++(NSString *)getTimeFormatForServer:(NSDate *)timeObject;
 
-+ (NSString *)getDateFormatForServer:(NSDate *)timeObject;
++(NSString *)getDateFormatForServer:(NSDate *)timeObject;
+
++(UIColor*)defaultSystemTintColor;
 
 @end

@@ -30,6 +30,8 @@
     NSString *routeName;
     NSString *variantDestination;
     
+    NSArray *lineCoordinates;
+    
     TBXMLElement *rootElement;
 }
 
@@ -42,6 +44,7 @@
 
 -(NSString *)getType;
 -(NSString *)getBusNumber;
+-(NSArray *)getLineCoordinates;
 -(NSArray *)getHumanReadable;
 
 @end

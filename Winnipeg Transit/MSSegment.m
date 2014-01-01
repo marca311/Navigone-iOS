@@ -153,6 +153,9 @@
     NSArray *stringArray = [fullString componentsSeparatedByString:@" to "];
     routeName = [stringArray objectAtIndex:0];
 }
+-(void)setLineArray {
+    //Something about lines goes here
+}
 -(void)setVariantDestination {
     TBXMLElement *workingElement = [XMLParser extractKnownChildElement:@"variant" RootElement:rootElement];
     workingElement = [XMLParser extractKnownChildElement:@"name" RootElement:workingElement];
@@ -176,6 +179,9 @@
 }
 -(NSString *)getBusNumber {
     return busNumber;
+}
+-(NSArray *)getLineCoordinates {
+    return lineCoordinates;
 }
 -(NSArray *)getHumanReadable {
     NSMutableArray *result = [[NSMutableArray alloc]init];
@@ -206,7 +212,7 @@
         NSString *rideString = [NSString stringWithFormat:@"Ride %@ %@ (%@)",busNumber,routeName,variantDestination];
         [result addObject:[[MSMovingStep alloc]initWithFromLocation:fromLocation ToLocation:toLocation Text:rideString]];
     }
-    //Returns an array with MSStep subclass intstance(s)
+    //Returns an array with MSStep subclass instance(s)
     return result;
 }
 @end

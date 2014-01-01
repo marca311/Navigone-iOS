@@ -11,16 +11,15 @@
 
 @protocol SuggestionBoxDelegate
 
+@optional
 -(void)tableItemClicked:(MSLocation *)resultLocation;
+-(void)suggestionBoxFrameWillChange:(CGRect)frame;
 
 @end
 
-@interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
-    MSSuggestions *suggestions;
-    
-    id <SuggestionBoxDelegate> suggestionDelegate;
-}
+@interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+-(id)initWithFrame:(CGRect)frame;
 -(id)initWithFrameFromField:(UITextField *)textField;
 
 -(void)generateSuggestions:(NSString *)query;

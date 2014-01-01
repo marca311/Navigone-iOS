@@ -343,20 +343,28 @@
     else return [[MSLocation alloc]init];
 }
 
-+ (NSString *)getTimeFormatForServer:(NSDate *)timeObject
-{
++(NSString *)getTimeFormatForServer:(NSDate *)timeObject {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"HH:mm"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
     return result;
 }
 
-+ (NSString *)getDateFormatForServer:(NSDate *)timeObject
-{
++(NSString *)getDateFormatForServer:(NSDate *)timeObject {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"y-MM-dd"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
     return result;
+}
+
++(UIColor*)defaultSystemTintColor {
+    static UIColor* systemTintColor = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        UIWindow* window = [[UIWindow alloc] init];
+        systemTintColor = window.tintColor;
+    });
+    return systemTintColor;
 }
 
 @end

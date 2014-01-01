@@ -15,25 +15,25 @@
 #import "MSLocation.h"
 #import "MSSegment.h"
 
+@interface MSSuggestionBox ()
+
+@property (nonatomic, retain) MSSuggestions *suggestions;
+
+@property (nonatomic)     id <SuggestionBoxDelegate> suggestionDelegate;
+
+@end
+
 @implementation MSSuggestionBox
 
-- (id)initWithFrameFromField:(UITextField *)textField {
+@synthesize suggestions, suggestionDelegate;
+
+-(id)initWithFrame:(CGRect)frame {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        CGRect theFrame;
-        theFrame.origin.x = textField.frame.origin.x;
-        theFrame.origin.y = (textField.frame.origin.y + textField.frame.size.height);
-        
-        theFrame.size.width = textField.frame.size.width;
-        theFrame.size.height = 100;
-        
-        self.tableView = [self.tableView init];
-        self.tableView.frame = theFrame;
-        
+        self.tableView.frame = frame;
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
     }
-    return self;
 }
 
 -(void)viewDidLoad {
@@ -135,37 +135,35 @@
     self.textField = textFieldInput;
 }
 
+//The +1 is to take into account the text entry cell and the search history cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return ([suggestions getNumberOfEntries]+1); }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSArray *contentForThisRow = [[self currentArray] objectAtIndex:[indexPath row]];
     NSString *uniqueIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = nil;
+    SuggestionBoxCell *cell = nil;
     cell = (SuggestionBoxCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if(cell == nil) {
-        /*NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"SuggestionBoxCell" owner:nil options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"SuggestionBoxCell" owner:nil options:nil];
         for(id currentObject in topLevelObjects) {
             if([currentObject isKindOfClass:[UITableViewCell class]]) {
                 cell = (SuggestionBoxCell *)currentObject;
                 break;
             }
-        } */
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
-    }/*
+        }
+    }
     if (indexPath.row == [suggestions getNumberOfEntries]) {
         cell.textBox.text = @"Search History";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {
         MSLocation *location = [suggestions getLocationAtIndex:indexPath.row];
         cell.textBox.text = [location getHumanReadable];
-    }*/
-    cell.textLabel.text = @"Cheese";
-    [cell setExclusiveTouch:YES];
+    }
     return cell;
 }
 
 #pragma mark - Search History method
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Section Clicked!");
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         //If the user clicks the last row in the table, go to search history

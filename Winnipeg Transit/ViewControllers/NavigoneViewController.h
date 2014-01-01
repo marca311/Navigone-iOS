@@ -8,17 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UniversalViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
-#import "MSTopBar.h"
 
 @interface NavigoneViewController : UniversalViewController {
-    int statusBarAdjustment;
     
-    GMSMapView *mainMap;
-    
-    MSTopBar *topBar;
-    
-    CLLocationManager *locationManager;
 }
 
 

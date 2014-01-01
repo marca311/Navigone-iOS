@@ -8,10 +8,22 @@
 
 #import "NavigoneViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
+#import "MSTopBar.h"
 #import "MSUtilities.h"
 
+@interface NavigoneViewController ()
+
+@property (nonatomic) int statusBarAdjustment;
+@property (nonatomic, retain) GMSMapView *mainMap;
+@property (nonatomic, retain) MSTopBar *topBar;
+
+@end
+
 @implementation NavigoneViewController
+
+@synthesize statusBarAdjustment, mainMap, topBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,7 +48,7 @@
     
     [self.view addSubview:mainMap];
     
-    CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 300);
+    CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 60);
     
     topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
     [self.view addSubview:topBar];

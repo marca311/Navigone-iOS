@@ -2,7 +2,7 @@
 //  GMSCameraPosition.h
 //  Google Maps SDK for iOS
 //
-//  Copyright 2012 Google Inc.
+//  Copyright 2013 Google Inc.
 //
 //  Usage of this SDK is subject to the Google Maps/Google Earth APIs Terms of
 //  Service: https://developers.google.com/maps/terms
@@ -27,7 +27,7 @@
  * @param viewingAngle in degrees, of the camera angle from the nadir
  */
 - (id)initWithTarget:(CLLocationCoordinate2D)target
-                zoom:(CGFloat)zoom
+                zoom:(float)zoom
              bearing:(CLLocationDirection)bearing
         viewingAngle:(double)viewingAngle;
 
@@ -38,21 +38,21 @@
  * top of the screen pointing north.
  */
 + (GMSCameraPosition *)cameraWithTarget:(CLLocationCoordinate2D)target
-                                   zoom:(CGFloat)zoom;
+                                   zoom:(float)zoom;
 
 /**
  * Convenience constructor for GMSCameraPosition, as per cameraWithTarget:zoom:.
  */
 + (GMSCameraPosition *)cameraWithLatitude:(CLLocationDegrees)latitude
                                 longitude:(CLLocationDegrees)longitude
-                                     zoom:(CGFloat)zoom;
+                                     zoom:(float)zoom;
 
 /**
  * Convenience constructor for GMSCameraPosition, with all camera properties as
  * per initWithTarget:zoom:bearing:viewingAngle:.
  */
 + (GMSCameraPosition *)cameraWithTarget:(CLLocationCoordinate2D)target
-                                   zoom:(CGFloat)zoom
+                                   zoom:(float)zoom
                                 bearing:(CLLocationDirection)bearing
                            viewingAngle:(double)viewingAngle;
 
@@ -62,12 +62,27 @@
  */
 + (GMSCameraPosition *)cameraWithLatitude:(CLLocationDegrees)latitude
                                 longitude:(CLLocationDegrees)longitude
-                                     zoom:(CGFloat)zoom
+                                     zoom:(float)zoom
                                   bearing:(CLLocationDirection)bearing
                              viewingAngle:(double)viewingAngle;
 
+/**
+ * Get the zoom level at which |meters| distance, at given |coord| on Earth,
+ * correspond to the specified number of screen |points|.
+ *
+ * For extremely large or small distances the returned zoom level may be
+ * smaller or larger than the minimum or maximum zoom level
+ * allowed on the camera.
+ *
+ * This helper method is useful for building camera positions that contain
+ * specific physical areas on Earth.
+ */
++ (float)zoomAtCoordinate:(CLLocationCoordinate2D)coordinate
+                forMeters:(CLLocationDistance)meters
+                perPoints:(CGFloat)points;
+
 /** Location on the Earth towards which the camera points. */
-@property (nonatomic, readonly, getter=targetAsCoordinate) CLLocationCoordinate2D target;
+@property(nonatomic, readonly, getter=targetAsCoordinate) CLLocationCoordinate2D target;
 
 /**
  * Zoom level. Zoom uses an exponentional scale, where zoom 0 represents the
@@ -75,19 +90,19 @@
  * magnification by a factor of 2. At zoom 10, the entire world is a 256k x
  * 256k square, and so on.
  */
-@property (nonatomic, readonly) CGFloat zoom;
+@property(nonatomic, readonly) float zoom;
 
 /**
  * Bearing of the camera, in degrees clockwise from true north.
  */
-@property (nonatomic, readonly) CLLocationDirection bearing;
+@property(nonatomic, readonly) CLLocationDirection bearing;
 
 /**
  * The angle, in degrees, of the camera angle from the nadir (directly facing
  * the Earth). 0 is straight down, 90 is parallel to the ground. Note that the
  * maximum angle allowed is 45 degrees.
  */
-@property (nonatomic, readonly) double viewingAngle;
+@property(nonatomic, readonly) double viewingAngle;
 
 @end
 
@@ -95,10 +110,10 @@
  * The maximum zoom (closest to the Earth's surface) permitted by the map
  * camera.
  */
-FOUNDATION_EXTERN const CGFloat kGMSMaxZoomLevel;
+FOUNDATION_EXTERN const float kGMSMaxZoomLevel;
 
 /**
  * The minimum zoom (farthest from the Earth's surface) permitted by the map
  * camera.
  */
-FOUNDATION_EXTERN const CGFloat kGMSMinZoomLevel;
+FOUNDATION_EXTERN const float kGMSMinZoomLevel;

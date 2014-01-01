@@ -10,6 +10,6 @@
 
 @interface SuggestionBoxCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *textBox;
+@property (atomic, retain) IBOutlet UILabel *textBox;
 
 @end
