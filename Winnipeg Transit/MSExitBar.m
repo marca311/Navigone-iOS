@@ -21,8 +21,7 @@
     return self;
 }
 
--(MSExitBar *)initToView:(UIView *)parentView withParentResponder:(id)responder
-{
+-(MSExitBar *)initToView:(UIView *)parentView withParentResponder:(id)responder {
     self = [[MSExitBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, parentView.frame.size.width, 44.0f)];
 	self.tintColor = [UIColor darkGrayColor];
 	theResponder = responder;
@@ -34,18 +33,8 @@
 	return self;
 }
 
--(IBAction)killSender:(id)sender
-{
+-(IBAction)killSender:(id)sender {
     [theResponder resignFirstResponder];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -17,13 +17,14 @@
 
 @end
 
-@interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MSSuggestionBox : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
+    __weak id <SuggestionBoxDelegate> delegate;
+}
 
--(id)initWithFrame:(CGRect)frame;
--(id)initWithFrameFromField:(UITextField *)textField;
+@property (nonatomic, weak) id <SuggestionBoxDelegate> delegate;
+
+-(id)initWithFrame:(CGRect)frame andDelegate:(id<SuggestionBoxDelegate>)delegateObject;;
 
 -(void)generateSuggestions:(NSString *)query;
-
--(void)dismissSuggestionBox;
 
 @end

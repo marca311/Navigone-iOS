@@ -29,8 +29,6 @@
 
 +(NSArray *)getModeArray;
 
--(UIImage *)addText:(UIImage *)img text:(NSString *)text1;
-
 +(NSString *)sendTime:(NSArray *)array;
 
 @end

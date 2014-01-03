@@ -21,17 +21,7 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
--(void)moveSeparatorUp
-{
+-(void)moveSeparatorUp {
     CGRect currentPosition = self.frame;
     currentPosition.origin.y = currentPosition.origin.y - 20;
     [UIView beginAnimations:nil context:nil];

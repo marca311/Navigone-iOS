@@ -40,8 +40,7 @@
 //Main Animation Methods
 //These are to cut down on the amount of other methods I would otherwise have to write.
 //These are linked to the view controller so I don't have to introduce so many objects into one method.
-+(void)toStageOne:(navigoViewController *)naviView;
-{
++(void)toStageOne:(navigoViewController *)naviView; {
     [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
@@ -55,8 +54,7 @@
             break;
     }
 }
-+(void)toStageTwo:(navigoViewController *)naviView
-{
++(void)toStageTwo:(navigoViewController *)naviView {
     [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
@@ -70,8 +68,7 @@
             break;
     }
 }
-+(void)toStageThree:(navigoViewController *)naviView
-{
++(void)toStageThree:(navigoViewController *)naviView {
     [naviView fieldChecker];
     int buttonLocation = [naviView.submitButton checkCurrentLocation];
     switch (buttonLocation) {
@@ -87,8 +84,7 @@
 }
 
 //Secondary Animation Methods
-+(void)stageOneToStageTwo:(navigoViewController *)naviView
-{
++(void)stageOneToStageTwo:(navigoViewController *)naviView {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.origin isFirstResponder]) {
         [naviView.destination becomeFirstResponder];
@@ -124,8 +120,7 @@
     naviView.origin.hidden = YES;
 }//stageOneToStageTwo
 
-+(void)stageOneToStageThree:(navigoViewController *)naviView
-{
++(void)stageOneToStageThree:(navigoViewController *)naviView {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.origin isFirstResponder]) {
         [naviView.timeField becomeFirstResponder];
@@ -173,8 +168,7 @@
     naviView.origin.hidden = YES;
 }//stageOneToStageThree
 
-+(void)stageTwoToStageThree:(navigoViewController *)naviView
-{
++(void)stageTwoToStageThree:(navigoViewController *)naviView {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.destination isFirstResponder]) {
         [naviView.timeField becomeFirstResponder];
@@ -216,8 +210,7 @@
     naviView.destination.hidden = YES;
 }//stageTwoToStageThree
 
-+(void)stageThreeToStageTwo:(navigoViewController *)naviView
-{
++(void)stageThreeToStageTwo:(navigoViewController *)naviView {
     //Dismiss pickers and if a responder is already in action, switch responders
     if ([naviView.timeField isFirstResponder] || [naviView.dateField isFirstResponder] || [naviView.mode isFirstResponder]) {
         [naviView.destination becomeFirstResponder];
@@ -259,8 +252,7 @@
     naviView.mode.hidden = YES;
 }//stageThreeToStageTwo
 
-+(void)stageThreeToStageOne:(navigoViewController *)naviView
-{
++(void)stageThreeToStageOne:(navigoViewController *)naviView {
     //Dismiss pickers and if a responder is already in action, switch responders
     if ([naviView.timeField isFirstResponder] || [naviView.dateField isFirstResponder] || [naviView.mode isFirstResponder]) {
         [naviView.origin becomeFirstResponder];
@@ -308,8 +300,7 @@
     naviView.mode.hidden = YES;
 }//stageThreeToStageOne
 
-+(void)stageTwoToStageOne:(navigoViewController *)naviView
-{
++(void)stageTwoToStageOne:(navigoViewController *)naviView {
     //Dismiss keyboard and if a responder is already in action, switch responders
     if ([naviView.destination isFirstResponder]) {
         [naviView.origin becomeFirstResponder];

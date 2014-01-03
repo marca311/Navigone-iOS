@@ -362,7 +362,7 @@
 
 -(IBAction)originBoxEdit {
     currentField = @"origin";
-    suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
+    //suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:origin];
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)originBoxChanged {
@@ -374,7 +374,7 @@
 }
 -(IBAction)destinationBoxEdit {
     currentField = @"destination";
-    suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
+    //suggestionBox = [[MSSuggestionBox alloc] initWithFrameFromField:destination];
     [self.view addSubview:suggestionBox.tableView];
 }
 -(IBAction)destinationBoxChanged {

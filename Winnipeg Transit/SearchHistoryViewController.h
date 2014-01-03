@@ -10,12 +10,15 @@
 #import "UniversalViewController.h"
 #import "MSLocation.h"
 
+@protocol SearchHistoryDelegate
+
+-(void)userDidSelectLocation:(MSLocation *)location;
+
+@end
+
 @interface SearchHistoryViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
     IBOutlet UITableView *theTableView;
     IBOutlet UIBarButtonItem *editButton;
-    NSMutableArray *savedLocations;
-    NSMutableArray *previousLocations;
-    BOOL fileExists;
 }
 
 -(IBAction)editTable;

@@ -20,8 +20,7 @@
     return self;
 }
 
-- (CGRect)caretRectForPosition:(UITextPosition *)position
-{
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
     return CGRectZero;
 }
 

@@ -10,17 +10,15 @@
 #import "MSTopBar.h"
 #import "MSSegment.h"
 #import "MSSuggestions.h"
-#import "MSTextFieldCell.h"
 #import "MSUtilities.h"
 #import "XMLParser.h"
 
-@interface MSTopBar ()
-
-@property (nonatomic)     id <TopBarDelegate> topBarDelegate;
+@interface MSTopBar () {
+    float originalHeight;
+}
 
 @property (nonatomic, retain) MSSuggestions *suggestions;
 @property (nonatomic, retain) UILabel *label;
-@property (nonatomic, retain) UITextField *textField;
 @property (nonatomic, retain) UIButton *submitButton;
 
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
@@ -29,11 +27,13 @@
 
 @implementation MSTopBar
 
-@synthesize topBarDelegate, suggestions, label, textField, submitButton, suggestionBox;
+@synthesize delegate, suggestions, label, textField, submitButton, suggestionBox;
 
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        originalHeight = self.frame.size.height;
+        
         //Set up the label frame and settings
         CGRect labelFrame = CGRectMake(5, 0, 280, 20);
         label = [[UILabel alloc]initWithFrame:labelFrame];
@@ -46,6 +46,7 @@
         textField = [[UITextField alloc]initWithFrame:textFieldFrame];
         [textField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [textField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
+        [textField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
         textField.delegate = self;
         [self addSubview:textField];
         
@@ -72,7 +73,43 @@
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    //suggestionBox = [[MSSuggestionBox alloc]init]
+    CGRect suggestionBoxFrame = CGRectMake(0, 60, 290, 100 );
+    suggestionBox = [[MSSuggestionBox alloc]initWithFrame:suggestionBoxFrame andDelegate:self];
+    [self addSubview:suggestionBox.view];
+}
+
+-(void)textFieldDidChange {
+    [suggestionBox generateSuggestions:textField.text];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    CGRect mainFrame = self.frame;
+    mainFrame.size.height = originalHeight;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    self.frame = mainFrame;
+    [UIView commitAnimations];
+    [suggestionBox dismissModalViewControllerAnimated:NO];
+}
+
+-(void)suggestionBoxFrameWillChange:(CGRect)frame {
+    CGRect mainFrame = self.frame;
+    //Add the height of the suggestion box to the original height of the view to get the new height
+    mainFrame.size.height = frame.size.height + originalHeight;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    self.frame = mainFrame;
+    [UIView commitAnimations];
+}
+
+-(void)tableItemClicked:(MSLocation *)resultLocation {
+    [label setText:[resultLocation getHumanReadable]];
+    [self textFieldDidEndEditing:NULL];
 }
 
 @end

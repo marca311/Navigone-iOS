@@ -19,7 +19,13 @@
 @end
 
 @interface MSTopBar : UIView <SuggestionBoxDelegate, UITextFieldDelegate> {
-    IBOutlet UITextField *textField;
+    __weak id <TopBarDelegate> delegate;
+    
+    UITextField *textField;
 }
+
+@property (nonatomic, weak) id <TopBarDelegate> delegate;
+
+@property (nonatomic, retain) UITextField *textField;
 
 @end

@@ -56,8 +56,6 @@
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
-		6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */; };
-		6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */; };
 		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
 		6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */; };
 		6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */; };
@@ -66,6 +64,7 @@
 		6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8691526AB0C00FFCD99 /* Icon.png */; };
 		6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B86B1526AB6B00FFCD99 /* Icon-72.png */; };
 		6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */; };
+		6F643F891875DBEF00C27C26 /* MSSuggestionBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F643F881875DBEF00C27C26 /* MSSuggestionBoxCell.m */; };
 		6F6AD88C1513E5B300E69E97 /* navigoViewLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */; };
 		6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7646A8159E9E6D008AEE88 /* MSExitBar.m */; };
 		6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F91DBA515BD03D1005B9B7A /* SubmitButton.m */; };
@@ -73,15 +72,12 @@
 		6F9A387316E5C1C300D7C076 /* TripHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */; };
 		6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */; };
 		6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E37E3186A30FF00F17A24 /* apiKeys.m */; };
-		6F9E37E8186A333800F17A24 /* MSTopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9E37E7186A333800F17A24 /* MSTopBar.xib */; };
 		6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */; };
 		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
 		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
 		6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7C01788A8F000D7598B /* TextBoxCell.xib */; };
 		6FBD3C61186F858C001BF0FE /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */; };
 		6FBD3C63186F863C001BF0FE /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C62186F863C001BF0FE /* libc++.dylib */; };
-		6FBD3C66186F8AF0001BF0FE /* MSTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */; };
-		6FBD3C68186F8B1D001BF0FE /* MSTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
 		6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */; };
 		6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFCFD917D50C9100C05C1F /* TBXML+HTTP.m */; };
@@ -231,9 +227,6 @@
 		6F3D82E7162B423600313642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6F519A081502F84200395F84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionBoxCell.h; sourceTree = "<group>"; };
-		6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionBoxCell.m; sourceTree = "<group>"; };
-		6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionBoxCell.xib; sourceTree = "<group>"; };
 		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
 		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
 		6F5BD0A4166B190F0077B2EB /* SearchHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryViewController.h; sourceTree = "<group>"; };
@@ -246,6 +239,8 @@
 		6F60B86B1526AB6B00FFCD99 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		6F60B86E1526B0AE00FFCD99 /* navigoResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoResultViewController.h; sourceTree = "<group>"; };
 		6F60B86F1526B0AE00FFCD99 /* navigoResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoResultViewController.m; sourceTree = "<group>"; };
+		6F643F871875DBEF00C27C26 /* MSSuggestionBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBoxCell.h; path = TableViewCells/MSSuggestionBoxCell.h; sourceTree = "<group>"; };
+		6F643F881875DBEF00C27C26 /* MSSuggestionBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBoxCell.m; path = TableViewCells/MSSuggestionBoxCell.m; sourceTree = "<group>"; };
 		6F6AD88A1513E5B300E69E97 /* navigoViewLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = navigoViewLibrary.h; sourceTree = "<group>"; };
 		6F6AD88B1513E5B300E69E97 /* navigoViewLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = navigoViewLibrary.m; sourceTree = "<group>"; };
 		6F7646A7159E9E6D008AEE88 /* MSExitBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSExitBar.h; sourceTree = "<group>"; };
@@ -258,7 +253,6 @@
 		6F9CB1F1164B5CE50059FA52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6F9E37E2186A30FF00F17A24 /* apiKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKeys.h; sourceTree = "<group>"; };
 		6F9E37E3186A30FF00F17A24 /* apiKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = apiKeys.m; sourceTree = "<group>"; };
-		6F9E37E7186A333800F17A24 /* MSTopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTopBar.xib; path = UIElements/MSTopBar.xib; sourceTree = "<group>"; };
 		6FA470EC16150C2F00C0CAD6 /* VariationDisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationDisplayTableViewController.h; sourceTree = "<group>"; };
 		6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationDisplayTableViewController.m; sourceTree = "<group>"; };
 		6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryHistoryViewController.xib; sourceTree = "<group>"; };
@@ -267,9 +261,6 @@
 		6FACB7C01788A8F000D7598B /* TextBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
 		6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		6FBD3C62186F863C001BF0FE /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		6FBD3C64186F8AF0001BF0FE /* MSTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTextFieldCell.h; path = TableViewCells/MSTextFieldCell.h; sourceTree = "<group>"; };
-		6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTextFieldCell.m; path = TableViewCells/MSTextFieldCell.m; sourceTree = "<group>"; };
-		6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MSTextFieldCell.xib; path = TableViewCells/MSTextFieldCell.xib; sourceTree = "<group>"; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
 		6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSSuggestionBox.m; path = "Winnipeg Transit/MSSuggestionBox.m"; sourceTree = "<group>"; };
 		6FBFCFD817D50C9100C05C1F /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
@@ -655,18 +646,14 @@
 		6FF56FA6158BC49C00CC015C /* Tableview Cells */ = {
 			isa = PBXGroup;
 			children = (
+				6F643F871875DBEF00C27C26 /* MSSuggestionBoxCell.h */,
+				6F643F881875DBEF00C27C26 /* MSSuggestionBoxCell.m */,
 				4342D4521582611600A4A558 /* MSTableViewCell.h */,
 				4342D4531582611600A4A558 /* MSTableViewCell.m */,
 				4342D4561582627E00A4A558 /* MSTableViewCell.xib */,
-				6FBD3C64186F8AF0001BF0FE /* MSTextFieldCell.h */,
-				6FBD3C65186F8AF0001BF0FE /* MSTextFieldCell.m */,
-				6FBD3C67186F8B1D001BF0FE /* MSTextFieldCell.xib */,
 				6FF56FA2158BC49000CC015C /* VariationTableViewCell.h */,
 				6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */,
 				6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */,
-				6F535CBF162CF439009CB677 /* SuggestionBoxCell.h */,
-				6F535CC0162CF439009CB677 /* SuggestionBoxCell.m */,
-				6F535CC3162CF44E009CB677 /* SuggestionBoxCell.xib */,
 				6FACB7BD1788A8D900D7598B /* TextBoxCell.h */,
 				6FACB7BE1788A8D900D7598B /* TextBoxCell.m */,
 				6FACB7C01788A8F000D7598B /* TextBoxCell.xib */,
@@ -707,7 +694,6 @@
 				6FF72BC9186509AA0037A65D /* MSInfoBlock.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
 				6FF72BC51865006A0037A65D /* MSTopBar.m */,
-				6F9E37E7186A333800F17A24 /* MSTopBar.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -827,12 +813,10 @@
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
 				6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */,
-				6F535CC4162CF44E009CB677 /* SuggestionBoxCell.xib in Resources */,
 				6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */,
 				6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */,
 				6F0A256717EF770100D9F0A6 /* AppiraterLocalizable.strings in Resources */,
 				6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */,
-				6F9E37E8186A333800F17A24 /* MSTopBar.xib in Resources */,
 				6FD5E7F316D6FF5600896532 /* GoogleMaps.bundle in Resources */,
 				6F0A256817EF770100D9F0A6 /* README.md in Resources */,
 				6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */,
@@ -842,7 +826,6 @@
 				6FE6D00517EFB200006B3ADF /* cell_separator.png in Resources */,
 				6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */,
 				6F1AA6471776A41000713207 /* fare_attributes.txt in Resources */,
-				6FBD3C68186F8B1D001BF0FE /* MSTextFieldCell.xib in Resources */,
 				6F0A256617EF770100D9F0A6 /* Appirater.podspec in Resources */,
 				6F1AA6481776A41000713207 /* fare_rules.txt in Resources */,
 				6FE6D00717EFB210006B3ADF /* separator.png in Resources */,
@@ -901,7 +884,6 @@
 				430505A315177FAE00C08BC7 /* MSUtilities.m in Sources */,
 				6FC73FF5186D4A9E002BA1B1 /* CSVParser.m in Sources */,
 				6FF72BC21864EE440037A65D /* NavigoneViewController.m in Sources */,
-				6FBD3C66186F8AF0001BF0FE /* MSTextFieldCell.m in Sources */,
 				6F60B8701526B0AE00FFCD99 /* navigoResultViewController.m in Sources */,
 				4342D4541582611600A4A558 /* MSTableViewCell.m in Sources */,
 				6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */,
@@ -914,7 +896,6 @@
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
-				6F535CC1162CF439009CB677 /* SuggestionBoxCell.m in Sources */,
 				6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */,
 				6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */,
 				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
@@ -939,6 +920,7 @@
 				6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */,
 				6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */,
 				6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */,
+				6F643F891875DBEF00C27C26 /* MSSuggestionBoxCell.m in Sources */,
 				6FBFCFDD17D50C9100C05C1F /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

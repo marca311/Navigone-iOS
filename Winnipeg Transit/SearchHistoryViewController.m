@@ -11,40 +11,41 @@
 #import "TextBoxCell.h"
 #import "AnimationInstructionSheet.h"
 
+@interface SearchHistoryViewController ()
+
+@property (nonatomic)     id <SearchHistoryDelegate> searchHistoryDelegate;
+
+@property (nonatomic, retain) NSMutableArray *savedLocations;
+@property (nonatomic, retain) NSMutableArray *previousLocations;
+@property (nonatomic) BOOL fileExists;
+
+@end
+
 @implementation SearchHistoryViewController
+
+@synthesize searchHistoryDelegate, savedLocations, previousLocations, fileExists;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
+        if (fileExists) {
+            //Load Dictionary
+            NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
+            //Convert NSData in dictionary into the NSArray filled with MSLocations
+            NSData *savedData = [theFile objectForKey:@"SavedLocations"];
+            savedLocations = [NSKeyedUnarchiver unarchiveObjectWithData:savedData];
+            //Ditto
+            NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
+            previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
+            previousLocations = [SearchHistoryViewController checkNumberOfEntries:previousLocations];
+            [self saveFile];
+        }
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
-    if (fileExists) {
-        //Load Dictionary
-        NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
-        //Convert NSData in dictionary into the NSArray filled with MSLocations
-        NSData *savedData = [theFile objectForKey:@"SavedLocations"];
-        savedLocations = [NSKeyedUnarchiver unarchiveObjectWithData:savedData];
-        //Ditto
-        NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
-        previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
-        previousLocations = [SearchHistoryViewController checkNumberOfEntries:previousLocations];
-        [self saveFile];
-    }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 2; }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -92,13 +93,10 @@
     NSString *uniqueIdentifier = @"LocationCellIdentifier";
     TextBoxCell *cell = nil;
     cell = (TextBoxCell *) [tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil) {
         NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"TextBoxCell" owner:nil options:nil];
-        for(id currentObject in topLevelObjects)
-        {
-            if([currentObject isKindOfClass:[UITableViewCell class]])
-            {
+        for(id currentObject in topLevelObjects) {
+            if([currentObject isKindOfClass:[UITableViewCell class]]) {
                 cell = (TextBoxCell *)currentObject;
                 break;
             }
@@ -150,10 +148,6 @@
         [theParentViewController.query setDestination:currentLocation];
         [theParentViewController.destinationLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
-        //[theParentViewController fieldChecker];
-        [AnimationInstructionSheet toNextStage:theParentViewController];
-    });
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -270,7 +264,7 @@
     NSString *key = [item getServerQueryable];
     for (int i = 0; i < [savedLocationsList count]; i++) {
         MSLocation *location = [savedLocationsList objectAtIndex:i];
-        //This system uses keys to check for dupes
+        //This system uses location keys to check for dupes
         NSString *checkKey = [location getServerQueryable];
         //Check if location is currently saved locations list
         if ([key isEqualToString:checkKey]) {
@@ -310,10 +304,10 @@
     //Makes sure there are 20 or fewer entries in the previous locations list
     previousLocationsList = [SearchHistoryViewController checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
-    //Converts array of MSLocations to data file
+    //Converts array of MSLocations to data file for saved locations
     NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocationsList];
     [saver setObject:saved forKey:@"SavedLocations"];
-    //Ditto
+    //Ditto for previous locations
     NSData *previous = [NSKeyedArchiver archivedDataWithRootObject:previousLocationsList];
     [saver setObject:previous forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
@@ -327,6 +321,7 @@
     }
     return theArray;
 }
+//Removes all occurances of a location from a specified array
 +(NSMutableArray *)removeInstancesOfLocation:(MSLocation *)location fromArray:(NSMutableArray *)array {
     NSString *locationKey = [location getServerQueryable];
     for (int i = 0; i < [array count]; i++) {
