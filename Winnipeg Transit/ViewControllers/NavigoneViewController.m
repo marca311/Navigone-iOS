@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 #import "MSTopBar.h"
+#import "MSInfoBox.h"
 #import "MSUtilities.h"
 
 @interface NavigoneViewController ()
@@ -18,12 +19,13 @@
 @property (nonatomic) int statusBarAdjustment;
 @property (nonatomic, retain) GMSMapView *mainMap;
 @property (nonatomic, retain) MSTopBar *topBar;
+@property (nonatomic, retain) MSInfoBox *infoBox;
 
 @end
 
 @implementation NavigoneViewController
 
-@synthesize statusBarAdjustment, mainMap, topBar;
+@synthesize statusBarAdjustment, mainMap, topBar, infoBox;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,9 +35,11 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    float width = self.view.frame.size.width;
+    float height = self.view.frame.size.height;
     
     if ([MSUtilities firmwareIsSevenOrHigher]) {
         statusBarAdjustment = 20;
@@ -45,19 +49,17 @@
 	
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.8994 longitude:-97.1392 zoom:11];
     mainMap = [GMSMapView mapWithFrame:self.view.frame camera:camera];
-    
     [self.view addSubview:mainMap];
     
     CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 60);
-    
     topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
     [self.view addSubview:topBar];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    float infoBoxY = (height / 3) * 2;
+    float infoBoxHeight = (height - infoBoxY) - 5; //The 5 adds padding from the bottom of the screen
+    CGRect infoBoxRect = CGRectMake(5, infoBoxY, (width/2)-10, infoBoxHeight);
+    infoBox = [[MSInfoBox alloc]initWithFrame:infoBoxRect];
+    [self.view addSubview:infoBox];
 }
 
 @end

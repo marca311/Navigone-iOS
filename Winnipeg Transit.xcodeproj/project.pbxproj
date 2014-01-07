@@ -101,6 +101,7 @@
 		6FD5E81216D71D1900896532 /* TripHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5E81016D71D1900896532 /* TripHistoryViewController.m */; };
 		6FD5E81316D71D1900896532 /* TripHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */; };
 		6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */; };
+		6FDC79DC187A50FA007462CA /* MSLocationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC79DB187A50FA007462CA /* MSLocationButton.m */; };
 		6FDEA9761587955F00D363EC /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDEA9751587955F00D363EC /* DejalActivityView.m */; };
 		6FE5988B17B8119600928D3B /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5988A17B8119600928D3B /* Changelog */; };
 		6FE6D00517EFB200006B3ADF /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6D00417EFB200006B3ADF /* cell_separator.png */; };
@@ -111,7 +112,7 @@
 		6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FAE158C237A00CC015C /* VariationSelectorTableVew.m */; };
 		6FF72BC21864EE440037A65D /* NavigoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC11864EE440037A65D /* NavigoneViewController.m */; };
 		6FF72BC61865006A0037A65D /* MSTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC51865006A0037A65D /* MSTopBar.m */; };
-		6FF72BCA186509AA0037A65D /* MSInfoBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC9186509AA0037A65D /* MSInfoBlock.m */; };
+		6FF72BCA186509AA0037A65D /* MSInfoBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF72BC9186509AA0037A65D /* MSInfoBox.m */; };
 		6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */; };
 		6FF7AC9316B7327200567861 /* SavedRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7AC9116B7327200567861 /* SavedRouteView.xib */; };
 		6FFF1BCD17681A9F00BF892F /* MSSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFF1BCC17681A9F00BF892F /* MSSuggestions.m */; };
@@ -294,6 +295,8 @@
 		6FD5E81016D71D1900896532 /* TripHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripHistoryViewController.m; sourceTree = "<group>"; };
 		6FD5E81116D71D1900896532 /* TripHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripHistoryViewController.xib; sourceTree = "<group>"; };
 		6FDA285F154E07720093EF2E /* NavigoResults_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoResults_iPhone.xib; sourceTree = "<group>"; };
+		6FDC79DA187A50FA007462CA /* MSLocationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSLocationButton.h; path = UIElements/MSLocationButton.h; sourceTree = "<group>"; };
+		6FDC79DB187A50FA007462CA /* MSLocationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSLocationButton.m; path = UIElements/MSLocationButton.m; sourceTree = "<group>"; };
 		6FDEA9741587955F00D363EC /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		6FDEA9751587955F00D363EC /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		6FE5988A17B8119600928D3B /* Changelog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog; sourceTree = "<group>"; };
@@ -309,8 +312,8 @@
 		6FF72BC11864EE440037A65D /* NavigoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigoneViewController.m; path = ViewControllers/NavigoneViewController.m; sourceTree = "<group>"; };
 		6FF72BC41865006A0037A65D /* MSTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTopBar.h; path = UIElements/MSTopBar.h; sourceTree = "<group>"; };
 		6FF72BC51865006A0037A65D /* MSTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTopBar.m; path = UIElements/MSTopBar.m; sourceTree = "<group>"; };
-		6FF72BC8186509AA0037A65D /* MSInfoBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSInfoBlock.h; path = UIElements/MSInfoBlock.h; sourceTree = "<group>"; };
-		6FF72BC9186509AA0037A65D /* MSInfoBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSInfoBlock.m; path = UIElements/MSInfoBlock.m; sourceTree = "<group>"; };
+		6FF72BC8186509AA0037A65D /* MSInfoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSInfoBox.h; path = UIElements/MSInfoBox.h; sourceTree = "<group>"; };
+		6FF72BC9186509AA0037A65D /* MSInfoBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSInfoBox.m; path = UIElements/MSInfoBox.m; sourceTree = "<group>"; };
 		6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryHistoryViewController.h; sourceTree = "<group>"; };
 		6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryHistoryViewController.m; sourceTree = "<group>"; };
 		6FF7AC9116B7327200567861 /* SavedRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedRouteView.xib; sourceTree = "<group>"; };
@@ -690,8 +693,10 @@
 		6FF72BC7186500770037A65D /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				6FF72BC8186509AA0037A65D /* MSInfoBlock.h */,
-				6FF72BC9186509AA0037A65D /* MSInfoBlock.m */,
+				6FF72BC8186509AA0037A65D /* MSInfoBox.h */,
+				6FF72BC9186509AA0037A65D /* MSInfoBox.m */,
+				6FDC79DA187A50FA007462CA /* MSLocationButton.h */,
+				6FDC79DB187A50FA007462CA /* MSLocationButton.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
 				6FF72BC51865006A0037A65D /* MSTopBar.m */,
 			);
@@ -892,7 +897,7 @@
 				6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */,
 				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
-				6FF72BCA186509AA0037A65D /* MSInfoBlock.m in Sources */,
+				6FF72BCA186509AA0037A65D /* MSInfoBox.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
@@ -920,6 +925,7 @@
 				6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */,
 				6FBFCFDB17D50C9100C05C1F /* TBXML+Compression.m in Sources */,
 				6FBFCFDC17D50C9100C05C1F /* TBXML+HTTP.m in Sources */,
+				6FDC79DC187A50FA007462CA /* MSLocationButton.m in Sources */,
 				6F643F891875DBEF00C27C26 /* MSSuggestionBoxCell.m in Sources */,
 				6FBFCFDD17D50C9100C05C1F /* TBXML.m in Sources */,
 			);
