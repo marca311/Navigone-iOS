@@ -37,7 +37,7 @@
         //Set up the label frame and settings
         CGRect labelFrame = CGRectMake(5, 0, 280, 20);
         label = [[UILabel alloc]initWithFrame:labelFrame];
-        [label setFont:[UIFont fontWithName:@"System" size:14]]; //Set to the system font size 14
+        [label setFont:[UIFont systemFontOfSize:14]]; //Set to the system font size 14
         [label setText:@"Origin"];
         [self addSubview:label];
         

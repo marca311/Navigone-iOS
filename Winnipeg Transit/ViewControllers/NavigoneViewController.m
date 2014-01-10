@@ -12,20 +12,26 @@
 
 #import "MSTopBar.h"
 #import "MSInfoBox.h"
+#import "MSQuery.h"
 #import "MSUtilities.h"
 
-@interface NavigoneViewController ()
+@interface NavigoneViewController () <TopBarDelegate> {
+    MSTopBar *topBar;
+}
 
 @property (nonatomic) int statusBarAdjustment;
 @property (nonatomic, retain) GMSMapView *mainMap;
 @property (nonatomic, retain) MSTopBar *topBar;
 @property (nonatomic, retain) MSInfoBox *infoBox;
 
+@property (nonatomic, retain) MSQuery *query;
+
 @end
 
 @implementation NavigoneViewController
 
 @synthesize statusBarAdjustment, mainMap, topBar, infoBox;
+@synthesize query;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -61,5 +67,17 @@
     infoBox = [[MSInfoBox alloc]initWithFrame:infoBoxRect];
     [self.view addSubview:infoBox];
 }
+
+#pragma mark - Top Bar Delegate Methods
+-(void)originSetWithLocation:(MSLocation *)location {
+    [query setOrigin:location];
+}
+-(void)destinationSetWithLocation:(MSLocation *)location {
+    [query setDestination:location];
+}
+-(void)dateSetWithDate:(NSDate *)dateAndTime {
+    [query setDate:dateAndTime];
+}
+#pragma mark -
 
 @end

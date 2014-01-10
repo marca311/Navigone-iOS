@@ -12,9 +12,9 @@
 
 @protocol TopBarDelegate <NSObject>
 
--(void)setOrigin:(MSLocation *)location;
--(void)setDestination:(MSLocation *)location;
--(void)setDateAndTime:(NSDate *)dateAndTime;
+-(void)originSetWithLocation:(MSLocation *)location;
+-(void)destinationSetWithLocation:(MSLocation *)location;
+-(void)dateSetWithDate:(NSDate *)dateAndTime;
 
 @end
 

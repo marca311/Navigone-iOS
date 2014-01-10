@@ -11,6 +11,6 @@
 @interface MSLocationButton : UIButton
 
 @property (nonatomic, retain) UILabel *titleLabel;
-@property (nonatomic, retain) UILabel *dataLabel;
+@property (nonatomic, retain) UITextView *dataLabel;
 
 @end

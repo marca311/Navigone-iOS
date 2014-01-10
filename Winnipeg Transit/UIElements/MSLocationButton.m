@@ -18,18 +18,20 @@
         float height = frame.size.height;
         float width = frame.size.width;
         
+        CGRect titleLabelFrame = CGRectMake(3, 0, width, 12);
+        titleLabel = [[UILabel alloc]initWithFrame:titleLabelFrame];
+        [titleLabel setFont:[UIFont systemFontOfSize:8]];
+        [self addSubview:titleLabel];
         
+        CGRect dataLabelFrame = CGRectMake(0, 0, width, height);
+        dataLabel = [[UITextView alloc]initWithFrame:dataLabelFrame];
+        [dataLabel setFont:[UIFont systemFontOfSize:10]];
+        [dataLabel setBackgroundColor:[UIColor clearColor]];
+        [dataLabel setEditable:NO];
+        [dataLabel setScrollEnabled:NO];
+        [self addSubview:dataLabel];
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

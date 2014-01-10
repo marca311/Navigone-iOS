@@ -7,13 +7,12 @@
 //
 
 #import "MSInfoBox.h"
+#import "MSLocationButton.h"
 
 @interface MSInfoBox ()
 
-@property (nonatomic, retain) UILabel *originLabel;
-@property (nonatomic, retain) UILabel *originInfo;
-@property (nonatomic, retain) UILabel *destinationLabel;
-@property (nonatomic, retain) UILabel *destinationInfo;
+@property (nonatomic, retain) MSLocationButton *originButton;
+@property (nonatomic, retain) MSLocationButton *destinationButton;
 @property (nonatomic, retain) UILabel *timeLabel;
 @property (nonatomic, retain) UILabel *dateLabel;
 @property (nonatomic, retain) UILabel *modeLabel;
@@ -22,15 +21,24 @@
 
 @implementation MSInfoBox
 
-@synthesize originLabel, originInfo, destinationLabel, destinationInfo, timeLabel, dateLabel, modeLabel;
+@synthesize originButton, destinationButton, timeLabel, dateLabel, modeLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-#warning Remake all the labels into large custom buttons to be clicked and edited.
-        CGRect originLabelFrame = CGRectMake(5, 0, 60, 20);
-        originLabel = [[UILabel alloc]initWithFrame:originLabelFrame];
+        float width = self.frame.size.width;
+        float height = self.frame.size.height;
+        
+        CGRect originButtonFrame = CGRectMake(5, 0, width -5, 40);
+        originButton = [[MSLocationButton alloc]initWithFrame:originButtonFrame];
+        [originButton.titleLabel setText:@"Origin"];
+        [self addSubview:originButton];
+        
+        CGRect destinationButtonFrame = CGRectMake(5, 50, width, 40);
+        destinationButton = [[MSLocationButton alloc]initWithFrame:destinationButtonFrame];
+        [destinationButton.titleLabel setText:@"Destination"];
+        [self addSubview:destinationButton];
         
         //Creates frame with rounded corners around the view
         CALayer *layer = self.layer;
@@ -44,13 +52,17 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+-(void)setOriginLocation:(MSLocation *)location {
+    [originButton.dataLabel setText:[location getHumanReadable]];
 }
-*/
+-(void)setDestinationLocation:(MSLocation *)location {
+    [destinationButton.dataLabel setText:[location getHumanReadable]];
+}
+-(void)setMode:(NSString *)mode {
+    //Nothing yet
+}
+-(void)setDate:(NSDate *)date {
+    //Nothing yet
+}
 
 @end

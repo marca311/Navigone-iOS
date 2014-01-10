@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSLocation.h"
 
 @interface MSInfoBox : UIView {
     
 }
+
+-(void)setOriginLocation:(MSLocation *)location;
+-(void)setDestinationLocation:(MSLocation *)location;
+-(void)setMode:(NSString *)mode;
+-(void)setDate:(NSDate *)date;
 
 @end
