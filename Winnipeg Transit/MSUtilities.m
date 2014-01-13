@@ -343,17 +343,31 @@
     else return [[MSLocation alloc]init];
 }
 
-+(NSString *)getTimeFormatForServer:(NSDate *)timeObject {
++(NSString *)getTimeFormatForServer:(NSDate *)date  {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"HH:mm"];
-    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:date]];
     return result;
 }
 
-+(NSString *)getDateFormatForServer:(NSDate *)timeObject {
++(NSString *)getDateFormatForServer:(NSDate *)date {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"y-MM-dd"];
-    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:timeObject]];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:date]];
+    return result;
+}
+
++(NSString *)getTimeFormatForHuman:(NSDate *)date {
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"HH:mm a"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:date]];
+    return result;
+}
+
++(NSString *)getDateFormatForHuman:(NSDate *)date {
+    NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
+    [serverFormat setDateFormat:@"dd MMMM y"];
+    NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:date]];
     return result;
 }
 

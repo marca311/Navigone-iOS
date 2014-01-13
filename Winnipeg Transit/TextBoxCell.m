@@ -10,22 +10,17 @@
 
 @implementation TextBoxCell
 
-@synthesize text;
+@synthesize textView;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        textView = [[UITextView alloc]initWithFrame:CGRectMake(5, 0, self.frame.size.width-5, self.frame.size.height)];
+        [textView setBackgroundColor:[UIColor clearColor]];
+        [textView setEditable:NO];
+        [textView setScrollEnabled:NO];
+        [self addSubview:textView];
     }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

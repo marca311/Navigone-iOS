@@ -27,5 +27,8 @@
 @property (nonatomic, weak) id <TopBarDelegate> delegate;
 
 @property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) UITextField *timeField;
+@property (nonatomic, retain) UITextField *dateField;
+@property (nonatomic, retain) UITextField *modeField;
 
 @end

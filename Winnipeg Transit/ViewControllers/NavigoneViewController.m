@@ -19,6 +19,8 @@
     MSTopBar *topBar;
 }
 
+@property (nonatomic) BOOL isOffline;
+
 @property (nonatomic) int statusBarAdjustment;
 @property (nonatomic, retain) GMSMapView *mainMap;
 @property (nonatomic, retain) MSTopBar *topBar;
@@ -30,6 +32,7 @@
 
 @implementation NavigoneViewController
 
+@synthesize isOffline;
 @synthesize statusBarAdjustment, mainMap, topBar, infoBox;
 @synthesize query;
 
@@ -43,6 +46,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Check if the client has internet and if it doesn't, show an error message and go into a pre-determined offline mode
+    if (![MSUtilities hasInternet]) {
+        isOffline = TRUE;
+    }
     
     float width = self.view.frame.size.width;
     float height = self.view.frame.size.height;

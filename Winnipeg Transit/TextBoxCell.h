@@ -10,6 +10,6 @@
 
 @interface TextBoxCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UITextView *text;
+@property (nonatomic, retain) UITextView *textView;
 
 @end

@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "MSLocation.h"
 
+@protocol MSInfoBlockDelegate <NSObject>
+
+-(void)originButtonPressed;
+-(void)destinationButtonPressed;
+-(void)timeDateButtonPressed;
+
+@end
+
 @interface MSInfoBox : UIView {
     
 }

@@ -30,6 +30,14 @@
         [dataLabel setEditable:NO];
         [dataLabel setScrollEnabled:NO];
         [self addSubview:dataLabel];
+        
+        //Test frame to show boundaries of button
+        /*
+        CALayer *layer = self.layer;
+        layer.borderWidth = 2;
+        layer.borderColor = [[UIColor blackColor] CGColor];
+        layer.opacity = 0.9;
+        layer.masksToBounds = YES; */
     }
     return self;
 }

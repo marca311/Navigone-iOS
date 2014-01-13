@@ -6,14 +6,12 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "SearchHistoryViewController.h"
+#import "SearchHistoryView.h"
 #import "MSUtilities.h"
 #import "TextBoxCell.h"
 #import "AnimationInstructionSheet.h"
 
-@interface SearchHistoryViewController ()
-
-@property (nonatomic)     id <SearchHistoryDelegate> searchHistoryDelegate;
+@interface SearchHistoryView ()
 
 @property (nonatomic, retain) NSMutableArray *savedLocations;
 @property (nonatomic, retain) NSMutableArray *previousLocations;
@@ -21,13 +19,12 @@
 
 @end
 
-@implementation SearchHistoryViewController
+@implementation SearchHistoryView
 
-@synthesize searchHistoryDelegate, savedLocations, previousLocations, fileExists;
+@synthesize delegate, savedLocations, previousLocations, fileExists;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+-(id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
         if (fileExists) {
@@ -39,16 +36,16 @@
             //Ditto
             NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
             previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
-            previousLocations = [SearchHistoryViewController checkNumberOfEntries:previousLocations];
+            previousLocations = [SearchHistoryView checkNumberOfEntries:previousLocations];
             [self saveFile];
         }
     }
     return self;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 2; }
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 2; }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return @"Saved Locations";
     } else {
@@ -56,7 +53,7 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == 0) {
         if ([savedLocations count] == 0) return @"No saved locations";
     } else {
@@ -77,7 +74,7 @@
     [self moveEntry:sourceIndexPath :destinationIndexPath];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (fileExists) {
         if (section == 0) {
             return [savedLocations count];
@@ -88,7 +85,7 @@
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *uniqueIdentifier = @"LocationCellIdentifier";
     TextBoxCell *cell = nil;
@@ -107,15 +104,15 @@
     NSInteger row = indexPath.row;
     if (section == 0) {
         MSLocation *currentLocation = [savedLocations objectAtIndex:row];
-        [cell.text setText:[currentLocation getHumanReadable]];
+        [cell.textView setText:[currentLocation getHumanReadable]];
     } else if (section == 1) {
         MSLocation *currentLocation = [previousLocations objectAtIndex:row];
-        [cell.text setText:[currentLocation getHumanReadable]];
+        [cell.textView setText:[currentLocation getHumanReadable]];
     }
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self removeLocation:indexPath];
         
@@ -128,11 +125,7 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Load the parent view controller
-    navigoViewController *theParentViewController;
-    theParentViewController = ((navigoViewController *)self.presentingViewController);
-    
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //Get info from correct array
     MSLocation *currentLocation;
     if (indexPath.section == 0) {
@@ -140,15 +133,7 @@
     } else if (indexPath.section == 1) {
         currentLocation = [previousLocations objectAtIndex:indexPath.row];
     }
-    int stage = [theParentViewController.submitButton checkCurrentLocation];
-    if (stage == 1) {
-        [theParentViewController.query setOrigin:currentLocation];
-        [theParentViewController.originLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
-    } else if (stage == 2) {
-        [theParentViewController.query setDestination:currentLocation];
-        [theParentViewController.destinationLabel setTitle:[currentLocation getHumanReadable] forState:UIControlStateNormal];
-    }
-    [self dismissModalViewControllerAnimated:YES];
+    [delegate userDidSelectLocation:currentLocation];
 }
 
 -(IBAction)editTable {
@@ -302,7 +287,7 @@
     }
     
     //Makes sure there are 20 or fewer entries in the previous locations list
-    previousLocationsList = [SearchHistoryViewController checkNumberOfEntries:previousLocationsList];
+    previousLocationsList = [SearchHistoryView checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     //Converts array of MSLocations to data file for saved locations
     NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocationsList];
@@ -312,6 +297,7 @@
     [saver setObject:previous forKey:@"PreviousLocations"];
     [MSUtilities saveDictionaryToFile:saver FileName:@"SearchHistory"];
 }
+
 //Checks to see if there are over 20 entries in search history, if there are, it removes extras.
 +(NSMutableArray *)checkNumberOfEntries:(NSMutableArray *)theArray {
     if ([theArray count] > 20) {
@@ -321,6 +307,7 @@
     }
     return theArray;
 }
+
 //Removes all occurances of a location from a specified array
 +(NSMutableArray *)removeInstancesOfLocation:(MSLocation *)location fromArray:(NSMutableArray *)array {
     NSString *locationKey = [location getServerQueryable];

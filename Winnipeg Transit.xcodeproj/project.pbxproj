@@ -45,6 +45,7 @@
 		6F1AA65B1776AB6600713207 /* MSStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65A1776AB6600713207 /* MSStep.m */; };
 		6F1AA65E1776AB7700713207 /* MSMovingStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA65D1776AB7700713207 /* MSMovingStep.m */; };
 		6F1AA6611776AB9700713207 /* MSLocationStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1AA6601776AB9700713207 /* MSLocationStep.m */; };
+		6F219D6118824B0700108332 /* MSTimeDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F219D6018824B0700108332 /* MSTimeDateButton.m */; };
 		6F24050C16DEC9CE00444E18 /* MSQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24050B16DEC9CE00444E18 /* MSQuery.m */; };
 		6F24051316DF105C00444E18 /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051216DF105C00444E18 /* MSLocation.m */; };
 		6F24051916DF107500444E18 /* MSStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051816DF107500444E18 /* MSStop.m */; };
@@ -57,7 +58,7 @@
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
 		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
-		6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */; };
+		6F5BD0A6166B190F0077B2EB /* SearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */; };
 		6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */; };
 		6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
@@ -75,7 +76,6 @@
 		6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA470ED16150C2F00C0CAD6 /* VariationDisplayTableViewController.m */; };
 		6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */; };
 		6FACB7BF1788A8D900D7598B /* TextBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FACB7BE1788A8D900D7598B /* TextBoxCell.m */; };
-		6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FACB7C01788A8F000D7598B /* TextBoxCell.xib */; };
 		6FBD3C61186F858C001BF0FE /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */; };
 		6FBD3C63186F863C001BF0FE /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD3C62186F863C001BF0FE /* libc++.dylib */; };
 		6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF8BCE1597CD07009C9AA9 /* MSSuggestionBox.m */; };
@@ -208,6 +208,8 @@
 		6F1AA65D1776AB7700713207 /* MSMovingStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMovingStep.m; sourceTree = "<group>"; };
 		6F1AA65F1776AB9700713207 /* MSLocationStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocationStep.h; sourceTree = "<group>"; };
 		6F1AA6601776AB9700713207 /* MSLocationStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocationStep.m; sourceTree = "<group>"; };
+		6F219D5F18824B0700108332 /* MSTimeDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSTimeDateButton.h; path = UIElements/MSTimeDateButton.h; sourceTree = "<group>"; };
+		6F219D6018824B0700108332 /* MSTimeDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSTimeDateButton.m; path = UIElements/MSTimeDateButton.m; sourceTree = "<group>"; };
 		6F24050A16DEC9CE00444E18 /* MSQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSQuery.h; sourceTree = "<group>"; };
 		6F24050B16DEC9CE00444E18 /* MSQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSQuery.m; sourceTree = "<group>"; };
 		6F24051116DF105C00444E18 /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
@@ -230,8 +232,8 @@
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
 		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
-		6F5BD0A4166B190F0077B2EB /* SearchHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryViewController.h; sourceTree = "<group>"; };
-		6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryViewController.m; sourceTree = "<group>"; };
+		6F5BD0A4166B190F0077B2EB /* SearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryView.h; sourceTree = "<group>"; };
+		6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryView.m; sourceTree = "<group>"; };
 		6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchHistoryView.xib; sourceTree = "<group>"; };
 		6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSIntersection.h; sourceTree = "<group>"; };
 		6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSIntersection.m; sourceTree = "<group>"; };
@@ -259,7 +261,6 @@
 		6FACB7BB178895D700D7598B /* QueryHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QueryHistoryViewController.xib; sourceTree = "<group>"; };
 		6FACB7BD1788A8D900D7598B /* TextBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBoxCell.h; sourceTree = "<group>"; };
 		6FACB7BE1788A8D900D7598B /* TextBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBoxCell.m; sourceTree = "<group>"; };
-		6FACB7C01788A8F000D7598B /* TextBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
 		6FBD3C60186F858C001BF0FE /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		6FBD3C62186F863C001BF0FE /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6FBF8BCD1597CD07009C9AA9 /* MSSuggestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSSuggestionBox.h; path = "Winnipeg Transit/MSSuggestionBox.h"; sourceTree = "<group>"; };
@@ -578,8 +579,8 @@
 				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */,
 				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
-				6F5BD0A4166B190F0077B2EB /* SearchHistoryViewController.h */,
-				6F5BD0A5166B190F0077B2EB /* SearchHistoryViewController.m */,
+				6F5BD0A4166B190F0077B2EB /* SearchHistoryView.h */,
+				6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */,
 				6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */,
 				6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */,
 				6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */,
@@ -659,7 +660,6 @@
 				6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */,
 				6FACB7BD1788A8D900D7598B /* TextBoxCell.h */,
 				6FACB7BE1788A8D900D7598B /* TextBoxCell.m */,
-				6FACB7C01788A8F000D7598B /* TextBoxCell.xib */,
 				6F9A386F16E5C1AD00D7C076 /* TripHistoryCell.h */,
 				6F9A387016E5C1AD00D7C076 /* TripHistoryCell.m */,
 				6F9A387216E5C1C300D7C076 /* TripHistoryCell.xib */,
@@ -699,6 +699,8 @@
 				6FDC79DB187A50FA007462CA /* MSLocationButton.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
 				6FF72BC51865006A0037A65D /* MSTopBar.m */,
+				6F219D5F18824B0700108332 /* MSTimeDateButton.h */,
+				6F219D6018824B0700108332 /* MSTimeDateButton.m */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -841,7 +843,6 @@
 				6F1AA64D1776A41000713207 /* stops.txt in Resources */,
 				6F1AA64E1776A41000713207 /* trips.txt in Resources */,
 				6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */,
-				6FACB7C11788A8F000D7598B /* TextBoxCell.xib in Resources */,
 				6FE5988B17B8119600928D3B /* Changelog in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,10 +900,11 @@
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
 				6FF72BCA186509AA0037A65D /* MSInfoBox.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
+				6F219D6118824B0700108332 /* MSTimeDateButton.m in Sources */,
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
 				6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */,
-				6F5BD0A6166B190F0077B2EB /* SearchHistoryViewController.m in Sources */,
+				6F5BD0A6166B190F0077B2EB /* SearchHistoryView.m in Sources */,
 				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
 				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
 				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,

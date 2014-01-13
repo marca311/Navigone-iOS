@@ -9,7 +9,7 @@
 #import "MSSuggestionBox.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MSSuggestionBoxCell.h"
-#import "SearchHistoryViewController.h"
+#import "SearchHistoryView.h"
 #import "MSUtilities.h"
 #import "apiKeys.h"
 #import "MSLocation.h"
@@ -139,8 +139,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
         //If the user clicks the last row in the table, go to search history
-        SearchHistoryViewController *searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
-        [MSUtilities presentViewController:searchHistory withParent:self.presentingViewController];
+        //SearchHistoryView *searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
+        //Start the search history view that replaces current top bar content. I need to remodel the class to allow for this.
     } else {
         MSLocation *answer;
         answer = [suggestions getLocationAtIndex:indexPath.row];

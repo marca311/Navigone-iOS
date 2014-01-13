@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UniversalViewController.h"
 #import "MSLocation.h"
 
 @protocol SearchHistoryDelegate
@@ -16,10 +15,14 @@
 
 @end
 
-@interface SearchHistoryViewController : UniversalViewController <UITableViewDataSource,UITableViewDelegate> {
-    IBOutlet UITableView *theTableView;
-    IBOutlet UIBarButtonItem *editButton;
+@interface SearchHistoryView : UIView <UITableViewDataSource,UITableViewDelegate> {
+    __weak id <SearchHistoryDelegate> delegate;
+    
+    UITableView *theTableView;
+    UIBarButtonItem *editButton;
 }
+
+@property (nonatomic, weak) id <SearchHistoryDelegate> delegate;
 
 -(IBAction)editTable;
 
