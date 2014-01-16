@@ -17,9 +17,9 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    inkscape:export-filename="/home/marcus/programming/Obj-c_Workspace/Winnipeg-Transit/Winnipeg Transit/Images/destination_flag.png"
-   inkscape:export-xdpi="200"
-   inkscape:export-ydpi="200"
-   sodipodi:docname="New document 1">
+   inkscape:export-xdpi="29.257139"
+   inkscape:export-ydpi="29.257139"
+   sodipodi:docname="destination_flag.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -39,7 +39,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="11.321107"
+     inkscape:cx="-57.091475"
      inkscape:cy="100.27606"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -74,7 +74,7 @@
        y="895.31201" />
     <path
        sodipodi:type="arc"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.76900004999999982;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:5.76167135;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path3781"
        sodipodi:cx="238.396"
        sodipodi:cy="333.13358"
