@@ -15,11 +15,8 @@
 
 @end
 
-@interface SearchHistoryView : UIView <UITableViewDataSource,UITableViewDelegate> {
+@interface SearchHistoryView : UIView {
     __weak id <SearchHistoryDelegate> delegate;
-    
-    UITableView *theTableView;
-    UIBarButtonItem *editButton;
 }
 
 @property (nonatomic, weak) id <SearchHistoryDelegate> delegate;

@@ -38,7 +38,6 @@
     centreElement = [XMLParser extractKnownChildElement:@"geographic" RootElement:centreElement];
     TBXMLElement *childElement = [XMLParser extractKnownChildElement:@"latitude" RootElement:centreElement];
     latitude = [XMLParser getValueFromElement:childElement];
-
 }
 -(void)setLongitude {
     TBXMLElement *centreElement = [XMLParser extractKnownChildElement:@"centre" RootElement:rootElement];
@@ -97,6 +96,12 @@
 -(NSString *)getUtmServerQueryable {
     NSString *result = [[NSString alloc]initWithFormat:@"utm/%@,%@", utmX, utmY];
     return result;
+}
+-(CLLocationCoordinate2D)getMapCoordinates {
+    double latitudeDouble = [latitude doubleValue];
+    double longitudeDouble = [longitude doubleValue];
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble);
+    return location;
 }
 
 #pragma mark - NSCoding section

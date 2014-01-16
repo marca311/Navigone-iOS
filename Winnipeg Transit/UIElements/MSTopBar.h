@@ -31,4 +31,8 @@
 @property (nonatomic, retain) UITextField *dateField;
 @property (nonatomic, retain) UITextField *modeField;
 
+-(void)goToOriginStage;
+-(void)goToDestinationStage;
+-(void)goToDateStage;
+
 @end

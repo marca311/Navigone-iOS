@@ -21,23 +21,18 @@
         CGRect titleLabelFrame = CGRectMake(3, 0, width, 12);
         titleLabel = [[UILabel alloc]initWithFrame:titleLabelFrame];
         [titleLabel setFont:[UIFont systemFontOfSize:8]];
+        [titleLabel setUserInteractionEnabled:NO];
         [self addSubview:titleLabel];
         
-        CGRect dataLabelFrame = CGRectMake(0, 0, width, height);
+        CGRect dataLabelFrame = CGRectMake(0, 3, width, height-3);
         dataLabel = [[UITextView alloc]initWithFrame:dataLabelFrame];
-        [dataLabel setFont:[UIFont systemFontOfSize:10]];
+        [dataLabel setFont:[UIFont systemFontOfSize:9]];
         [dataLabel setBackgroundColor:[UIColor clearColor]];
         [dataLabel setEditable:NO];
+        [dataLabel setUserInteractionEnabled:NO];
+        
         [dataLabel setScrollEnabled:NO];
         [self addSubview:dataLabel];
-        
-        //Test frame to show boundaries of button
-        /*
-        CALayer *layer = self.layer;
-        layer.borderWidth = 2;
-        layer.borderColor = [[UIColor blackColor] CGColor];
-        layer.opacity = 0.9;
-        layer.masksToBounds = YES; */
     }
     return self;
 }

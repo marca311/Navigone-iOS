@@ -22,19 +22,16 @@
     [GMSServices provideAPIKey:googleAPIKey];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[NavigoneViewController alloc] init];
-    } else {
-        self.viewController = [[NavigoneViewController alloc] init];
-    }
+    self.viewController = [[NavigoneViewController alloc] init];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+    //Sets up info for app rating prompter
     [Appirater setAppId:@"616346594"];
     [Appirater setDaysUntilPrompt:5];
     [Appirater setUsesUntilPrompt:5];
     
-    // Set the application defaults
+    // Set the application default settings
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc]init];
     [appDefaults setObject:@"4" forKey:@"walk_speed"];

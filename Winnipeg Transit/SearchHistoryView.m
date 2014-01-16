@@ -11,7 +11,13 @@
 #import "TextBoxCell.h"
 #import "AnimationInstructionSheet.h"
 
-@interface SearchHistoryView ()
+@interface SearchHistoryView () <UITableViewDataSource,UITableViewDelegate> {
+    UITableView *tableView;
+}
+
+@property (nonatomic, retain) UIButton *backButton;
+@property (nonatomic, retain) UIButton *editButton;
+@property (nonatomic, retain) UITableView *tableView;
 
 @property (nonatomic, retain) NSMutableArray *savedLocations;
 @property (nonatomic, retain) NSMutableArray *previousLocations;
@@ -21,6 +27,7 @@
 
 @implementation SearchHistoryView
 
+@synthesize backButton, editButton, tableView;
 @synthesize delegate, savedLocations, previousLocations, fileExists;
 
 -(id)initWithFrame:(CGRect)frame {
@@ -28,6 +35,7 @@
     if (self) {
         fileExists = [MSUtilities fileExists:@"SearchHistory.plist"];
         if (fileExists) {
+            
             //Load Dictionary
             NSDictionary *theFile = [MSUtilities loadDictionaryWithName:@"SearchHistory"];
             //Convert NSData in dictionary into the NSArray filled with MSLocations
@@ -38,6 +46,26 @@
             previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
             previousLocations = [SearchHistoryView checkNumberOfEntries:previousLocations];
             [self saveFile];
+            
+            //Load View elements
+            CGRect editButtonFrame = CGRectMake(5, 5, 60, 40);
+            editButton = [[UIButton alloc]initWithFrame:editButtonFrame];
+            [editButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
+            [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+            [self addSubview:editButton];
+            
+            UILabel *test = [[UILabel alloc]initWithFrame:self.frame];
+            [test setText:@"TEST"];
+            [self addSubview:test];
+            
+            //Creates frame with rounded corners around the view
+            CALayer *layer = self.layer;
+            layer.backgroundColor = [[UIColor blackColor]CGColor];
+            layer.borderWidth = 5;
+            layer.borderColor = [[UIColor blueColor] CGColor];
+            layer.cornerRadius = 10;
+            layer.opacity = 1;
+            layer.masksToBounds = YES;
         }
     }
     return self;
@@ -119,9 +147,10 @@
         if ([tableView numberOfRowsInSection:indexPath.section] == 0) {
             [tableView reloadData];
             [tableView setEditing:false animated:true];
-            [editButton setTitle:@"Edit"];
-            [editButton setStyle:UIBarButtonItemStyleBordered];
-        } else [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+            [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        } else {
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        }
     }
 }
 
@@ -137,14 +166,12 @@
 }
 
 -(IBAction)editTable {
-    if (theTableView.editing == false) {
-        [theTableView setEditing:true animated:true];
-        [editButton setTitle:@"Done"];
-        [editButton setStyle:UIBarButtonItemStyleDone];
+    if (tableView.editing == false) {
+        [tableView setEditing:true animated:true];
+        [editButton setTitle:@"Done" forState:UIControlStateNormal];
     } else {
-        [theTableView setEditing:false animated:true];
-        [editButton setTitle:@"Edit"];
-        [editButton setStyle:UIBarButtonItemStyleBordered];
+        [tableView setEditing:false animated:true];
+        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
         [self saveFile];
     }
 }
@@ -222,7 +249,7 @@
             } else [previousLocations insertObject:currentItem atIndex:secondRow];
         }
     }
-    [theTableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
+    [tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
     [self saveFile];
 }
 -(void)changeSavedName:(NSIndexPath *)index :(NSString *)newName {

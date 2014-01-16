@@ -15,13 +15,14 @@
 
 @property (nonatomic, retain) MSLocationButton *originButton;
 @property (nonatomic, retain) MSLocationButton *destinationButton;
-@property (nonatomic, retain) MSTimeDateButton *timeDateButton;
+@property (nonatomic, retain) MSTimeDateButton *dateButton;
 
 @end
 
 @implementation MSInfoBox
 
-@synthesize originButton, destinationButton, timeDateButton;
+@synthesize delegate;
+@synthesize originButton, destinationButton, dateButton;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -38,22 +39,22 @@
         //Origin button initiation
         CGRect originButtonFrame = CGRectMake(5, 0, width-5, (height/4));
         originButton = [[MSLocationButton alloc]initWithFrame:originButtonFrame];
-        [destinationButton addTarget:self action:@selector(originButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [originButton addTarget:self action:@selector(originButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [originButton.titleLabel setText:@"Origin"];
         [self addSubview:originButton];
         
         //Destination button initiation
-        CGRect destinationButtonFrame = CGRectMake(5, (height/4)+10, width-5, (height/4)-10);
+        CGRect destinationButtonFrame = CGRectMake(5, (height/4)+5, width-5, (height/4)-5);
         destinationButton = [[MSLocationButton alloc]initWithFrame:destinationButtonFrame];
         [destinationButton addTarget:self action:@selector(destinationButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [destinationButton.titleLabel setText:@"Destination"];
         [self addSubview:destinationButton];
         
         //Time and Date button initiation
-        CGRect timeDateButtonFrame = CGRectMake(5, (height/2)+10, width-5, (height/2)-10);
-        timeDateButton = [[MSTimeDateButton alloc]initWithFrame:timeDateButtonFrame];
-        [timeDateButton addTarget:self action:@selector(timeDateButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:timeDateButton];
+        CGRect dateButtonFrame = CGRectMake(5, (height/2)+5, width-5, (height/2)-5);
+        dateButton = [[MSTimeDateButton alloc]initWithFrame:dateButtonFrame];
+        [dateButton addTarget:self action:@selector(dateButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:dateButton];
         
         //Creates frame with rounded corners around the view
         CALayer *layer = self.layer;
@@ -67,6 +68,16 @@
     return self;
 }
 
+-(void)originButtonPressed {
+    [delegate originButtonPressed];
+}
+-(void)destinationButtonPressed {
+    [delegate destinationButtonPressed];
+}
+-(void)dateButtonPressed {
+    [delegate dateButtonPressed];
+}
+
 -(void)setOriginLocation:(MSLocation *)location {
     [originButton.dataLabel setText:[location getHumanReadable]];
 }
@@ -74,11 +85,11 @@
     [destinationButton.dataLabel setText:[location getHumanReadable]];
 }
 -(void)setDate:(NSDate *)date {
-    [timeDateButton.timeLabel setText:[MSUtilities getTimeFormatForHuman:date]];
-    [timeDateButton.dateLabel setText:[MSUtilities getDateFormatForHuman:date]];
+    [dateButton.timeLabel setText:[MSUtilities getTimeFormatForHuman:date]];
+    [dateButton.dateLabel setText:[MSUtilities getDateFormatForHuman:date]];
 }
 -(void)setMode:(NSString *)mode {
-    [timeDateButton.modeLabel setText:mode];
+    [dateButton.modeLabel setText:mode];
 }
 
 @end

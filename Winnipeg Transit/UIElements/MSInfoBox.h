@@ -13,13 +13,15 @@
 
 -(void)originButtonPressed;
 -(void)destinationButtonPressed;
--(void)timeDateButtonPressed;
+-(void)dateButtonPressed;
 
 @end
 
 @interface MSInfoBox : UIView {
-    
+    __weak id <MSInfoBlockDelegate> delegate;
 }
+
+@property (nonatomic, weak) id <MSInfoBlockDelegate> delegate;
 
 -(void)setOriginLocation:(MSLocation *)location;
 -(void)setDestinationLocation:(MSLocation *)location;

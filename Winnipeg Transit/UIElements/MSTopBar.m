@@ -10,6 +10,7 @@
 #import "MSTopBar.h"
 #import "MSSegment.h"
 #import "MSSuggestions.h"
+#import "SearchHistoryView.h"
 #import "MSUtilities.h"
 #import "XMLParser.h"
 
@@ -23,7 +24,9 @@
 
 @property (nonatomic) int stage; //Current stage that top bar is at (1=Origin, 2=Destination, 3=Date,Mode)
 @property (nonatomic, retain) MSLocation *origin;
+@property (nonatomic, retain) NSString *originText;
 @property (nonatomic, retain) MSLocation *destination;
+@property (nonatomic, retain) NSString *destinationText;
 @property (nonatomic, retain) NSDate *date;
 
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
@@ -34,7 +37,7 @@
 
 @synthesize textField, timeField, dateField, modeField;
 @synthesize delegate, suggestions, label, submitButton;
-@synthesize stage, origin, destination, date;
+@synthesize stage, origin, originText, destination, destinationText, date;
 @synthesize suggestionBox;
 
 -(id)initWithFrame:(CGRect)frame {
@@ -86,6 +89,8 @@
         [submitButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
         [self addSubview:submitButton];
         
+        stage = 1;
+        
         //Create the frame for the text input section
         //Frame gets modified based on how many suggestions there are for the entered destination
         
@@ -136,11 +141,39 @@
     [UIView commitAnimations];
 }
 
+-(void)hideElements {
+    [label setHidden:YES];
+    [textField setHidden:YES];
+    [submitButton setHidden:YES];
+    [suggestionBox.tableView setHidden:YES];
+}
+
+-(void)unHideElements {
+    [label setHidden:NO];
+    [textField setHidden:NO];
+    [submitButton setHidden:NO];
+    [suggestionBox.tableView setHidden:NO];
+}
+
 -(void)tableItemClicked:(MSLocation *)resultLocation {
+    if (resultLocation == NULL) {
+        //Cover existing view elements with search history view
+        CGRect newFrame = self.frame;
+        newFrame.size.height = originalHeight + 200;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        [self hideElements];
+        self.frame = newFrame;
+        [UIView commitAnimations];
+        SearchHistoryView *searchHistory = [[SearchHistoryView alloc]initWithFrame:self.frame];
+        [self addSubview:searchHistory];
+    }
     if (stage == 1) {
         origin = resultLocation;
+        [self submitData];
     } else if (stage == 2) {
         destination = resultLocation;
+        [self submitData];
         [self textFieldDidEndEditing:NULL];
     } else {
         return;
@@ -151,7 +184,7 @@
 -(void)submitData {
     if (stage == 1) {
         [delegate originSetWithLocation:origin];
-        
+        [self goToDestinationStage];
     } else if (stage == 2) {
         [delegate destinationSetWithLocation:destination];
     } else if (stage == 3) {
@@ -159,17 +192,45 @@
     }
 }
 
+-(void)saveQueryText {
+    if (stage == 1) {
+        originText = textField.text;
+    } else if (stage == 2) {
+        destinationText = textField.text;
+    }
+    textField.text = @"";
+    [suggestionBox generateSuggestions:@""];
+}
+
 -(void)goToOriginStage {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     [label setText:@"Origin"];
     [UIView commitAnimations];
+    [self saveQueryText];
+    stage = 1;
+    NSLog(@"origin button clicked");
 }
 -(void)goToDestinationStage {
+    /*
+    CGRect refreshFrame = self.frame;
+    float currentHeight = refreshFrame.size.height;
+    refreshFrame.size.height = originalHeight;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
+    self.frame = refreshFrame;
+    [UIView commitAnimations]; */
+    
     [label setText:@"Destination"];
-    [UIView commitAnimations];
+    /*
+    refreshFrame.size.height = currentHeight;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    self.frame = refreshFrame;
+    [UIView commitAnimations]; */
+    [self saveQueryText];
+    stage = 2;
+    NSLog(@"Destination button clicked");
 }
 -(void)goToDateStage {
     CGRect timeDateFrame = self.frame;
@@ -180,6 +241,8 @@
     [label setText:@"Time and Date"];
     self.frame = timeDateFrame;
     [UIView commitAnimations];
+    [self saveQueryText];
+    stage = 3;
 }
 
 @end

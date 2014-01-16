@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UniversalViewController.h"
+#import "MSTopBar.h"
 
-@interface NavigoneViewController : UniversalViewController {
-    
-}
+@interface NavigoneViewController : UniversalViewController
 
 -(id)init;
 

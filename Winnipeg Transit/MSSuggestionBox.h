@@ -23,7 +23,7 @@
 
 @property (nonatomic, weak) id <SuggestionBoxDelegate> delegate;
 
--(id)initWithFrame:(CGRect)frame andDelegate:(id<SuggestionBoxDelegate>)delegateObject;;
+-(id)initWithFrame:(CGRect)frame andDelegate:(id<SuggestionBoxDelegate>)delegateObject;
 
 -(void)generateSuggestions:(NSString *)query;
 

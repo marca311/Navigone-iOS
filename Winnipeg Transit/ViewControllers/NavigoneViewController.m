@@ -15,14 +15,16 @@
 #import "MSQuery.h"
 #import "MSUtilities.h"
 
-@interface NavigoneViewController () <TopBarDelegate> {
+@interface NavigoneViewController () <TopBarDelegate, MSInfoBlockDelegate> {
     MSTopBar *topBar;
+    MSInfoBox *infoBox;
 }
 
 @property (nonatomic) BOOL isOffline;
 
 @property (nonatomic) int statusBarAdjustment;
 @property (nonatomic, retain) GMSMapView *mainMap;
+@property (nonatomic, retain) GMSCameraPosition *camera;
 @property (nonatomic, retain) MSTopBar *topBar;
 @property (nonatomic, retain) MSInfoBox *infoBox;
 
@@ -33,13 +35,13 @@
 @implementation NavigoneViewController
 
 @synthesize isOffline;
-@synthesize statusBarAdjustment, mainMap, topBar, infoBox;
+@synthesize statusBarAdjustment, mainMap, camera, topBar, infoBox;
 @synthesize query;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+-(id)init {
+    self = [super init];
     if (self) {
-        // Custom initialization
+        //Something
     }
     return self;
 }
@@ -61,31 +63,48 @@
         statusBarAdjustment = 0;
     }
 	
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.8994 longitude:-97.1392 zoom:11];
+    camera = [GMSCameraPosition cameraWithLatitude:49.8994 longitude:-97.1392 zoom:11];
     mainMap = [GMSMapView mapWithFrame:self.view.frame camera:camera];
     [self.view addSubview:mainMap];
     
+    
     CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 60);
     topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
+    topBar.delegate = self;
     [self.view addSubview:topBar];
     
     float infoBoxY = (height / 3) * 2;
     float infoBoxHeight = (height - infoBoxY) - 5; //The 5 adds padding from the bottom of the screen
     CGRect infoBoxRect = CGRectMake(5, infoBoxY, (width/2)-10, infoBoxHeight);
     infoBox = [[MSInfoBox alloc]initWithFrame:infoBoxRect];
+    infoBox.delegate = self;
     [self.view addSubview:infoBox];
 }
 
 #pragma mark - Top Bar Delegate Methods
 -(void)originSetWithLocation:(MSLocation *)location {
     [query setOrigin:location];
+    [infoBox setOriginLocation:location];
+    GMSMarker *originMarker = [[GMSMarker alloc]init];
+    [originMarker setPosition:[location getMapCoordinates]];
+    [originMarker setMap:mainMap];
 }
 -(void)destinationSetWithLocation:(MSLocation *)location {
     [query setDestination:location];
+    [infoBox setDestinationLocation:location];
 }
 -(void)dateSetWithDate:(NSDate *)dateAndTime {
     [query setDate:dateAndTime];
 }
-#pragma mark -
+#pragma mark - Info Box Delegate Methods
+-(void)originButtonPressed {
+    [topBar goToOriginStage];
+}
+-(void)destinationButtonPressed {
+    [topBar goToDestinationStage];
+}
+-(void)dateButtonPressed {
+    [topBar goToDateStage];
+}
 
 @end

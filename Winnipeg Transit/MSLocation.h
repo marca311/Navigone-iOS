@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "TBXML.h"
 
 @class MSLocation;
@@ -35,5 +36,6 @@
 -(NSString *)getUtmHumanReadable;
 -(NSString *)getGeoServerQueryable;
 -(NSString *)getUtmServerQueryable;
+-(CLLocationCoordinate2D)getMapCoordinates;
 
 @end

@@ -106,10 +106,10 @@
     NSInteger row = indexPath.row;
     if (section == 0) {
         MSQuery *currentQuery = [savedQueries objectAtIndex:row];
-        [cell.text setText:[currentQuery getHumanReadable]];
+        [cell.textView setText:[currentQuery getHumanReadable]];
     } else if (section == 1) {
         MSQuery *currentQuery = [previousQueries objectAtIndex:row];
-        [cell.text setText:[currentQuery getHumanReadable]];
+        [cell.textView setText:[currentQuery getHumanReadable]];
     }
     return cell;
 }

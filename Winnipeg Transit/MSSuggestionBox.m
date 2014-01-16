@@ -138,9 +138,8 @@
 #pragma mark - Search History method
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == ([tableView numberOfRowsInSection:0]-1)) {
-        //If the user clicks the last row in the table, go to search history
-        //SearchHistoryView *searchHistory = [[SearchHistoryViewController alloc]initWithNibName:@"SearchHistoryView" bundle:[NSBundle mainBundle]];
-        //Start the search history view that replaces current top bar content. I need to remodel the class to allow for this.
+        //Returns null if search history button is clicked
+        [delegate tableItemClicked:NULL];
     } else {
         MSLocation *answer;
         answer = [suggestions getLocationAtIndex:indexPath.row];
