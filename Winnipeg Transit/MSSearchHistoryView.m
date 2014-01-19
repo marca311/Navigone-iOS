@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 marca311. All rights reserved.
 //
 
-#import "SearchHistoryView.h"
+#import "MSSearchHistoryView.h"
 #import "MSUtilities.h"
 #import "TextBoxCell.h"
 #import "AnimationInstructionSheet.h"
 
-@interface SearchHistoryView () <UITableViewDataSource,UITableViewDelegate> {
+@interface MSSearchHistoryView () <UITableViewDataSource,UITableViewDelegate> {
     UITableView *tableView;
 }
 
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation SearchHistoryView
+@implementation MSSearchHistoryView
 
 @synthesize backButton, editButton, tableView;
 @synthesize delegate, savedLocations, previousLocations, fileExists;
@@ -44,31 +44,40 @@
             //Ditto
             NSData *previousData = [theFile objectForKey:@"PreviousLocations"];
             previousLocations = [NSKeyedUnarchiver unarchiveObjectWithData:previousData];
-            previousLocations = [SearchHistoryView checkNumberOfEntries:previousLocations];
+            previousLocations = [MSSearchHistoryView checkNumberOfEntries:previousLocations];
             [self saveFile];
-            
-            //Load View elements
-            CGRect editButtonFrame = CGRectMake(5, 5, 60, 40);
-            editButton = [[UIButton alloc]initWithFrame:editButtonFrame];
-            [editButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
-            [editButton setTitle:@"Edit" forState:UIControlStateNormal];
-            [self addSubview:editButton];
-            
-            UILabel *test = [[UILabel alloc]initWithFrame:self.frame];
-            [test setText:@"TEST"];
-            [self addSubview:test];
-            
-            //Creates frame with rounded corners around the view
-            CALayer *layer = self.layer;
-            layer.backgroundColor = [[UIColor blackColor]CGColor];
-            layer.borderWidth = 5;
-            layer.borderColor = [[UIColor blueColor] CGColor];
-            layer.cornerRadius = 10;
-            layer.opacity = 1;
-            layer.masksToBounds = YES;
         }
+        //Load View elements
+        CGRect backButtonFrame = CGRectMake(5, 5, 60, 40);
+        backButton = [[UIButton alloc]initWithFrame:backButtonFrame];
+        [backButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
+        [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:backButton];
+        
+        CGRect editButtonFrame = CGRectMake(230, 5, 50, 40);
+        editButton = [[UIButton alloc]initWithFrame:editButtonFrame];
+        [editButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
+        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [editButton addTarget:self action:@selector(editTable) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:editButton];
+        
+        CGRect tableFrame = CGRectMake(5, 50, self.frame.size.width-20, self.frame.size.height-55);
+        tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStyleGrouped];
+        [tableView setBackgroundColor:[UIColor clearColor]];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [self addSubview:tableView];
+        
+        CALayer *layer = self.layer;
+        layer.backgroundColor = [[UIColor blackColor]CGColor];
+        layer.masksToBounds = YES;
     }
     return self;
+}
+
+-(void)backButtonPressed {
+    [delegate userDidPressBackButton];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 2; }
@@ -115,17 +124,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *uniqueIdentifier = @"LocationCellIdentifier";
+    NSString *uniqueIdentifier = @"SearchHistoryCellIdentifier";
     TextBoxCell *cell = nil;
     cell = (TextBoxCell *) [tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];
     if (cell == nil) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle]loadNibNamed:@"TextBoxCell" owner:nil options:nil];
-        for(id currentObject in topLevelObjects) {
-            if([currentObject isKindOfClass:[UITableViewCell class]]) {
-                cell = (TextBoxCell *)currentObject;
-                break;
-            }
-        }
+        cell = [[TextBoxCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:uniqueIdentifier];
     }
     
     NSInteger section = indexPath.section;
@@ -165,7 +168,7 @@
     [delegate userDidSelectLocation:currentLocation];
 }
 
--(IBAction)editTable {
+-(void)editTable {
     if (tableView.editing == false) {
         [tableView setEditing:true animated:true];
         [editButton setTitle:@"Done" forState:UIControlStateNormal];
@@ -314,7 +317,7 @@
     }
     
     //Makes sure there are 20 or fewer entries in the previous locations list
-    previousLocationsList = [SearchHistoryView checkNumberOfEntries:previousLocationsList];
+    previousLocationsList = [MSSearchHistoryView checkNumberOfEntries:previousLocationsList];
     NSMutableDictionary *saver = [[NSMutableDictionary alloc]init];
     //Converts array of MSLocations to data file for saved locations
     NSData *saved = [NSKeyedArchiver archivedDataWithRootObject:savedLocationsList];

@@ -31,6 +31,7 @@
         timeTitle = [[UILabel alloc]initWithFrame:timeTitleFrame];
         [timeTitle setFont:[UIFont systemFontOfSize:8]];
         [timeTitle setText:@"Time"];
+        [timeTitle setUserInteractionEnabled:NO];
         [self addSubview:timeTitle];
         
         CGRect timeLabelFrame = CGRectMake(0, 0, width, height/3);
@@ -39,12 +40,14 @@
         [timeLabel setBackgroundColor:[UIColor clearColor]];
         [timeLabel setEditable:NO];
         [timeLabel setScrollEnabled:NO];
+        [timeLabel setUserInteractionEnabled:NO];
         [self addSubview:timeLabel];
         
         CGRect dateTitleFrame = CGRectMake(3, height/3, width, 12);
         dateTitle = [[UILabel alloc]initWithFrame:dateTitleFrame];
         [dateTitle setFont:[UIFont systemFontOfSize:8]];
         [dateTitle setText:@"Date"];
+        [dateTitle setUserInteractionEnabled:NO];
         [self addSubview:dateTitle];
         
         CGRect dateLabelFrame = CGRectMake(0, height/3, width, height/3);
@@ -53,12 +56,14 @@
         [dateLabel setBackgroundColor:[UIColor clearColor]];
         [dateLabel setEditable:NO];
         [dateLabel setScrollEnabled:NO];
+        [dateLabel setUserInteractionEnabled:NO];
         [self addSubview:dateLabel];
         
         CGRect modeTitleFrame = CGRectMake(3, (height/3)*2, width, 12);
         modeTitle = [[UILabel alloc]initWithFrame:modeTitleFrame];
         [modeTitle setFont:[UIFont systemFontOfSize:8]];
         [modeTitle setText:@"Mode"];
+        [modeTitle setUserInteractionEnabled:NO];
         [self addSubview:modeTitle];
         
         CGRect modeLabelFrame = CGRectMake(0, (height/3)*2, width, height/3);
@@ -67,6 +72,7 @@
         [modeLabel setBackgroundColor:[UIColor clearColor]];
         [modeLabel setEditable:NO];
         [modeLabel setScrollEnabled:NO];
+        [modeLabel setUserInteractionEnabled:NO];
         [self addSubview:modeLabel];
     }
     return self;

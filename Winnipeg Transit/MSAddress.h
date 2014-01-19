@@ -22,6 +22,13 @@
 //Method for converting old location format to new
 -(void)setKey:(NSString *)input;
 
+//MSAddress has all these to allow MSMonument to have these locally
+-(NSString *)getLatitude;
+-(NSString *)getLongitude;
+-(NSString *)getUtmZone;
+-(NSString *)getUtmX;
+-(NSString *)getUtmY;
+
 -(NSString *)getHumanReadable;
 -(NSString *)getServerQueryable;
 

@@ -29,13 +29,15 @@
         [allRows removeObjectAtIndex:0];
         self.rows = allRows;
         
+        //Generate array of columns
         NSMutableArray *allColumns = [[NSMutableArray alloc]initWithCapacity:self.columnNames.count];
         for (int i = 0; i < self.columnNames.count; i++) {
             NSMutableArray *currentColumn = [[NSMutableArray alloc]initWithCapacity:self.rows.count];
-            for (int c = 0; c < self.rows.count; i++) {
-                NSArray *rowContents = [[rows objectAtIndex:3]componentsSeparatedByString:@","]; //change the 3
+            for (int j = 0; j < self.rows.count; j++) {
+                NSArray *rowContents = [[rows objectAtIndex:j]componentsSeparatedByString:@","];
                 [currentColumn addObject:[rowContents objectAtIndex:i]];
             }
+            [allColumns addObject:currentColumn];
         }
     }
     return self;
@@ -44,6 +46,25 @@
 -(NSArray *)contentsForRow:(int)row {
     NSString *rowString = [rows objectAtIndex:row];
     return [rowString componentsSeparatedByString:@","];
+}
+-(NSString *)contentsForRow:(int)row andColumn:(int)column {
+    NSString *rowString = [rows objectAtIndex:row];
+    NSArray *rowArray = [rowString componentsSeparatedByString:@","];
+    return [rowArray objectAtIndex:column];
+}
+
+-(NSArray *)contentsForColumn:(int)column {
+    
+}
+-(NSArray *)contentsForColumnFromString:(NSString *)column {
+    
+}
+
+-(NSArray *)findContentsOfRowContainingString:(NSString *)query {
+    
+}
+-(NSArray *)findContentsOfRowContainingString:(NSString *)query fromColumn:(int)column {
+    
 }
 
 @end

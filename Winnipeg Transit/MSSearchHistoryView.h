@@ -9,19 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "MSLocation.h"
 
-@protocol SearchHistoryDelegate
+@protocol MSSearchHistoryDelegate
 
 -(void)userDidSelectLocation:(MSLocation *)location;
+-(void)userDidPressBackButton;
 
 @end
 
-@interface SearchHistoryView : UIView {
-    __weak id <SearchHistoryDelegate> delegate;
+@interface MSSearchHistoryView : UIView {
+    __weak id <MSSearchHistoryDelegate> delegate;
 }
 
-@property (nonatomic, weak) id <SearchHistoryDelegate> delegate;
+@property (nonatomic, weak) id <MSSearchHistoryDelegate> delegate;
 
--(IBAction)editTable;
+-(void)editTable;
 
 #pragma mark - File Handling methods
 

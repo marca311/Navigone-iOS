@@ -8,7 +8,7 @@
 
 #import "MSQuery.h"
 #import "apiKeys.h"
-#import "SearchHistoryView.h"
+#import "MSSearchHistoryView.h"
 #import "MSUtilities.h"
 #import "QueryHistoryViewController.h"
 
@@ -111,8 +111,8 @@
 
 //Adds origin and destination entries to Search History and Query History
 -(void)addEntriesToHistory {
-    [SearchHistoryView addEntryToFile: origin];
-    [SearchHistoryView addEntryToFile: destination];
+    [MSSearchHistoryView addEntryToFile: origin];
+    [MSSearchHistoryView addEntryToFile: destination];
     [QueryHistoryViewController addEntryToFile:self];
 }
 

@@ -78,6 +78,22 @@
 }
 
 //Getter methods
+-(NSString *)getLatitude {
+    return latitude;
+}
+-(NSString *)getLongitude {
+    return longitude;
+}
+-(NSString *)getUtmZone {
+    return utmZone;
+}
+-(NSString *)getUtmX {
+    return utmX;
+}
+-(NSString *)getUtmY {
+    return utmY;
+}
+
 -(NSString *)getHumanReadable {
     return name;
 }

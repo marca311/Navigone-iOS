@@ -10,12 +10,14 @@
 #import "MSTopBar.h"
 #import "MSSegment.h"
 #import "MSSuggestions.h"
-#import "SearchHistoryView.h"
+#import "MSSearchHistoryView.h"
 #import "MSUtilities.h"
 #import "XMLParser.h"
 
-@interface MSTopBar () {
+@interface MSTopBar () <MSSearchHistoryDelegate> {
     float originalHeight;
+    float previousHeight;
+    MSSearchHistoryView *searchHistory;
 }
 
 @property (nonatomic, retain) MSSuggestions *suggestions;
@@ -30,6 +32,7 @@
 @property (nonatomic, retain) NSDate *date;
 
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
+@property (nonatomic, retain) MSSearchHistoryView *searchHistory;
 
 @end
 
@@ -38,7 +41,7 @@
 @synthesize textField, timeField, dateField, modeField;
 @synthesize delegate, suggestions, label, submitButton;
 @synthesize stage, origin, originText, destination, destinationText, date;
-@synthesize suggestionBox;
+@synthesize suggestionBox, searchHistory;
 
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -128,7 +131,7 @@
     [UIView setAnimationDuration:0.3];
     self.frame = mainFrame;
     [UIView commitAnimations];
-    [suggestionBox dismissModalViewControllerAnimated:NO];
+    [suggestionBox.tableView removeFromSuperview];
 }
 
 -(void)suggestionBoxFrameWillChange:(CGRect)frame {
@@ -158,6 +161,7 @@
 -(void)tableItemClicked:(MSLocation *)resultLocation {
     if (resultLocation == NULL) {
         //Cover existing view elements with search history view
+        previousHeight = self.frame.size.height;
         CGRect newFrame = self.frame;
         newFrame.size.height = originalHeight + 200;
         [UIView beginAnimations:nil context:nil];
@@ -165,18 +169,44 @@
         [self hideElements];
         self.frame = newFrame;
         [UIView commitAnimations];
-        SearchHistoryView *searchHistory = [[SearchHistoryView alloc]initWithFrame:self.frame];
+        CGRect searchHistoryFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        searchHistory = [[MSSearchHistoryView alloc]initWithFrame:searchHistoryFrame];
+        searchHistory.delegate = self;
         [self addSubview:searchHistory];
-    }
-    if (stage == 1) {
-        origin = resultLocation;
-        [self submitData];
-    } else if (stage == 2) {
-        destination = resultLocation;
-        [self submitData];
-        [self textFieldDidEndEditing:NULL];
     } else {
-        return;
+        if (stage == 1) {
+            origin = resultLocation;
+        } else if (stage == 2) {
+            destination = resultLocation;
+        } else {
+            return;
+        }
+        [self submitData];
+    }
+}
+
+-(void)userDidPressBackButton {
+    [searchHistory removeFromSuperview];
+    //Set frame back to previous size
+    CGRect originalSize = self.frame;
+    originalSize.size.height = previousHeight;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    self.frame = originalSize;
+    [UIView commitAnimations];
+    [self unHideElements];
+}
+
+-(void)userDidSelectLocation:(MSLocation *)location {
+    [searchHistory removeFromSuperview];
+    [self restoreFrameToOriginalSize];
+    [self unHideElements];
+    if (stage == 1) {
+        origin = location;
+        [self goToDestinationStage];
+    } else if (stage == 2) {
+        destination = location;
+        [self goToDateStage];
     }
     [self submitData];
 }
@@ -187,6 +217,7 @@
         [self goToDestinationStage];
     } else if (stage == 2) {
         [delegate destinationSetWithLocation:destination];
+        [self goToDateStage];
     } else if (stage == 3) {
         //Submit time and date and mode then do all empty field checks on viewcontroller side, go back to missing field if applicable
     }
@@ -202,45 +233,43 @@
     [suggestionBox generateSuggestions:@""];
 }
 
+-(void)restoreFrameToOriginalSize {
+    if (![textField isFirstResponder]) {
+        CGRect originalSize = self.frame;
+        originalSize.size.height = originalHeight;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        self.frame = originalSize;
+        [UIView commitAnimations];
+    }
+}
+
 -(void)goToOriginStage {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
     [label setText:@"Origin"];
-    [UIView commitAnimations];
+    [self restoreFrameToOriginalSize];
     [self saveQueryText];
     stage = 1;
-    NSLog(@"origin button clicked");
 }
 -(void)goToDestinationStage {
-    /*
-    CGRect refreshFrame = self.frame;
-    float currentHeight = refreshFrame.size.height;
-    refreshFrame.size.height = originalHeight;
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.frame = refreshFrame;
-    [UIView commitAnimations]; */
-    
     [label setText:@"Destination"];
-    /*
-    refreshFrame.size.height = currentHeight;
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.frame = refreshFrame;
-    [UIView commitAnimations]; */
+    [self restoreFrameToOriginalSize];
     [self saveQueryText];
     stage = 2;
-    NSLog(@"Destination button clicked");
 }
 -(void)goToDateStage {
     CGRect timeDateFrame = self.frame;
-    timeDateFrame.size.height = originalHeight + 40;
+    
+    timeDateFrame.size.height = originalHeight + 100;
+    [textField resignFirstResponder];
+    [label setText:@"Time and Date"];
     //Animation block
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    [label setText:@"Time and Date"];
     self.frame = timeDateFrame;
     [UIView commitAnimations];
+    [self addSubview:timeField];
+    [self addSubview:dateField];
+    [self addSubview:modeField];
     [self saveQueryText];
     stage = 3;
 }

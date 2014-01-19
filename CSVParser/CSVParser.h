@@ -13,6 +13,7 @@
 -(id)initWithContentsOfFile:(NSString *)pathToFile;
 
 -(NSArray *)contentsForRow:(int)row;
+-(NSString *)contentsForRow:(int)row andColumn:(int)column;
 
 -(NSArray *)contentsForColumn:(int)column;
 -(NSArray *)contentsForColumnFromString:(NSString *)column;

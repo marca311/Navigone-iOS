@@ -58,7 +58,7 @@
 		6F3D82E8162B423600313642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3D82E7162B423600313642 /* SystemConfiguration.framework */; };
 		6F519A0A1502F84200395F84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F519A091502F84200395F84 /* XMLParser.m */; };
 		6F5802F7158817660031A17E /* MSSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5802F6158817660031A17E /* MSSeparator.m */; };
-		6F5BD0A6166B190F0077B2EB /* SearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */; };
+		6F5BD0A6166B190F0077B2EB /* MSSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A5166B190F0077B2EB /* MSSearchHistoryView.m */; };
 		6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */; };
 		6F5E7C7D16ED5E08009F9DE3 /* MSIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */; };
 		6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F60B8671526AB0200FFCD99 /* Icon@2x.png */; };
@@ -106,6 +106,9 @@
 		6FE5988B17B8119600928D3B /* Changelog in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5988A17B8119600928D3B /* Changelog */; };
 		6FE6D00517EFB200006B3ADF /* cell_separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6D00417EFB200006B3ADF /* cell_separator.png */; };
 		6FE6D00717EFB210006B3ADF /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE6D00617EFB210006B3ADF /* separator.png */; };
+		6FE95BFA18884FAC00655ED8 /* destination_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE95BF818884FAC00655ED8 /* destination_flag.png */; };
+		6FE95BFB18884FAC00655ED8 /* origin_flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE95BF918884FAC00655ED8 /* origin_flag.png */; };
+		6FE95BFD1888521200655ED8 /* origin_flag_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE95BFC1888521200655ED8 /* origin_flag_small.png */; };
 		6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */; };
 		6FF56FA4158BC49000CC015C /* VariationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */; };
 		6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF56FA7158BC4C500CC015C /* VariationTableViewCell.xib */; };
@@ -232,8 +235,8 @@
 		6F519A091502F84200395F84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		6F5802F5158817660031A17E /* MSSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSeparator.h; sourceTree = "<group>"; };
 		6F5802F6158817660031A17E /* MSSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSeparator.m; sourceTree = "<group>"; };
-		6F5BD0A4166B190F0077B2EB /* SearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryView.h; sourceTree = "<group>"; };
-		6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryView.m; sourceTree = "<group>"; };
+		6F5BD0A4166B190F0077B2EB /* MSSearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSearchHistoryView.h; sourceTree = "<group>"; };
+		6F5BD0A5166B190F0077B2EB /* MSSearchHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSearchHistoryView.m; sourceTree = "<group>"; };
 		6F5BD0A8166B1DE40077B2EB /* SearchHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchHistoryView.xib; sourceTree = "<group>"; };
 		6F5E7C7B16ED5E08009F9DE3 /* MSIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSIntersection.h; sourceTree = "<group>"; };
 		6F5E7C7C16ED5E08009F9DE3 /* MSIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSIntersection.m; sourceTree = "<group>"; };
@@ -303,6 +306,9 @@
 		6FE5988A17B8119600928D3B /* Changelog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog; sourceTree = "<group>"; };
 		6FE6D00417EFB200006B3ADF /* cell_separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_separator.png; path = Images/cell_separator.png; sourceTree = "<group>"; };
 		6FE6D00617EFB210006B3ADF /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = separator.png; path = Images/separator.png; sourceTree = "<group>"; };
+		6FE95BF818884FAC00655ED8 /* destination_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = destination_flag.png; path = Images/destination_flag.png; sourceTree = "<group>"; };
+		6FE95BF918884FAC00655ED8 /* origin_flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = origin_flag.png; path = Images/origin_flag.png; sourceTree = "<group>"; };
+		6FE95BFC1888521200655ED8 /* origin_flag_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = origin_flag_small.png; path = Images/origin_flag_small.png; sourceTree = "<group>"; };
 		6FEA7B9C152D53BD0026469A /* NavigoView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigoView_iPhone.xib; sourceTree = "<group>"; };
 		6FF56FA2158BC49000CC015C /* VariationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariationTableViewCell.h; sourceTree = "<group>"; };
 		6FF56FA3158BC49000CC015C /* VariationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariationTableViewCell.m; sourceTree = "<group>"; };
@@ -579,8 +585,8 @@
 				6F5802F6158817660031A17E /* MSSeparator.m */,
 				6FCB386D15ED973100FC4557 /* AnimationInstructionSheet.h */,
 				6FCB386E15ED973100FC4557 /* AnimationInstructionSheet.m */,
-				6F5BD0A4166B190F0077B2EB /* SearchHistoryView.h */,
-				6F5BD0A5166B190F0077B2EB /* SearchHistoryView.m */,
+				6F5BD0A4166B190F0077B2EB /* MSSearchHistoryView.h */,
+				6F5BD0A5166B190F0077B2EB /* MSSearchHistoryView.m */,
 				6FF7AC8F16B7327200567861 /* QueryHistoryViewController.h */,
 				6FF7AC9016B7327200567861 /* QueryHistoryViewController.m */,
 				6FD5E80F16D71D1900896532 /* TripHistoryViewController.h */,
@@ -628,6 +634,9 @@
 		6FE6D00817EFB21D006B3ADF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6FE95BFC1888521200655ED8 /* origin_flag_small.png */,
+				6FE95BF818884FAC00655ED8 /* destination_flag.png */,
+				6FE95BF918884FAC00655ED8 /* origin_flag.png */,
 				6FE6D00417EFB200006B3ADF /* cell_separator.png */,
 				6FE6D00617EFB210006B3ADF /* separator.png */,
 			);
@@ -816,7 +825,9 @@
 				6F60B8681526AB0200FFCD99 /* Icon@2x.png in Resources */,
 				6F60B86A1526AB0C00FFCD99 /* Icon.png in Resources */,
 				6F60B86C1526AB6B00FFCD99 /* Icon-72.png in Resources */,
+				6FE95BFD1888521200655ED8 /* origin_flag_small.png in Resources */,
 				6FEA7B9D152D53BD0026469A /* NavigoView_iPhone.xib in Resources */,
+				6FE95BFA18884FAC00655ED8 /* destination_flag.png in Resources */,
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
 				6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */,
@@ -840,6 +851,7 @@
 				6F1AA64A1776A41000713207 /* routes.txt in Resources */,
 				6F1AA64B1776A41000713207 /* shapes.txt in Resources */,
 				6F1AA64C1776A41000713207 /* stop_times.txt in Resources */,
+				6FE95BFB18884FAC00655ED8 /* origin_flag.png in Resources */,
 				6F1AA64D1776A41000713207 /* stops.txt in Resources */,
 				6F1AA64E1776A41000713207 /* trips.txt in Resources */,
 				6FACB7BC178895D700D7598B /* QueryHistoryViewController.xib in Resources */,
@@ -904,7 +916,7 @@
 				6FCB386F15ED973100FC4557 /* AnimationInstructionSheet.m in Sources */,
 				6FA470EE16150C2F00C0CAD6 /* VariationDisplayTableViewController.m in Sources */,
 				6F9E37E4186A30FF00F17A24 /* apiKeys.m in Sources */,
-				6F5BD0A6166B190F0077B2EB /* SearchHistoryView.m in Sources */,
+				6F5BD0A6166B190F0077B2EB /* MSSearchHistoryView.m in Sources */,
 				6FF7AC9216B7327200567861 /* QueryHistoryViewController.m in Sources */,
 				6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */,
 				6FD5E7E716D6F51F00896532 /* MSTextField.m in Sources */,

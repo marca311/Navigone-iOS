@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSLocation.h"
 #import "MSSuggestionBox.h"
+#import "MSSearchHistoryView.h"
 
 @protocol TopBarDelegate <NSObject>
 
@@ -18,10 +19,11 @@
 
 @end
 
-@interface MSTopBar : UIView <SuggestionBoxDelegate, UITextFieldDelegate> {
+@interface MSTopBar : UIView <SuggestionBoxDelegate, UITextFieldDelegate, MSSearchHistoryDelegate> {
     __weak id <TopBarDelegate> delegate;
     
     UITextField *textField;
+    
 }
 
 @property (nonatomic, weak) id <TopBarDelegate> delegate;

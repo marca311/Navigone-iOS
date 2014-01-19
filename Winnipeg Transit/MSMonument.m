@@ -52,6 +52,11 @@
 -(void)setMonumentAddress {
     TBXMLElement *addressElement = [XMLParser extractKnownChildElement:@"address" RootElement:rootElement];
     monumentAddress = [[MSAddress alloc]initWithElement:addressElement];
+    latitude = [monumentAddress getLatitude];
+    longitude = [monumentAddress getLongitude];
+    utmZone = [monumentAddress getUtmZone];
+    utmX = [monumentAddress getUtmX];
+    utmY = [monumentAddress getUtmY];
 }
 -(void)setHumanReadable {
     NSString *address = [monumentAddress getHumanReadable];

@@ -41,7 +41,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        //Something
+        //Something goes in here, I'm not sure yet.
     }
     return self;
 }
@@ -68,14 +68,14 @@
     [self.view addSubview:mainMap];
     
     
-    CGRect topBarRect = CGRectMake(15, 5 + statusBarAdjustment, 290, 60);
+    CGRect topBarRect = CGRectMake((width/2)-145, 5 + statusBarAdjustment, 290, 60);
     topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
     topBar.delegate = self;
     [self.view addSubview:topBar];
     
-    float infoBoxY = (height / 3) * 2;
-    float infoBoxHeight = (height - infoBoxY) - 5; //The 5 adds padding from the bottom of the screen
-    CGRect infoBoxRect = CGRectMake(5, infoBoxY, (width/2)-10, infoBoxHeight);
+    float infoBoxY = height - 184;
+    float infoBoxHeight = 184; //The 5 adds padding from the bottom of the screen
+    CGRect infoBoxRect = CGRectMake(5, infoBoxY, 150, infoBoxHeight);
     infoBox = [[MSInfoBox alloc]initWithFrame:infoBoxRect];
     infoBox.delegate = self;
     [self.view addSubview:infoBox];
@@ -87,11 +87,20 @@
     [infoBox setOriginLocation:location];
     GMSMarker *originMarker = [[GMSMarker alloc]init];
     [originMarker setPosition:[location getMapCoordinates]];
+    [originMarker setIcon:[UIImage imageNamed:@"origin_flag.png"]];
+    camera = [GMSCameraPosition cameraWithTarget:[location getMapCoordinates] zoom:11];
+    [mainMap animateToCameraPosition:camera];
     [originMarker setMap:mainMap];
 }
 -(void)destinationSetWithLocation:(MSLocation *)location {
     [query setDestination:location];
     [infoBox setDestinationLocation:location];
+    GMSMarker *destinationMarker = [[GMSMarker alloc]init];
+    [destinationMarker setPosition:[location getMapCoordinates]];
+    [destinationMarker setIcon:[UIImage imageNamed:@"destination_flag.png"]];
+    camera = [GMSCameraPosition cameraWithTarget:[location getMapCoordinates] zoom:11];
+    [mainMap animateToCameraPosition:camera];
+    [destinationMarker setMap:mainMap];
 }
 -(void)dateSetWithDate:(NSDate *)dateAndTime {
     [query setDate:dateAndTime];
