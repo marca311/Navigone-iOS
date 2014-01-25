@@ -65,14 +65,14 @@
         [self addSubview:textField];
         
         //Set up the time field frame and settings
-        CGRect timeFieldFrame = CGRectMake(5, 25, 220, 30);
+        CGRect timeFieldFrame = CGRectMake(5, 25, 70, 30);
         timeField = [[UITextField alloc]initWithFrame:timeFieldFrame];
         [timeField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [timeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
         timeField.delegate = self;
         
         //Set up the date field frame and settings
-        CGRect dateFieldFrame = CGRectMake(5, 25, 220, 30);
+        CGRect dateFieldFrame = CGRectMake(85, 25, 140, 30);
         dateField = [[UITextField alloc]initWithFrame:dateFieldFrame];
         [textField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [textField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
