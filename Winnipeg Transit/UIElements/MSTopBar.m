@@ -65,25 +65,28 @@
         [self addSubview:textField];
         
         //Set up the time field frame and settings
-        CGRect timeFieldFrame = CGRectMake(5, 25, 70, 30);
+        CGRect timeFieldFrame = CGRectMake(5, 25, 100, 30);
         timeField = [[UITextField alloc]initWithFrame:timeFieldFrame];
         [timeField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [timeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
-        timeField.delegate = self;
+        [timeField setHidden:true];
+        [self addSubview:timeField];
         
         //Set up the date field frame and settings
-        CGRect dateFieldFrame = CGRectMake(85, 25, 140, 30);
+        CGRect dateFieldFrame = CGRectMake(115, 25, 110, 30);
         dateField = [[UITextField alloc]initWithFrame:dateFieldFrame];
-        [textField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
-        [textField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
-        textField.delegate = self;
+        [dateField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
+        [dateField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
+        [dateField setHidden:true];
+        [self addSubview:dateField];
         
         //Set up the mode field frame and settings
-        CGRect modeFieldFrame = CGRectMake(5, 25, 220, 30);
+        CGRect modeFieldFrame = CGRectMake(5, 65, 150, 30);
         modeField = [[UITextField alloc]initWithFrame:modeFieldFrame];
         [modeField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [modeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
-        modeField.delegate = self;
+        [modeField setHidden:true];
+        [self addSubview:modeField];
         
         //Set up the submit button frame and settings
         CGRect submitButtonFrame = CGRectMake(233, 25, 52, 30);
@@ -234,7 +237,16 @@
 }
 
 -(void)restoreFrameToOriginalSize {
+    //If the text field is no longer the first responder
     if (![textField isFirstResponder]) {
+        //Shrink view to original height
+        CGRect originalSize = self.frame;
+        originalSize.size.height = originalHeight;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        self.frame = originalSize;
+        [UIView commitAnimations];
+    } else {
         CGRect originalSize = self.frame;
         originalSize.size.height = originalHeight;
         [UIView beginAnimations:nil context:nil];
@@ -244,22 +256,56 @@
     }
 }
 
+-(void)moveSubmitButton:(int)nextStage {
+    //If the next stage is the time/date stage
+    if (nextStage == 3) {
+        //Move the submit button down
+        CGRect submitButtonFrame = submitButton.frame;
+        submitButtonFrame.origin.y = 65;
+        //Animate
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        submitButton.frame = submitButtonFrame;
+        [UIView commitAnimations];
+    } else { //Otherwise
+        //Move the submit back to where it was
+        CGRect submitButtonFrame = submitButton.frame;
+        submitButtonFrame.origin.y = 25;
+        //Animate
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        submitButton.frame = submitButtonFrame;
+        [UIView commitAnimations];
+    }
+}
+
 -(void)goToOriginStage {
     [label setText:@"Origin"];
+    [self moveSubmitButton:1];
     [self restoreFrameToOriginalSize];
+    [textField setHidden:false];
+    [timeField setHidden:true];
+    [dateField setHidden:true];
+    [modeField setHidden:true];
     [self saveQueryText];
     stage = 1;
 }
 -(void)goToDestinationStage {
     [label setText:@"Destination"];
+    [self moveSubmitButton:2];
     [self restoreFrameToOriginalSize];
+    [textField setHidden:false];
+    [timeField setHidden:true];
+    [dateField setHidden:true];
+    [modeField setHidden:true];
     [self saveQueryText];
     stage = 2;
 }
 -(void)goToDateStage {
     CGRect timeDateFrame = self.frame;
+    [self moveSubmitButton:3];
     
-    timeDateFrame.size.height = originalHeight + 100;
+    timeDateFrame.size.height = originalHeight + 40;
     [textField resignFirstResponder];
     [label setText:@"Time and Date"];
     //Animation block
@@ -267,9 +313,10 @@
     [UIView setAnimationDuration:0.3];
     self.frame = timeDateFrame;
     [UIView commitAnimations];
-    [self addSubview:timeField];
-    [self addSubview:dateField];
-    [self addSubview:modeField];
+    [textField setHidden:true];
+    [timeField setHidden:false];
+    [dateField setHidden:false];
+    [modeField setHidden:false];
     [self saveQueryText];
     stage = 3;
 }
