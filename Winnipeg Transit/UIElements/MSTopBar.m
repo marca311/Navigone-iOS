@@ -14,7 +14,7 @@
 #import "MSUtilities.h"
 #import "XMLParser.h"
 
-@interface MSTopBar () <MSSearchHistoryDelegate> {
+@interface MSTopBar () <MSSearchHistoryDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     float originalHeight;
     float previousHeight;
     MSSearchHistoryView *searchHistory;
@@ -30,6 +30,10 @@
 @property (nonatomic, retain) MSLocation *destination;
 @property (nonatomic, retain) NSString *destinationText;
 @property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) UIDatePicker *timePicker;
+@property (nonatomic, retain) UIDatePicker *datePicker;
+@property (nonatomic, retain) NSArray *modeArray;
+@property (nonatomic, retain) NSString *modeString;
 
 @property (nonatomic, retain) MSSuggestionBox *suggestionBox;
 @property (nonatomic, retain) MSSearchHistoryView *searchHistory;
@@ -40,7 +44,7 @@
 
 @synthesize textField, timeField, dateField, modeField;
 @synthesize delegate, suggestions, label, submitButton;
-@synthesize stage, origin, originText, destination, destinationText, date;
+@synthesize stage, origin, originText, destination, destinationText, date, timePicker, datePicker, modeArray, modeString;
 @synthesize suggestionBox, searchHistory;
 
 -(id)initWithFrame:(CGRect)frame {
@@ -67,16 +71,20 @@
         //Set up the time field frame and settings
         CGRect timeFieldFrame = CGRectMake(5, 25, 100, 30);
         timeField = [[UITextField alloc]initWithFrame:timeFieldFrame];
-        [timeField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [timeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
+        [timeField setText:@"23:30 AM"];
+        [timeField setInputView:[self createTimePicker]];
+        [dateField setInputAccessoryView:[self createAccessoryView:@"time"]];
         [timeField setHidden:true];
         [self addSubview:timeField];
         
         //Set up the date field frame and settings
-        CGRect dateFieldFrame = CGRectMake(115, 25, 110, 30);
+        CGRect dateFieldFrame = CGRectMake(110, 25, 175, 30);
         dateField = [[UITextField alloc]initWithFrame:dateFieldFrame];
-        [dateField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [dateField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
+        [dateField setText:@"27 September 2020"];
+        [dateField setInputView:[self createDatePicker]];
+        [dateField setInputAccessoryView:[self createAccessoryView:@"date"]];
         [dateField setHidden:true];
         [self addSubview:dateField];
         
@@ -89,7 +97,7 @@
         [self addSubview:modeField];
         
         //Set up the submit button frame and settings
-        CGRect submitButtonFrame = CGRectMake(233, 25, 52, 30);
+        CGRect submitButtonFrame = CGRectMake(235, 25, 55, 30);
         submitButton = [[UIButton alloc]initWithFrame:submitButtonFrame];
         [submitButton setTitle:@"Next" forState:UIControlStateNormal];
         [submitButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
@@ -159,6 +167,40 @@
     [textField setHidden:NO];
     [submitButton setHidden:NO];
     [suggestionBox.tableView setHidden:NO];
+}
+
+-(UIDatePicker *)createTimePicker {
+    timePicker.datePickerMode = UIDatePickerModeTime;
+    [timePicker setDate:[NSDate date]];
+    timePicker = [[UIDatePicker alloc]init];
+    timePicker.datePickerMode = UIDatePickerModeTime;
+    [timePicker addTarget:self action:@selector(datePickerValueChanged) forControlEvents:UIControlEventValueChanged];
+    timeField.inputView = timePicker;
+    return timePicker;
+}
+
+-(UIDatePicker *)createDatePicker {
+    datePicker = [[UIDatePicker alloc]init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    [datePicker addTarget:self action:@selector(datePickerValueChanged) forControlEvents:UIControlEventValueChanged];
+    dateField.inputView = datePicker;
+    return datePicker;
+}
+
+-(UIToolbar *)createAccessoryView:(NSString *)field {
+	UIToolbar *pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 44.0f)];
+	pickerBar.tintColor = [UIColor darkGrayColor];
+	
+	NSMutableArray *items = [NSMutableArray array];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap)];
+    UIBarButtonItem *nowButton = [[UIBarButtonItem alloc]initWithTitle:@"Now" style:UIBarButtonItemStyleDone target:self action:@selector(resetTimePicker)];
+    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]initWithTitle:@"Today" style:UIBarButtonItemStyleDone target:self action:@selector(resetDatePicker)];
+	[items addObject:doneButton];
+    if ([field isEqualToString:@"time"]) [items addObject:nowButton];
+    if ([field isEqualToString:@"date"]) [items addObject:todayButton];
+	pickerBar.items = items;
+	
+	return pickerBar;
 }
 
 -(void)tableItemClicked:(MSLocation *)resultLocation {
@@ -320,5 +362,29 @@
     [self saveQueryText];
     stage = 3;
 }
+
+#pragma mark - Picker specific methods
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView { return 1; }
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component { return [modeArray count]; }
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *result = [modeArray objectAtIndex:row];
+    return result;
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    modeString = [[NSString alloc]init];
+    modeString = [modeArray objectAtIndex:row];
+    modeField.text = modeString;
+}
+
+-(void)datePickerValueChanged {
+    NSString *display = [MSUtilities getDateFormatForHuman:timePicker.date];
+    timeField.text = display;
+    display = [MSUtilities getDateFormatForHuman:datePicker.date];
+    dateField.text = display;
+}
+
+#pragma mark -
 
 @end
