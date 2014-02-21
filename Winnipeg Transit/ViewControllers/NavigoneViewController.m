@@ -69,7 +69,7 @@
     
     
     CGRect topBarRect = CGRectMake((width/2)-145, 5 + statusBarAdjustment, 290, 60);
-    topBar = [[MSTopBar alloc]initWithFrame:topBarRect];
+    topBar = [[MSTopBar alloc]initWithFrame:topBarRect andParentViewController:self];
     topBar.delegate = self;
     [self.view addSubview:topBar];
     

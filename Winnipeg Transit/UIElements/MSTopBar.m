@@ -15,41 +15,50 @@
 #import "XMLParser.h"
 
 @interface MSTopBar () <MSSearchHistoryDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
-    float originalHeight;
-    float previousHeight;
-    MSSearchHistoryView *searchHistory;
+    float                   originalHeight;
+    float                   previousHeight;
+    MSSearchHistoryView     *searchHistory;
 }
 
-@property (nonatomic, retain) MSSuggestions *suggestions;
-@property (nonatomic, retain) UILabel *label;
-@property (nonatomic, retain) UIButton *submitButton;
+@property (nonatomic, retain) UIViewController  *parentViewController;
 
-@property (nonatomic) int stage; //Current stage that top bar is at (1=Origin, 2=Destination, 3=Date,Mode)
-@property (nonatomic, retain) MSLocation *origin;
-@property (nonatomic, retain) NSString *originText;
-@property (nonatomic, retain) MSLocation *destination;
-@property (nonatomic, retain) NSString *destinationText;
-@property (nonatomic, retain) NSDate *date;
-@property (nonatomic, retain) UIDatePicker *timePicker;
-@property (nonatomic, retain) UIDatePicker *datePicker;
-@property (nonatomic, retain) NSArray *modeArray;
-@property (nonatomic, retain) NSString *modeString;
+@property (nonatomic, retain) MSSuggestions         *suggestions;
+@property (nonatomic, retain) UILabel               *label;
+@property (nonatomic, retain) UIButton              *submitButton;
 
-@property (nonatomic, retain) MSSuggestionBox *suggestionBox;
-@property (nonatomic, retain) MSSearchHistoryView *searchHistory;
+@property (nonatomic) int                           stage; //Current stage that top bar is at (1=Origin, 2=Destination, 3=Date,Mode)
+@property (nonatomic, retain) MSLocation            *origin;
+@property (nonatomic, retain) NSString              *originText;
+@property (nonatomic, retain) MSLocation            *destination;
+@property (nonatomic, retain) NSString              *destinationText;
+@property (nonatomic, retain) NSDate                *date;
+@property (nonatomic, retain) UIDatePicker          *timePicker;
+@property (nonatomic, retain) UIDatePicker          *datePicker;
+@property (nonatomic, retain) NSArray               *modeArray;
+@property (nonatomic, retain) NSString              *modeString;
+@property (nonatomic, retain) UIPickerView          *modePicker;
+
+@property (nonatomic, retain) MSSuggestionBox       *suggestionBox;
+@property (nonatomic, retain) MSSearchHistoryView   *searchHistory;
 
 @end
 
 @implementation MSTopBar
 
+@synthesize parentViewController;
 @synthesize textField, timeField, dateField, modeField;
 @synthesize delegate, suggestions, label, submitButton;
-@synthesize stage, origin, originText, destination, destinationText, date, timePicker, datePicker, modeArray, modeString;
+@synthesize stage, origin, originText, destination, destinationText, date, timePicker, datePicker, modeArray, modeString, modePicker;
 @synthesize suggestionBox, searchHistory;
 
--(id)initWithFrame:(CGRect)frame {
+#pragma mark - Init method
+
+-(id)initWithFrame:(CGRect)frame andParentViewController:(UIViewController *)aParentViewController {
     self = [super initWithFrame:frame];
     if (self) {
+        //Set up the parent view controller variable
+        parentViewController = aParentViewController;
+        
         originalHeight = self.frame.size.height;
         
         //Set up the label frame and settings
@@ -72,9 +81,8 @@
         CGRect timeFieldFrame = CGRectMake(5, 25, 100, 30);
         timeField = [[UITextField alloc]initWithFrame:timeFieldFrame];
         [timeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
-        [timeField setText:@"23:30 AM"];
         [timeField setInputView:[self createTimePicker]];
-        [dateField setInputAccessoryView:[self createAccessoryView:@"time"]];
+        [timeField setInputAccessoryView:[self createAccessoryView:@"time"]];
         [timeField setHidden:true];
         [self addSubview:timeField];
         
@@ -82,17 +90,22 @@
         CGRect dateFieldFrame = CGRectMake(110, 25, 175, 30);
         dateField = [[UITextField alloc]initWithFrame:dateFieldFrame];
         [dateField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
-        [dateField setText:@"27 September 2020"];
         [dateField setInputView:[self createDatePicker]];
         [dateField setInputAccessoryView:[self createAccessoryView:@"date"]];
         [dateField setHidden:true];
         [self addSubview:dateField];
+        
+        //Set the time and date fields to the current time and date
+        [self resetDatePickers];
         
         //Set up the mode field frame and settings
         CGRect modeFieldFrame = CGRectMake(5, 65, 150, 30);
         modeField = [[UITextField alloc]initWithFrame:modeFieldFrame];
         [modeField setClearButtonMode:UITextFieldViewModeWhileEditing]; //Show the clear button when editing
         [modeField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
+        [modeField setText:@"Depart After"];
+        [modeField setInputView:[self createModePicker]];
+        [modeField setInputAccessoryView:[self createAccessoryView:@"mode"]];
         [modeField setHidden:true];
         [self addSubview:modeField];
         
@@ -100,7 +113,8 @@
         CGRect submitButtonFrame = CGRectMake(235, 25, 55, 30);
         submitButton = [[UIButton alloc]initWithFrame:submitButtonFrame];
         [submitButton setTitle:@"Next" forState:UIControlStateNormal];
-        [submitButton.titleLabel setTextColor:[MSUtilities defaultSystemTintColor]];
+        [submitButton setTitleColor:[MSUtilities defaultSystemTintColor] forState:UIControlStateNormal];
+        [submitButton addTarget:self action:@selector(submitData) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:submitButton];
         
         stage = 1;
@@ -120,10 +134,10 @@
     return self;
 }
 
+#pragma mark - Text Field delegate methods
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    CGRect suggestionBoxFrame = CGRectMake(0, 60, 290, 100 );
-    suggestionBox = [[MSSuggestionBox alloc]initWithFrame:suggestionBoxFrame andDelegate:self];
-    [self addSubview:suggestionBox.view];
+    [self showSuggestionBox];
 }
 
 -(void)textFieldDidChange {
@@ -136,14 +150,18 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    CGRect mainFrame = self.frame;
+    /*CGRect mainFrame = self.frame;
     mainFrame.size.height = originalHeight;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
     self.frame = mainFrame;
     [UIView commitAnimations];
-    [suggestionBox.tableView removeFromSuperview];
+    [suggestionBox.tableView removeFromSuperview]; */
+    [self restoreFrameToOriginalSize];
+    [self resignSuggestionBox];
 }
+
+#pragma mark - Suggestion box delegate method
 
 -(void)suggestionBoxFrameWillChange:(CGRect)frame {
     CGRect mainFrame = self.frame;
@@ -154,6 +172,8 @@
     self.frame = mainFrame;
     [UIView commitAnimations];
 }
+
+#pragma mark - Element hide and unhide methods
 
 -(void)hideElements {
     [label setHidden:YES];
@@ -168,6 +188,8 @@
     [submitButton setHidden:NO];
     [suggestionBox.tableView setHidden:NO];
 }
+
+#pragma mark - Time, date, and mode picker creator methods
 
 -(UIDatePicker *)createTimePicker {
     timePicker.datePickerMode = UIDatePickerModeTime;
@@ -187,21 +209,39 @@
     return datePicker;
 }
 
+-(UIPickerView *)createModePicker {
+    modePicker = [[UIPickerView alloc]initWithFrame:CGRectZero];
+    modePicker.showsSelectionIndicator = YES;
+    modeArray = [[NSArray alloc]initWithObjects:@"Depart Before", @"Depart After", @"Arrive Before", @"Arrive After", nil];
+    modePicker.delegate = self;
+    modePicker.dataSource = self;
+    [modePicker selectRow:1 inComponent:0 animated:NO];
+    return modePicker;
+}
+
+#pragma mark - Create accessory view for pickers
+
 -(UIToolbar *)createAccessoryView:(NSString *)field {
-	UIToolbar *pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 44.0f)];
+	UIToolbar *pickerBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, parentViewController.view.frame.size.width, 44.0f)];
 	pickerBar.tintColor = [UIColor darkGrayColor];
 	
 	NSMutableArray *items = [NSMutableArray array];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backgroundTap)];
-    UIBarButtonItem *nowButton = [[UIBarButtonItem alloc]initWithTitle:@"Now" style:UIBarButtonItemStyleDone target:self action:@selector(resetTimePicker)];
-    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]initWithTitle:@"Today" style:UIBarButtonItemStyleDone target:self action:@selector(resetDatePicker)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissPickers)];
 	[items addObject:doneButton];
-    if ([field isEqualToString:@"time"]) [items addObject:nowButton];
-    if ([field isEqualToString:@"date"]) [items addObject:todayButton];
+    if ([field isEqualToString:@"time"]) {
+        UIBarButtonItem *nowButton = [[UIBarButtonItem alloc]initWithTitle:@"Now" style:UIBarButtonItemStylePlain target:self action:@selector(resetTimePicker)];
+        [items addObject:nowButton];
+    }
+    if ([field isEqualToString:@"date"]) {
+        UIBarButtonItem *todayButton = [[UIBarButtonItem alloc]initWithTitle:@"Today" style:UIBarButtonItemStylePlain target:self action:@selector(resetDatePicker)];
+        [items addObject:todayButton];
+    }
 	pickerBar.items = items;
 	
 	return pickerBar;
 }
+
+#pragma mark
 
 -(void)tableItemClicked:(MSLocation *)resultLocation {
     if (resultLocation == NULL) {
@@ -256,15 +296,41 @@
     [self submitData];
 }
 
+-(void)dismissPickers {
+    [timeField resignFirstResponder];
+    [dateField resignFirstResponder];
+    [modeField resignFirstResponder];
+}
+
+-(void)resetDatePickers {
+    [self resetTimePicker];
+    [self resetDatePicker];
+    [delegate dateSetWithDate:[NSDate date]];
+}
+-(void)resetTimePicker {
+    [timePicker setDate:[NSDate date]];
+    NSString *display = [MSUtilities getTimeFormatForHuman:[NSDate date]];
+    timeField.text = display;
+}
+-(void)resetDatePicker {
+    [datePicker setDate:[NSDate date]];
+    NSString *display = [MSUtilities getDateFormatForHuman:[NSDate date]];
+    dateField.text = display;
+}
+
 -(void)submitData {
     if (stage == 1) {
-        [delegate originSetWithLocation:origin];
-        [self goToDestinationStage];
+        if (origin != NULL) {
+            [delegate originSetWithLocation:origin];
+            [self goToDestinationStage];
+        }
     } else if (stage == 2) {
-        [delegate destinationSetWithLocation:destination];
-        [self goToDateStage];
+        if (destination != NULL) {
+            [delegate destinationSetWithLocation:destination];
+            [self goToDateStage];
+        }
     } else if (stage == 3) {
-        //Submit time and date and mode then do all empty field checks on viewcontroller side, go back to missing field if applicable
+        [delegate dateSetWithDate:date];
     }
 }
 
@@ -298,6 +364,17 @@
     }
 }
 
+-(void)showSuggestionBox {
+    CGRect suggestionBoxFrame = CGRectMake(0, 60, 290, 100 );
+    suggestionBox = [[MSSuggestionBox alloc]initWithFrame:suggestionBoxFrame andDelegate:self];
+    [self addSubview:suggestionBox.view];
+}
+
+-(void)resignSuggestionBox {
+    [suggestionBox.tableView removeFromSuperview];
+    suggestionBox = NULL;
+}
+
 -(void)moveSubmitButton:(int)nextStage {
     //If the next stage is the time/date stage
     if (nextStage == 3) {
@@ -324,7 +401,9 @@
 -(void)goToOriginStage {
     [label setText:@"Origin"];
     [self moveSubmitButton:1];
-    [self restoreFrameToOriginalSize];
+    if (!textField.isFirstResponder) {
+        [self restoreFrameToOriginalSize];
+    }
     [textField setHidden:false];
     [timeField setHidden:true];
     [dateField setHidden:true];
@@ -335,7 +414,9 @@
 -(void)goToDestinationStage {
     [label setText:@"Destination"];
     [self moveSubmitButton:2];
-    [self restoreFrameToOriginalSize];
+    if (!textField.isFirstResponder) {
+        [self restoreFrameToOriginalSize];
+    }
     [textField setHidden:false];
     [timeField setHidden:true];
     [dateField setHidden:true];
@@ -379,7 +460,7 @@
 }
 
 -(void)datePickerValueChanged {
-    NSString *display = [MSUtilities getDateFormatForHuman:timePicker.date];
+    NSString *display = [MSUtilities getTimeFormatForHuman:timePicker.date];
     timeField.text = display;
     display = [MSUtilities getDateFormatForHuman:datePicker.date];
     dateField.text = display;

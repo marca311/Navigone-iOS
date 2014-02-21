@@ -33,6 +33,8 @@
 @property (nonatomic, retain) UITextField *dateField;
 @property (nonatomic, retain) UITextField *modeField;
 
+-(id)initWithFrame:(CGRect)frame andParentViewController:(UIViewController *)aParentViewController;
+
 -(void)goToOriginStage;
 -(void)goToDestinationStage;
 -(void)goToDateStage;

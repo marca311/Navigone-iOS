@@ -359,7 +359,7 @@
 
 +(NSString *)getTimeFormatForHuman:(NSDate *)date {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
-    [serverFormat setDateFormat:@"HH:mm a"];
+    [serverFormat setDateFormat:@"hh:mm a"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:date]];
     return result;
 }
