@@ -105,6 +105,10 @@
 -(void)dateSetWithDate:(NSDate *)dateAndTime {
     [query setDate:dateAndTime];
 }
+-(void)submitQueryButtonPressed {
+    [query getRoute];
+}
+
 #pragma mark - Info Box Delegate Methods
 -(void)originButtonPressed {
     [topBar goToOriginStage];

@@ -52,6 +52,7 @@
 		6F24051C16DF107F00444E18 /* MSMonument.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051B16DF107F00444E18 /* MSMonument.m */; };
 		6F24051F16DF18AE00444E18 /* MSVariation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24051E16DF18AE00444E18 /* MSVariation.m */; };
 		6F24052216DF18BF00444E18 /* MSSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F24052116DF18BF00444E18 /* MSSegment.m */; };
+		6F27245118B7F2F1008DAEA0 /* MSResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27245018B7F2F1008DAEA0 /* MSResultsView.m */; };
 		6F27EA8E16B8B09700444EEB /* MSRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F27EA8D16B8B09700444EEB /* MSRoute.m */; };
 		6F36798F1708C62B008FA13D /* MSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F36798E1708C62B008FA13D /* MSAddress.m */; };
 		6F378F0B1526869B00FCA44D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F378F0A1526869B00FCA44D /* Settings.bundle */; };
@@ -226,6 +227,8 @@
 		6F24051E16DF18AE00444E18 /* MSVariation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVariation.m; sourceTree = "<group>"; };
 		6F24052016DF18BF00444E18 /* MSSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSegment.h; sourceTree = "<group>"; };
 		6F24052116DF18BF00444E18 /* MSSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSegment.m; sourceTree = "<group>"; };
+		6F27244F18B7F2F1008DAEA0 /* MSResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSResultsView.h; path = UIElements/MSResultsView.h; sourceTree = "<group>"; };
+		6F27245018B7F2F1008DAEA0 /* MSResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSResultsView.m; path = UIElements/MSResultsView.m; sourceTree = "<group>"; };
 		6F27EA8C16B8B09700444EEB /* MSRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRoute.h; sourceTree = "<group>"; };
 		6F27EA8D16B8B09700444EEB /* MSRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRoute.m; sourceTree = "<group>"; };
 		6F36798E1708C62B008FA13D /* MSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAddress.m; sourceTree = "<group>"; };
@@ -706,6 +709,8 @@
 				6FF72BC9186509AA0037A65D /* MSInfoBox.m */,
 				6FDC79DA187A50FA007462CA /* MSLocationButton.h */,
 				6FDC79DB187A50FA007462CA /* MSLocationButton.m */,
+				6F27244F18B7F2F1008DAEA0 /* MSResultsView.h */,
+				6F27245018B7F2F1008DAEA0 /* MSResultsView.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
 				6FF72BC51865006A0037A65D /* MSTopBar.m */,
 				6F219D5F18824B0700108332 /* MSTimeDateButton.h */,
@@ -910,6 +915,7 @@
 				6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */,
 				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
+				6F27245118B7F2F1008DAEA0 /* MSResultsView.m in Sources */,
 				6FF72BCA186509AA0037A65D /* MSInfoBox.m in Sources */,
 				6F91DBA615BD03D1005B9B7A /* SubmitButton.m in Sources */,
 				6F219D6118824B0700108332 /* MSTimeDateButton.m in Sources */,

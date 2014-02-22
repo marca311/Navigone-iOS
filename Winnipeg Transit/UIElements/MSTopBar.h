@@ -13,9 +13,12 @@
 
 @protocol TopBarDelegate <NSObject>
 
+-(void)topBoxHasFirstResponder;
+-(void)topBoxResignsFirstResponder;
 -(void)originSetWithLocation:(MSLocation *)location;
 -(void)destinationSetWithLocation:(MSLocation *)location;
 -(void)dateSetWithDate:(NSDate *)dateAndTime;
+-(void)submitQueryButtonPressed;
 
 @end
 

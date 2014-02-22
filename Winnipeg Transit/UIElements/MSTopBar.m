@@ -137,6 +137,7 @@
 #pragma mark - Text Field delegate methods
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
+    [delegate topBoxHasFirstResponder];
     [self showSuggestionBox];
 }
 
@@ -331,6 +332,7 @@
         }
     } else if (stage == 3) {
         [delegate dateSetWithDate:date];
+        [delegate submitQueryButtonPressed];
     }
 }
 
@@ -363,6 +365,8 @@
         [UIView commitAnimations];
     }
 }
+
+#pragma mark - Suggestion box visibility methods
 
 -(void)showSuggestionBox {
     CGRect suggestionBoxFrame = CGRectMake(0, 60, 290, 100 );
