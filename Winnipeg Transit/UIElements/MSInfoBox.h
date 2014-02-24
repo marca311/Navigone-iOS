@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSLocation.h"
 
-@protocol MSInfoBlockDelegate <NSObject>
+@protocol InfoBoxDelegate <NSObject>
 
 -(void)originButtonPressed;
 -(void)destinationButtonPressed;
@@ -18,10 +18,10 @@
 @end
 
 @interface MSInfoBox : UIView {
-    __weak id <MSInfoBlockDelegate> delegate;
+    __weak id <InfoBoxDelegate> delegate;
 }
 
-@property (nonatomic, weak) id <MSInfoBlockDelegate> delegate;
+@property (nonatomic, weak) id <InfoBoxDelegate> delegate;
 
 -(void)setOriginLocation:(MSLocation *)location;
 -(void)setDestinationLocation:(MSLocation *)location;

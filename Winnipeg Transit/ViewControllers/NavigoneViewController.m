@@ -12,12 +12,14 @@
 
 #import "MSTopBar.h"
 #import "MSInfoBox.h"
+#import "MSPullTabView.h"
 #import "MSQuery.h"
 #import "MSUtilities.h"
 
-@interface NavigoneViewController () <TopBarDelegate, MSInfoBlockDelegate> {
+@interface NavigoneViewController () <TopBarDelegate, InfoBoxDelegate, PullTabDelegate> {
     MSTopBar *topBar;
     MSInfoBox *infoBox;
+    MSPullTabView *pullTabView;
 }
 
 @property (nonatomic) BOOL isOffline;
@@ -27,6 +29,7 @@
 @property (nonatomic, retain) GMSCameraPosition *camera;
 @property (nonatomic, retain) MSTopBar *topBar;
 @property (nonatomic, retain) MSInfoBox *infoBox;
+@property (nonatomic, retain) MSPullTabView *pullTabView;
 
 @property (nonatomic, retain) MSQuery *query;
 
@@ -35,7 +38,7 @@
 @implementation NavigoneViewController
 
 @synthesize isOffline;
-@synthesize statusBarAdjustment, mainMap, camera, topBar, infoBox;
+@synthesize statusBarAdjustment, mainMap, camera, topBar, infoBox, pullTabView;
 @synthesize query;
 
 -(id)init {
@@ -78,7 +81,13 @@
     CGRect infoBoxRect = CGRectMake(5, infoBoxY, 150, infoBoxHeight);
     infoBox = [[MSInfoBox alloc]initWithFrame:infoBoxRect];
     infoBox.delegate = self;
-    [self.view addSubview:infoBox];
+    //[self.view addSubview:infoBox];
+    
+    pullTabView = [[MSPullTabView alloc]initWithFrame:CGRectMake((width/2)-33, height-30, 67, 30) andParentView:self.view];
+    [pullTabView setImage:[UIImage imageNamed:@"pull_tab.png"]];
+    [pullTabView setUserInteractionEnabled:YES];
+    [pullTabView setDelegate:self];
+    [self.view addSubview:pullTabView];
 }
 
 #pragma mark - Top Bar Delegate Methods
@@ -118,6 +127,28 @@
 }
 -(void)dateButtonPressed {
     [topBar goToDateStage];
+}
+
+#pragma mark - Pull Tab Delegate Methods
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = (UITouch *)[touches anyObject];
+    CGPoint touchPoint = [touch locationInView:pullTabView];
+    [pullTabView setTouchOriginHeight:touchPoint.y];
+    NSLog(@"%@", NSStringFromCGPoint(touchPoint));
+}
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = (UITouch *)[touches anyObject];
+    CGPoint currentPoint = [touch locationInView:self.view];
+    //NSLog(@"%@", NSStringFromCGPoint(currentPoint));
+    CGRect newRect = pullTabView.frame;
+    newRect.origin.y = currentPoint.y - pullTabView.touchOriginHeight;
+    pullTabView.frame = newRect;
+}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+}
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    
 }
 
 @end

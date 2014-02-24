@@ -31,6 +31,9 @@
 		6F0A256817EF770100D9F0A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F0A255C17EF770100D9F0A6 /* README.md */; };
 		6F0A256A17EF77A100D9F0A6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0A256917EF77A100D9F0A6 /* StoreKit.framework */; };
 		6F0FEAB51789CC30001965A3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0FEAB41789CC30001965A3 /* CFNetwork.framework */; };
+		6F12D49918BBEA44003E0804 /* pull_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F12D49818BBEA44003E0804 /* pull_tab.png */; };
+		6F12D49B18BBEA88003E0804 /* pull_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F12D49A18BBEA88003E0804 /* pull_tab@2x.png */; };
+		6F12D49E18BBEF88003E0804 /* MSPullTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F12D49D18BBEF88003E0804 /* MSPullTabView.m */; };
 		6F1AA6441776A41000713207 /* agency.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA6391776A41000713207 /* agency.txt */; };
 		6F1AA6451776A41000713207 /* calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63A1776A41000713207 /* calendar.txt */; };
 		6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F1AA63B1776A41000713207 /* calendar_dates.txt */; };
@@ -195,6 +198,10 @@
 		6F0A256317EF770100D9F0A6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
 		6F0A256917EF77A100D9F0A6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6F0FEAB41789CC30001965A3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6F12D49818BBEA44003E0804 /* pull_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pull_tab.png; path = Images/pull_tab.png; sourceTree = "<group>"; };
+		6F12D49A18BBEA88003E0804 /* pull_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pull_tab@2x.png"; path = "Images/pull_tab@2x.png"; sourceTree = "<group>"; };
+		6F12D49C18BBEF88003E0804 /* MSPullTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPullTabView.h; path = UIElements/MSPullTabView.h; sourceTree = "<group>"; };
+		6F12D49D18BBEF88003E0804 /* MSPullTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPullTabView.m; path = UIElements/MSPullTabView.m; sourceTree = "<group>"; };
 		6F1AA6391776A41000713207 /* agency.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = agency.txt; sourceTree = "<group>"; };
 		6F1AA63A1776A41000713207 /* calendar.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar.txt; sourceTree = "<group>"; };
 		6F1AA63B1776A41000713207 /* calendar_dates.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calendar_dates.txt; sourceTree = "<group>"; };
@@ -637,6 +644,8 @@
 		6FE6D00817EFB21D006B3ADF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6F12D49818BBEA44003E0804 /* pull_tab.png */,
+				6F12D49A18BBEA88003E0804 /* pull_tab@2x.png */,
 				6FE95BFC1888521200655ED8 /* origin_flag_small.png */,
 				6FE95BF818884FAC00655ED8 /* destination_flag.png */,
 				6FE95BF918884FAC00655ED8 /* origin_flag.png */,
@@ -709,6 +718,8 @@
 				6FF72BC9186509AA0037A65D /* MSInfoBox.m */,
 				6FDC79DA187A50FA007462CA /* MSLocationButton.h */,
 				6FDC79DB187A50FA007462CA /* MSLocationButton.m */,
+				6F12D49C18BBEF88003E0804 /* MSPullTabView.h */,
+				6F12D49D18BBEF88003E0804 /* MSPullTabView.m */,
 				6F27244F18B7F2F1008DAEA0 /* MSResultsView.h */,
 				6F27245018B7F2F1008DAEA0 /* MSResultsView.m */,
 				6FF72BC41865006A0037A65D /* MSTopBar.h */,
@@ -835,6 +846,7 @@
 				6FE95BFA18884FAC00655ED8 /* destination_flag.png in Resources */,
 				6FDA2860154E07720093EF2E /* NavigoResults_iPhone.xib in Resources */,
 				4342D4571582627E00A4A558 /* MSTableViewCell.xib in Resources */,
+				6F12D49918BBEA44003E0804 /* pull_tab.png in Resources */,
 				6FF56FA8158BC4C500CC015C /* VariationTableViewCell.xib in Resources */,
 				6F9CB1F2164B5CE50059FA52 /* Default-568h@2x.png in Resources */,
 				6F5BD0A9166B1DE40077B2EB /* SearchHistoryView.xib in Resources */,
@@ -849,6 +861,7 @@
 				6FE6D00517EFB200006B3ADF /* cell_separator.png in Resources */,
 				6F1AA6461776A41000713207 /* calendar_dates.txt in Resources */,
 				6F1AA6471776A41000713207 /* fare_attributes.txt in Resources */,
+				6F12D49B18BBEA88003E0804 /* pull_tab@2x.png in Resources */,
 				6F0A256617EF770100D9F0A6 /* Appirater.podspec in Resources */,
 				6F1AA6481776A41000713207 /* fare_rules.txt in Resources */,
 				6FE6D00717EFB210006B3ADF /* separator.png in Resources */,
@@ -914,6 +927,7 @@
 				6FF56FA4158BC49000CC015C /* VariationTableViewCell.m in Sources */,
 				6FF56FAF158C237A00CC015C /* VariationSelectorTableVew.m in Sources */,
 				6FBF8BCF1597CD07009C9AA9 /* MSSuggestionBox.m in Sources */,
+				6F12D49E18BBEF88003E0804 /* MSPullTabView.m in Sources */,
 				6F7646A9159E9E6D008AEE88 /* MSExitBar.m in Sources */,
 				6F27245118B7F2F1008DAEA0 /* MSResultsView.m in Sources */,
 				6FF72BCA186509AA0037A65D /* MSInfoBox.m in Sources */,
