@@ -23,7 +23,7 @@
 
 @property (nonatomic, weak) id <PullTabDelegate> delegate;
 
-@property (nonatomic) float touchOriginHeight;
+@property (nonatomic) CGFloat touchOriginHeight;
 
 - (id)initWithFrame:(CGRect)frame andParentView:(UIView *)aParentView;
 

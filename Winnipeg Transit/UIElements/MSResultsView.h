@@ -15,7 +15,9 @@
 
 @end
 
-@interface MSResultsView : UIView
+@interface MSResultsView : UIView <UITableViewDelegate, UITableViewDataSource> {
+    UITableView *table;
+}
 
 -(id)initWithFrame:(CGRect)frame andRoute:(MSRoute *)aRoute;
 

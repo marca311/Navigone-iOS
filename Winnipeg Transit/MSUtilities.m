@@ -150,37 +150,8 @@
 +(BOOL)firmwareIsHigherThanFour
 {
     NSString *firmwareVersion = [self getFirmwareVersion];
-    if ([firmwareVersion isEqualToString:@"2.0"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"2.0.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"2.0.2"]) return NO; 
-    else if ([firmwareVersion isEqualToString:@"2.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"2.2"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"2.2.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"3.0"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"3.0.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"3.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"3.1.2"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"3.1.3"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.0"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.0.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.0.2"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.5"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.6"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.6"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.7"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.8"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.9"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.2.10"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3.1"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3.2"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3.3"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3.4"]) return NO;
-    else if ([firmwareVersion isEqualToString:@"4.3.5"]) return NO;
-    else {return YES;}
+    if ([firmwareVersion floatValue] >= 4.0) return YES;
+    else return NO;
 }//firmwareIsHigherThanFour
 
 +(BOOL)firmwareIsSevenOrHigher {
@@ -372,13 +343,17 @@
 }
 
 +(UIColor*)defaultSystemTintColor {
-    static UIColor* systemTintColor = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        UIWindow* window = [[UIWindow alloc] init];
-        systemTintColor = window.tintColor;
-    });
-    return systemTintColor;
+    if ([MSUtilities firmwareIsSevenOrHigher]) {
+        static UIColor* systemTintColor = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            UIWindow* window = [[UIWindow alloc] init];
+            systemTintColor = window.tintColor;
+        });
+        return systemTintColor;
+    } else {
+        return NULL;
+    }
 }
 
 @end

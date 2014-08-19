@@ -25,17 +25,18 @@
     NSArray *segmentArray;
 }
 
--(id)initWithElement:(TBXMLElement *)theElement;
+- (id)initWithElement:(TBXMLElement *)theElement;
 
--(void)setSegmentArray:(NSArray *)input;
+- (void)setSegmentArray:(NSArray *)input;
 
--(MSSegment *)getSegmentAtIndex:(NSUInteger)index;
--(NSArray *)getSegmentArray;
--(NSString *)getTotalTime;
--(NSString *)getWalkingTime;
--(NSString *)getStartTime;
--(NSString *)getEndTime;
--(NSString *)getBuses;
--(NSArray *)getHumanReadable;
+- (MSSegment *)getSegmentAtIndex:(NSUInteger)index;
+- (NSInteger)getNumberOfSegments;
+- (NSArray *)getSegmentArray;
+- (NSString *)getTotalTime;
+- (NSString *)getWalkingTime;
+- (NSString *)getStartTime;
+- (NSString *)getEndTime;
+- (NSString *)getBuses;
+- (NSArray *)getHumanReadable;
 
 @end

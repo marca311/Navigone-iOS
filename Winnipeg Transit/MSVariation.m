@@ -11,7 +11,7 @@
 
 @implementation MSVariation
 
--(id)initWithElement:(TBXMLElement *)theElement {
+- (id)initWithElement:(TBXMLElement *)theElement {
     rootElement = theElement;
     [self setNumberOfSegments];
     [self setTimes];
@@ -21,7 +21,7 @@
 
 #pragma mark - Setter methods
 
--(void)setNumberOfSegments {
+- (void)setNumberOfSegments {
     TBXMLElement *theElement = rootElement;
     theElement = [XMLParser extractKnownChildElement:@"segments" RootElement:theElement];
     theElement = [XMLParser extractKnownChildElement:@"segment" RootElement:theElement];
@@ -32,7 +32,7 @@
     numberOfSegments = segments;
 }
 
--(void)setTimes {
+- (void)setTimes {
     TBXMLElement *timesElement = [XMLParser extractKnownChildElement:@"times" RootElement:rootElement];
     TBXMLElement *durationsElement = [XMLParser extractKnownChildElement:@"durations" RootElement:timesElement];
     TBXMLElement *timeElement = [XMLParser extractKnownChildElement:@"total" RootElement:durationsElement];
@@ -51,7 +51,7 @@
     endTime = [MSUtilities getDateFromServerString:[XMLParser getValueFromElement:timeElement]];
 }
 
--(void)setSegmentArray {
+- (void)setSegmentArray {
     NSMutableArray *segments = [[NSMutableArray alloc]init];
     TBXMLElement *theElement = rootElement;
     theElement = [XMLParser extractKnownChildElement:@"segments" RootElement:theElement];
@@ -64,34 +64,37 @@
     segmentArray = segments;
 }
 
--(void)setSegmentArray:(NSArray *)input {
+- (void)setSegmentArray:(NSArray *)input {
     segmentArray = input;
 }
 
 #pragma mark - Getter methods
 
--(NSArray *)getSegmentArray {
+- (NSInteger)getNumberOfSegments {
+    return [segmentArray count];
+}
+- (NSArray *)getSegmentArray {
     return segmentArray;
 }
--(NSString *)getTotalTime {
+- (NSString *)getTotalTime {
     return totalTime;
 }
--(NSString *)getWalkingTime {
+- (NSString *)getWalkingTime {
     return walkingTime;
 }
--(NSString *)getStartTime {
+- (NSString *)getStartTime {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"HH:mm"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:startTime]];
     return result;
 }
--(NSString *)getEndTime {
+- (NSString *)getEndTime {
     NSDateFormatter *serverFormat = [[NSDateFormatter alloc]init];
     [serverFormat setDateFormat:@"HH:mm"];
     NSString *result = [[NSString alloc]initWithFormat:@"%@",[serverFormat stringFromDate:endTime]];
     return result;
 }
--(NSString *)getBuses {
+- (NSString *)getBuses {
     NSString *result;
     NSMutableArray *busList = [[NSMutableArray alloc]init];
     //Goes through list of segments and gets ride segments
@@ -114,10 +117,10 @@
     return result;
 }
 
--(MSSegment *)getSegmentAtIndex:(NSUInteger)index {
+- (MSSegment *)getSegmentAtIndex:(NSUInteger)index {
     return [segmentArray objectAtIndex:index];
 }
--(NSArray *)getHumanReadable {
+- (NSArray *)getHumanReadable {
     NSMutableArray *result = [[NSMutableArray alloc]init];
     for (int i = 0; i < numberOfSegments; i++) {
         NSArray *currentSegement = [[segmentArray objectAtIndex:i]getHumanReadable];

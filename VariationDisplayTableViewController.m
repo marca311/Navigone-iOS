@@ -86,8 +86,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [stepArray count]; }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     NSString *uniqueIdentifier = @"CellIdentifier";
     MSTableViewCell *cell = nil;
     cell = (MSTableViewCell *) [self.tableView dequeueReusableCellWithIdentifier:uniqueIdentifier];

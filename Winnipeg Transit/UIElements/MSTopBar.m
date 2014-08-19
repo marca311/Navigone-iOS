@@ -137,7 +137,7 @@
 #pragma mark - Text Field delegate methods
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    [delegate topBoxHasFirstResponder];
+    //[delegate topBoxHasFirstResponder];
     [self showSuggestionBox];
 }
 

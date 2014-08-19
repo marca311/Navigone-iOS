@@ -141,11 +141,39 @@
     CGPoint currentPoint = [touch locationInView:self.view];
     //NSLog(@"%@", NSStringFromCGPoint(currentPoint));
     CGRect newRect = pullTabView.frame;
-    newRect.origin.y = currentPoint.y - pullTabView.touchOriginHeight;
-    pullTabView.frame = newRect;
+    if ((newRect.origin.y + newRect.size.height) > self.view.frame.size.height) {
+        NSLog(@"The box stops here");
+        newRect.origin.y = self.view.frame.size.height - newRect.size.height;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        pullTabView.frame = newRect;
+        [UIView commitAnimations];
+    } else if ((newRect.origin.y + newRect.size.height) < self.view.frame.size.height / 2) {
+        CGFloat halfway = self.view.frame.size.height / 2;
+        CGFloat difference = halfway - (currentPoint.y + pullTabView.touchOriginHeight);
+        NSLog(@"%f",difference);
+        newRect.origin.y = (currentPoint.y - pullTabView.touchOriginHeight) + (difference / 2);
+        pullTabView.frame = newRect;
+    } else {
+        newRect.origin.y = currentPoint.y - pullTabView.touchOriginHeight;
+        pullTabView.frame = newRect;
+    }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    CGFloat bottomY = pullTabView.frame.origin.y + pullTabView.frame.size.height;
+    CGFloat halfway = self.view.frame.size.height / 2;
+    CGFloat threshold = (self.view.frame.size.height / 4) * 3; // 3/4 down the screen
+    CGFloat bottom = self.view.frame.size.height;
+    CGRect newRect = pullTabView.frame;
+    if (bottomY < threshold) {
+        newRect.origin.y = halfway - newRect.size.height;
+    } else {
+        newRect.origin.y = bottom - newRect.size.height;
+    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    pullTabView.frame = newRect;
+    [UIView commitAnimations];
 }
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     
