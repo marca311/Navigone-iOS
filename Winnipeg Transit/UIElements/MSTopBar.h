@@ -22,7 +22,7 @@
 
 @end
 
-@interface MSTopBar : UIView <SuggestionBoxDelegate, UITextFieldDelegate, MSSearchHistoryDelegate> {
+@interface MSTopBar : UIViewController <SuggestionBoxDelegate, UITextFieldDelegate, MSSearchHistoryDelegate> {
     __weak id <TopBarDelegate> delegate;
     
     UITextField *textField;

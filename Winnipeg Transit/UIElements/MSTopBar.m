@@ -2,6 +2,9 @@
 //  MSTopBar.m
 //  Winnipeg Transit
 //
+//  The top bar is the bar that shows up on program start.
+//  It is the section where the user enters the origin, destination, and time for the query.
+//
 //  Created by Marcus Dyck on 12/20/2013.
 //  Copyright (c) 2013 marca311. All rights reserved.
 //
@@ -54,19 +57,20 @@
 #pragma mark - Init method
 
 -(id)initWithFrame:(CGRect)frame andParentViewController:(UIViewController *)aParentViewController {
-    self = [super initWithFrame:frame];
+    self = [super init];
+    self.view.frame = frame;
     if (self) {
         //Set up the parent view controller variable
         parentViewController = aParentViewController;
         
-        originalHeight = self.frame.size.height;
+        originalHeight = self.view.frame.size.height;
         
         //Set up the label frame and settings
         CGRect labelFrame = CGRectMake(5, 0, 280, 20);
         label = [[UILabel alloc]initWithFrame:labelFrame];
         [label setFont:[UIFont systemFontOfSize:14]]; //Set to the system font size 14
         [label setText:@"Origin"];
-        [self addSubview:label];
+        [self.view addSubview:label];
         
         //Set up the text field frame and settings
         CGRect textFieldFrame = CGRectMake(5, 25, 220, 30);
@@ -75,7 +79,7 @@
         [textField setBorderStyle:UITextBorderStyleRoundedRect]; //Set the text field border to rounded rectanguar (default for IB)
         [textField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
         textField.delegate = self;
-        [self addSubview:textField];
+        [self.view addSubview:textField];
         
         //Set up the time field frame and settings
         CGRect timeFieldFrame = CGRectMake(5, 25, 100, 30);
@@ -84,7 +88,7 @@
         [timeField setInputView:[self createTimePicker]];
         [timeField setInputAccessoryView:[self createAccessoryView:@"time"]];
         [timeField setHidden:true];
-        [self addSubview:timeField];
+        [self.view addSubview:timeField];
         
         //Set up the date field frame and settings
         CGRect dateFieldFrame = CGRectMake(110, 25, 175, 30);
@@ -93,7 +97,7 @@
         [dateField setInputView:[self createDatePicker]];
         [dateField setInputAccessoryView:[self createAccessoryView:@"date"]];
         [dateField setHidden:true];
-        [self addSubview:dateField];
+        [self.view addSubview:dateField];
         
         //Set the time and date fields to the current time and date
         [self resetDatePickers];
@@ -107,7 +111,7 @@
         [modeField setInputView:[self createModePicker]];
         [modeField setInputAccessoryView:[self createAccessoryView:@"mode"]];
         [modeField setHidden:true];
-        [self addSubview:modeField];
+        [self.view addSubview:modeField];
         
         //Set up the submit button frame and settings
         CGRect submitButtonFrame = CGRectMake(235, 25, 55, 30);
@@ -115,7 +119,7 @@
         [submitButton setTitle:@"Next" forState:UIControlStateNormal];
         [submitButton setTitleColor:[MSUtilities defaultSystemTintColor] forState:UIControlStateNormal];
         [submitButton addTarget:self action:@selector(submitData) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:submitButton];
+        [self.view addSubview:submitButton];
         
         stage = 1;
         
@@ -123,7 +127,7 @@
         //Frame gets modified based on how many suggestions there are for the entered destination
         
         //Creates frame with rounded corners around the view
-        CALayer *layer = self.layer;
+        CALayer *layer = self.view.layer;
         layer.backgroundColor = [[UIColor whiteColor]CGColor];
         layer.borderWidth = 2;
         layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -165,12 +169,12 @@
 #pragma mark - Suggestion box delegate method
 
 -(void)suggestionBoxFrameWillChange:(CGRect)frame {
-    CGRect mainFrame = self.frame;
+    CGRect mainFrame = self.view.frame;
     //Add the height of the suggestion box to the original height of the view to get the new height
     mainFrame.size.height = frame.size.height + originalHeight;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.frame = mainFrame;
+    self.view.frame = mainFrame;
     [UIView commitAnimations];
 }
 
@@ -247,18 +251,18 @@
 -(void)tableItemClicked:(MSLocation *)resultLocation {
     if (resultLocation == NULL) {
         //Cover existing view elements with search history view
-        previousHeight = self.frame.size.height;
-        CGRect newFrame = self.frame;
+        previousHeight = self.view.frame.size.height;
+        CGRect newFrame = self.view.frame;
         newFrame.size.height = originalHeight + 200;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         [self hideElements];
-        self.frame = newFrame;
+        self.view.frame = newFrame;
         [UIView commitAnimations];
-        CGRect searchHistoryFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        CGRect searchHistoryFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         searchHistory = [[MSSearchHistoryView alloc]initWithFrame:searchHistoryFrame];
         searchHistory.delegate = self;
-        [self addSubview:searchHistory];
+        [self.view addSubview:searchHistory];
     } else {
         if (stage == 1) {
             origin = resultLocation;
@@ -274,11 +278,11 @@
 -(void)userDidPressBackButton {
     [searchHistory removeFromSuperview];
     //Set frame back to previous size
-    CGRect originalSize = self.frame;
+    CGRect originalSize = self.view.frame;
     originalSize.size.height = previousHeight;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.frame = originalSize;
+    self.view.frame = originalSize;
     [UIView commitAnimations];
     [self unHideElements];
 }
@@ -350,18 +354,18 @@
     //If the text field is no longer the first responder
     if (![textField isFirstResponder]) {
         //Shrink view to original height
-        CGRect originalSize = self.frame;
+        CGRect originalSize = self.view.frame;
         originalSize.size.height = originalHeight;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
-        self.frame = originalSize;
+        self.view.frame = originalSize;
         [UIView commitAnimations];
     } else {
-        CGRect originalSize = self.frame;
+        CGRect originalSize = self.view.frame;
         originalSize.size.height = originalHeight;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
-        self.frame = originalSize;
+        self.view.frame = originalSize;
         [UIView commitAnimations];
     }
 }
@@ -371,7 +375,7 @@
 -(void)showSuggestionBox {
     CGRect suggestionBoxFrame = CGRectMake(0, 60, 290, 100 );
     suggestionBox = [[MSSuggestionBox alloc]initWithFrame:suggestionBoxFrame andDelegate:self];
-    [self addSubview:suggestionBox.view];
+    [self.view addSubview:suggestionBox.view];
 }
 
 -(void)resignSuggestionBox {
@@ -429,7 +433,7 @@
     stage = 2;
 }
 -(void)goToDateStage {
-    CGRect timeDateFrame = self.frame;
+    CGRect timeDateFrame = self.view.frame;
     [self moveSubmitButton:3];
     
     timeDateFrame.size.height = originalHeight + 40;
@@ -438,7 +442,7 @@
     //Animation block
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    self.frame = timeDateFrame;
+    self.view.frame = timeDateFrame;
     [UIView commitAnimations];
     [textField setHidden:true];
     [timeField setHidden:false];

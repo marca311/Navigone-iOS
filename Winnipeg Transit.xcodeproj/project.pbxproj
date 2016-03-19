@@ -14,7 +14,6 @@
 		4316806015013E4100A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316805E15013E4100A41785 /* InfoPlist.strings */; };
 		4316806215013E4100A41785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806115013E4100A41785 /* main.m */; };
 		4316806615013E4100A41785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4316806515013E4100A41785 /* AppDelegate.m */; };
-		4316808215013E4200A41785 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316808115013E4200A41785 /* SenTestingKit.framework */; };
 		4316808315013E4200A41785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805515013E4100A41785 /* UIKit.framework */; };
 		4316808415013E4200A41785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4316805715013E4100A41785 /* Foundation.framework */; };
 		4316808C15013E4200A41785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4316808A15013E4200A41785 /* InfoPlist.strings */; };
@@ -148,8 +147,7 @@
 		4316806315013E4100A41785 /* Winnipeg Transit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Winnipeg Transit-Prefix.pch"; sourceTree = "<group>"; };
 		4316806415013E4100A41785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4316806515013E4100A41785 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4316808015013E4200A41785 /* Winnipeg TransitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Winnipeg TransitTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4316808115013E4200A41785 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4316808015013E4200A41785 /* Winnipeg TransitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Winnipeg TransitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4316808915013E4200A41785 /* Winnipeg TransitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Winnipeg TransitTests-Info.plist"; sourceTree = "<group>"; };
 		4316808B15013E4200A41785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4316808D15013E4200A41785 /* Winnipeg_TransitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Winnipeg_TransitTests.h; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4316808215013E4200A41785 /* SenTestingKit.framework in Frameworks */,
 				4316808315013E4200A41785 /* UIKit.framework in Frameworks */,
 				4316808415013E4200A41785 /* Foundation.framework in Frameworks */,
 			);
@@ -394,7 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				4316805115013E4100A41785 /* Winnipeg Transit.app */,
-				4316808015013E4200A41785 /* Winnipeg TransitTests.octest */,
+				4316808015013E4200A41785 /* Winnipeg TransitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,7 +421,6 @@
 				4316805515013E4100A41785 /* UIKit.framework */,
 				4316805715013E4100A41785 /* Foundation.framework */,
 				4316805915013E4100A41785 /* CoreGraphics.framework */,
-				4316808115013E4200A41785 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -766,8 +762,8 @@
 			);
 			name = "Winnipeg TransitTests";
 			productName = "Winnipeg TransitTests";
-			productReference = 4316808015013E4200A41785 /* Winnipeg TransitTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 4316808015013E4200A41785 /* Winnipeg TransitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -775,6 +771,7 @@
 		4316804815013E4100A41785 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0720;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = marca311;
 				TargetAttributes = {
@@ -1162,14 +1159,13 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Winnipeg Transit.app/Winnipeg Transit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg TransitTests/Winnipeg TransitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1179,14 +1175,13 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Winnipeg Transit.app/Winnipeg Transit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg TransitTests/Winnipeg TransitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -1253,14 +1248,13 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Winnipeg Transit.app/Winnipeg Transit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winnipeg Transit/Winnipeg Transit-Prefix.pch";
 				INFOPLIST_FILE = "Winnipeg TransitTests/Winnipeg TransitTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = AppStore;
 		};

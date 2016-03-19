@@ -10,29 +10,29 @@
 	<string>Winnipeg Transit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8CDE949B-3F81-4559-B6F8-8C679975B79E</key>
+		<key>61DA8D5678A156511CD3B5AF3A36A759905023A9</key>
 		<string>https://github.com/marca311/Winnipeg-Transit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Winnipeg Transit.xcodeproj/project.xcworkspace</string>
+	<string>Winnipeg Transit.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8CDE949B-3F81-4559-B6F8-8C679975B79E</key>
+		<key>61DA8D5678A156511CD3B5AF3A36A759905023A9</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/marca311/Winnipeg-Transit.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8CDE949B-3F81-4559-B6F8-8C679975B79E</string>
+	<string>61DA8D5678A156511CD3B5AF3A36A759905023A9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8CDE949B-3F81-4559-B6F8-8C679975B79E</string>
+			<string>61DA8D5678A156511CD3B5AF3A36A759905023A9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Winnipeg-Transit</string>
 		</dict>

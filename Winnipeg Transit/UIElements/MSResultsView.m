@@ -17,17 +17,19 @@
 
 @implementation MSResultsView
 
-@synthesize route, table;
+@synthesize route=_route, table=_table;
 
 - (id)initWithFrame:(CGRect)frame andRoute:(MSRoute *)aRoute
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
+    self.view = [self.view initWithFrame:frame];
     if (self) {
-        route = aRoute;
+        _route = aRoute;
         
-        table = [[UITableView alloc]initWithFrame:frame];
-        [table setDelegate:self];
-        [table setDataSource:self];
+        _table = [[UITableView alloc]initWithFrame:frame];
+        [_table setDelegate:self];
+        [_table setDataSource:self];
+        [self.view addSubview:_table];
     }
     return self;
 }
@@ -37,7 +39,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[route getVariationFromIndex:0]getNumberOfSegments];
+    return [[_route getVariationFromIndex:0]getNumberOfSegments];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
